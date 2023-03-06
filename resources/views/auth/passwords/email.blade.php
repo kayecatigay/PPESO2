@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<body class="img js-fullheight" style="background-image: url(../assets/images/bg.jpg);">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -44,4 +46,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

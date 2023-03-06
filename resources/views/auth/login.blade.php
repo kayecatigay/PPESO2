@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Provincial Peso Services Management System</title>
-    </head>
     <body class="img js-fullheight" style="background-image: url(assets/images/bg.jpg);">
         <section class="ftco-section">
             <div class="container">
@@ -82,6 +74,6 @@
             </div>
         </section>
     </body>
-</html>
+
 @endsection
 
