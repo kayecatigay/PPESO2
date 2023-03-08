@@ -18,3 +18,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
+
+Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
+Route::get('/Sregistration',[App\Http\Controllers\ServicesController::class, 'registrationform']);
+Route::get('/scholardata',[App\Http\Controllers\ServicesController::class, 'insertdata']);
+
+Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
+
