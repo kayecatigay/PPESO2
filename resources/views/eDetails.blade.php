@@ -6,12 +6,12 @@
     <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Services</h2>
-          <p>Scholarship Form</p>
+          <p>Employment Form</p>
         </div>
         <form action="scholardata">
         <div class="form-group">
-            <label for="SchId"></label>
-            <input type="hidden" class="form-control" id="SchId" name="SchId"  placeholder="Enter Name">
+            <label for="SchId">Id</label>
+            <input type="text" class="form-control" id="SchId" name="SchId"  placeholder="Enter Name">
           </div>
           <div class="form-group">
             <label for="name">Name</label>
@@ -24,10 +24,6 @@
               <option value="female">Female</option>
               <option value="male">Male</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="add">Address</label>
-            <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address">
           </div>
           <div class="form-group">
             <label for="emailadd">Email address</label>
