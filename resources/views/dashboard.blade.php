@@ -1,4 +1,4 @@
-@extends('layouts.ddefault')
+@extends('layouts.addefault')
 
 <body id="page-top">
 
