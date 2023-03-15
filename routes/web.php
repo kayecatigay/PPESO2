@@ -27,3 +27,4 @@ Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Er
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
+Route::get('/admindashoard', [App\Http\Controllers\AdminController::class, 'dashboard']);
