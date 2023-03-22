@@ -21,8 +21,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
+Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);
 Route::get('/Sregistration',[App\Http\Controllers\ServicesController::class, 'registrationform']);
 Route::get('/scholardata',[App\Http\Controllers\ServicesController::class, 'insertdata']);
+Route::get('/oldscholardetails',[App\Http\Controllers\ServicesController::class, 'viewolddata']);
+Route::get('/oldscholarupdate',[App\Http\Controllers\ServicesController::class, 'updatedata']);
 Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);

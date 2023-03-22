@@ -13,8 +13,8 @@
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
                   <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                  <h4><a href="Sregistration">Scholarship</a></h4>
-                  <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                  <h4><a href="scholarhomepage">Scholarship</a></h4>
+                  <p>Login to Register</p>
                 </div>
               </div>
 
