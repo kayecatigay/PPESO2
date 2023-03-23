@@ -9,7 +9,7 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
-            <h3>Provincial Educational <br> Assistance Program (PEAP)</h3>
+            <h3>Employment <br> </h3>
             </p>
             <ul>
             <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -26,16 +26,9 @@
         <div class="row">
             <div class="col" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
-                    @if ($reg)
-                        <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                        <h4><a href="oldscholardetails">Registration Info</a></h4>
-                        <p>Update Info</p>
-                    @else
-                        <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                        <h4><a href="Sregistration">Registration</a></h4>
-                        <p>New Scholar</p>
-                    @endif
-                    
+                    <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
+                    <h4><a href="Eregistration">Registration</a></h4>
+                    <p>Bio-Data </p>   
                 </div>
             </div>
 

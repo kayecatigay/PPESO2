@@ -26,7 +26,10 @@ Route::get('/Sregistration',[App\Http\Controllers\ServicesController::class, 're
 Route::get('/scholardata',[App\Http\Controllers\ServicesController::class, 'insertdata']);
 Route::get('/oldscholardetails',[App\Http\Controllers\ServicesController::class, 'viewolddata']);
 Route::get('/oldscholarupdate',[App\Http\Controllers\ServicesController::class, 'updatedata']);
+
+Route::get('/employmenthomepage',[App\Http\Controllers\ServicesController::class, 'emphome']);
 Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
+Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 

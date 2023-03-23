@@ -60,9 +60,17 @@ class ServicesController extends Controller
         return redirect('/oldscholardetails');
    
     }
+    public function emphome()
+    {
+        return view ('emphomepage');
+    }
     public function Eregistrationform()
     {
         return view ('eDetails');
+    }
+    public function insertEMPdata()
+    {
+        //
     }
 }
 ?>
