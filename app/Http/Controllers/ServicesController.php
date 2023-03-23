@@ -64,9 +64,20 @@ class ServicesController extends Controller
     {
         return view ('eDetails');
     }
-    public function insertEMPdata()
+    public function insertEMPdata(Request $request)
     {
-        //
+        $language="";
+        $language.= ($request->input('english')=="on") ? ",english" :"";
+        $language.= ($request->input('tagalog')=="on") ? ",tagalog" :"";
+        $language.= ($request->input('chinese')=="on") ? ",chinese" :"";
+        $language=substr($language,1);  
+
+        $empdata= DB::insert('insert into employment(posidesired, name, gender, address, telephone, cellphone, emailadd, birthday, Cstatus, spouse, height, weight, religion, language,
+        elem, hschool, college, degree, cname, position, crname, crcompany, crposition, crcontact, userid) values("' .$request->input('posidesi') .'","' .$request->input('name') .'","'
+        .$request->input('gender') .'","' .$request->input('add') .'","' .$request->input('telnum') .'","' .$request->input('contactnum') .'","' .$request->input('emailadd') .'","' .$request->input('birthday') .'","'
+        .$request->input('cstatus') .'","' .$request->input('spouse') .'",' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('religion') .'","' .$request->input($language) .'","'
+        .$request->input('elem') .'","' .$request->input('hs') .'","' .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('cname') .'","' .$request->input('posi') .'","'
+        .$request->input('crname') .'","' .$request->input('crcname') .'","' .$request->input('crposi') .'","' .$request->input('crcontact') .'",' .$request->input('userid') .' ');
     }
 }
 ?>

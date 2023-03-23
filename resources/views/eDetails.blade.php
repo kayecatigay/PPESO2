@@ -42,17 +42,17 @@
             </div>
             <div class="col form-group">
               <label for="contactnum">Contact Number</label>
-              <input type="number" class="form-control" id="contactnum" name="contactnum"  placeholder="ex. 09123456789">
+              <input type="text" class="form-control" id="contactnum" name="contactnum"  placeholder="ex. 09123456789">
             </div>
             <div class="col form-group">
               <label for="telnum">Telephone Number</label>
-              <input type="number" class="form-control" id="telnum" name="telnum"  placeholder="ex. 288-1111">
+              <input type="text" class="form-control" id="telnum" name="telnum"  placeholder="ex. 288-1111">
             </div>
           </div>
           <div class="row">
             <div class="col form-group">
-              <label for="emailadd"> Address</label>
-              <input type="email" class="form-control" id="emailadd" name="emailadd"  placeholder="Sitio, Barangay, Bayan, Province">
+              <label for="add"> Address</label>
+              <input type="text" class="form-control" id="add" name="add"  placeholder="Sitio, Barangay, Bayan, Province">
             </div>
             <div class="col form-control">
               <input type="checkbox" id="tagalog" name="tagalog">
@@ -93,7 +93,7 @@
             </div>
             <div class="col">
               <label for="spouse">Spouse</label>
-              <input type="text" class="form-control" id="spouse" name="spouse">
+              <input type="text" class="form-control" id="spouse" name="spouse" >
             </div>
           </div>
           <p><h4>Educational Background</h4></p>
@@ -123,10 +123,26 @@
               <input type="text" class="form-control" id="posi" name="posi"  placeholder="Enter Position">
             </div>
           <p><h4>Character Reference</h4></p>
-          <div class="form-group">
-              <label for="crname">Name</label>
-              <input type="text" class="form-control" id="crname" name="crname"  placeholder="Enter name">
-            </div> <br>
+            <div class="row"> 
+              <div class="col form-group">
+                <label for="crname">Name</label>
+                <input type="text" class="form-control" id="crname" name="crname"  placeholder="Enter name">
+              </div>
+              <div class="col form-group">
+                <label for="crcontact">Contact Number</label>
+                <input type="text" class="form-control" id="crcontact" name="crcontact"  placeholder="ex: 09876543212">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="crcname">Company Name</label>
+                <input type="text" class="form-control" id="crcname" name="crcname"  placeholder="Enter name">
+              </div>
+              <div class="col form-group">
+                <label for="crposi">Position</label>
+                <input type="text" class="form-control" id="crposi" name="crposi"  placeholder="Enter position">
+              </div>
+            </div>   <br>
           <button type="submit" class="btn btn-primary">Apply</button>
         
         </form>
