@@ -15,7 +15,7 @@
                   <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                   <h4><a href="scholarhomepage">Scholarship</a></h4>
                   <p>Login to Register</p>
-                  <p>Scholarship form to register in the system</p>
+                  <p>Scholarship form to register in the system </p>
                 </div>
               </div>
 
