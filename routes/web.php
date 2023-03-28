@@ -31,6 +31,9 @@ Route::get('/employmenthomepage',[App\Http\Controllers\ServicesController::class
 Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
 Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
 
+Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);
+Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, 'ofwform']);
+
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
 Route::get('/admindashoard', [App\Http\Controllers\AdminController::class, 'dashboard']);

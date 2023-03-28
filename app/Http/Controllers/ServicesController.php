@@ -79,5 +79,14 @@ class ServicesController extends Controller
         .$request->input('elem') .'","' .$request->input('hs') .'","' .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('cname') .'","' .$request->input('posi') .'","'
         .$request->input('crname') .'","' .$request->input('crcname') .'","' .$request->input('crposi') .'","' .$request->input('crcontact') .'",' .$request->input('userid') .' ');
     }
+
+    public function ofwhome()
+    {
+        return view ('ofwhomepage');
+    }
+    public function ofwform()
+    {
+        return view ('ofwdetails');
+    }
 }
 ?>
