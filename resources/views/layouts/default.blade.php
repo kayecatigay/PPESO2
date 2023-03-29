@@ -40,7 +40,7 @@
 
   <!-- ======= Header ======= -->
   @section('header')
-    <header id="header" class="bg-black" >
+    <header id="header" class="bg-success"  >
       <div class="container d-flex align-items-center justify-content-lg-between">
 
         <h1 class="logo me-auto me-lg-0"><a href="default">Provincial  <span>PESO</span></a></h1>
