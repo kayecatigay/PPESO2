@@ -19,10 +19,17 @@
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
           <div class="row">
-            <div class="col-9 form-group">
-              <label for="name">Name</label>
+            <div class="col-4 form-group">
+              <label for="name">Lastname</label>
               <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
-              <small id="emailHelp" class="form-text text-muted">Last name, First name, Middle name</small>
+            </div>
+            <div class="col-4 form-group">
+              <label for="name">Firstname</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
+            </div>
+            <div class="col-2 form-group">
+              <label for="name">Middlename</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
             </div>
             <div class="col form-group">
               <label for="gender">Sex</label>
@@ -84,17 +91,14 @@
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="religion">Religion</label>
-            <input type="text" class="form-control" id="religion" name="religion"  placeholder="Enter Religion" value="{{ $olddata[0]->religion }}">
-          </div>
+          
           <div class="row">
-            <div class="col-8 form-group">
+            <div class="col-6 form-group">
               <label for="guardian">Name of Guardian</label>
               <input type="text" class="form-control" id="guardian" name="guardian"  placeholder="Enter name of Guardian" value="{{ $olddata[0]->guardian }}">
               <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
             </div>
-            <div class="col form-group">
+            <div class="col-4 form-group">
               <label for="relationship">Relationship with the Applicant</label>
               <select class="form-control" name="relationship" id="relationship" value="{{ $olddata[0]->relation }}">
                 <option value="daughter">Daughter</option>
@@ -105,6 +109,10 @@
                 <option value="brother">Brother</option>
               </select>
             </div>          
+            <div class="col form-group">
+              <label for="religion">Religion</label>
+              <input type="text" class="form-control" id="religion" name="religion"  placeholder="Enter Religion" value="{{ $olddata[0]->religion }}">
+            </div>
           </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>
