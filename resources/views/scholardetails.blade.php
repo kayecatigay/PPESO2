@@ -22,7 +22,7 @@
             <div class="col-9 form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
-              <small id="emailHelp" class="form-text text-muted">Last name, First name, Middle name</small>
+              
             </div>
             <div class="col form-group">
               <label for="gender">Sex</label>
