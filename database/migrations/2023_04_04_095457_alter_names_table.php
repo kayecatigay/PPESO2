@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterAdduserTable extends Migration
+class AlterNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class AlterAdduserTable extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('name')->after('id');
-            
+            $table->string('lastname')->after('name');
+            $table->string('firstname')->after('lastname');
+            $table->string('middlename')->after('firstname');
         });
     }
 
@@ -27,8 +28,9 @@ class AlterAdduserTable extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->string('name')->after('id');
-         
+            $table->dropColumn('lastname');
+            $table->dropColumn('firstname');
+            $table->dropColumn('middlename'); 
         });
     }
 }

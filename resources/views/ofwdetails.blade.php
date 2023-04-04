@@ -61,10 +61,11 @@
             <div class="col-6 form-group">
             <label for="add">Address</label>
             <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address" >
+            <small id="guardian" class="form-text text-muted">Sitio, Barangay, City/Municipality, Province</small>
           </div>
           <div class="col-3 from group">
               <label for ="passportnum">Passport Number</label>
-              <input type="text" class="form-control" id="passportnum" name="passportnum" value="{{ Auth::user()->name }}">
+              <input type="text" class="form-control" id="passportnum" name="passportnum" placeholder="13254543">
             </div>
           <div class ="row">
             <div class=" col-5 form-group">
@@ -73,7 +74,7 @@
             </div>
             <div class="col-5 form-group">
               <label for="facebook">Facebook Account</label>
-              <input type="facebook" class="form-control" id="facebook" name="facebook">
+              <input type="facebook" class="form-control" id="facebook" name="facebook"> <br>
           </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>

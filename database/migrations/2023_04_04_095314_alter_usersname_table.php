@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNamesTable extends Migration
+class AlterUsersnameTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddNamesTable extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('lastname')->after('name');
-            $table->string('firstname')->after('lastname');
-            $table->string('middlename')->after('firstname');
+            $table->string('name')->after('id');
         });
     }
 
@@ -28,9 +26,7 @@ class AddNamesTable extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->string('lastname')->after('id');
-            $table->string('firstname')->after('lastname');
-            $table->string('middlename')->after('firstname');
+            $table->dropColumn('name');
         });
     }
 }
