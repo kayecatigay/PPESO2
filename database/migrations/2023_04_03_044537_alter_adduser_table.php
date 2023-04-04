@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterAddAnothernameTable extends Migration
+class AlterAdduserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AlterAddAnothernameTable extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('lastname')->after('id');
-            $table->string('firstname')->after('lastname');
-            $table->string('middlename')->after('firstname');
+            $table->string('name')->after('id');
+            
         });
     }
 
@@ -28,9 +27,8 @@ class AlterAddAnothernameTable extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->string('lastname')->after('id');
-            $table->string('firstname')->after('lastname');
-            $table->string('middlename')->after('firstname');
+            $table->string('name')->after('id');
+         
         });
     }
 }
