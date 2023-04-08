@@ -34,6 +34,12 @@ Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEM
 Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);
 Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, 'ofwform']);
 
+Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class, 'GAnnounce']);
+Route::get('/GeneralA',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
+Route::get('/scholarA',[App\Http\Controllers\AnnouncementsController::class, 'scholarAnn']);
+Route::get('/empA',[App\Http\Controllers\AnnouncementsController::class, 'empAnn']);
+Route::get('/ofwA',[App\Http\Controllers\AnnouncementsController::class, 'ofwAnn']);
+
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
 Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
