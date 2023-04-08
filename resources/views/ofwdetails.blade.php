@@ -20,19 +20,19 @@
           </div>
           <div class="row">
             <div class="col-3 form-group">
-              <label for="lastname">LASTNAME</label>
+              <label for="lastname">Lastname</label>
               <input type="text" class="form-control" id="lastname" name="lastname" value="{{ Auth::user()->lastname }}">
             </div>
             <div class="col-3 form-group">
-              <label for="firstname">FIRSTNAME</label>
+              <label for="firstname">Firstname</label>
               <input type="text" class="form-control" id="firstname" name="firstname" value="{{ Auth::user()->firstname }}">
             </div>
             <div class="col-3 form-group">
-              <label for="middlename">MIDDLENAME</label>
+              <label for="middlename">Middlename</label>
               <input type="text" class="form-control" id="middlename" name="middlename" value="{{ Auth::user()->middlename }}">
             </div>
             <div class="col-1 form-group">
-              <label for="suffixname">SUFFIX</label>
+              <label for="suffixname">Suffix</label>
               <input type="text" class="form-control" id="suffixname" name="suffixname" value="{{ Auth::user()->suffixname }}">
             </div>
           </div>
