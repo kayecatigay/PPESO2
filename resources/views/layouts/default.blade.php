@@ -6,8 +6,6 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Provincial PESO Services Management System</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">
@@ -24,6 +22,8 @@
   <link href="<?= url('assets/vendor/glightbox/css/glightbox.min.css') ?>" rel="stylesheet">
   <link href="<?= url('assets/vendor/remixicon/remixicon.css') ?>"rel="stylesheet">
   <link href="<?= url('assets/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
 
   <!-- Template Main CSS File -->
   <link href="<?= url('assets/css/style.css') ?>" rel="stylesheet">
@@ -40,10 +40,10 @@
 
   <!-- ======= Header ======= -->
   @section('header')
-    <header id="header" class="bg-success"  >
-      <div class="container d-flex align-items-center justify-content-lg-between">
+    <header id="header" class="w3-container w3-metro-dark-green"  >
+      <div class="container d-flex align-items ">
 
-        <h1 class="logo me-auto me-lg-0"><a href="default">Provincial  <span>PESO</span></a></h1>
+        <h1 class="logo me-auto me-lg-0"><a href="home">Provincial  <span>PESO</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -53,6 +53,7 @@
             <li><a class="nav-link scrollto" href="\services">Services</a></li>
             <li><a class="nav-link scrollto" href="\contactus">Contact Us</a></li>
             <li><a class="nav-link scrollto" href="\announcements">Announcements</a></li>
+            
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Drop Down 1</a></li>
@@ -96,10 +97,10 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-15">
-                            <div class="card">
-                                <div class="card-header ">{{ __('You are logged in!') }}</div>
+                            <div class="card w3-container w3-metro-dark-green" style="border:0">
+                                <div class="card-header-text-bg-success" style="border:0"><!--{{ __('You are logged in!') }}--></div>
 
-                                <div class="card-body">
+                                <div class="card text-bg-success" style="border:0">
                                     @if (session('status'))
                                         <div class="alert alert-success" role="alert">
                                             {{ session('status') }}

@@ -23,7 +23,7 @@
             <div class="col-xl-2 col-md-4">
               <div class="icon-box">
                 <i class="ri-database-2-line"></i>
-                <h3><a href="">Services</a></h3>
+                <h3><a href="GeneralA">Services</a></h3>
               </div>
             </div>
           </div>
