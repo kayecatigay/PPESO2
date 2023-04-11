@@ -30,5 +30,9 @@ class HomeController extends Controller
     {
         return view('announcements');
     }
+    public function about()
+    {
+        return view('about');
+    }
 }
 ?>

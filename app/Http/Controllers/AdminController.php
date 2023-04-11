@@ -11,8 +11,16 @@ class AdminController extends Controller
         
         return view ('dashboard');
     }
-    public function ahome()
+    public function ahome(Request $request)
     {
-        return view('adminhome');
+        if (!($request->user()->roles)) { //check if user is logged in
+            return redirect('/login'); //if no user logged in redirect to login
+            exit; // do not read the remaing codes , exit public function
+        }
+        else
+        {
+            return view('adminhome');
+        }
+        
     }
 }

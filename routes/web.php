@@ -25,6 +25,9 @@ Route::get('profile', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
+Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'about']);
+
+Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'phome']);
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);
@@ -48,13 +51,13 @@ Route::get('/ofwA',[App\Http\Controllers\AnnouncementsController::class, 'ofwAnn
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
-Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
+
 
 Route::middleware("admin")->group(function () {
 
     // 1==admin, 2=super admin , 3 =supersuper admin
     // All your admin routes go here.
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
-
+    Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
 });
 

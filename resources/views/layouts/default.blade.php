@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= url('assets/css/style.css') ?>" rel="stylesheet">
+  <link href="<?= url('assets/css/profile.css') ?>" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Gp - v4.10.0
@@ -53,7 +54,6 @@
             <li><a class="nav-link scrollto" href="\services">Services</a></li>
             <li><a class="nav-link scrollto" href="\contactus">Contact Us</a></li>
             <li><a class="nav-link scrollto" href="\announcements">Announcements</a></li>
-            <li><a class="nav-link scrollto" href="\admindashboard">Dashboard</a></li>
             
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
@@ -116,11 +116,13 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="userprofile">Profile</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                              document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
+                                                  document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }} <br>
                                             </a>
+                                            
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
@@ -133,8 +135,6 @@
                         </div>
                     </div>
                 </div>
-
-
             @endguest
         </ul>
              
@@ -186,22 +186,18 @@
             <div class="col-lg-2 col-md-6 footer-links">
               <h4>Useful Links</h4>
               <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="aboutus">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="services">Services</a></li>
               </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
               <h4>Our Services</h4>
               <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="scholarhomepage">PEAP</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="employmenthomepage">Employment</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="ofwhomepage">OFW Assistance Program</a></li>
               </ul>
             </div>
 
