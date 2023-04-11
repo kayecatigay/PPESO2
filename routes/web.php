@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('profile', function () {
+    // Only verified users may enter...
+
+    })->middleware('verified');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
@@ -42,4 +48,13 @@ Route::get('/ofwA',[App\Http\Controllers\AnnouncementsController::class, 'ofwAnn
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
-Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
+Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
+
+Route::middleware("admin")->group(function () {
+
+    // 1==admin, 2=super admin , 3 =supersuper admin
+    // All your admin routes go here.
+    Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
+
+});
+
