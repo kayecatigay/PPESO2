@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Provincial PESO Services Management System</title>
+  <title>Provincial PESO Service Management System</title>
 
   <!-- Favicons -->
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">
@@ -116,7 +116,7 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="userprofile">Profile</a>
+                                            <a class="dropdown-item" href="adminprofile">Profile</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                               document.getElementById('logout-form').submit();">

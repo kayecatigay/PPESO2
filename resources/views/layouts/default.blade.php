@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Provincial PESO Services Management System</title>
+  <title>Provincial PESO Service Management System</title>
 
   <!-- Favicons -->
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">

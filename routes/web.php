@@ -59,5 +59,6 @@ Route::middleware("admin")->group(function () {
     // All your admin routes go here.
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
+    Route::get('/adminprofile', [App\Http\Controllers\AdminController::class, 'aphome']);
 });
 
