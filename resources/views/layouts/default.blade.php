@@ -166,24 +166,22 @@
           @section('footercontent')
             <div class="col-lg-3 col-md-6">
               <div class="footer-info">
-                <h3>Gp<span>.</span></h3>
+                <h3>For more info <span>:</span></h3>
                 <p>
-                  A108 Adam Street <br>
-                  NY 535022, USA<br><br>
-                  <strong>Phone:</strong> +1 5589 55488 55<br>
-                  <strong>Email:</strong> info@example.com<br>
+                Provincial Capitol Compound <br>
+                Nucable Avenue Extension <br>
+                Brgy. Camilmil, Calapan City <br>
+                Oriental Mindoro
+                Philippines, 5200 <br> <br>
+                  <strong>Phone:</strong> 288-7253<br>
+                  <strong>Email:</strong> ppeso@ormindoro.gov.ph<br>
+                  <strong>Fb Page:</strong> OrientalMindoro Peso<br>
                 </p>
-                <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                </div>
               </div>
             </div>
 
             <div class="col-lg-2 col-md-6 footer-links">
+              <br> <br> 
               <h4>Useful Links</h4>
               <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
@@ -193,6 +191,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
+              <br> <br>
               <h4>Our Services</h4>
               <ul>
                 <li><i class="bx bx-chevron-right"></i> <a href="scholarhomepage">PEAP</a></li>
@@ -202,8 +201,9 @@
             </div>
 
             <div class="col-lg-4 col-md-6 footer-newsletter">
-              <h4>Our Newsletter</h4>
-              <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+              <br> <br>
+              <h4>Email</h4>
+              <p>Send us a message.</p>
               <form action="" method="post">
                 <input type="email" name="email"><input type="submit" value="Subscribe">
               </form>
