@@ -2,5 +2,5 @@
 
 
 @section('homecontent')
-hahaha
+Announcements for services
 @endsection

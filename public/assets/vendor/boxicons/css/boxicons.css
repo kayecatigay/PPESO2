@@ -20,7 +20,7 @@
     line-height: 1;
     text-rendering: auto;
     display: inline-block;
-
+    
     text-transform: none;
 
     speak: none;
@@ -31,6 +31,7 @@
 {
     margin-left: 2em;
     padding-left: 0;
+    
 
     list-style: none;
 }

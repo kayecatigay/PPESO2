@@ -2,5 +2,5 @@
 
 
 @section('homecontent')
-huhu
+Employee
 @endsection

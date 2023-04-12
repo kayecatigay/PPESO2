@@ -27,4 +27,8 @@ class AdminController extends Controller
         }
         
     }
+    public function side()
+    {
+        return view('sidebar');
+    }
 }

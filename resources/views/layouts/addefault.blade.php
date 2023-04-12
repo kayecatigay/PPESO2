@@ -175,66 +175,7 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
         @section('maincontent')
-                <!-- Main Content -->
-                    <!-- Topbar -->
-                        <!-- Sidebar Toggle (Topbar) -->
-                        @section('search')
-                            <!-- Topbar Search -->
-                        @show
-                        <!-- Topbar Navbar -->
-                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                                <!-- Dropdown - Messages -->
-                            @section('alerts')
-                                <!-- Nav Item - Alerts -->
-                            @show
-                            @section('messages')
-                                <!-- Nav Item - Messages -->
-                            @show
-                            @section('userinfo')
-                                
-                                <!-- Nav Item - User Information -->
-                                <!-- Dropdown - User Information -->
-                            @show
-
-                        </ul>
-
-                    </nav>
-                    <!-- End of Topbar -->
-
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-                    @section('dashboard')
-                            <!-- Page Heading -->
-                            <!-- Content Row -->
-
-                                <!-- Earnings (Monthly) Card Example -->
-
-                                <!-- Earnings (Monthly) Card Example -->
-                                
-
-                                <!-- Pending Requests Card Example -->
-
-                            <!-- Content Row -->
-
-                            
-                                        <!-- Card Body -->
-                                      
-
-                                <!-- Pie Chart -->
-                                
-                                        <!-- Card Body -->
-
-                            <!-- Content Row -->
-
-                                <!-- Content Column -->
-                                    <!-- Illustrations -->
-
-                                    <!-- Approach -->
-                              <!-- /.container-fluid -->
-                    @show
-
-                </div>
-                <!-- End of Main Content -->
+                <!-- main content -->
         @show
         @section('footer')
                 <!-- Footer -->

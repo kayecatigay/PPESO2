@@ -10,16 +10,20 @@
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Provincial Educational <br> Assistance Program (PEAP)</h3>
-            </p>
-            <ul>
-            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
-            <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
+            <br>
+            
+            <p style="text-indent: 30px;"> 
+            The vision of a provincial education assistance program provided by<br>
+            PESO may be to promote education and skills development among the  <br>
+            youth and unemployed individuals in the province, and to provide them with  <br>
+            the necessary assistance to pursue their education or training to secure <br>
+            better employment opportunities. The program may aim to address the <br>
+            skills gap in the province and help individuals gain the necessary knowledge<br>
+             and skills to meet the demands of the local job market. <br></p>
+            <p style="text-indent: 30px;"> 
+            Additionally, the program may aim to reduce poverty and improve <br>
+            the standard of living of the province's residents through education and employment.</p>
+            
         </div>
     </div>
     <div class="container">

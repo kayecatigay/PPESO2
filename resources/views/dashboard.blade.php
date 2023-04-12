@@ -550,7 +550,6 @@
     
     
     <!-- End of Content Wrapper -->
-@show
+@endsection
 
-</div>
 <!-- End of Page Wrapper -->
