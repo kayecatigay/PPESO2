@@ -8,7 +8,7 @@
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="col-xl-6 col-lg-8">
-              <h1>Provincial Peso Service Management System</h1>
+              <h1>Provincial Peso Services Management System</h1>
               <h2>Camilmil, Calapan City, Oriental Mindoro</h2>
             </div>
           </div>
