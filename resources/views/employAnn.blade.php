@@ -2,5 +2,5 @@
 
 
 @section('homecontent')
-Employee
+wala pa pong announcements
 @endsection

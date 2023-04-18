@@ -2,5 +2,5 @@
 
 
 @section('homecontent')
-gegee
+wala parin po so far
 @endsection

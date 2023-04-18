@@ -2,5 +2,5 @@
 
 
 @section('homecontent')
-hihii
+Wala pa so far
 @endsection
