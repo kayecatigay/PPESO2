@@ -78,7 +78,7 @@
 
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
                             <i class="fas fa-fw fa-cog"></i>
                             <span>PEAP</span>
@@ -92,7 +92,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        <a class="nav-link collapsed" href="empD" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
                             <i class="fas fa-fw fa-cog"></i>
                             <span>Employment</span>
@@ -106,7 +106,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        <a class="nav-link collapsed" href="ofwD" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
                             <i class="fas fa-fw fa-cog"></i>
                             <span>ofw</span>

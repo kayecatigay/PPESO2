@@ -61,5 +61,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
     Route::get('/adminprofile', [App\Http\Controllers\AdminController::class, 'aphome']);
+    Route::get('/peapD', [App\Http\Controllers\AdminController::class, 'peapD']);
+    Route::get('/empD', [App\Http\Controllers\AdminController::class, 'empD']);
+    Route::get('/ofwD', [App\Http\Controllers\AdminController::class, 'ofwD']);
 });
 

@@ -31,4 +31,16 @@ class AdminController extends Controller
     {
         return view('sidebar');
     }
+    public function peapD()
+    {
+        return view('peapDash');
+    }
+    public function empD()
+    {
+        return view('empDash');
+    }
+    public function ofwD()
+    {
+        return view('ofwDash');
+    }
 }
