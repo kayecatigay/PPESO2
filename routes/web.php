@@ -51,7 +51,7 @@ Route::get('/ofwA',[App\Http\Controllers\AnnouncementsController::class, 'ofwAnn
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
-
+Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
 Route::middleware("admin")->group(function () {
 
