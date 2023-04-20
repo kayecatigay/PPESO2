@@ -39,11 +39,11 @@
           <div class ="row">
             <div class="col-3 form-group">
               <label for="birthday">Date of Birth</label>
-              <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="">
+              <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="" onchange="setage()">
             </div>
             <div class="col-2 form-group">
               <label for="age">Age</label>
-              <input type="number" class="form-control" id="age" name="age"  placeholder="Enter Age">
+              <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age">
             </div>
             <div class="col-2 form-group">
               <label for="sex">Sex</label>
@@ -84,4 +84,16 @@
         </form>
     </div>
   </section><!-- End Services Section -->
+
+  <script>
+      function setage()
+      {
+        dob=new Date(document.getElementById("birthday").value);
+        var month_diff = Date.now() - dob.getTime();  
+        var age_dt = new Date(month_diff);   
+        var year = age_dt.getUTCFullYear();  
+        var age = Math.abs(year - 1970);  
+        document.getElementById("age").value=age;
+      }
+  </script>
 @endsection
