@@ -13,21 +13,22 @@ class ServicesController extends Controller
     {
         return view ('services');
     }
+
     public function shome()
     {
+        return view('scholarhome');
+    }
+    public function registrationform()
+    {
         if (!Auth::check()) { //check if user is logged in
+            session(['routeto' => '/Sregistration']);
             return redirect('/login'); //if no user logged in redirect to login
             exit; // do not read the remaing codes , exit public function
         }
  
         $scholar = DB::select('select * from scholarship where userid=' .Auth()->user()->id);
         $registered=($scholar) ? true : false;
-        return view('scholarhome',['reg'=>$registered]);
-    }
-    public function registrationform()
-    {
-
-        return view ('scholardetails');
+        return view('scholardetails',['reg'=>$registered]);
     }
     public function insertdata(Request $request)
     {
@@ -62,7 +63,15 @@ class ServicesController extends Controller
     }
     public function Eregistrationform()
     {
-        return view ('eDetails');
+        if (!Auth::check()) { //check if user is logged in
+            session(['routeto' => '/Eregistration']);
+            return redirect('/login'); //if no user logged in redirect to login
+            exit; // do not read the remaing codes , exit public function
+        }
+ 
+        $employee = DB::select('select * from employment where userid=' .Auth()->user()->id);
+        $registered=($employee) ? true : false;
+        return view('eDetails',['reg'=>$registered]);
     }
     public function insertEMPdata(Request $request)
     {
@@ -86,7 +95,19 @@ class ServicesController extends Controller
     }
     public function ofwform()
     {
-        return view ('ofwdetails');
+        if (!Auth::check()) { //check if user is logged in
+            session(['routeto' => '/ofwregistration']);
+            return redirect('/login'); //if no user logged in redirect to login
+            exit; // do not read the remaing codes , exit public function
+        }
+ 
+        $ofw = DB::select('select * from ofw where userid=' .Auth()->user()->id);
+        $registered=($ofw) ? true : false;
+        return view('ofwdetails',['reg'=>$registered]);
+    }
+    public function ofwinsert()
+    {
+        return view('ofwdetails');
     }
 }
 ?>

@@ -43,7 +43,17 @@ class LoginController extends Controller
             if (auth()->user()->roles) {
                 return '/adminhomepage';
             } else {
-                return '/home';
+                if (session('routeto')=="") {
+                    return '/home';
+                }
+                else{
+                    $route=session('routeto');
+                    session(['routeto' => '']);
+                    return $route;
+
+                }
+                
             }
+
         }
 }

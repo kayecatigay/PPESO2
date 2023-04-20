@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterUsersnameTable extends Migration
+class AlterOfwTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterUsersnameTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table) {
-            $table->string('name')->after('id');
+        Schema::table('ofw', function($table) {
+            $table->integer('userid')->after('id');
         });
     }
 
@@ -25,8 +25,9 @@ class AlterUsersnameTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table) {
-            $table->dropColumn('name');
+        Schema::table('ofw', function($table) {
+            $table->dropColumn('userid')->after('id');;
         });
+        
     }
 }

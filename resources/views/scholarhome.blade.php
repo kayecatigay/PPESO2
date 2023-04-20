@@ -30,15 +30,10 @@
         <div class="row">
             <div class="col" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
-                    @if ($reg)
-                        <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                        <h4><a href="oldscholardetails">Registration Info</a></h4>
-                        <p>Update Info</p>
-                    @else
+                
                         <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                         <h4><a href="Sregistration">Registration</a></h4>
                         <p>New Scholar</p>
-                    @endif
                     
                 </div>
             </div>

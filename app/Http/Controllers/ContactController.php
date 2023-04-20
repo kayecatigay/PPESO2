@@ -15,15 +15,18 @@ class ContactController extends Controller
 
     public function test123()
     {
+     
         $account_sid = "ACf8fbab9cbdb0851e4f57c7b72edaf1a7";
-            $auth_token = "7ce8f94e0e05bf89e3dd2bf6d80f7dcc";
-            $twilio_number = "+639369110641";
-            $receiverNumber="+639272962299";
-            $message="test text";
+            $auth_token = "d3b38b4469145b7126598e0e6d992c57";
+            $twilio_number = "+15303195438";
+            $receiverNumber="+639369110641";
+            $message="test text2";
             $client = new Client($account_sid, $auth_token);
             $client->messages->create($receiverNumber, [
                 'from' => $twilio_number, 
                 'body' => $message]);
+
+                print($message);
     }
 }
 ?>

@@ -9,10 +9,10 @@
           <h2>Services</h2>
           <p>OFW Fill up form</p>
         </div>
-        <form action="scholardata">
+        <form action="ofwinsertD">
           <div class="form-group">
-            <label for="SchId"></label>
-            <input type="hidden" class="form-control" id="SchId" name="SchId"  placeholder="Enter Name">
+            <label for="ofwId"></label>
+            <input type="hidden" class="form-control" id="ofwId" name="ofwId"  placeholder="Enter Name">
           </div>
           <div class="form-group">
             <label for="userid"></label>
@@ -32,8 +32,8 @@
               <input type="text" class="form-control" id="middlename" name="middlename" value="{{ Auth::user()->middlename }}">
             </div>
             <div class="col-1 form-group">
-              <label for="suffixname">Suffix</label>
-              <input type="text" class="form-control" id="suffixname" name="suffixname" value="{{ Auth::user()->suffixname }}">
+              <label for="suffix">Suffix</label>
+              <input type="text" class="form-control" id="suffix" name="suffix" placeholder="Example: Jr. Sr.">
             </div>
           </div>
           <div class ="row">
@@ -46,8 +46,8 @@
               <input type="number" class="form-control" id="age" name="age"  placeholder="Enter Age">
             </div>
             <div class="col-2 form-group">
-              <label for="gender">Sex</label>
-              <select class="form-control" name="gender" id="gender">
+              <label for="sex">Sex</label>
+              <select class="form-control" name="sex" id="sex">
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </select>
@@ -64,8 +64,8 @@
             <small id="guardian" class="form-text text-muted">Sitio, Barangay, City/Municipality, Province</small>
           </div>
           <div class="col-3 from group">
-              <label for ="passportnum">Passport Number</label>
-              <input type="text" class="form-control" id="passportnum" name="passportnum" placeholder="13254543">
+              <label for ="passnum">Passport Number</label>
+              <input type="text" class="form-control" id="passnum" name="passnum" placeholder="13254543">
             </div>
           <div class ="row">
             <div class=" col-5 form-group">
@@ -73,8 +73,8 @@
               <input type="email" class="form-control" id="emailadd" name="emailadd"  placeholder="ex. abc@gmail.com">
             </div>
             <div class="col-5 form-group">
-              <label for="facebook">Facebook Account</label>
-              <input type="facebook" class="form-control" id="facebook" name="facebook"> <br>
+              <label for="fbacc">Facebook Account</label>
+              <input type="facebook" class="form-control" id="fbacc" name="fbacc"> <br>
           </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>

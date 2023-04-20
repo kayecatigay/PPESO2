@@ -42,6 +42,7 @@ Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEM
 
 Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);
 Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, 'ofwform']);
+Route::get('/ofwinsertD',[App\Http\Controllers\ServicesController::class, 'ofwinsert']);
 
 Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class, 'GAnnounce']);
 Route::get('/GeneralA',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
