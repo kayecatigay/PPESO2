@@ -84,14 +84,14 @@
             </div>
             <div class="col form-group">
               <label for="cstatus">Civil Status</label>
-                <select class="form-control" name="cstatus" id="cstatus">
+                <select class="form-control" name="cstatus" id="cstatus" onclick="myFunction()">
                   <option value="single">Single</option>
                   <option value="married">Married</option>
                   <option value="widow">Widowed</option>
                   <option value="separated">Separated</option>
                 </select>
             </div>
-            <div class="col">
+            <div class="col" id="hidespouse" style="display: none;">
               <label for="spouse">Spouse</label>
               <input type="text" class="form-control" id="spouse" name="spouse" >
             </div>
@@ -148,4 +148,17 @@
         </form>
     </div>
   </section><!-- End Services Section -->
+<script>
+  function myFunction() {
+  var status = document.getElementById("cstatus").value;
+  var x = document.getElementById("hidespouse");
+  // alert(status);
+  if (status === "married") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+    document.getElementById("spouse").value="";
+  }
+}
+</script>
 @endsection
