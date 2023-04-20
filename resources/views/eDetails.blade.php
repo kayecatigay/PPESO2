@@ -148,17 +148,17 @@
         </form>
     </div>
   </section><!-- End Services Section -->
-<script>
-  function myFunction() {
-  var status = document.getElementById("cstatus").value;
-  var x = document.getElementById("hidespouse");
-  // alert(status);
-  if (status === "married") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-    document.getElementById("spouse").value="";
+  <script>
+    function myFunction() {
+    var status = document.getElementById("cstatus").value;
+    var x = document.getElementById("hidespouse");
+    // alert(status);
+    if (status === "married") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      document.getElementById("spouse").value="";
+    }
   }
-}
-</script>
+  </script>
 @endsection

@@ -33,7 +33,11 @@
             </div>
             <div class="col-1 form-group">
               <label for="suffix">Suffix</label>
-              <input type="text" class="form-control" id="suffix" name="suffix" placeholder="Example: Jr. Sr.">
+              <select class="form-control" name="suffix" id="suffix">
+                <option value="n/a">N/A</option>
+                <option value="sr">Jr.</option>
+                <option value="jr">Sr.</option>
+              </select>
             </div>
           </div>
           <div class ="row">
@@ -59,8 +63,8 @@
           </div>
           <div class="row">
             <div class="col-6 form-group">
-            <label for="add">Address</label>
-            <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address" >
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address"  placeholder="Enter Address" >
             <small id="guardian" class="form-text text-muted">Sitio, Barangay, City/Municipality, Province</small>
           </div>
           <div class="col-3 from group">
