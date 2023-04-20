@@ -39,7 +39,7 @@ class ServicesController extends Controller
         .$request->input('age') .',' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('bloodtype') .'","'
         .$request->input('religion') .'","' .$request->input('guardian') .'","' .$request->input('relationship') .'",' .$request->input('userid') .') ');
 
-        return view ('\scholardetails');
+        return view ('scholarhome');
     }
     public function viewolddata(Request $request)
     {
@@ -76,17 +76,20 @@ class ServicesController extends Controller
     public function insertEMPdata(Request $request)
     {
         $language="";
-        $language.= ($request->input('english')=="on") ? ",english" :"";
-        $language.= ($request->input('tagalog')=="on") ? ",tagalog" :"";
-        $language.= ($request->input('chinese')=="on") ? ",chinese" :"";
+        $language.= ($request->input('english')=="on") ? "|english" :"";
+        $language.= ($request->input('tagalog')=="on") ? "|tagalog" :"";
+        $language.= ($request->input('chinese')=="on") ? "|chinese" :"";
         $language=substr($language,1);  
+        
 
         $empdata= DB::insert('insert into employment(posidesired, name, gender, address, telephone, cellphone, emailadd, birthday, Cstatus, spouse, height, weight, religion, language,
         elem, hschool, college, degree, cname, position, crname, crcompany, crposition, crcontact, userid) values("' .$request->input('posidesi') .'","' .$request->input('name') .'","'
         .$request->input('gender') .'","' .$request->input('add') .'","' .$request->input('telnum') .'","' .$request->input('contactnum') .'","' .$request->input('emailadd') .'","' .$request->input('birthday') .'","'
-        .$request->input('cstatus') .'","' .$request->input('spouse') .'",' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('religion') .'","' .$request->input($language) .'","'
+        .$request->input('cstatus') .'","' .$request->input('spouse') .'",' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('religion') .'","' .$language .'","'
         .$request->input('elem') .'","' .$request->input('hs') .'","' .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('cname') .'","' .$request->input('posi') .'","'
-        .$request->input('crname') .'","' .$request->input('crcname') .'","' .$request->input('crposi') .'","' .$request->input('crcontact') .'",' .$request->input('userid') .' ');
+        .$request->input('crname') .'","' .$request->input('crcname') .'","' .$request->input('crposi') .'","' .$request->input('crcontact') .'",' .$request->input('userid') .')');
+    
+        return view('emphomepage');
     }
 
     public function ofwhome()
@@ -105,8 +108,10 @@ class ServicesController extends Controller
         $registered=($ofw) ? true : false;
         return view('ofwdetails',['reg'=>$registered]);
     }
-    public function ofwinsert()
+    public function ofwinsert(Request $request)
     {
+        $ofwData = DB::insert('insert into scholarship(name, sex, address, emailadd, contactnum, placeofbirth, birthday, age, height, weight, bloodtype, religion, 
+        guardian, relation, userid) values("' .$request->input('name'));
         return view('ofwdetails');
     }
 }
