@@ -62,12 +62,12 @@
               <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age">
             </div>
             <div class="col form-group">
-              <label for="height">Height</label>
-              <input type="number" class="form-control" id="height" name="height"  placeholder="Enter Height">
+              <label for="height">Height (kg)</label>
+              <input type="text" class="form-control" id="height" name="height"  placeholder="Enter Height">
             </div>
             <div class="col form-group">
-              <label for="weight">Weight</label>
-              <input type="number" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
+              <label for="weight">Weight (cm)</label>
+              <input type="text" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
             </div>
             <div class="col form-group">
               <label for="bloodtype">Bloodtype</label>

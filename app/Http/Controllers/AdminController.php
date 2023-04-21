@@ -33,6 +33,7 @@ class AdminController extends Controller
     }
     public function peapD()
     {
+        
         return view('peapDash');
     }
     public function empD()
