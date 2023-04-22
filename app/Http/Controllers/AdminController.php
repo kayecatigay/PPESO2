@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class AdminController extends Controller
 {
@@ -31,17 +34,23 @@ class AdminController extends Controller
     {
         return view('sidebar');
     }
-    public function peapD()
+    public function peapD(Request $request)
     {
-        
-        return view('peapDash');
+        $scholardata = DB::select('select * from scholarship');
+        // dd($scholardata);
+        return view('peapDash',['data'=>$scholardata]);
     }
     public function empD()
     {
-        return view('empDash');
+        $applicant = DB::select('select * from employment');
+        // dd($applicant);
+        return view('empDash',['employee'=>$applicant]);
+        // return view('empDash');
     }
     public function ofwD()
     {
-        return view('ofwDash');
+        $ofw = DB::select('select * from ofw');
+        // dd($ofw);
+        return view('ofwDash',['data'=>$ofw]);
     }
 }
