@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ServicesController extends Controller
 {
+    public function testsidebar()
+    {
+        return view('testsider');
+    }
     public function index()
     {
         return view ('services');

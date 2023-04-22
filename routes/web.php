@@ -54,6 +54,8 @@ Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index'
 
 Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
+// Route::get('/testside', [App\Http\Controllers\ServicesController::class, 'testsidebar']);
+
 Route::middleware("admin")->group(function () {
 
     // 1==admin, 2=super admin , 3 =supersuper admin

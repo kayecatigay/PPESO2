@@ -40,6 +40,7 @@ class AdminController extends Controller
         // dd($scholardata);
         return view('peapDash',['data'=>$scholardata]);
     }
+    
     public function empD()
     {
         $applicant = DB::select('select * from employment');

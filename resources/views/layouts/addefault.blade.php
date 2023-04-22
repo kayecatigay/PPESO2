@@ -31,13 +31,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="assets/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="assets/js/demo/chart-area-demo.js"></script>
-    <script src="assets/js/demo/chart-pie-demo.js"></script>
+    <script src="assets/js/sb-admin-3.js"></script>
 
 </head>
 
@@ -48,7 +42,7 @@
 
         @section('sidebar')
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" onclick="closeNav()">
                 @section('sidebar content')
                     <!-- Sidebar - Brand -->
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
@@ -153,10 +147,8 @@
 
                     <!-- Sidebar Toggler (Sidebar) -->
                     <div class="text-center d-none d-md-inline">
-                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                    </div>
-
-                    
+                        <button class="rounded-circle border-0" id="sidebarToggle" onclick="closeNav()"></button>
+                    </div>    
                 @show
             </ul>
             <!-- End of Sidebar -->
