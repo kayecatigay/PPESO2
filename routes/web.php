@@ -66,6 +66,9 @@ Route::middleware("admin")->group(function () {
     Route::get('/adminprofile', [App\Http\Controllers\AdminController::class, 'aphome']);
     
     Route::get('/peapD', [App\Http\Controllers\AdminController::class, 'peapD']);
+    Route::get('/editPEAP', [App\Http\Controllers\AdminController::class, 'editPdata']);
+    Route::post('/updateEpeap', [App\Http\Controllers\AdminController::class, 'updatePdata']);
+    Route::post('/deletepeadD', [App\Http\Controllers\AdminController::class, 'deletePdata']);
     
     Route::get('/empD', [App\Http\Controllers\AdminController::class, 'empD']);
     

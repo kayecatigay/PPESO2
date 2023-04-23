@@ -1,7 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
-      
+
       <div class="col-xl-16">
          <div class="card shadow mb-4">
             <div
@@ -28,11 +28,12 @@
                               <th scope="col">Religion</th>
                               <th scope="col">Guardian</th>
                               <th scope="col">Relation</th>
+                              <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
-                           <tr>
-                              @foreach ($data as $old)
+                           @foreach ($data as $old)
+                              <tr>
                                  <td>{{ $old->name }}</td>
                                  <td>{{ $old->sex }}</td>
                                  <td>{{ $old->address }}</td>
@@ -46,74 +47,55 @@
                                  <td>{{ $old->bloodtype }}</td>
                                  <td>{{ $old->religion }}</td>
                                  <td>{{ $old->guardian }}</td>
-                                 <td>{{ $old->relation }}</td>
-                              @endforeach
-                           </tr>
+                                 <td>{{ $old->relation }}</td> 
+                                 <td>
+                                    <span class="input-group">
+
+                                       <form action ="/editPEAP" method="get">
+                                          <input type="hidden" id="peadID" name="peadID" value="{{ $old->id }}">
+                                          <input type="submit" class="btn btn-info" value="Edit" name="submit">
+                                       </form>
+                                       &emsp;
+                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $old->id }}">
+                                          Delete
+                                       </button>
+
+                                          <!-- DELETE Modal -->
+                                          <div class="modal fade" id="delmod{{ $old->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog modal-lg">
+                                             <div class="modal-content">
+                                             <div class="modal-header">
+                                                   <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
+                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
+                                                   Do you really want to delete this record: {{ $old->name}}?
+                                             </div>
+                                             <div class="modal-footer">
+                                                   <form action ="deletepeadD" method="POST" >
+                                                      @csrf
+                                                      <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
+                                                      <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
+                                                   </form>
+                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                             </div>
+                                             </div>
+                                          </div>
+                                          <!-- DELETE Modal -->
+
+                                       </div>
+                                    </span>
+                                    </td>
+                                 </td>                             
+                              </tr>
+                           @endforeach
                         </tbody>
                      </table>
                   </div>
                </div>
          </div>
       </div>
-      <div class="col-xl-16">
-         <div class="card shadow mb-4">
-            <div
-               class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">New Application Forms</h6>
-            </div>
-               <!-- Card Body -->
-               <div class="card-body">
-                  <div class="container">   
-                     <table class="table">
-                        <thead>
-                           <tr>
-                              <th scope="col"> Id </th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Email</th>
-                              <th scope="col">Action</th>
-                              <th scope="col"> Id </th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Email</th>
-                              <th scope="col">Action</th>
-                              <th scope="col"> Id </th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Email</th>
-                              <th scope="col">Action</th>
-                              <th scope="col"> Id </th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Email</th>
-                              <th scope="col">Action</th>
-                           </tr>
-                           <tbody>
-                              <tr>
-                                 <th scope="row">id</th>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>name</td>
-                                 <td>email</td>
-                                 <td>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" 
-                                    data-bs-target="#"> Delete </button>
-                                 </td>
-                                      
-                              </tr>
-                           </tbody>
-                        </thead>
-                     </table>
-                  </div>
-               </div>
-         </div>
-      </div>
+      
      <!-- <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown button
