@@ -1,102 +1,135 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
-<div class="col-xl-16">
+<style>
+   /* Set the table container to overflow horizontally */
+   .table-container {
+      overflow-x: auto;
+      white-space: nowrap;
+   }
+</style>      
+      <div class="col-xl-16">
          <div class="card shadow mb-4">
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">New Application Forms</h6>
+               <h6 class="m-0 font-weight-bold text-dark">New Job Applicant</h6>
             </div>
                <!-- Card Body -->
-               <div class="card-body">
-                  <div class="container">
-                     <div class="row ">
-                        <div class="col">Position Desired</div>
-                        <div class="col">Name</div>
-                        <div class="col">Gender</div>
-                        <div class="col">Address</div>
-                        <div class="col">Telephone number</div>
-                        <div class="col">Cellphone number</div>
-                        <div class="col">Email Address</div>
-                        <div class="col">Birthday</div>
-                        <div class="col">Civil Status</div>
-                        <div class="col">Spouse</div>
-                        <div class="col">Weight</div>
-                        <div class="col">Height</div>
-                        <div class="col">Religion</div>
-                        <div class="col">Language</div>
-                        <div class="col">Elementary School</div>
-                        <div class="col">High School</div>
-                        <div class="col">College</div>
-                        <div class="col">Degree</div>
-                        <div class="col">Company name</div>
-                        <div class="col">Company Position</div>
-                        <div class="col">Character Reference Name</div>
-                        <div class="col">Characted Reference Company</div>
-                        <div class="col">Characted Reference Position</div>
-                        <div class="col">Characted Reference Contactnum</div>
-                     </div> <br>
-                     <div class="row">
-                     @foreach ($employee as $emp)
-                        <div class="col">{{ $emp->posidesired }}</div>
-                        <div class="col">{{ $emp->name }}</div>
-                        <div class="col">{{ $emp->gender }}</div>
-                        <div class="col">{{ $emp->address }}</div>
-                        <div class="col">{{ $emp->telephone }}</div>
-                        <div class="col">{{ $emp->cellphone }}</div>
-                        <div class="col">{{ $emp->emailadd }}</div>
-                        <div class="col">{{ $emp->birthday }}</div>
-                        <div class="col">{{ $emp->Cstatus }}</div>
-                        <div class="col">{{ $emp->spouse }}</div>
-                        <div class="col">{{ $emp->height }}</div>
-                        <div class="col">{{ $emp->weight }}</div>
-                        <div class="col">{{ $emp->religion }}</div>
-                        <div class="col">{{ $emp->language }}</div>
-                        <div class="col">{{ $emp->elem }}</div>
-                        <div class="col">{{ $emp->hschool }}</div>
-                        <div class="col">{{ $emp->college }}</div>
-                        <div class="col">{{ $emp->degree }}</div>
-                        <div class="col">{{ $emp->cname }}</div>
-                        <div class="col">{{ $emp->position }}</div>
-                        <div class="col">{{ $emp->crname }}</div>
-                        <div class="col">{{ $emp->crcompany }}</div>
-                        <div class="col">{{ $emp->crposition }}</div>
-                        <div class="col">{{ $emp->crcontact }}</div>
-                     @endforeach
-                     </div>
-                  </div>
-               </div>
-         </div>
-      </div>
+               <div class="card-body">    
+                  <div class="container table-container">
+                     <table class="table">
+                        <thead>
+                           <tr>
+                              <th scope="col">Position Desired</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Telephone number</th>
+                              <th scope="col">Cellphone number</th>
+                              <th scope="col">Email Address</th>
+                              <th scope="col">Birthday</th>
+                              <th scope="col">Civil Status</th>
+                              <th scope="col">Spouse</th>
+                              <th scope="col">Weight</th>
+                              <th scope="col">Height</th>
+                              <th scope="col">Religion</th>
+                              <th scope="col">Language</th>
+                              <th scope="col">Elementary School</th>
+                              <th scope="col">High School</th>
+                              <th scope="col">College</th>
+                              <th scope="col">Degree</th>
+                              <th scope="col">Company name</th>
+                              <th scope="col">Company Position</th>
+                              <th scope="col">Character Reference Name</th>
+                              <th scope="col">Characted Reference Company</th>
+                              <th scope="col">Characted Reference Position</th>
+                              <th scope="col">Characted Reference Contactnum</th>
+                              <th scope="col">Action</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                           @foreach ($employee as $emp)
+                              <tr>   
+                                 <td>{{ $emp->posidesired }}</div>
+                                 <td>{{ $emp->name }}</td>
+                                 <td>{{ $emp->gender }}</td>
+                                 <td>{{ $emp->address }}</td>
+                                 <td>{{ $emp->telephone }}</td>
+                                 <td>{{ $emp->cellphone }}</td>
+                                 <td>{{ $emp->emailadd }}</td>
+                                 <td>{{ $emp->birthday }}</td>
+                                 <td>{{ $emp->Cstatus }}</td>
+                                 <td>{{ $emp->spouse }}</td>
+                                 <td>{{ $emp->height }}</td>
+                                 <td>{{ $emp->weight }}</td>
+                                 <td>{{ $emp->religion }}</td>
+                                 <td>{{ $emp->language }}</td>
+                                 <td>{{ $emp->elem }}</td>
+                                 <td>{{ $emp->hschool }}</td>
+                                 <td>{{ $emp->college }}</td>
+                                 <td>{{ $emp->degree }}</td>
+                                 <td>{{ $emp->cname }}</td>
+                                 <td>{{ $emp->position }}</td>
+                                 <td>{{ $emp->crname }}</td>
+                                 <td>{{ $emp->crcompany }}</td>
+                                 <td>{{ $emp->crposition }}</td>
+                                 <td>{{ $emp->crcontact }}</td>
+                                 <td>
+                                    <span class="input-group">
 
-      <div class="col-xl-8 col-lg-7">
-         <div class="card shadow mb-4">
-               <!-- Card Header - Dropdown -->
-               <div
-                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-dark">Updated Application Forms</h6>
-               </div>
-               <!-- Card Body -->
-               <div class="card-body">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col">Name</div>
-                        <div class="col">srgsg</div>
-                        <div class="col">th</div>
-                        <div class="col">sth</div>
-                        <div class="col">aeth</div>
-                     </div>
-                     <div class="row">
-                        <div class="col">{{ $emp->address }}</div>
-                        <div class="col">{{ $emp->name }}</div>
-                        <div class="col">{{ $emp->emailadd }}</div>
-                        <div class="col">{{ $emp->posidesired }}</div>
-                        <div class="col">{{ $emp->birthday }}</div>
-                     </div>
+                                       <form action ="/editEMP" method="get">
+                                          <input type="hidden" id="empID" name="empID" value="{{ $emp->id }}">
+                                          <input type="submit" class="btn btn-info" value="Edit" name="submit">
+                                       </form>
+                                       &emsp;
+                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $emp->id }}">
+                                          Delete
+                                       </button>
+
+                                          <!-- DELETE Modal -->
+                                          <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog modal-lg">
+                                             <div class="modal-content">
+                                             <div class="modal-header">
+                                                   <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $emp->id }} </h5>
+                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
+                                                   Do you really want to delete this record: {{ $emp->name}}?
+                                             </div>
+                                             <div class="modal-footer">
+                                                   <form action ="deleteempD" method="POST" >
+                                                      @csrf
+                                                      <input type="hidden" id="delId" name="delId" value="{{ $emp->id }}">
+                                                      <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $emp->id }}').modal('hide');" >Yes</button>
+                                                   </form>
+                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                             </div>
+                                             </div>
+                                          </div>
+                                          <!-- DELETE Modal -->
+
+                                       </div>
+                                    </span>
+                                    </td>
+                                 </td> 
+                              </tr>
+                           @endforeach
+                        </tbody>
+                     </table>
                   </div>
+                     
                </div>
          </div>
       </div>
+   <script>
+      // Add event listener to scroll the table
+      var tableContainer = document.querySelector('.table-container');
+      tableContainer.addEventListener('wheel', function(event) {
+         event.preventDefault();
+         tableContainer.scrollLeft += event.deltaY;
+      });
+   </script>
 @endsection
 
 <!-- End of Page Wrapper -->

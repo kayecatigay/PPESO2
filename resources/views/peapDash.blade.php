@@ -1,7 +1,13 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
-
+<style>
+   /* Set the table container to overflow horizontally */
+   .table-container {
+      overflow-x: auto;
+      white-space: nowrap;
+   }
+</style>   
       <div class="col-xl-16">
          <div class="card shadow mb-4">
             <div
@@ -95,35 +101,15 @@
                </div>
          </div>
       </div>
-      
-     <!-- <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Dropdown item 1</a>
-    <a class="dropdown-item" href="#">Dropdown item 2</a>
-    <a class="dropdown-item" href="#">Dropdown item 3</a>
-  </div>
-</div>
+   
    <script>
-      // Get the button and the dropdown menu
-      var button = document.getElementById("dropdownMenuButton");
-      var dropdownMenu = document.querySelector(".dropdown-menu");
-
-      // Add an event listener to the button
-      button.addEventListener("click", function() {
-         // Toggle the 'show' class on the dropdown menu
-         dropdownMenu.classList.toggle("show");
+      // Add event listener to scroll the table
+      var tableContainer = document.querySelector('.table-container');
+      tableContainer.addEventListener('wheel', function(event) {
+         event.preventDefault();
+         tableContainer.scrollLeft += event.deltaY;
       });
-
-      // Close the dropdown menu if the user clicks outside of it
-      window.addEventListener("click", function(event) {
-         if (!event.target.matches(".dropdown-toggle")) {
-            dropdownMenu.classList.remove("show");
-         }
-      });
-   </script> -->
+   </script>
 @endsection
 
 <!-- End of Page Wrapper -->

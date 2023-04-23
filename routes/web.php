@@ -71,8 +71,14 @@ Route::middleware("admin")->group(function () {
     Route::post('/deletepeadD', [App\Http\Controllers\AdminController::class, 'deletePdata']);
     
     Route::get('/empD', [App\Http\Controllers\AdminController::class, 'empD']);
+    Route::get('/editEMP', [App\Http\Controllers\AdminController::class, 'editEdata']);
+    Route::post('/updateEemp', [App\Http\Controllers\AdminController::class, 'updateEdata']);
+    Route::post('/deleteempD', [App\Http\Controllers\AdminController::class, 'deleteEdata']);
     
     Route::get('/ofwD', [App\Http\Controllers\AdminController::class, 'ofwD']);
+    Route::get('/editOFW', [App\Http\Controllers\AdminController::class, 'editOdata']);
+    Route::get('/updateofwD', [App\Http\Controllers\AdminController::class, 'updateOdata']);
+    Route::get('/deleteofwD', [App\Http\Controllers\AdminController::class, 'deleteOdata']);
 
 });
 
