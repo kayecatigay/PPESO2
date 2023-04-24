@@ -107,19 +107,27 @@ class AdminController extends Controller
     }
     public function deleteEdata(Request $request){
         // dd($request->input('id'));
-        DB::delete("DELETE FROM scholarship WHERE id = " .$request->input('delId'));
+        DB::delete("DELETE FROM employment WHERE id = " .$request->input('delId'));
         
         return redirect('/empD');
     }
 
     public function ofwD()
     {
+
         $ofw = DB::select('select * from ofw');
         // dd($ofw);
         return view('ofwDash',['data'=>$ofw]);
     }
     public function editOdata(request $request) {
+       
+        $name="";
+        $name.= $request->input('fname'). $request->input('mname'). $request->input('lname');
+        
+        dd($name);
         $ofwID=$request->input('ofwID');
+        
+        
         $showdata = DB::select('select * from ofw where id=' .$ofwID);
         //dd($prod);
         return view('editEdata',['eOFW'=>$showdata]); 

@@ -1,7 +1,8 @@
 @extends('layouts.addefault')
 
 @section('maincontent') 
-        <form action="ofwinsertD">
+        <form action ="/updateofwD" method="post" enctype="multipart/form-data">
+            @csrf
           <div class="form-group">
             <label for="ofwId"></label>
             <input type="hidden" class="form-control" id="ofwId" name="ofwId"  placeholder="Enter Name">
@@ -12,20 +13,20 @@
           </div>
           <div class="row">
             <div class="col-3 form-group">
-              <label for="lastname">Lastname</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" value={{$ofw[0]->id}}>
+              <label for="lname">Lastname</label>
+              <input type="text" class="form-control" id="lname" name="lname" value={{$ofw[0]->lastname}}>
             </div>
             <div class="col-3 form-group">
-              <label for="firstname">Firstname</label>
-              <input type="text" class="form-control" id="firstname" name="firstname" value="{{ Auth::user()->firstname }}">
+              <label for="fname">Firstname</label>
+              <input type="text" class="form-control" id="fname" name="fname" value={{$ofw[0]->firstname}}>
             </div>
             <div class="col-3 form-group">
-              <label for="middlename">Middlename</label>
-              <input type="text" class="form-control" id="middlename" name="middlename" value="{{ Auth::user()->middlename }}">
+              <label for="mname">Middlename</label>
+              <input type="text" class="form-control" id="mname" name="mname" value={{$ofw[0]->middlename}}>
             </div>
             <div class="col-1 form-group">
               <label for="suffix">Suffix</label>
-              <select class="form-control" name="suffix" id="suffix">
+              <select class="form-control" name="suffix" id="suffix" value={{$ofw[0]->suffix}}>
                 <option value="n/a">N/A</option>
                 <option value="sr">Jr.</option>
                 <option value="jr">Sr.</option>
