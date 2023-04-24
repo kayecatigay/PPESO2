@@ -30,9 +30,7 @@
     <!-- Core plugin JavaScript-->
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="assets/js/sb-admin-2.min.js"></script>
-    <script src="assets/js/sb-admin-3.js"></script>
+
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
         crossorigin="anonymous"></script>
@@ -153,7 +151,7 @@
 
                     <!-- Sidebar Toggler (Sidebar) -->
                     <div class="text-center d-none d-md-inline">
-                        <button class="rounded-circle border-0" id="sidebarToggle" onclick="closeNav()"></button>
+                    <button class="rounded-circle border-0" id="sidebarToggle">
                     </div>    
                 @show
             </ul>
@@ -415,7 +413,9 @@
     </div>
 </div>
 
-
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
 </body>
 
