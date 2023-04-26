@@ -120,17 +120,27 @@ class AdminController extends Controller
         return view('ofwDash',['data'=>$ofw]);
     }
     public function editOdata(request $request) {
-       
-        $name="";
-        $name.= $request->input('fname'). $request->input('mname'). $request->input('lname');
-        
-        dd($name);
         $ofwID=$request->input('ofwID');
-        
-        
         $showdata = DB::select('select * from ofw where id=' .$ofwID);
         //dd($prod);
-        return view('editEdata',['eOFW'=>$showdata]); 
+        return view('editOdata',['ofw'=>$showdata]); 
+    }
+    public function updateOdata(Request $request)
+    {
+        $ofwData = DB::update('update ofw set lastname="' .$request->input('lname'). '",firstname= 
+        "' .$request->input('fname'). '",middlename= "' .$request->input('mname'). '",suffix=
+        "' .$request->input('suffix'). '",birthday= "' .$request->input('birthday'). '",age=
+        "' .$request->input('age'). '",sex= "' .$request->input('sex'). '",contactnum= 
+        "' .$request->input('contactnum'). '",address= "' .$request->input('address'). '",passnum=
+        "' .$request->input('passnum'). '",emailadd= "' .$request->input('emailadd'). '",fbacc=
+        "' .$request->input('fbacc'). '" where id=' .$request->input('ofwId').' ');
+        return redirect('/ofwD');
+    }
+    public function deleteOdata(Request $request){
+        // dd($request->input('id'));
+        DB::delete("DELETE FROM ofw WHERE id = " .$request->input('delId'));
+        
+        return redirect('/ofwD');
     }
     
 }

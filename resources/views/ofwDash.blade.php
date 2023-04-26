@@ -68,7 +68,7 @@
                                                    Do you really want to delete this record: {{ $ofw->name}}?
                                              </div>
                                              <div class="modal-footer">
-                                                   <form action ="deleteofwD" method="POST" >
+                                                   <form action ="deleteofwD" method="get" >
                                                       @csrf
                                                       <input type="hidden" id="delId" name="delId" value="{{ $ofw->id }}">
                                                       <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $ofw->id }}').modal('hide');" >Yes</button>

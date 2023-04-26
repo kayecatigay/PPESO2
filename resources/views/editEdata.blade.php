@@ -58,12 +58,12 @@
               <label for="language">Language</label>
                 <input type="text" class="form-control" id="language" name="language" value={{$eEMP[0]->language}}>
                 <small id="language" class="form-text text-muted">Choose:
-                <input type="checkbox" id="tagalog" name="tagalog" >
-                <label for="tagalog">Tagalog</label>
-                <input type="checkbox" id="english" name="english">
-                <label for="english">English</label>
-                <input type="checkbox" id="chinese" name="chinese">
-                <label for="chinese">Chinese</label></small>
+                  <input type="checkbox" id="tagalog" name="tagalog" >
+                  <label for="tagalog">Tagalog</label>
+                  <input type="checkbox" id="english" name="english">
+                  <label for="english">English</label>
+                  <input type="checkbox" id="chinese" name="chinese">
+                  <label for="chinese">Chinese</label></small>
             </div>
           </div>
           <div class="row">
