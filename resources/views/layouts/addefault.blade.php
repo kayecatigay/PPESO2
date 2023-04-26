@@ -134,16 +134,22 @@
 
                     <!-- Nav Item - Charts -->
                     <li class="nav-item">
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-fw fa-chart-area"></i>
                             <span>Edit</span></a>
                     </li>
 
                     <!-- Nav Item - Tables -->
                     <li class="nav-item">
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-fw fa-table"></i>
                             <span>Database</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Homepage</span></a>
                     </li>
 
                     <!-- Divider -->
