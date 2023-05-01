@@ -113,7 +113,7 @@
 
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                        <a class="nav-link collapsed" href="usersD" data-toggle="collapse" data-target="#collapsePages"
                             aria-expanded="true" aria-controls="collapsePages">
                             <i class="fas fa-fw fa-folder"></i>
                             <span>Users</span>
@@ -147,7 +147,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="home">
+                        <a class="nav-link" href="adminhomepage">
                             <i class="fas fa-fw fa-table"></i>
                             <span>Homepage</span></a>
                     </li>

@@ -49,7 +49,7 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-            <li><a class="nav-link scrollto" href="\home">Home </a></li>
+            <li><a class="nav-link scrollto" href="\adminhomepage">Home </a></li>
             <li><a class="nav-link scrollto" href="\services">Services</a></li>
             <li><a class="nav-link scrollto" href="\contactus">Contact Us</a></li>
             <li><a class="nav-link scrollto" href="\announcements">Announcements</a></li>

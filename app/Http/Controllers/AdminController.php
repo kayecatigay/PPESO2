@@ -142,5 +142,28 @@ class AdminController extends Controller
         
         return redirect('/ofwD');
     }
-    
+    public function usersD(Request $request)
+    {
+        $users = DB::select('select * from users');
+        // dd($users);
+        return view('UsersData',['user'=>$users]);
+    }
+    public function editUdata(Request $request)
+    {
+        $userID = $request->input('usrID');
+        $showdata = DB::select('select * from users where id=' .$userID);
+        // dd($userID);
+        return view('editUdata',['usr'=>$showdata]);
+    }
+    public function updateUdata(Request $request)
+    {
+        $userData = DB::update('update users set roles "' .$request->input('roles'). 
+        '" where id=' .$request->input('id').' ');
+        return redirect('/usersD');
+    }
+    public function deleteUdata(Request $request)
+    {
+        DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
+        return redirect('/usersD');
+    }
 }

@@ -80,5 +80,9 @@ Route::middleware("admin")->group(function () {
     Route::get('/updateofwD', [App\Http\Controllers\AdminController::class, 'updateOdata']);
     Route::get('/deleteofwD', [App\Http\Controllers\AdminController::class, 'deleteOdata']);
 
+    Route::get('/usersD', [App\Http\Controllers\AdminController::class, 'usersD']);
+    Route::get('/editUser', [App\Http\Controllers\AdminController::class, 'editUdata']);
+    Route::get('/updateEuser', [App\Http\Controllers\AdminController::class, 'updateUdata']);
+    Route::get('/deleteuserD', [App\Http\Controllers\AdminController::class, 'deleteUdata']);
 });
 
