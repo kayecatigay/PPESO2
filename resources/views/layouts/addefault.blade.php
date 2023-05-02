@@ -21,7 +21,7 @@
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
 
     <!-- Bootstrap core JavaScript-->
@@ -63,7 +63,7 @@
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
                         <a class="nav-link" href="admindashboard">
-                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <i class="fas fa-fw fa-table"></i>
                             <span>Dashboard</span></a>
                     </li>
 
@@ -78,7 +78,7 @@
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
                         <a class="nav-link" href="peapD" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fa-duotone fa-graduation-cap"></i>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                             <span>PEAP</span>
                         </a>
                         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -91,14 +91,14 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="empD" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-solid fa-briefcase"></i>
+                                <i class="fa fa-briefcase" aria-hidden="true"></i>
                             <span>Employment</span>
                         </a>
                        
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ofwD" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa-duotone fa-plane-departure"></i>
+                            <i class="fa fa-plane" aria-hidden="true"></i>
                             <span>Ofw</span>
                         </a>
                         
@@ -115,7 +115,7 @@
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
                         <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
-                            <i class="fas fa-fw fa-folder"></i>
+                            <i class="fa fa-users" aria-hidden="true"></i>
                             <span>Users</span>
                         </a>
                     </li>
@@ -123,20 +123,13 @@
                     <!-- Nav Item - Charts -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="fas fa-fw fa-chart-area"></i>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             <span>Edit</span></a>
                     </li>
 
-                    <!-- Nav Item - Tables -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Database</span></a>
-                    </li> -->
-
                     <li class="nav-item">
                         <a class="nav-link" href="adminhomepage">
-                            <i class="fas fa-fw fa-table"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                             <span>Homepage</span></a>
                     </li>
 

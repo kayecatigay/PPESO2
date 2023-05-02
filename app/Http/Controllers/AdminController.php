@@ -157,8 +157,15 @@ class AdminController extends Controller
     }
     public function updateUdata(Request $request)
     {
-        $userData = DB::update('update users set roles "' .$request->input('roles'). 
-        '" where id=' .$request->input('id').' ');
+        // dd($request->input('roles'));
+        $urole=0;
+        $urole= ($request->input('roles')== "user") ? 0 : $urole;
+        $urole= ($request->input('roles')== "supadmin") ? 4 : $urole;
+        $urole= ($request->input('roles')== "oadmin") ? 3 : $urole;
+        $urole= ($request->input('roles')== "eadmin") ? 2 : $urole;
+        $urole= ($request->input('roles')== "sadmin") ? 1 : $urole;
+        $userData = DB::update('update users set roles= "' .$urole 
+            .'" where id=' .$request->input('id').' ');
         return redirect('/usersD');
     }
     public function deleteUdata(Request $request)
