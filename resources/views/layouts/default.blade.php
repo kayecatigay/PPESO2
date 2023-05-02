@@ -43,8 +43,8 @@
   @section('header')
     <header id="header" class="w3-container w3-metro-dark-green"  >
       <div class="container d-flex align-items ">
-
-        <h1 class="logo me-auto me-lg-0"><a href="home">Provincial  <span>PESO</span></a></h1>
+        <img src="assets/img/favicon.png" style="width:40px; height:40px;" alt="icon"> &nbsp; &nbsp;
+        <h1 class="logo "><a href="home">Provincial  <span>PESO</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
