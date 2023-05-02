@@ -1,6 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
+
 <style>
    /* Set the table container to overflow horizontally */
    .table-container {

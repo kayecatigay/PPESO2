@@ -58,7 +58,7 @@ Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
 Route::middleware("admin")->group(function () {
 
-    // 1==admin, 2=super admin , 3 =supersuper admin
+    // 0=user 1=scholar admin, 2=emp admin 3=ofw admin 4 =super admin
     // All your admin routes go here.
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
@@ -84,5 +84,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/editUser', [App\Http\Controllers\AdminController::class, 'editUdata']);
     Route::get('/updateEuser', [App\Http\Controllers\AdminController::class, 'updateUdata']);
     Route::get('/deleteuserD', [App\Http\Controllers\AdminController::class, 'deleteUdata']);
+
+    Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
+
+    Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
+
+    Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
 });
 
