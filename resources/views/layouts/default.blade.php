@@ -54,6 +54,12 @@
             <li><a class="nav-link scrollto" href="\services">Services</a></li>
             <li><a class="nav-link scrollto" href="\contactus">Contact Us</a></li>
             <li><a class="nav-link scrollto" href="\announcements">Announcements</a></li>
+            @guest
+            @else        
+              @if  (Auth::user()->roles>0)
+                <li><a class="nav-link scrollto" href="\admindashboard">Dashboard</a></li>
+              @endif
+            @endguest
             
             <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
               <ul>

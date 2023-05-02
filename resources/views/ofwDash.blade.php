@@ -66,7 +66,7 @@
                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <div class="modal-body">
-                                                   Do you really want to delete this record: {{ $ofw->name}}?
+                                                   Do you really want to delete this record: {{ $name}}?
                                              </div>
                                              <div class="modal-footer">
                                                    <form action ="deleteofwD" method="get" >

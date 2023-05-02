@@ -1,4 +1,4 @@
-@extends('layouts.adhomedefault')
+@extends('layouts.default')
 
 
 @section('homecontent')

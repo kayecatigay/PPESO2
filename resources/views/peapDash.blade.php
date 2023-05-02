@@ -16,7 +16,7 @@
             </div>
                <!-- Card Body -->
                <div class="card-body">
-                  <div class="container">
+                  <div class="container table-container">
                      <table class="table">
                         <thead>
                            <tr>
@@ -66,32 +66,30 @@
                                           Delete
                                        </button>
 
-                                          <!-- DELETE Modal -->
-                                          <div class="modal fade" id="delmod{{ $old->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                       <!-- DELETE Modal -->
+                                       <div class="modal fade" id="delmod{{ $old->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog modal-lg">
                                              <div class="modal-content">
-                                             <div class="modal-header">
-                                                   <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
-                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                             </div>
-                                             <div class="modal-body">
-                                                   Do you really want to delete this record: {{ $old->name}}?
-                                             </div>
-                                             <div class="modal-footer">
-                                                   <form action ="deletepeadD" method="POST" >
-                                                      @csrf
-                                                      <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
-                                                      <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
-                                                   </form>
-                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                             </div>
+                                                <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                      Do you really want to delete this record: {{ $old->name}}?
+                                                </div>
+                                                <div class="modal-footer">
+                                                      <form action ="deletepeadD" method="POST" >
+                                                         @csrf
+                                                         <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
+                                                         <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
+                                                      </form>
+                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                </div>
                                              </div>
                                           </div>
-                                          <!-- DELETE Modal -->
-
                                        </div>
+                                       <!-- DELETE Modal -->
                                     </span>
-                                    </td>
                                  </td>                             
                               </tr>
                            @endforeach
@@ -100,8 +98,8 @@
                   </div>
                </div>
          </div>
-      </div>
-   
+      </div>   
+        
    <script>
       // Add event listener to scroll the table
       var tableContainer = document.querySelector('.table-container');

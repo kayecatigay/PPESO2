@@ -88,15 +88,15 @@
                 <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
                 </div>
                 <div class="col form-group">
-                <label for="relationship">Relationship with the Applicant</label>
-                <select class="form-control" name="relationship" id="relationship" value={{$ePEAP[0]->relation}}>
-                    <option value="daughter">Daughter</option>
-                    <option value="son">Son</option>
-                    <option value="niece">Niece</option>
-                    <option value="nephew">Nephew</option>
-                    <option value="sister">Sister</option>
-                    <option value="brother">Brother</option>
-                </select>
+                    <label for="relationship">Relationship with the Applicant</label>
+                    <select class="form-control" name="relationship" id="relationship" value={{$ePEAP[0]->relation}}>
+                        <option value="daughter">Daughter</option>
+                        <option value="son">Son</option>
+                        <option value="niece">Niece</option>
+                        <option value="nephew">Nephew</option>
+                        <option value="sister">Sister</option>
+                        <option value="brother">Brother</option>
+                    </select>
                 </div>          
             </div>
             <div class="row">
@@ -109,16 +109,16 @@
 
         </div>       
     </form> 
-  <script>
-      function setage()
-      {
-        dob=new Date(document.getElementById("birthday").value);
-        var month_diff = Date.now() - dob.getTime();  
-        var age_dt = new Date(month_diff);   
-        var year = age_dt.getUTCFullYear();  
-        var age = Math.abs(year - 1970);  
-        document.getElementById("age").value=age;
-      }
-  </script>
+    <script>
+        function setage()
+        {
+            dob=new Date(document.getElementById("birthday").value);
+            var month_diff = Date.now() - dob.getTime();  
+            var age_dt = new Date(month_diff);   
+            var year = age_dt.getUTCFullYear();  
+            var age = Math.abs(year - 1970);  
+            document.getElementById("age").value=age;
+        }
+    </script>
             
 @endsection
