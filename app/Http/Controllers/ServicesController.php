@@ -114,6 +114,7 @@ class ServicesController extends Controller
     }
     public function ofwinsert(Request $request)
     {
+        //$name=$request->input('lastname') ."," .$request->input('firstname') ." " .$request->input('middlename');
         $ofwData = DB::insert('insert into ofw(userid, lastname, firstname, middlename, suffix, birthday, age, sex, contactnum, address, passnum, 
         emailadd, fbacc) values(' .$request->input('userid') .',"' .$request->input('lastname') .'","' .$request->input('firstname') .'","'
         .$request->input('middlename') .'","' .$request->input('suffix') .'","' .$request->input('birthday') .'",' .$request->input('age') .',"'

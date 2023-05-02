@@ -34,8 +34,9 @@
                         </thead>
                         <tbody>
                            @foreach ($data as $ofw)
+                              @php $name = $ofw->lastname.",".$ofw->firstname. " " .$ofw->middlename; @endphp
                               <tr>
-                                 <td>{{ $ofw->name }}</div>
+                                 <td>{{ $name }}</div>
                                  <td>{{ $ofw->birthday }}</div>
                                  <td>{{ $ofw->age }}</div>
                                  <td>{{ $ofw->sex }}</div>
