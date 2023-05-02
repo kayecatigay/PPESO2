@@ -28,10 +28,33 @@
                         </thead>
                         <tbody>
                            @foreach ($user as $usr)
+                              @switch($usr->roles)
+                                 @case(0)
+                                    @php $urole = "User"; @endphp
+                                    @break
+                              
+                                 @case(1)
+                                    @php $urole = "Scholarship Admin"; @endphp
+                                    @break
+                              
+                                 @case(2)
+                                    @php $urole = "Employment Admin"; @endphp
+                                    @break
+                           
+                                 @case(3)
+                                    @php $urole = "Ofw Admin"; @endphp
+                                    @break
+                               
+                                 @case(4)
+                                    @php $urole = "Super Admin"; @endphp
+                                    @break
+                              
+                              
+                              @endswitch
                               <tr>   
                                  <td>{{ $usr->name }}</td>
                                  <td>{{ $usr->email }}</td>
-                                 <td>{{ $usr->roles }}</td>
+                                 <td>{{ $urole }}</td>
                                  <td>
                                     <span class="input-group">
 
