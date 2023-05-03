@@ -81,7 +81,7 @@
                         <a class="nav-link collapsed" href="peapD" aria-expanded="true" data-toggle="collapse" data-target="#collapseScholar"
                             aria-expanded="true"  aria-controls="collapseTwo">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            <span>Scholar</span>
+                            <span>Scholarship</span>
                         </a>
                         <div id="collapseScholar" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
@@ -93,8 +93,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="empD" aria-expanded="true"data-toggle="collapse" data-target="#collapsedsched"
-                            aria-controls="collapseTwo"> <i class="fa fa-briefcase" aria-hidden="true"></i>
-                            <span>Schedules</span>
+                            aria-controls="collapseTwo"> <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <span>Schedules</span> <!--scheduling and status-->
                         </a>
                         <div id="collapsedsched" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
@@ -106,7 +106,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ofwD" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <i class="fa fa-bullhorn" aria-hidden="true"></i>
                             <span>Announcements</span>
                         </a>
                         

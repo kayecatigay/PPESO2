@@ -54,7 +54,7 @@
                         <div class="sidebar-brand-icon rotate-n-15">
                             <i class="bi bi-person-workspace"></i>
                         </div>
-                        <div class="sidebar-brand-text mx-3">Ppeso <br> OFW Admin </div>
+                        <div class="sidebar-brand-text mx-3">Ppeso <br>OFW Admin </div>
                     </a>
 
                     <!-- Divider -->
@@ -78,8 +78,8 @@
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
                         <a class="nav-link" href="peapD" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            <span>PEAP</span>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>Applicants</span> <!--resumes, papers-->
                         </a>
                         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
@@ -91,15 +91,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="empD" aria-expanded="true" aria-controls="collapseTwo">
-                                <i class="fa fa-briefcase" aria-hidden="true"></i>
-                            <span>Employment</span>
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <span>Scheduling</span> <!--scheduels of interview, status-->
                         </a>
                        
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ofwD" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fa fa-plane" aria-hidden="true"></i>
-                            <span>Ofw</span>
+                            <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                            <span>Announcements</span>
                         </a>
                         
                     </li>
