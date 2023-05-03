@@ -21,8 +21,8 @@
           <div class="row">
             <div class="col-9 form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
-              
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+              <small id="name" class="form-text text-muted">Last name, First name, Middle name</small>
             </div>
             <div class="col form-group">
               <label for="gender">Sex</label>
@@ -32,31 +32,30 @@
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="add">Address</label>
-            <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address" >
-          </div>
-          <div class ="row">
-            <div class=" col-8 form-group">
-              <label for="emailadd">Email address</label>
-              <input type="email" class="form-control" id="emailadd" name="emailadd"  placeholder="ex. abc@gmail.com">
+          <div class="row">
+            <div class="col-6 form-group">
+              <label for="add">Address</label>
+              <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address" >
             </div>
             <div class="col form-group">
               <label for="contactnum">Contact Number</label>
               <input type="number" class="form-control" id="contactnum" name="contactnum"  placeholder="ex. 09123456789">
             </div>
-          </div>
           <div class="row">
-            <div class="col-10 form-group">
+            <div class="col-6 orm-group">
+              <label for="emailadd">Email address</label>
+              <input type="email" class="form-control" id="emailadd" name="emailadd"  placeholder="ex. abc@gmail.com">
+            </div> 
+            <div class="col-6 form-group">
               <label for="birthplace">Place of Birth</label>
               <input type="text" class="form-control" id="birthplace" name="birthplace"  placeholder="Enter place of birth">
             </div>
+          </div> 
+          <div class="row">
             <div class="col form-group">
               <label for="birthday">Date of Birth</label>
               <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="" onchange="setage()">
             </div>
-          </div>
-          <div class="row">
             <div class="col form-group">
               <label for="age">Age</label>
               <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age">
@@ -65,11 +64,12 @@
               <label for="height">Height (kg)</label>
               <input type="text" class="form-control" id="height" name="height"  placeholder="Enter Height">
             </div>
-            <div class="col form-group">
+          </div>
+            <div class="col-4 form-group">
               <label for="weight">Weight (cm)</label>
               <input type="text" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
             </div>
-            <div class="col form-group">
+            <div class="col-4 form-group">
               <label for="bloodtype">Bloodtype</label>
               <select class="form-control" name="bloodtype" id="bloodtype">
                 <option value="N/A">Not Applicable</option>
@@ -83,18 +83,16 @@
                 <option value="AB-">AB negative</option>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="religion">Religion</label>
-            <input type="text" class="form-control" id="religion" name="religion"  placeholder="Enter Religion">
-          </div>
-          <div class="row">
-            <div class="col-8 form-group">
-              <label for="guardian">Name of Guardian</label>
-              <input type="text" class="form-control" id="guardian" name="guardian"  placeholder="Enter name of Guardian">
-              <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
+            <div class="col-4 form-group">
+              <label for="religion">Religion</label>
+              <input type="text" class="form-control" id="religion" name="religion"  placeholder="Enter Religion">
             </div>
-            <div class="col form-group">
+            <div class="col-5 form-group">
+                <label for="guardian">Name of Guardian</label>
+                <input type="text" class="form-control" id="guardian" name="guardian"  placeholder="Enter name of Guardian">
+                <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
+            </div>
+            <div class="col-3 form-group">
               <label for="relationship">Relationship with the Applicant</label>
               <select class="form-control" name="relationship" id="relationship">
                 <option value="daughter">Daughter</option>
@@ -104,8 +102,29 @@
                 <option value="sister">Sister</option>
                 <option value="brother">Brother</option>
               </select>
-            </div>          
+            </div>
+              <div class="col-4  form-group">
+                <label for="father">Father's Name</label>
+                <input type="text" class="form-control" id="father" name="father">
+            </div>
+          <div class="col-3 form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" class="form-control" id="occupation" name="occupation">
           </div>
+          <div class="col-3  form-group">
+              <label for="mother">Mother's Name</label>
+              <input type="text" class="form-control" id="mother" name="mother">
+          </div>
+          <div class="col-3 form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" class="form-control" id="occupation" name="occupation">
+          </div>
+          <div class="col form-group">
+            <label for="siblings">Siblings</label>
+            <input type="text" class="form-control" id="siblings" name="siblings"> <br>
+          </div>
+        </div>
+
           <div class="row">
             <div class="col-5">&nbsp;</div>
             <div class="col"><button type="submit" class="btn btn-primary">Apply</button></div>
