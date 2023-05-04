@@ -30,6 +30,11 @@
                               <th scope="col">Passport Number</th>
                               <th scope="col">Email Address</th>
                               <th scope="col">Facebook</th>
+                              <th scope="col">Job Description</th>
+                              <th scope="col">Ofw Category</th>
+                              <th scope="col">Company</th>
+                              <th scope="col">Country</th>
+                              <th scope="col">Period of Employment</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
@@ -45,6 +50,11 @@
                                  <td>{{ $ofw->address }}</div>
                                  <td>{{ $ofw->passnum }}</div>
                                  <td>{{ $ofw->emailadd }}</div>
+                                 <td>{{ $ofw->JobDesc }}</div>
+                                 <td>{{ $ofw->OfwCat }}</div>
+                                 <td>{{ $ofw->Company }}</div>
+                                 <td>{{ $ofw->Country }}</div>
+                                 <td>{{ $ofw->PeriodOfEmp }}</div>
                                  <td>{{ $ofw->fbacc }}</div>
                                  <td>
                                     <span class="input-group">

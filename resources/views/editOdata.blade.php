@@ -73,12 +73,46 @@
             <div class=" col-5 form-group">
               <label for="emailadd">Email address</label>
               <input type="email" class="form-control" id="emailadd" name="emailadd"  
-              placeholder="ex. abc@gmail.com" value={{$ofw[0]->emailadd}}>
+              placeholder="ex. abc@gmail.com" value="{{$ofw[0]->emailadd}}">
             </div>
             <div class="col-5 form-group">
               <label for="fbacc">Facebook Account</label>
-              <input type="facebook" class="form-control" id="fbacc" name="fbacc" value={{$ofw[0]->fbacc}}> <br>
+              <input type="facebook" class="form-control" id="fbacc" name="fbacc" value="{{$ofw[0]->fbacc}}"> <br>
           </div>
+          
+          <div class="container table-container" style="text-align:center">
+            <table class="table table-stripped border">
+              <thead>
+                <tr>
+                  <th scope="col">Job Description</th>
+                  <th scope="col">Ofw Category</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Period of Employment</th>
+                </tr>
+              </thead>
+              <tbody class="table table-bordered">
+                <tr>
+                  <td>
+                    <input type="text" id="jobdesi" name="jobdesi" value="{{$ofw[0]->JobDesc}}">
+                  </td>
+                  <td>
+                    <input type="text" id="ofwcat" name="ofwcat" value="{{$ofw[0]->OfwCat}}">
+                  </td>
+                  <td>
+                   <input type="text" id="company" name="company" value="{{$ofw[0]->Company}}">
+                  </td>
+                  <td>
+                    <input type="text" id="country" name="country" value="{{$ofw[0]->Country}}">
+                  </td>
+                  <td>
+                    <input type="text" id="period" name="period" value="{{$ofw[0]->PeriodOfEmp}}">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
           <div class="row">
             <div class="col-5">&nbsp;</div>
             <div class="col"><button type="submit" class="btn btn-primary">Apply</button></div>

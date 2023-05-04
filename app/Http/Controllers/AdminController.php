@@ -133,7 +133,10 @@ class AdminController extends Controller
         "' .$request->input('age'). '",sex= "' .$request->input('sex'). '",contactnum= 
         "' .$request->input('contactnum'). '",address= "' .$request->input('address'). '",passnum=
         "' .$request->input('passnum'). '",emailadd= "' .$request->input('emailadd'). '",fbacc=
-        "' .$request->input('fbacc'). '" where id=' .$request->input('ofwId').' ');
+        "' .$request->input('fbacc'). '",JobDesc= "' .$request->input('jobdesi').  '",OfwCat=
+        "' .$request->input('ofwcat'). '",Company= "' .$request->input('company'). '",Country=
+        "' .$request->input('country'). '",PeriodOfEmp= "' .$request->input('period').
+        '" where id=' .$request->input('ofwId').' ');
         return redirect('/ofwD');
     }
     public function deleteOdata(Request $request){

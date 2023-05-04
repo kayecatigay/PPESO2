@@ -116,10 +116,11 @@ class ServicesController extends Controller
     {
         //$name=$request->input('lastname') ."," .$request->input('firstname') ." " .$request->input('middlename');
         $ofwData = DB::insert('insert into ofw(userid, lastname, firstname, middlename, suffix, birthday, age, sex, contactnum, address, passnum, 
-        emailadd, fbacc) values(' .$request->input('userid') .',"' .$request->input('lastname') .'","' .$request->input('firstname') .'","'
+        emailadd, fbacc, JobDesc, OfwCat, Company, Country, PeriodOfEmp) values(' .$request->input('userid') .',"' .$request->input('lastname') .'","' .$request->input('firstname') .'","'
         .$request->input('middlename') .'","' .$request->input('suffix') .'","' .$request->input('birthday') .'",' .$request->input('age') .',"'
         .$request->input('sex') .'","' .$request->input('contactnum') .'","' .$request->input('address') .'","'.$request->input('passnum') .'","'
-        .$request->input('emailadd') .'","' .$request->input('fbacc') .'")');
+        .$request->input('emailadd') .'","' .$request->input('fbacc') .'","' .$request->input('jobdesi').'","' .$request->input('ofwcat') .'","' 
+        .$request->input('company') .'","' .$request->input('country') .'","' .$request->input('period') .'")');
 
         return view('ofwhomepage');
     }
