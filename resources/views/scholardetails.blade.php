@@ -103,26 +103,6 @@
                 <option value="brother">Brother</option>
               </select>
             </div>
-              <div class="col-4  form-group">
-                <label for="father">Father's Name</label>
-                <input type="text" class="form-control" id="father" name="father">
-            </div>
-          <div class="col-3 form-group">
-            <label for="occupation">Occupation</label>
-            <input type="text" class="form-control" id="occupation" name="occupation">
-          </div>
-          <div class="col-3  form-group">
-              <label for="mother">Mother's Name</label>
-              <input type="text" class="form-control" id="mother" name="mother">
-          </div>
-          <div class="col-3 form-group">
-            <label for="occupation">Occupation</label>
-            <input type="text" class="form-control" id="occupation" name="occupation">
-          </div>
-          <div class="col form-group">
-            <label for="siblings">Siblings</label>
-            <input type="text" class="form-control" id="siblings" name="siblings"> <br>
-          </div>
         </div>
 
           <div class="row">
