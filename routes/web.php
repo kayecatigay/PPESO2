@@ -86,7 +86,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteuserD', [App\Http\Controllers\AdminController::class, 'deleteUdata']);
 
     Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
-    // Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
+    Route::get('/showAllSApp', [App\Http\Controllers\ScholarAdminController::class, 'scholarNOData']);
+    Route::get('/newScholar', [App\Http\Controllers\ScholarAdminController::class, 'newSD']);
+    Route::get('/oldScholar', [App\Http\Controllers\ScholarAdminController::class, 'oldSD']);
+    Route::get('/SchedExam', [App\Http\Controllers\ScholarAdminController::class, 'Ssexam']);
+    Route::get('/addSched', [App\Http\Controllers\ScholarAdminController::class, 'addS']);
 
     Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
 

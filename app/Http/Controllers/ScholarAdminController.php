@@ -13,4 +13,30 @@ class ScholarAdminController extends Controller
     {
         return view('ScholarDashboard');
     }
+    public function scholarNOData()
+    {
+        $scholardata = DB::select('select * from scholarship');
+        // dd($scholardata);
+        return view('ScholarAll',['data'=>$scholardata]);
+    }
+    public function newSD()
+    {
+        $scholardata = DB::select('select * from scholarship');
+        // dd($scholardata);
+        return view('newSD',['data'=>$scholardata]);
+    }
+    public function oldSD()
+    {
+        $scholardata = DB::select('select * from scholarship');
+        // dd($scholardata);
+        return view('oldSD',['data'=>$scholardata]);
+    }
+    public function Ssexam()
+    {
+        return view ('Esched');
+    }
+    public function addS()
+    {
+        return view ('addSched');
+    }
 }

@@ -78,7 +78,7 @@
 
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="peapD" aria-expanded="true" data-toggle="collapse" data-target="#collapseScholar"
+                        <a class="nav-link collapsed" href="showAllSApp" aria-expanded="true" data-toggle="collapse" data-target="#collapseScholar"
                             aria-expanded="true"  aria-controls="collapseTwo">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                             <span>Scholarship</span>
@@ -92,7 +92,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="empD" aria-expanded="true"data-toggle="collapse" data-target="#collapsedsched"
+                        <a class="nav-link collapsed" href="SchedExam" aria-expanded="true"data-toggle="collapse" data-target="#collapsedsched"
                             aria-controls="collapseTwo"> <i class="fa fa-calendar" aria-hidden="true"></i>
                             <span>Schedules</span> <!--scheduling and status-->
                         </a>
@@ -103,6 +103,13 @@
                                 <a class="collapse-item" href="/SchedInterview">Interview</a>
                             </div>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ofwD" aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>Tracking</span>
+                        </a>
+                        
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ofwD" aria-expanded="true" aria-controls="collapseTwo">

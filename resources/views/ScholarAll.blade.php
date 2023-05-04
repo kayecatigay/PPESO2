@@ -1,4 +1,4 @@
-@extends('layouts.addefault')
+@extends('layouts.Saddefault')
 
 @section('maincontent')
 <style>
@@ -99,7 +99,7 @@
                </div>
          </div>
       </div>   
-<!-- old scholar -->
+                              <!-- old scholar -->
       <div class="col-xl-16">
          <div class="card shadow mb-4">
             <div
