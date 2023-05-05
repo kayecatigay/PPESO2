@@ -42,18 +42,36 @@ class ScholarAdminController extends Controller
 
         return view ('Esched');
     }
-    public function EditS(Request $request)
-    {
-        $empID=$request->input('empID');
-        $showdata = DB::select('select * from employment where id=' .$empID);
-        //dd($prod);
-        return view('editEdata',['eEMP'=>$showdata]); 
-    }
     public function addS(Request $request)
+    {
+        return view ('addSched');
+    }
+    public function insertS(Request $request)
     {
         $SchedData = DB::insert('insert into sschedules(ScName, Date, Time, Loc, Proctor, Req) 
         values("' .$request->input('name') .'","' .$request->input('name') .'","' .$request->input('name') .'","'
         .$request->input('name') .'","' .$request->input('name'). '")');
-        return view ('addSched');
     }
+    public function editSched(Request $request)
+    {
+        $schedID=$request->input('schedID');
+        $showdata = DB::select('select * from sschedules where id=' .$schedID);
+        //dd($prod);
+        return view('editSched',['sched'=>$showdata]); 
+    }
+    public function updateS(Request $request)
+    {
+        $schedData = DB::update('update sschedules set ScName="' .$request->input('scholar'). '",Date= 
+        "' .$request->input('date'). '",Time= "' .$request->input('time'). '",Loc=
+        "' .$request->input('location'). '",Proctor= "' .$request->input('proctor'). '",Req=
+        "' .$request->input('requirements'). '",type= "' .$request->input('type'). '")');
+        return redirect('AllSched');
+    }
+    public function deleteSched(Request $request)
+    {
+        DB::delete("DELETE FROM sschedules WHERE id = " .$request->input('delId'));
+        
+        return redirect('/AllSched');
+    }
+    
 }
