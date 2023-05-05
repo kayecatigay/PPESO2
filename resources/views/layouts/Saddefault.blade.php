@@ -92,7 +92,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="SchedExam" aria-expanded="true"data-toggle="collapse" data-target="#collapsedsched"
+                        <a class="nav-link collapsed" href="AllSched" aria-expanded="true"data-toggle="collapse" data-target="#collapsedsched"
                             aria-controls="collapseTwo"> <i class="fa fa-calendar" aria-hidden="true"></i>
                             <span>Schedules</span> <!--scheduling and status-->
                         </a>

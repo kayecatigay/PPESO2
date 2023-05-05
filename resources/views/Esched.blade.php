@@ -13,7 +13,11 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">Esched</h6>
-               <button type="submit" href="/addSched"><h6 class="m-0 font-weight-bold text-dark">Add</h6></button>
+               <form action="/addSched">
+                  <input class="font-weight-bold" style="background-color:#5F9EA0; border:none;" 
+                  type="submit" value="Add" />
+               </form>
+               
             </div>
                <!-- Card Body -->
                <div class="card-body">
@@ -21,21 +25,12 @@
                      <table class="table">
                         <thead>
                            <tr>
-                              <th scope="col">Name</th>
-                              <th scope="col">Sex</th>
-                              <th scope="col">Address</th>
-                              <th scope="col">Email Address</th>
-                              <th scope="col">Contact number</th>
-                              <th scope="col">Birth date</th>
-                              <th scope="col">Birth place</th>
-                              <th scope="col">Age</th>
-                              <th scope="col">Height</th>
-                              <th scope="col">Weight</th>
-                              <th scope="col">Bloodtype</th>
-                              <th scope="col">Religion</th>
-                              <th scope="col">Guardian</th>
-                              <th scope="col">Relation</th>
-                              <th scope="col">Action</th>
+                              <th scope="col">Scholar</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Time</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Requirements</th>
+                              <th scope="col">Proctor</th>                           
                            </tr>
                         </thead>
                         <tbody>

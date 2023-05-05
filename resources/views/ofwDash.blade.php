@@ -42,20 +42,20 @@
                            @foreach ($data as $ofw)
                               @php $name = $ofw->lastname.",".$ofw->firstname. " " .$ofw->middlename; @endphp
                               <tr>
-                                 <td>{{ $name }}</div>
-                                 <td>{{ $ofw->birthday }}</div>
-                                 <td>{{ $ofw->age }}</div>
-                                 <td>{{ $ofw->sex }}</div>
-                                 <td>{{ $ofw->contactnum }}</div>
-                                 <td>{{ $ofw->address }}</div>
-                                 <td>{{ $ofw->passnum }}</div>
-                                 <td>{{ $ofw->emailadd }}</div>
-                                 <td>{{ $ofw->JobDesc }}</div>
-                                 <td>{{ $ofw->OfwCat }}</div>
-                                 <td>{{ $ofw->Company }}</div>
-                                 <td>{{ $ofw->Country }}</div>
-                                 <td>{{ $ofw->PeriodOfEmp }}</div>
-                                 <td>{{ $ofw->fbacc }}</div>
+                                 <td>{{ $name }}</td>
+                                 <td>{{ $ofw->birthday }}</td>
+                                 <td>{{ $ofw->age }}</td>
+                                 <td>{{ $ofw->sex }}</td>
+                                 <td>{{ $ofw->contactnum }}</td>
+                                 <td>{{ $ofw->address }}</td>
+                                 <td>{{ $ofw->passnum }}</td>
+                                 <td>{{ $ofw->emailadd }}</td>
+                                 <td>{{ $ofw->JobDesc }}</td>
+                                 <td>{{ $ofw->OfwCat }}</td>
+                                 <td>{{ $ofw->Company }}</td>
+                                 <td>{{ $ofw->Country }}</td>
+                                 <td>{{ $ofw->PeriodOfEmp }}</td>
+                                 <td>{{ $ofw->fbacc }}</td>
                                  <td>
                                     <span class="input-group">
 

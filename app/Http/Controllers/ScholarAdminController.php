@@ -31,8 +31,15 @@ class ScholarAdminController extends Controller
         // dd($scholardata);
         return view('oldSD',['data'=>$scholardata]);
     }
+    public function allSched()
+    {
+        $schedData= DB::select('select * from sschedules');
+        // dd($schedData);
+        return view ('Asched',['sched'=>$schedData]);
+    }
     public function Ssexam()
     {
+
         return view ('Esched');
     }
     public function addS()
