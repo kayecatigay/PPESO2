@@ -48,7 +48,7 @@
                                  <td>
                                  <span class="input-group">
                                     <form action ="/editSched" method="get">
-                                       <input type="hidden" id="ofwID" name="ofwID" value="{{ $sc->id }}">
+                                       <input type="hidden" id="schedID" name="schedID" value="{{ $sc->id }}">
                                        <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                     </form>
                                     &emsp;

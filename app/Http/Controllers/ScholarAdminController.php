@@ -42,8 +42,18 @@ class ScholarAdminController extends Controller
 
         return view ('Esched');
     }
-    public function addS()
+    public function EditS(Request $request)
     {
+        $empID=$request->input('empID');
+        $showdata = DB::select('select * from employment where id=' .$empID);
+        //dd($prod);
+        return view('editEdata',['eEMP'=>$showdata]); 
+    }
+    public function addS(Request $request)
+    {
+        $SchedData = DB::insert('insert into sschedules(ScName, Date, Time, Loc, Proctor, Req) 
+        values("' .$request->input('name') .'","' .$request->input('name') .'","' .$request->input('name') .'","'
+        .$request->input('name') .'","' .$request->input('name'). '")');
         return view ('addSched');
     }
 }
