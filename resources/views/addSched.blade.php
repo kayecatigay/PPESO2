@@ -1,7 +1,7 @@
 @extends('layouts.Saddefault')
 
 @section('maincontent')
-   <form action ="/insertSched" method="post" enctype="multipart/form-data">
+   <form action ="/insertSched" method="get" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
          <label for="schedId"></label>

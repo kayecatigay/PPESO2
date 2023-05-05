@@ -48,9 +48,10 @@ class ScholarAdminController extends Controller
     }
     public function insertS(Request $request)
     {
-        $SchedData = DB::insert('insert into sschedules(ScName, Date, Time, Loc, Proctor, Req) 
-        values("' .$request->input('name') .'","' .$request->input('name') .'","' .$request->input('name') .'","'
-        .$request->input('name') .'","' .$request->input('name'). '")');
+        dd($request->input('scholar'));
+        // $SchedData = DB::insert('insert into sschedules(ScName, Date, Time, Loc, Proctor, Req) 
+        // values("' .$request->input('name') .'","' .$request->input('name') .'","' .$request->input('name') .'","'
+        // .$request->input('name') .'","' .$request->input('name'). '")');
     }
     public function editSched(Request $request)
     {
