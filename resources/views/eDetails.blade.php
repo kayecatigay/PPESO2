@@ -50,17 +50,23 @@
             </div>
           </div>
           <div class="row">
-            <div class="col form-group">
+            <div class="col-5 form-group">
               <label for="add"> Address</label>
               <input type="text" class="form-control" id="add" name="add"  placeholder="Sitio, Barangay, Bayan, Province">
             </div>
+            <div class="col form-group">
+              <label for="language">Language</label>
             <div class="col form-control">
               <input type="checkbox" id="tagalog" name="tagalog">
               <label for="tagalog">Tagalog</label>
               <input type="checkbox" id="english" name="english">
               <label for="english">English</label>
               <input type="checkbox" id="chinese" name="chinese">
-              <label for="chinese">Chinese</label>
+              <label for="chinese">Mandarin</label>
+              <input type="checkbox" id="japanese" name="japanese">
+              <label for="japanese">Japanese</label>
+              <input type="checkbox" id="korea" name="korea">
+              <label for="chinese">Hangul</label>
             </div>
           </div>
           <div class="row">
@@ -69,12 +75,12 @@
               <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="">
             </div>
             <div class="col form-group">
-              <label for="height">Height</label>
-              <input type="number" class="form-control" id="height" name="height"  placeholder="Enter Height">
+              <label for="height">Height (cm)</label>
+              <input type="text" class="form-control" id="height" name="height"  placeholder="Enter Height">
             </div>
             <div class="col form-group">
-              <label for="weight">Weight</label>
-              <input type="number" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
+              <label for="weight">Weight (kg)</label>
+              <input type="text" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
             </div>
           </div>
           <div class="row">
