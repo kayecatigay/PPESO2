@@ -42,11 +42,7 @@
                 <!-- Sidebar -->
                 <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" >
                     @section('sidebar content')
-                    {{ $menu[0] }}
-
-                    @for ($i = 0; $i < 10; $i++)
-                        The current value is {{ $i }}
-                    @endfor
+                   
                         <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
                             <div class="sidebar-brand-icon rotate-n-15">
