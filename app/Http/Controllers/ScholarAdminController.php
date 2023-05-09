@@ -83,14 +83,16 @@ class ScholarAdminController extends Controller
     }
     public function deleteSched(Request $request)
     {
-        dd($request->input('delId'));
+        // dd($request->input('delId'));
         DB::delete("DELETE FROM sschedules WHERE id = " .$request->input('delId'));
         
         return redirect('/SAllSched');
     }
     public function sAnn()
     {
-        return view ('Sannouncements');
+        $annData = DB::select('select * from sannouncements');
+        // dd($annData);
+        return view ('Sannouncements',['Sann'=>$annData]);
     }
     public function addAnn()
     {

@@ -62,7 +62,7 @@
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $old->id }}">
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $old->id }}">
                                           Delete
                                        </button>
 
@@ -72,7 +72,7 @@
                                              <div class="modal-content">
                                                 <div class="modal-header">
                                                       <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
-                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                       Do you really want to delete this record: {{ $old->name}}?
@@ -83,7 +83,7 @@
                                                          <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
                                                          <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
                                                       </form>
-                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                 </div>
                                              </div>
                                           </div>
@@ -154,7 +154,7 @@
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $old->id }}">
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $old->id }}">
                                           Delete
                                        </button>
 
@@ -164,7 +164,7 @@
                                              <div class="modal-content">
                                                 <div class="modal-header">
                                                       <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
-                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                       Do you really want to delete this record: {{ $old->name}}?
@@ -175,7 +175,7 @@
                                                          <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
                                                          <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
                                                       </form>
-                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                 </div>
                                              </div>
                                           </div>

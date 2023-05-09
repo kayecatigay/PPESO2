@@ -12,7 +12,7 @@
          <div class="card shadow mb-4">
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">Annoucements</h6>
+               <h6 class="m-0 font-weight-bold text-dark">Announcements</h6>
                <form action="/addAnnouncements">
                   <input class="font-weight-bold" style="background-color:#5F9EA0; border:none;" 
                   type="submit" value="Add" />
@@ -23,18 +23,26 @@
                <div class="card-body">
                   <div class="container table-container">
                      <table class="table">
-                        <thead>
+                        <thead style="text-align:center">
                            <tr>
-                              <th scope="col">Scholar</th>
                               <th scope="col">Date</th>
-                              <th scope="col">Time</th>
-                              <th scope="col">Location</th>
+                              <th scope="col">Schedule</th>
+                              <th scope="col">Details</th>
                               <th scope="col">Requirements</th>
-                              <th scope="col">Proctor</th>
-                              <th scope="col">Type</th>            
-                              <th scope="col">Action</th>            
+                              <th scope="col">Action</th>
                            </tr>
                         </thead>
+                        <tbody style="text-align:center">
+                           @foreach ($Sann as $ann)
+                              <tr>
+                                 <td>{{ $ann->date }}</td>
+                                 <td>{{ $ann->schedule }}</td>
+                                 <td>{{ $ann->details }}</td>
+                                 <td>{{ $ann->req }}</td>
+                                 <td>
+                              </tr>   
+                           @endforeach                                 
+                        </tbody>
                          
                      </table>
                   </div>
