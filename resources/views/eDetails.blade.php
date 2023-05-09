@@ -55,7 +55,7 @@
               <input type="text" class="form-control" id="add" name="add"  placeholder="Sitio, Barangay, Bayan, Province">
             </div>
             <div class="col form-group">
-              <label for="language">Language</label>
+              <label for="language">Language</label>>
             <div class="col form-control">
               <input type="checkbox" id="tagalog" name="tagalog">
               <label for="tagalog">Tagalog</label>

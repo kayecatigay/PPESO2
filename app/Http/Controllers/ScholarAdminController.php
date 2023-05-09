@@ -88,5 +88,12 @@ class ScholarAdminController extends Controller
         
         return redirect('/SAllSched');
     }
-    
+    public function sAnn()
+    {
+        return view ('Sannouncements');
+    }
+    public function addAnn()
+    {
+        return view ('addAnn');
+    }
 }
