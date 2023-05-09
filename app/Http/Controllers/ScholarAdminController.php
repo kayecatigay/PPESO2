@@ -145,4 +145,5 @@ class ScholarAdminController extends Controller
 
         return redirect('/Sannouncements');
     }
+    
 }
