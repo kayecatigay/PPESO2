@@ -97,9 +97,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteSched', [App\Http\Controllers\ScholarAdminController::class, 'deleteSched']);
     Route::get('/updateSched', [App\Http\Controllers\ScholarAdminController::class, 'updateS']);
 
-    Route::get('/Sannouncements', [App\Http\Controllers\ScholarAdminController::class, 'sAnn']);
-    Route::get('/addAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'addAnn']);
-    Route::get('/editAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'editAnn']);
+
 
     Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
 
