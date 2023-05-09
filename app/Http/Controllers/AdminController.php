@@ -16,7 +16,23 @@ class AdminController extends Controller
     public function dashboard()
     {
         
-        return view ('dashboard');
+        if(Auth()->user()->roles==1)
+        {
+            $smenus=array('PEAP','Employment','OFW');
+        }
+        else
+        {
+            $smenus=array();
+        }
+        
+        // $gmenus=
+        $ssub=array(
+            array('Scholarship','Schedules','Tracking','Announcements'),
+            array('Applicants','Works Available','Schedules','Announcements'),
+            array('Applicants','Schedules','Announcements'),
+            array(),
+        );
+        return view ('dashboard',['smenu'=>$smenus,'submenu'=>$ssub]);
     }
     public function ahome(Request $request)
     {
@@ -167,6 +183,7 @@ class AdminController extends Controller
         $urole= ($request->input('roles')== "oadmin") ? 3 : $urole;
         $urole= ($request->input('roles')== "eadmin") ? 2 : $urole;
         $urole= ($request->input('roles')== "sadmin") ? 1 : $urole;
+        
         $userData = DB::update('update users set roles= "' .$urole 
             .'" where id=' .$request->input('id').' ');
         return redirect('/usersD');

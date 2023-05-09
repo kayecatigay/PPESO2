@@ -56,7 +56,7 @@ class ScholarAdminController extends Controller
         $SchedData = DB::insert('insert into sschedules(ScName, Date, Time, Loc, Proctor, Req, type) 
         values("' .$request->input('scholar') .'","' .$request->input('date') .'","' .$request->input('time') .'","'
         .$request->input('location') .'","' .$request->input('proctor') .'","' .$request->input('type') .'","' .$req.'")');
-        return redirect('AllSched');
+        return redirect('SAllSched');
     }
     public function editSched(Request $request)
     {
@@ -79,14 +79,14 @@ class ScholarAdminController extends Controller
         "' .$request->input('date'). '",Time= "' .$request->input('time'). '",Loc=
         "' .$request->input('location'). '",Proctor= "' .$request->input('proctor'). '",Req=
         "' .$req. '",type= "' .$request->input('type'). '" where id='.$request->input('id') .' ');
-        return redirect('AllSched');
+        return redirect('SAllSched');
     }
     public function deleteSched(Request $request)
     {
         dd($request->input('delId'));
         DB::delete("DELETE FROM sschedules WHERE id = " .$request->input('delId'));
         
-        return redirect('/AllSched');
+        return redirect('/SAllSched');
     }
     
 }

@@ -42,7 +42,11 @@
                 <!-- Sidebar -->
                 <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" >
                     @section('sidebar content')
+                    {{ $menu[0] }}
 
+                    @for ($i = 0; $i < 10; $i++)
+                        The current value is {{ $i }}
+                    @endfor
                         <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
                             <div class="sidebar-brand-icon rotate-n-15">
@@ -69,34 +73,56 @@
                         <div class="sidebar-heading">
                             SERVICES
                         </div>
-            
+
                         <!-- Nav Item - Pages Collapse Menu -->
-                        @for ($i = 0; $i < count($smenu); $i++)
-                            <li class="nav-item">
-                                @if(count($submenu[$i])>0)
-                                    <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapse{{$i}}"
-                                        aria-expanded="true" aria-controls="collapse{{$i}}">
-                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                        <span>{{ $smenu[$i] }}</span>
-                                    </a>
-                                    <div id="collapse{{$i}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                        <div class="bg-white py-2 collapse-inner rounded">
-                                            <h6 class="collapse-header">SERVICES</h6>
-                                            @for ($y = 0; $y < count($submenu[$i]); $y++)
-                                                <a class="collapse-item" href="/showAllSApp">{{ $submenu[$i][$y] }}</a>
-                                            @endfor
-                                        </div>
-                                    </div>
-                                @else
-                                    <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        <span>{{ $smenu[$i] }}</span>
-                                    </a>
-                                @endif
-                            </li>
-                        @endfor
-                        
-                        
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="true" aria-controls="collapseTwo">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>PEAP</span>
+                            </a>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllSApp">Scholarship</a>
+                                    <a class="collapse-item" href="/SAllSched">Schedules</a>
+                                    <a class="collapse-item" href="/Stracking">Tracking</a>
+                                    <a class="collapse-item" href="/Sannouncements">Announcements</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="empD"  data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="true" aria-controls="collapseThree">
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                <span>Employment</span>
+                            </a>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllEApp">Applicants</a>
+                                    <a class="collapse-item" href="/Works">Works Available</a>
+                                    <a class="collapse-item" href="/empSched">Schedules</a>
+                                    <a class="collapse-item" href="/Eann">Announcements</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="ofwD" data-toggle="collapse" data-target="#collapsedFour"
+                            aria-expanded="true" aria-controls="collapsedFour">
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Ofw</span>
+                            </a>
+                            <div id="collapsedFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllOApp">Applicants</a>
+                                    <a class="collapse-item" href="/ofwSched">Schedules</a>
+                                    <a class="collapse-item" href="/Oann">Announcements</a>
+                                </div>
+                            </div>
+                            
+                        </li>
 
                         <!-- Divider -->
                         <hr class="sidebar-divider">

@@ -63,8 +63,9 @@
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $usr->id }}">
-                                          Delete
+
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $usr->id }}">
+                                       Delete
                                        </button>
 
                                           <!-- DELETE Modal -->
@@ -73,7 +74,7 @@
                                              <div class="modal-content">
                                              <div class="modal-header">
                                                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $usr->id }} </h5>
-                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                              </div>
                                              <div class="modal-body">
                                                    Do you really want to delete this record: {{ $usr->name}}?
@@ -84,7 +85,8 @@
                                                       <input type="hidden" id="delId" name="delId" value="{{ $usr->id }}">
                                                       <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $usr->id }}').modal('hide');" >Yes</button>
                                                    </form>
-                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
                                              </div>
                                              </div>
                                           </div>
@@ -103,6 +105,12 @@
                </div>
          </div>
       </div>
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+
    <script>
       // Add event listener to scroll the table
       var tableContainer = document.querySelector('.table-container');
@@ -111,6 +119,7 @@
          tableContainer.scrollLeft += event.deltaY;
       });
    </script>
+
 @endsection
 
 <!-- End of Page Wrapper -->
