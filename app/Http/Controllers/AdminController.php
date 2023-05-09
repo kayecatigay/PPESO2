@@ -15,15 +15,31 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        
-        if(Auth()->user()->roles==1)
-        {
+        // switch ((Auth()->user()->roles))
+        // {
+        //     case "1":
+        //         $smenus=array('PEAP');
+        //         break;
+        //     case "2":
+        //         $smenus=array('Employment');
+        //         break;
+        //     case "3":
+        //         $smenus=array('OFW');
+        //         break;
+        //     case "4":
+        //         $smenus=array('PEAP','Employment','OFW');
+        //         break;
+        //     default:
+        //         $smenus=array('');
+        // }
+        // if(Auth()->user()->roles==1)
+        // {
             $smenus=array('PEAP','Employment','OFW');
-        }
-        else
-        {
-            $smenus=array();
-        }
+        // }
+        // else
+        // {
+        //     $smenus=array();
+        // }
         
         // $gmenus=
         $ssub=array(
@@ -32,7 +48,8 @@ class AdminController extends Controller
             array('Applicants','Schedules','Announcements'),
             array(),
         );
-        return view ('dashboard',['smenu'=>$smenus,'submenu'=>$ssub]);
+        return view ('dashboard');
+        // return view ('dashboard',['smenu'=>$smenus,'submenu'=>$ssub]);
     }
     public function ahome(Request $request)
     {
@@ -183,7 +200,7 @@ class AdminController extends Controller
         $urole= ($request->input('roles')== "oadmin") ? 3 : $urole;
         $urole= ($request->input('roles')== "eadmin") ? 2 : $urole;
         $urole= ($request->input('roles')== "sadmin") ? 1 : $urole;
-        
+
         $userData = DB::update('update users set roles= "' .$urole 
             .'" where id=' .$request->input('id').' ');
         return redirect('/usersD');
