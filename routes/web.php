@@ -100,7 +100,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/Sannouncements', [App\Http\Controllers\ScholarAdminController::class, 'sAnn']);
     Route::get('/addAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'addAnn']);
     Route::get('/editAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'editAnn']);
+    Route::get('/insertAnn', [App\Http\Controllers\ScholarAdminController::class, 'insertA']);
+    Route::get('/updateAnn', [App\Http\Controllers\ScholarAdminController::class, 'updateA']);
 
+    Route::get('/deleteAnn', [App\Http\Controllers\ScholarAdminController::class, 'deleteAnn']);
+    
     Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
 
     

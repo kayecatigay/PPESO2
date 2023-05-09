@@ -98,4 +98,51 @@ class ScholarAdminController extends Controller
     {
         return view ('addAnn');
     }
+    public function insertA(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? "|pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? "|ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? "|validid" :"";
+        $req.= ($request->input('snacks')=="on") ? "|snacks" :"";
+        $req.= ($request->input('water')=="on") ? "|water" :"";
+        $req=substr($req,1);  
+
+        // dd($request->input('type'));
+        $SchedData = DB::insert('insert into sannouncements(date, schedule, details, req) 
+        values("' .$request->input('date') .'","' .$request->input('sched') .'","' .$request->input('dets') .'","'
+        .$req .'")');
+
+        return redirect('Sannouncements');
+    }
+    public function editAnn(Request $request)
+    {
+        $annData=$request->input('annID');
+        
+        $showdata = DB::select('select * from sannouncements where id=' .$annData);
+        // dd($showdata);
+        return view('editAnn',['ann'=>$showdata]); 
+    }
+    public function updateA(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? "|pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? "|ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? "|validid" :"";
+        $req.= ($request->input('snacks')=="on") ? "|snacks" :"";
+        $req.= ($request->input('water')=="on") ? "|water" :"";
+        $req=substr($req,1); 
+
+        $announceData = DB::update('update sannouncements set date="' .$request->input('date'). '",schedule= 
+        "' .$request->input('sched'). '",details= "' .$request->input('dets'). '",req=
+        "' .$req. '" where id='.$request->input('id') .' ');
+
+        return redirect('/Sannouncements');
+    }
+    public function deleteAnn(Request $request)
+    {
+        DB::delete("DELETE FROM sannouncements WHERE id = " .$request->input('delId'));
+
+        return redirect('/Sannouncements');
+    }
 }

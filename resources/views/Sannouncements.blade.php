@@ -40,6 +40,45 @@
                                  <td>{{ $ann->details }}</td>
                                  <td>{{ $ann->req }}</td>
                                  <td>
+                                    <span class="input-group">
+
+                                       <form action ="/editAnnouncements" method="get">
+                                          <input type="hidden" id="annID" name="annID" value="{{ $ann->id }}">
+                                          <input type="submit" class="btn btn-info" value="Edit" name="submit">
+                                       </form>
+                                       &emsp;
+
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $ann->id }}">
+                                          Delete
+                                       </button>
+
+                                          <!-- DELETE Modal -->
+                                       <div class="modal fade" id="delmod{{ $ann->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog modal-lg">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $ann->id }} </h5>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                      Do you really want to delete this schedule: {{ $ann->schedule}}?
+                                                </div>
+                                                <div class="modal-footer">
+                                                      <form action ="deleteAnn" method="get" >
+                                                         @csrf
+                                                         <input type="hidden" id="delId" name="delId" value="{{ $ann->id }}">
+                                                         <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $ann->id }}').modal('hide');" >Yes</button>
+                                                      </form>
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <!-- DELETE Modal -->
+
+                                       </div>
+                                    </span>
+                                 </td>
                               </tr>   
                            @endforeach                                 
                         </tbody>

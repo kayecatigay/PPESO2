@@ -2,51 +2,38 @@
 
 @section('maincontent')       
         
-        <form action ="/updateSched" method="get" enctype="multipart/form-data">
+        <form action ="/updateAnn" method="get" enctype="multipart/form-data">
             @csrf
           <div class="form-group">
-            <label for="empID"></label>
-            <input type="hidden" class="form-control" id="empID" name="empID"  placeholder="Enter Name">
+            <label for="annID"></label>
+            <input type="hidden" class="form-control" id="annID" name="annID"  placeholder="Enter Name">
           </div>
           <div class="form-group">
             <label for="id"></label>
-            <input type="hidden" class="form-control" id="id" name="id" >
+            <input type="hidden" class="form-control" id="id" name="id" value="{{$ann[0]->id}}">
           </div>
-          <p><h4>Schedule Data</h4></p>
+          <p><h4>Announcements</h4></p>
           <div class="container">
             <div class="row">
-              <div class="col-9 form-group">
-                <label for="scholar">Name</label>
-                <input type="text" class="form-control" id="scholar" name="scholar"  >
-              </div>
-              <div class="col">
-                  <label for="type">Type</label>
-                  <select class="form-control" name="type" id="type" >
-                    <option value="exam">Exam</option>
-                    <option value="interview">Interview</option>
-                  </select>
-              </div>
-              
-            </div>
-            <div class="row">
-              <div class="col form-group">
+              <div class="col-4 form-group">
                 <label for="date">Date</label>
                 <input type="date" class="form-control" id="date" name="date"  
-                placeholder="Date" >
+                placeholder="Date" value="{{$ann[0]->date}}">
               </div>
-              <div class="col form-group">
-                <label for="time">Time</label>
-                <input type="time" class="form-control" id="time" name="time" >
-              </div>
-              <div class="col-7 form-group">
-                <label for="location">Location</label>
-                <input type="text" class="form-control" id="location" name="location"  >
+              <div class="col">
+                  <label for="sched">Schedule</label>
+                  <select class="form-control" name="sched" id="sched" value="{{$ann[0]->schedule}}">
+                    <option value="exam">Exam</option>
+                    <option value="interview">Interview</option>
+                    <option value="passers">Passers</option>
+                    <option value="graduates">Graduates</option>
+                  </select>
               </div>
             </div>
-            <div class="row">  
-              <div class="col form-group">
-                <label for="proctor">Proctor</label>
-                <input type="text" class="form-control" id="proctor" name="proctor"  >
+            <div class="row">
+              <div class="col-7 form-group">
+                <label for="details">Details</label>
+                <input type="text" class="form-control" id="details" name="details" value="{{$ann[0]->details}}">
               </div>
               <div class="col form-group">
                 <label for="req">Requirements</label>

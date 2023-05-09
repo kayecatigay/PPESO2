@@ -1,7 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
-   <form action ="/insertSched" method="get" enctype="multipart/form-data">
+   <form action ="/insertAnn" method="get" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
          <label for="schedId"></label>
@@ -11,54 +11,44 @@
       <div class="form-group">
          <p><h4>Annoucements</h4></p>
          <div class="container">      
-            <div class="row">
-               <div class="col-7">
-                  <label for="scholar">Name</label>
-                  <input type="text" class="form-control" id="scholar" name="scholar" >
-               </div>
-               <div class="col-5">
-                  <label for="proctor">Proctor</label>
-                  <input type="text" class="form-control" id="proctor" name="proctor">
-               </div>
-            </div>
+          
             <div class="row">
                <div class="col">
                   <label for="date">Date</label>
                   <input type="date" class="form-control" id="date" name="date">
                </div>
                <div class="col">
-                  <label for="time">Time</label>
-                  <input type="time" class="form-control" id="time" name="time">
-               </div>
-               <div class="col-6">
-                  <label for="location">Location</label>
-                  <input type="text" class="form-control" id="location" name="location">
+                  <label for="sched">Schedule</label>
+                  <select class="form-control" name="sched" id="sched">
+                     <option value="exam">Exam</option>
+                     <option value="interview">Interview</option>
+                     <option value="passers">Passers</option>
+                    <option value="graduates">Graduates</option>
+                  </select>
                </div>
             </div>
             <div class="row form-group">
                <div class="col">
-                  <label for="type">Type</label>
-                  <select class="form-control" name="type" id="type">
-                     <option value="exam">Exam</option>
-                     <option value="interview">Interview</option>
-                  </select>
+                  <label for="dets">details</label>
+                  <input type="text" class="form-control" id="dets" name="dets">
                </div>
-               <div class="col form-group">
-                  <label for="req">Requirements</label>
-                  <div class="col form-control">
-                     <input type="checkbox" id="pencil" name="pencil">
-                     <label for="pencil">Pencil</label> &nbsp;
-                     <input type="checkbox" id="ballpen" name="ballpen">
-                     <label for="ballpen">Ballpen</label> &nbsp;
-                     <input type="checkbox" id="validid" name="validid">
-                     <label for="validid">Valid Id</label> &nbsp;
-                     <input type="checkbox" id="snacks" name="snacks">
-                     <label for="snacks">Snacks</label> &nbsp;
-                     <input type="checkbox" id="water" name="water">
-                     <label for="water">Water</label> &nbsp;
+           
+                  <div class="col form-group">
+                     <label for="req">Requirements</label>
+                     <div class="col form-control">
+                        <input type="checkbox" id="pencil" name="pencil">
+                        <label for="pencil">Pencil</label> &nbsp;
+                        <input type="checkbox" id="ballpen" name="ballpen">
+                        <label for="ballpen">Ballpen</label> &nbsp;
+                        <input type="checkbox" id="validid" name="validid">
+                        <label for="validid">Valid Id</label> &nbsp;
+                        <input type="checkbox" id="snacks" name="snacks">
+                        <label for="snacks">Snacks</label> &nbsp;
+                        <input type="checkbox" id="water" name="water">
+                        <label for="water">Water</label> &nbsp;
+                     </div>
                   </div>
-                  
-               </div>
+               
             </div>
             <div class="row">
                <div class="col-5">&nbsp;</div>
