@@ -103,6 +103,7 @@ Route::middleware("admin")->group(function () {
 
     Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
 
+    
 
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
 });
