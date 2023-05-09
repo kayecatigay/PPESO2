@@ -1,4 +1,4 @@
-@extends('layouts.Saddefault')
+@extends('layouts.addefault')
 
 @section('maincontent')
    <form action ="/insertSched" method="get" enctype="multipart/form-data">
@@ -7,10 +7,7 @@
          <label for="schedId"></label>
          <input type="hidden" class="form-control" id="schedId" name="schedId"  placeholder="Enter Name">
       </div>
-      <div class="form-group">
-         <label for="userid"></label>
-         <input type="hidden" class="form-control" id="userid" name="userid">
-      </div>
+      
       <div class="form-group">
          <p><h4>Schedule</h4></p>
          <div class="container">      
@@ -41,7 +38,10 @@
             <div class="row form-group">
                <div class="col">
                   <label for="type">Type</label>
-                  <input type="text" class="form-control" name="type" id="type">
+                  <select class="form-control" name="type" id="type">
+                     <option value="exam">Exam</option>
+                     <option value="interview">Interview</option>
+                  </select>
                </div>
                <div class="col form-group">
                   <label for="req">Requirements</label>

@@ -1,4 +1,4 @@
-@extends('layouts.Saddefault')
+@extends('layouts.addefault')
 
 @section('maincontent')
 <style>
@@ -42,8 +42,8 @@
                                  <td>{{ $sc->Date }}</td>
                                  <td>{{ $sc->Time }}</td>
                                  <td>{{ $sc->Loc }}</td>
-                                 <td>{{ $sc->Proctor }}</td>
                                  <td>{{ $sc->Req }}</td>
+                                 <td>{{ $sc->Proctor }}</td>
                                  <td>{{ $sc->type }}</td>
                                  <td>
                                  <span class="input-group">
@@ -58,23 +58,23 @@
 
                                        <!-- DELETE Modal -->
                                        <div class="modal fade" id="delmod{{ $sc->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                       <div class="modal-dialog modal-lg">
-                                          <div class="modal-content">
-                                          <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $sc->id }} </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                          </div>
-                                          <div class="modal-body">
-                                                Do you really want to delete this record: {{ $sc->ScName}}?
-                                          </div>
-                                          <div class="modal-footer">
-                                                <form action ="deleteSched" method="get" >
-                                                   @csrf
-                                                   <input type="hidden" id="delId" name="delId" value="{{ $sc->id }}">
-                                                   <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $sc->id }}').modal('hide');" >Yes</button>
-                                                </form>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                          </div>
+                                          <div class="modal-dialog modal-lg">
+                                             <div class="modal-content">
+                                             <div class="modal-header">
+                                                   <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $sc->id }} </h5>
+                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                             </div>
+                                             <div class="modal-body">
+                                                   Do you really want to delete this record: {{ $sc->ScName}}?
+                                             </div>
+                                             <div class="modal-footer">
+                                                   <form action ="/deleteSched" method="get" >
+                                                      @csrf
+                                                      <input type="hidden" id="delId" name="delId" value="{{ $sc->id }}">
+                                                      <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $sc->id }}').modal('hide');" >Yes</button>
+                                                   </form>
+                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                             </div>
                                           </div>
                                        </div>
                                        <!-- DELETE Modal -->
