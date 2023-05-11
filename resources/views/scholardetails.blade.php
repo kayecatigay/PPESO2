@@ -74,12 +74,13 @@
               <label for="height">Height (kg)</label>
               <input type="text" class="form-control" id="height" name="height"  placeholder="Enter Height">
             </div>
-          </div>
-            <div class="col-4 form-group">
+            <div class="col form-group">
               <label for="weight">Weight (cm)</label>
               <input type="text" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
             </div>
-            <div class="col-4 form-group">
+          </div>
+          <div class="row">  
+            <div class="col-2 form-group">
               <label for="bloodtype">Bloodtype</label>
               <select class="form-control" name="bloodtype" id="bloodtype">
                 <option value="N/A">Not Applicable</option>
@@ -97,7 +98,29 @@
               <label for="religion">Religion</label>
               <input type="text" class="form-control" id="religion" name="religion"  placeholder="Enter Religion">
             </div>
-            <div class="col-5 form-group">
+            <div class="col form-group">
+              <label for="yGraduated">Year Graduated</label>
+              <select class="form-control" name="yGraduated" id="yGraduated" onclick="myFunction()">
+                <option value="n/a">N/A</option>
+                <option value="year">2022</option>
+                <option value="year">2021</option>
+                <option value="year">2020</option>
+                <option value="year">2019</option>
+                <option value="year">2018</option>
+                <option value="year">2017</option>
+                <option value="year">2016</option>
+                <option value="year">2015</option>
+                <option value="year">2014</option>
+                <option value="year">2013</option>
+              </select>
+            </div>
+            <div class="col" id="hideschool" style="display: none;">
+              <label for="school">School</label>
+              <input type="text" class="form-control" id="school" name="school" >
+            </div>
+          </div>
+          <div class="row"> 
+          <div class="col-4 form-group">
                 <label for="guardian">Name of Guardian</label>
                 <input type="text" class="form-control" id="guardian" name="guardian"  placeholder="Enter name of Guardian">
                 <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
@@ -113,13 +136,32 @@
                 <option value="brother">Brother</option>
               </select>
             </div>
+            <div class="col form-group">
+              <label for="work">Work</label>
+              <select class="form-control" name="work" id="work" onclick="workFunction()">
+                <option value="n/a">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="nyet">Not Yet</option>
+              </select>
+            </div>
+            <div class="col" id="hidecompany" style="display: none;">
+              <label for="cname">Company Name</label>
+              <input type="text" class="form-control" id="cname" name="cname" >
+            </div>
+          </div> 
         </div>
-
+            <div class="row">
+              
+              
+              <div>
+              
+            </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>
             <div class="col"><button type="submit" class="btn btn-primary">Apply</button></div>
             <div class="col">&nbsp;</div>
           </div>
+          
         </form>
     </div>
   </section><!-- End Services Section -->
@@ -133,6 +175,30 @@
         var year = age_dt.getUTCFullYear();  
         var age = Math.abs(year - 1970);  
         document.getElementById("age").value=age;
+      }
+      function myFunction() 
+      {
+        var status = document.getElementById("yGraduated").value;
+        var x = document.getElementById("hideschool");
+        // alert(status);
+        if (status === "year") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+          document.getElementById("spouse").value="";
+        }
+      }
+      function workFunction() 
+      {
+        var status = document.getElementById("work").value;
+        var x = document.getElementById("hidecompany");
+        // alert(status);
+        if (status === "yes") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+          document.getElementById("cname").value="";
+        }
       }
   </script>
 @endsection
