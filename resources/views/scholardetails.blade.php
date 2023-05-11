@@ -19,6 +19,16 @@
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
           <div class="row">
+            <div class="col">
+              <label for="type">Scholar</label>
+              <select class="form-control" name="type" id="type">
+                <option value="new">New</option>
+                <option value="old">Old</option>
+              </select>
+            </div>
+            <div class="col-9">&nbsp;</div>
+          </div>
+          <div class="row">
             <div class="col-9 form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">

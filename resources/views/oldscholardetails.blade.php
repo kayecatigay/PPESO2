@@ -19,17 +19,27 @@
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
           <div class="row">
+            <div class="col">
+              <label for="type">Scholar</label>
+              <select class="form-control" name="type" id="type">
+                <option value="new">New</option>
+                <option value="old">Old</option>
+              </select>
+            </div>
+            <div class="col-10">&nbsp;</div>
+          </div>
+          <div class="row">
             <div class="col-4 form-group">
               <label for="name">Lastname</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
+              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->lastname }}">
             </div>
             <div class="col-4 form-group">
               <label for="name">Firstname</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
+              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->firstname }}">
             </div>
             <div class="col-2 form-group">
               <label for="name">Middlename</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
+              <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->middlename }}">
             </div>
             <div class="col form-group">
               <label for="gender">Sex</label>
@@ -69,11 +79,11 @@
               <input type="number" class="form-control" id="age" name="age"  placeholder="Enter Age" value="{{ $olddata[0]->age }}">
             </div>
             <div class="col form-group">
-              <label for="height">Height</label>
+              <label for="height">Height(cm)</label>
               <input type="number" class="form-control" id="height" name="height"  placeholder="Enter Height" value="{{ $olddata[0]->height }}">
             </div>
             <div class="col form-group">
-              <label for="weight">Weight</label>
+              <label for="weight">Weight(kg)</label>
               <input type="number" class="form-control" id="weight" name="weight"  placeholder="Enter Weight" value="{{ $olddata[0]->weight }}">
             </div>
             <div class="col form-group">
