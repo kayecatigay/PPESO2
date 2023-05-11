@@ -145,5 +145,9 @@ class ScholarAdminController extends Controller
 
         return redirect('/Sannouncements');
     }
-    
+    public function Stracking()
+    {
+        $tracking = DB::select('select * from stracking');
+        return view('Stracking',['track'=>$tracking]);
+    }
 }
