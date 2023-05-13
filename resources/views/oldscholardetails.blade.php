@@ -20,8 +20,8 @@
           </div>
           <div class="row">
             <div class="col">
-              <label for="type">Scholar</label>
-              <select class="form-control" name="type" id="type">
+              <label for="typeS">Scholar</label>
+              <select class="form-control" name="typeS" id="typeS">
                 <option value="new">New</option>
                 <option value="old">Old</option>
               </select>
@@ -70,13 +70,13 @@
             </div>
             <div class="col form-group">
               <label for="birthday">Date of Birth</label>
-              <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="" value="{{ $olddata[0]->birthday }}">
+              <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="" value="{{ $olddata[0]->birthday }}" onchange="setage()">
             </div>
           </div>
           <div class="row">
             <div class="col form-group">
               <label for="age">Age</label>
-              <input type="number" class="form-control" id="age" name="age"  placeholder="Enter Age" value="{{ $olddata[0]->age }}">
+              <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age" value="{{ $olddata[0]->age }}" >
             </div>
             <div class="col form-group">
               <label for="height">Height(cm)</label>
@@ -166,7 +166,16 @@
         </form>
     </div>
   <script>
-    function myFunction() 
+      function setage()
+      {
+        dob=new Date(document.getElementById("birthday").value);
+        var month_diff = Date.now() - dob.getTime();  
+        var age_dt = new Date(month_diff);   
+        var year = age_dt.getUTCFullYear();  
+        var age = Math.abs(year - 1970);  
+        document.getElementById("age").value=age;
+      }
+      function myFunction() 
       {
         var status = document.getElementById("yGraduated").value;
         var x = document.getElementById("hideschool");

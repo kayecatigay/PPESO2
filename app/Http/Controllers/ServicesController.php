@@ -37,11 +37,12 @@ class ServicesController extends Controller
     public function insertdata(Request $request)
     {
        
-        $scholardata = DB::insert('insert into scholarship(name, sex, address, emailadd, contactnum, placeofbirth, birthday, age, height, weight, bloodtype, religion, 
-        guardian, relation, userid) values("' .$request->input('name') .'","' .$request->input('gender') .'","' .$request->input('add') .'","' 
-        .$request->input('emailadd') .'",' .$request->input('contactnum') .',"' .$request->input('birthplace') .'","' .$request->input('birthday') .'",' 
-        .$request->input('age') .',' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('bloodtype') .'","'
-        .$request->input('religion') .'","' .$request->input('guardian') .'","' .$request->input('relationship') .'",' .$request->input('userid') .') ');
+        $scholardata = DB::insert('insert into scholarship(userid, typeS, name, sex, address, emailadd, contactnum, placeofbirth, birthday, age, height, weight, bloodtype, religion, 
+        guardian, relation, yGraduated, school, work, companyn) values("' .$request->input('userid') .'","' .$request->input('typeS') .'","' .$request->input('name') .'","' .$request->input('gender') .'","' 
+        .$request->input('add') .'","' .$request->input('emailadd') .'","' .$request->input('contactnum') .'","' .$request->input('birthplace') .'","' 
+        .$request->input('birthday') .'",' .$request->input('age') .',' .$request->input('height') .',' .$request->input('weight') .',"'
+        .$request->input('bloodtype') .'","' .$request->input('religion') .'","' .$request->input('guardian') .'","' .$request->input('relationship') .'","'
+        .$request->input('yGraduated') .'","' .$request->input('school') .'","' .$request->input('work') .'","' .$request->input('cname') .'") ');
 
         return view ('scholarhome');
     }
@@ -54,10 +55,12 @@ class ServicesController extends Controller
     public function updatedata(Request $request)
     {
         
-        $updatedata = DB::update('update scholarship set name="' .$request->input('name') .'",sex="' .$request->input('gender') .'",address="' .$request->input('add') .'",emailadd="' .$request->input('emailadd') .'",
+        $updatedata = DB::update('update scholarship set typeS="' .$request->input('typeS') .'",name="' .$request->input('name') .'",sex="' .$request->input('gender') .'",address="' .$request->input('add') .'",emailadd="' .$request->input('emailadd') .'",
         contactnum="' .$request->input('contactnum') .'",placeofbirth="' .$request->input('birthplace') .'",birthday="' .$request->input('birthday') .'",age=' .$request->input('age') .',
         height='. $request->input('height') .',weight=' .$request->input('weight') .',bloodtype="' .$request->input('bloodtype') .'",religion="' .$request->input('religion') .'",
-        guardian="' .$request->input('guardian') .'",relation="' .$request->input('relationship') .'" where userid=' .$request->input('userid') );
+        guardian="' .$request->input('guardian') .'",relation="' .$request->input('relationship') .'",yGraduated="' .$request->input('yGraduated') .'",school="' .$request->input('school')
+        .'",work="' .$request->input('work') .'",companyn="' .$request->input('cname') .'" where userid=' .$request->input('userid') );
+        
         return redirect('/oldscholardetails');
    
     }

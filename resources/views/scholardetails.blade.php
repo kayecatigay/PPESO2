@@ -20,8 +20,8 @@
           </div>
           <div class="row">
             <div class="col">
-              <label for="type">Scholar</label>
-              <select class="form-control" name="type" id="type">
+              <label for="typeS">Scholar</label>
+              <select class="form-control" name="typeS" id="typeS">
                 <option value="new">New</option>
                 <option value="old">Old</option>
               </select>
