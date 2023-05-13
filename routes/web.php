@@ -65,16 +65,6 @@ Route::middleware("admin")->group(function () {
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
     Route::get('/adminprofile', [App\Http\Controllers\AdminController::class, 'aphome']);
     
-    Route::get('/peapD', [App\Http\Controllers\AdminController::class, 'peapD']);
-    Route::get('/editPEAP', [App\Http\Controllers\AdminController::class, 'editPdata']);
-    Route::post('/updateEpeap', [App\Http\Controllers\AdminController::class, 'updatePdata']);
-    Route::post('/deletepeadD', [App\Http\Controllers\AdminController::class, 'deletePdata']);
-    
-    Route::get('/empD', [App\Http\Controllers\AdminController::class, 'empD']);
-    Route::get('/editEMP', [App\Http\Controllers\AdminController::class, 'editEdata']);
-    Route::post('/updateEemp', [App\Http\Controllers\AdminController::class, 'updateEdata']);
-    Route::post('/deleteempD', [App\Http\Controllers\AdminController::class, 'deleteEdata']);
-    
     Route::get('/ofwD', [App\Http\Controllers\AdminController::class, 'ofwD']);
     Route::get('/editOFW', [App\Http\Controllers\AdminController::class, 'editOdata']);
     Route::get('/updateofwD', [App\Http\Controllers\AdminController::class, 'updateOdata']);
@@ -89,14 +79,16 @@ Route::middleware("admin")->group(function () {
     Route::get('/showAllSApp', [App\Http\Controllers\ScholarAdminController::class, 'scholarNOData']);
     Route::get('/newScholar', [App\Http\Controllers\ScholarAdminController::class, 'newSD']);
     Route::get('/oldScholar', [App\Http\Controllers\ScholarAdminController::class, 'oldSD']);
+    Route::get('/editPEAP', [App\Http\Controllers\ScholarAdminController::class, 'editPdata']);
+    Route::post('/updateEpeap', [App\Http\Controllers\ScholarAdminController::class, 'updatePdata']);
+    Route::post('/deletepeadD', [App\Http\Controllers\ScholarAdminController::class, 'deletePdata']);
     Route::get('/SAllSched', [App\Http\Controllers\ScholarAdminController::class, 'allSched']);
     Route::get('/SchedExam', [App\Http\Controllers\ScholarAdminController::class, 'Ssexam']);
     Route::get('/addSched', [App\Http\Controllers\ScholarAdminController::class, 'addS']);
     Route::get('/insertSched', [App\Http\Controllers\ScholarAdminController::class, 'insertS']);
     Route::get('/editSched', [App\Http\Controllers\ScholarAdminController::class, 'editSched']);
-    Route::get('/deleteSched', [App\Http\Controllers\ScholarAdminController::class, 'deleteSched']);
     Route::get('/updateSched', [App\Http\Controllers\ScholarAdminController::class, 'updateS']);
-
+    Route::get('/deleteSched', [App\Http\Controllers\ScholarAdminController::class, 'deleteSched']);
     Route::get('/Sannouncements', [App\Http\Controllers\ScholarAdminController::class, 'sAnn']);
     Route::get('/addAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'addAnn']);
     Route::get('/editAnnouncements', [App\Http\Controllers\ScholarAdminController::class, 'editAnn']);
@@ -106,7 +98,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/Stracking', [App\Http\Controllers\ScholarAdminController::class, 'Stracking']);
 
     Route::get('/Eadmindashboard', [App\Http\Controllers\EmpAdminController::class, 'EAdashboard']);
-
+    Route::get('/showAllEApp', [App\Http\Controllers\EmpAdminController::class, 'showEmpData']);
+    Route::get('/editEMP', [App\Http\Controllers\EmpAdminController::class, 'editEdata']);
+    Route::post('/updateEemp', [App\Http\Controllers\EmpAdminController::class, 'updateEdata']);
+    Route::post('/deleteEMPD', [App\Http\Controllers\EmpAdminController::class, 'deleteEdata']);
+    Route::post('/Works', [App\Http\Controllers\EmpAdminController::class, 'works']);
     
 
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);

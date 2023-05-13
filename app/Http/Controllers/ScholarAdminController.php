@@ -31,6 +31,30 @@ class ScholarAdminController extends Controller
     //     // dd($scholardata);
     //     return view('oldSD',['data'=>$scholardata]);
     // }
+    public function editPdata(request $request) {
+        $peadID=$request->input('peadID');
+        $showdata = DB::select('select * from scholarship where id=' .$peadID);
+        //dd($prod);
+        return view('editPdata',['ePEAP'=>$showdata]); 
+    }
+    public function updatePdata(request $request) {
+        DB::update('update scholarship set name="' .$request->input('name'). '",sex="' 
+        .$request->input('gender'). '",address="' .$request->input('add'). '",emailadd="' 
+        .$request->input('emailadd'). '",contactnum="' .$request->input('contactnum'). '",birthday="' 
+        .$request->input('birthday'). '",placeofbirth="' .$request->input('birthplace'). '",age="' 
+        .$request->input('age'). '",height="' .$request->input('height'). '",weight="' 
+        .$request->input('weight'). '",bloodtype="' .$request->input('bloodtype'). '",religion="' 
+        .$request->input('religion'). '",guardian="' .$request->input('guardian'). '",relation="' 
+        .$request->input('relationship').'" where id='.$request->input('id') .' ');
+        
+        return redirect('/showAllSApp');
+    }
+    public function deletePdata(Request $request){
+        // dd($request->input('id'));
+        DB::delete("DELETE FROM scholarship WHERE id = " .$request->input('delId'));
+        
+        return redirect('/showAllSApp');
+    }
     public function allSched()
     {
         $schedData= DB::select('select * from sschedules');
