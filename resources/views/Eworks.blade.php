@@ -20,34 +20,27 @@
                      <table class="table" style="text-align:center">
                         <thead>
                            <tr>
-                              <th scope="col">Name</th>
-                              <th scope="col">Position Desired</th>
-                              <th scope="col">Gender</th>
-                              <th scope="col">Address</th>
-                              <th scope="col">Telephone </th>
-                              <th scope="col">Cellphone</th>
-                              <th scope="col">Email Address</th>
-                              <th scope="col">Birtday</th>
-                              <th scope="col">Civil Status</th>
-                              <th scope="col">Spouse</th>
-                              <th scope="col">Height</th>
-                              <th scope="col">Weight</th>
-                              <th scope="col">Religion</th>
-                              <th scope="col">Language</th>
-                              <th scope="col">Elementary</th>
-                              <th scope="col">High School</th>
-                              <th scope="col">College</th>
-                              <th scope="col">Degree</th>
-                              <th scope="col">Company Name</th>
-                              <th scope="col">Position</th>
-                              <th scope="col">Character Reference Name</th>
-                              <th scope="col">Character Reference Company</th>
-                              <th scope="col">Character Reference Position</th>
-                              <th scope="col">Character Reference Contact Number</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Job Description</th>
+                              <th scope="col">Company</th>
+                              <th scope="col">Skills</th>
+                              <th scope="col">Requirements </th>
+                              <th scope="col">Contact Number</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
-                        
+                        <tbody>
+                           @foreach ($work as $wrk)
+                              <tr>
+                                 <td>{{ $wrk->date }}</td>
+                                 <td>{{ $wrk->jobdesc }}</td>
+                                 <td>{{ $wrk->company }}</td>
+                                 <td>{{ $wrk->skills }}</td>
+                                 <td>{{ $wrk->req }}</td>
+                                 <td>{{ $wrk->contact }}</td>
+                              </tr>
+                           @endforeach
+                        </tbody>
                      </table>
                   </div>
                </div>

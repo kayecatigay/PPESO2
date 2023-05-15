@@ -97,7 +97,7 @@
                                 <div class="bg-white py-2 collapse-inner rounded">
                                     <h6 class="collapse-header">SERVICES</h6>
                                     <a class="collapse-item" href="/showAllEApp">Applicants</a>
-                                    <a class="collapse-item" href="/Works">Works Available</a>
+                                    <a class="collapse-item" href="/AllWorks">Works Available</a>
                                     <a class="collapse-item" href="/empSched">Schedules</a>
                                     <a class="collapse-item" href="/Eann">Announcements</a>
                                 </div>

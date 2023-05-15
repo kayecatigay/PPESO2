@@ -102,7 +102,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/editEMP', [App\Http\Controllers\EmpAdminController::class, 'editEdata']);
     Route::post('/updateEemp', [App\Http\Controllers\EmpAdminController::class, 'updateEdata']);
     Route::post('/deleteEMPD', [App\Http\Controllers\EmpAdminController::class, 'deleteEdata']);
-    Route::get('/Works', [App\Http\Controllers\EmpAdminController::class, 'works']);
+    Route::get('/AllWorks', [App\Http\Controllers\EmpAdminController::class, 'Allworks']);
+    
     
 
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);

@@ -59,10 +59,12 @@ class EmpAdminController extends Controller
         
         return redirect('/showAllEApp');
     }
-    public function works()
+    public function Allworks()
     {
-        return view ('Eworks');
+        $works = DB::select('select * from eworks');
+        return view ('Eworks',['work'=>$works]);
     }
+   
 
     
 }
