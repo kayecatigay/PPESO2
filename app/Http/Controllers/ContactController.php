@@ -15,16 +15,21 @@ class ContactController extends Controller
 
     public function test123()
     {
-     
-        $account_sid = "ACf8fbab9cbdb0851e4f57c7b72edaf1a7";
-            $auth_token = "d3b38b4469145b7126598e0e6d992c57";
-            $twilio_number = "+15303195438";
-            $receiverNumber="+639272962299";
-            $message="test text2 ";
+        $account_sid = getenv('TWILIO_ACCOUNT_SID');
+        $auth_token = getenv('TWILIO_AUTH_TOKEN');
+            $twilio_number = "+12705175379";
+            $receiverNumber="+639190043771";
+            $message="test text33 ";
             $client = new Client($account_sid, $auth_token);
-            $client->messages->create($receiverNumber, [
-                'from' => $twilio_number, 
-                'body' => $message]);
+
+            $client->messages->create(
+                // Where to send a text message (your cell phone?)
+                '+63 930 913 4109',
+                array(
+                    'from' => $twilio_number,
+                    'body' => $message
+                )
+            );
 
                 print($message);
     }

@@ -61,10 +61,22 @@ class EmpAdminController extends Controller
     }
     public function Allworks()
     {
-        $works = DB::select('select * from eworks');
+        $works= DB::select('select * from eworks');
         return view ('Eworks',['work'=>$works]);
     }
-   
+    public function addworks(Request $request)
+    {
+        
+        $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
+        values("' .$request->input('scholar') .'","' .$req.'")');
+        return redirect ('AllWorks');
+    }
+   public function editW(Request $request)
+   {
+        $workID=$request->input('workID');
+        $showData = DB::select('select * from eworks where id=' .$workID);
+        return view ('editW',['wrk'=>$showData]);
+   }
 
     
 }

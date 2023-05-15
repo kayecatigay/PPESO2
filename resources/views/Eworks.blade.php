@@ -13,6 +13,10 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">Works</h6>
+               <form action="/AddWorks">
+                  <input class="font-weight-bold" style="background-color:#5F9EA0; border:none;" 
+                  type="submit" value="Add" />
+               </form>
             </div>
                <!-- Card Body -->
                <div class="card-body">
@@ -38,6 +42,43 @@
                                  <td>{{ $wrk->skills }}</td>
                                  <td>{{ $wrk->req }}</td>
                                  <td>{{ $wrk->contact }}</td>
+                                 <td>
+                                    <span class="input-group">
+
+                                       <form action ="editWorks" method="get">
+                                          <input type="hidden" id="workID" name="workID" value="{{ $wrk->id }}">
+                                          <input type="submit" class="btn btn-info" value="Edit" name="submit">
+                                       </form>
+                                       &emsp;
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $wrk->id }}">
+                                          Delete
+                                       </button>
+
+                                       <!-- DELETE Modal -->
+                                       <div class="modal fade" id="delmod{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog modal-lg">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $wrk->id }} </h5>
+                                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                      Do you really want to delete {{ $wrk->jobdesc}}?
+                                                </div>
+                                                <div class="modal-footer">
+                                                      <form action ="deleteEMPD" method="POST" >
+                                                         @csrf
+                                                         <input type="hidden" id="delId" name="delId" value="{{ $wrk->id }}">
+                                                         <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $wrk->id }}').modal('hide');" >Yes</button>
+                                                      </form>
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- DELETE Modal -->
+                                    </span>
+                                 </td>  
                               </tr>
                            @endforeach
                         </tbody>
