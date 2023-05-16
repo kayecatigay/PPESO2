@@ -66,7 +66,7 @@
                                                       Do you really want to delete {{ $wrk->jobdesc}}?
                                                 </div>
                                                 <div class="modal-footer">
-                                                      <form action ="deleteEMPD" method="POST" >
+                                                      <form action ="deleteWork" method="GET" >
                                                          @csrf
                                                          <input type="hidden" id="delId" name="delId" value="{{ $wrk->id }}">
                                                          <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $wrk->id }}').modal('hide');" >Yes</button>

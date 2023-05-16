@@ -66,9 +66,30 @@ class EmpAdminController extends Controller
     }
     public function addworks(Request $request)
     {
+        return view('addWorks');
+    }
+    public function insertWorks(Request $request)
+    {
+        $skills="";
+        $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
+        $skills.= ($request->input('risk')=="on") ? ", risk taker" :"";
+        $skills.= ($request->input('probsol')=="on") ? ", problem solving" :"";
+        $skills.= ($request->input('creative')=="on") ? ", creative" :"";
+        $skills.= ($request->input('multitask')=="on") ? ", multitasking" :"";
+        $skills.= ($request->input('technical')=="on") ? ", technicality" :"";
+        $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
+        $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
+
+        $req="";
+        $req.= ($request->input('resume')=="on") ? "|resume" :"";
+        $req.= ($request->input('visa')=="on") ? "|visa" :"";
+        $req.= ($request->input('indigency')=="on") ? "|indigency" :"";
+        $req.= ($request->input('PSA')=="on") ? "|psa" :"";
+        $req=substr($req,1);  
         
         $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
-        values("' .$request->input('scholar') .'","' .$req.'")');
+        values("' .$request->input('date') .'","' .$request->input('jobdesc') .'","'.$request->input('company') .'","'
+        .$skills .'","' .$req .'","' .$request->input('contact') .'")');
         return redirect ('AllWorks');
     }
    public function editW(Request $request)
@@ -77,6 +98,12 @@ class EmpAdminController extends Controller
         $showData = DB::select('select * from eworks where id=' .$workID);
         return view ('editW',['wrk'=>$showData]);
    }
-
+   public function deleteW(Request $request)
+   {
+        // dd($request->input('delId'));
+        DB::delete("DELETE FROM eworks WHERE id = " .$request->input('delId'));
+            
+        return redirect('/AllWorks');
+   }
     
 }

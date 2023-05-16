@@ -1,7 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
-   <form action ="/insertSched" method="get" enctype="multipart/form-data">
+   <form action ="/insertWork" method="get" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
          <label for="schedId"></label>
@@ -9,55 +9,62 @@
       </div>
       
       <div class="form-group">
-         <p><h4>Schedule</h4></p>
+         <p><h4>&nbsp; Work Details</h4></p>
          <div class="container">      
             <div class="row">
-               <div class="col-7">
-                  <label for="scholar">Name</label>
-                  <input type="text" class="form-control" id="scholar" name="scholar" >
+               <div class="col-2">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date" name="date" >
                </div>
-               <div class="col-5">
-                  <label for="proctor">Proctor</label>
-                  <input type="text" class="form-control" id="proctor" name="proctor">
+               <div class="col-4">
+                  <label for="company">Company</label>
+                  <input type="text" class="form-control" id="company" name="company">
+               </div>
+            
+               <div class="col">
+                     <label for="contact">Contact Number</label>
+                     <input type="text" class="form-control" id="contact" name="contact">
+                  </div>
+               <div class="col">
+                  <label for="jobdesc">Job Description</label>
+                  <input type="text" class="form-control" id="jobdesc" name="jobdesc">
                </div>
             </div>
             <div class="row">
-               <div class="col">
-                  <label for="date">Date</label>
-                  <input type="date" class="form-control" id="date" name="date">
-               </div>
-               <div class="col">
-                  <label for="time">Time</label>
-                  <input type="time" class="form-control" id="time" name="time">
-               </div>
-               <div class="col-6">
-                  <label for="location">Location</label>
-                  <input type="text" class="form-control" id="location" name="location">
-               </div>
-            </div>
-            <div class="row form-group">
-               <div class="col">
-                  <label for="type">Type</label>
-                  <select class="form-control" name="type" id="type">
-                     <option value="exam">Exam</option>
-                     <option value="interview">Interview</option>
-                  </select>
+               <div class="col form-group">
+                  <label for="skills">Skills</label>
+                  <div class="col">
+                     <input type="checkbox" id="hardworking" name="hardworking">
+                     <label for="hardworking">Hardworking</label> <br>
+                     <input type="checkbox" id="risk" name="risk">
+                     <label for="risk">Risk taker</label> <br>
+                     <input type="checkbox" id="probsol" name="probsol">
+                     <label for="probsol">Problem Solving</label> <br>
+                     <input type="checkbox" id="creative" name="creative">
+                     <label for="creative">Creative</label> <br>
+                     <input type="checkbox" id="multitask" name="multitask">
+                     <label for="multitask">Multitasking</label> <br>
+                     <input type="checkbox" id="technical" name="technical">
+                     <label for="technical">Technicality</label> <br>
+                     <input type="checkbox" id="leadership" name="leadership">
+                     <label for="leadership">Leadership Skills</label> <br>
+                     <input type="checkbox" id="analytics" name="analytics">
+                     <label for="analytics">Analytical Skills</label> <br>
+                  </div>
                </div>
                <div class="col form-group">
                   <label for="req">Requirements</label>
-                  <div class="col form-control">
-                     <input type="checkbox" id="pencil" name="pencil">
-                     <label for="pencil">Pencil</label> &nbsp;
-                     <input type="checkbox" id="ballpen" name="ballpen">
-                     <label for="ballpen">Ballpen</label> &nbsp;
-                     <input type="checkbox" id="validid" name="validid">
-                     <label for="validid">Valid Id</label> &nbsp;
-                     <input type="checkbox" id="snacks" name="snacks">
-                     <label for="snacks">Snacks</label> &nbsp;
-                     <input type="checkbox" id="water" name="water">
-                     <label for="water">Water</label> &nbsp;
+                  <div class="col">
+                     <input type="checkbox" id="resume" name="resume">
+                     <label for="resume">Resume</label> <br>
+                     <input type="checkbox" id="visa" name="visa">
+                     <label for="visa">Visa</label> <br>
+                     <input type="checkbox" id="indigency" name="indigency">
+                     <label for="indigency">Certificate of Indigency</label><br>
+                     <input type="checkbox" id="psa" name="psa">
+                     <label for="psa">PSA</label> <br>
+                     
                   </div>
-                  
                </div>
             </div>
             <div class="row">
