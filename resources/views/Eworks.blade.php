@@ -45,7 +45,7 @@
                                  <td>
                                     <span class="input-group">
 
-                                       <form action ="editWorks" method="get">
+                                       <form action ="editWorks" method="GET">
                                           <input type="hidden" id="workID" name="workID" value="{{ $wrk->id }}">
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>

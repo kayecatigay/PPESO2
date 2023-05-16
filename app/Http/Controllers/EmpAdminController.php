@@ -81,10 +81,10 @@ class EmpAdminController extends Controller
         $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
 
         $req="";
-        $req.= ($request->input('resume')=="on") ? "|resume" :"";
-        $req.= ($request->input('visa')=="on") ? "|visa" :"";
-        $req.= ($request->input('indigency')=="on") ? "|indigency" :"";
-        $req.= ($request->input('PSA')=="on") ? "|psa" :"";
+        $req.= ($request->input('resume')=="on") ? ", resume" :"";
+        $req.= ($request->input('visa')=="on") ? ", visa" :"";
+        $req.= ($request->input('indigency')=="on") ? ", indigency" :"";
+        $req.= ($request->input('PSA')=="on") ? ", psa" :"";
         $req=substr($req,1);  
         
         $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
@@ -97,6 +97,33 @@ class EmpAdminController extends Controller
         $workID=$request->input('workID');
         $showData = DB::select('select * from eworks where id=' .$workID);
         return view ('editW',['wrk'=>$showData]);
+   }
+   public function updateW(Request $request)
+   {
+    $skills="";
+    $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
+    $skills.= ($request->input('risk')=="on") ? ", risk taker" :"";
+    $skills.= ($request->input('probsol')=="on") ? ", problem solving" :"";
+    $skills.= ($request->input('creative')=="on") ? ", creative" :"";
+    $skills.= ($request->input('multitask')=="on") ? ", multitasking" :"";
+    $skills.= ($request->input('technical')=="on") ? ", technicality" :"";
+    $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
+    $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
+    $skills=substr($skills,1);  
+
+    $req="";
+    $req.= ($request->input('resume')=="on") ? "|resume" :"";
+    $req.= ($request->input('visa')=="on") ? "|visa" :"";
+    $req.= ($request->input('indigency')=="on") ? "|indigency" :"";
+    $req.= ($request->input('PSA')=="on") ? "|psa" :"";
+    $req=substr($req,1);  
+
+    $Aworks= DB::update('update eworks set date="' .$request->input('date'). '",
+    jobdesc="' .$request->input('jobdesc'). '", company="' .$request->input('company'). '",
+    skills="' .$skills .'", req="' .$req. '",contact="' .$request->input('contact'). '" 
+    where id='.$request->input('id') .' ');
+    
+    return redirect ('/AllWorks');
    }
    public function deleteW(Request $request)
    {
