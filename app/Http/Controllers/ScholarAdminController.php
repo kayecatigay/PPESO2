@@ -15,6 +15,8 @@ class ScholarAdminController extends Controller
     }
     public function scholarNOData()
     {
+        // $schedID=$request->input('schedID');
+        // $showdata = DB::select('select * from sschedules where id=' .$schedID);
         $scholardata = DB::select('select * from scholarship');
         // dd($scholardata);
         return view('ScholarAll',['data'=>$scholardata]);
@@ -38,14 +40,11 @@ class ScholarAdminController extends Controller
         return view('editPdata',['ePEAP'=>$showdata]); 
     }
     public function updatePdata(request $request) {
-        DB::update('update scholarship set name="' .$request->input('name'). '",sex="' 
-        .$request->input('gender'). '",address="' .$request->input('add'). '",emailadd="' 
-        .$request->input('emailadd'). '",contactnum="' .$request->input('contactnum'). '",birthday="' 
-        .$request->input('birthday'). '",placeofbirth="' .$request->input('birthplace'). '",age="' 
-        .$request->input('age'). '",height="' .$request->input('height'). '",weight="' 
-        .$request->input('weight'). '",bloodtype="' .$request->input('bloodtype'). '",religion="' 
-        .$request->input('religion'). '",guardian="' .$request->input('guardian'). '",relation="' 
-        .$request->input('relationship').'" where id='.$request->input('id') .' ');
+        DB::update('update scholarship set typeS="' .$request->input('typeS') .'",name="' .$request->input('name') .'",sex="' .$request->input('gender') .'",address="' .$request->input('add') .'",emailadd="' .$request->input('emailadd') .'",
+        contactnum="' .$request->input('contactnum') .'",placeofbirth="' .$request->input('birthplace') .'",birthday="' .$request->input('birthday') .'",age=' .$request->input('age') .',
+        height='. $request->input('height') .',weight=' .$request->input('weight') .',bloodtype="' .$request->input('bloodtype') .'",religion="' .$request->input('religion') .'",
+        guardian="' .$request->input('guardian') .'",relation="' .$request->input('relationship') .'",yGraduated="' .$request->input('yGraduated') .'",school="' .$request->input('school')
+        .'",work="' .$request->input('work') .'",companyn="' .$request->input('cname') .'" where id=' .$request->input('id') .' ');
         
         return redirect('/showAllSApp');
     }

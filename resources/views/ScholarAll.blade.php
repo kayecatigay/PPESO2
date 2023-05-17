@@ -34,6 +34,10 @@
                               <th scope="col">Religion</th>
                               <th scope="col">Guardian</th>
                               <th scope="col">Relation</th>
+                              <th scope="col">Year Graduated</th>
+                              <th scope="col">School</th>
+                              <th scope="col">Work</th>
+                              <th scope="col">Company Name</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
@@ -54,6 +58,10 @@
                                  <td>{{ $old->religion }}</td>
                                  <td>{{ $old->guardian }}</td>
                                  <td>{{ $old->relation }}</td> 
+                                 <td>{{ $old->yGraduated }}</td>
+                                 <td>{{ $old->school }}</td>
+                                 <td>{{ $old->work }}</td>
+                                 <td>{{ $old->companyn }}</td> 
                                  <td>
                                     <span class="input-group">
 
@@ -126,6 +134,10 @@
                               <th scope="col">Religion</th>
                               <th scope="col">Guardian</th>
                               <th scope="col">Relation</th>
+                              <th scope="col">Year Graduated</th>
+                              <th scope="col">School</th>
+                              <th scope="col">Work</th>
+                              <th scope="col">Company Name</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
@@ -146,6 +158,10 @@
                                  <td>{{ $old->religion }}</td>
                                  <td>{{ $old->guardian }}</td>
                                  <td>{{ $old->relation }}</td> 
+                                 <td>{{ $old->yGraduated }}</td>
+                                 <td>{{ $old->school }}</td>
+                                 <td>{{ $old->work }}</td>
+                                 <td>{{ $old->companyn }}</td> 
                                  <td>
                                     <span class="input-group">
 
