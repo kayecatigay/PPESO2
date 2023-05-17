@@ -16,10 +16,11 @@ class ScholarAdminController extends Controller
     public function scholarNOData()
     {
         // $schedID=$request->input('schedID');
-        // $showdata = DB::select('select * from sschedules where id=' .$schedID);
-        $scholardata = DB::select('select * from scholarship');
+        // $showdata = DB::select('select * from sschedules where typeS=' .$schedID);
+        $scholardata = DB::select('select * from scholarship where typeS="old"');
+        $scholardatanew = DB::select('select * from scholarship where typeS="new"');
         // dd($scholardata);
-        return view('ScholarAll',['data'=>$scholardata]);
+        return view('ScholarAll',['dataold'=>$scholardata,'datanew'=>$scholardatanew]);
     }
     // public function newSD()
     // {

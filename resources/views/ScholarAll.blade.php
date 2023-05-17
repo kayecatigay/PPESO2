@@ -42,54 +42,54 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($data as $old)
+                           @foreach ($datanew as $new)
                               <tr>
-                                 <td>{{ $old->name }}</td>
-                                 <td>{{ $old->sex }}</td>
-                                 <td>{{ $old->address }}</td>
-                                 <td>{{ $old->emailadd }}</td>
-                                 <td>{{ $old->contactnum }}</td>
-                                 <td>{{ $old->birthday }}</td>
-                                 <td>{{ $old->placeofbirth }}</td>
-                                 <td>{{ $old->age }}</td>
-                                 <td>{{ $old->height }}</td>
-                                 <td>{{ $old->weight }}</td>
-                                 <td>{{ $old->bloodtype }}</td>
-                                 <td>{{ $old->religion }}</td>
-                                 <td>{{ $old->guardian }}</td>
-                                 <td>{{ $old->relation }}</td> 
-                                 <td>{{ $old->yGraduated }}</td>
-                                 <td>{{ $old->school }}</td>
-                                 <td>{{ $old->work }}</td>
-                                 <td>{{ $old->companyn }}</td> 
+                                 <td>{{ $new->name }}</td>
+                                 <td>{{ $new->sex }}</td>
+                                 <td>{{ $new->address }}</td>
+                                 <td>{{ $new->emailadd }}</td>
+                                 <td>{{ $new->contactnum }}</td>
+                                 <td>{{ $new->birthday }}</td>
+                                 <td>{{ $new->placeofbirth }}</td>
+                                 <td>{{ $new->age }}</td>
+                                 <td>{{ $new->height }}</td>
+                                 <td>{{ $new->weight }}</td>
+                                 <td>{{ $new->bloodtype }}</td>
+                                 <td>{{ $new->religion }}</td>
+                                 <td>{{ $new->guardian }}</td>
+                                 <td>{{ $new->relation }}</td> 
+                                 <td>{{ $new->yGraduated }}</td>
+                                 <td>{{ $new->school }}</td>
+                                 <td>{{ $new->work }}</td>
+                                 <td>{{ $new->companyn }}</td> 
                                  <td>
                                     <span class="input-group">
 
                                        <form action ="/editPEAP" method="get">
-                                          <input type="hidden" id="peadID" name="peadID" value="{{ $old->id }}">
+                                          <input type="hidden" id="peadID" name="peadID" value="{{ $new->id }}">
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $old->id }}">
+                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $new->id }}">
                                           Delete
                                        </button>
 
                                        <!-- DELETE Modal -->
-                                       <div class="modal fade" id="delmod{{ $old->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                       <div class="modal fade" id="delmod{{ $new->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog modal-lg">
                                              <div class="modal-content">
                                                 <div class="modal-header">
-                                                      <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $old->id }} </h5>
+                                                      <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $new->id }} </h5>
                                                       <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                      Do you really want to delete this record: {{ $old->name}}?
+                                                      Do you really want to delete this record: {{ $new->name}}?
                                                 </div>
                                                 <div class="modal-footer">
                                                       <form action ="deletepeadD" method="POST" >
                                                          @csrf
-                                                         <input type="hidden" id="delId" name="delId" value="{{ $old->id }}">
-                                                         <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $old->id }}').modal('hide');" >Yes</button>
+                                                         <input type="hidden" id="delId" name="delId" value="{{ $new->id }}">
+                                                         <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $new->id }}').modal('hide');" >Yes</button>
                                                       </form>
                                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                 </div>
@@ -142,7 +142,7 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($data as $old)
+                           @foreach ($dataold as $old)
                               <tr>
                                  <td>{{ $old->name }}</td>
                                  <td>{{ $old->sex }}</td>
