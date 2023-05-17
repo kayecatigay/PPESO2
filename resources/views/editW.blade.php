@@ -35,8 +35,9 @@
                </div>
             </div>
             <div class="row">
-               <div class="col form-group">
+               <div class="col-4 form-group">
                   <label for="skills">Skills</label>
+                  <input type="text" size="30" id="skills" name="skills" value="{{$wrk[0]->skills}}">
                   <div class="col">
                      <input type="checkbox" id="hardworking" name="hardworking">
                      <label for="hardworking">Hardworking</label> <br>
@@ -92,6 +93,14 @@
         x.style.display = "none";
         document.getElementById("spouse").value="";
         }
-    }
+       }
+       varskills=document.getElementById("skills").value;
+       askills=varskills.split(",");
+       for (let i = 0; i < askills.length; i++) {
+         if(askills[i]!="")
+         {
+            document.getElementById(askills[i]).checked=true;
+         }
+       }
     </script>
 @endsection

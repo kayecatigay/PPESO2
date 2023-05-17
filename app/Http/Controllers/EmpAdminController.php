@@ -102,11 +102,11 @@ class EmpAdminController extends Controller
    {
     $skills="";
     $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
-    $skills.= ($request->input('risk')=="on") ? ", risk taker" :"";
-    $skills.= ($request->input('probsol')=="on") ? ", problem solving" :"";
+    $skills.= ($request->input('risk')=="on") ? ", risk" :"";
+    $skills.= ($request->input('probsol')=="on") ? ", probsol" :"";
     $skills.= ($request->input('creative')=="on") ? ", creative" :"";
-    $skills.= ($request->input('multitask')=="on") ? ", multitasking" :"";
-    $skills.= ($request->input('technical')=="on") ? ", technicality" :"";
+    $skills.= ($request->input('multitask')=="on") ? ", multitask" :"";
+    $skills.= ($request->input('technical')=="on") ? ", technical" :"";
     $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
     $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
     $skills=substr($skills,1);  
