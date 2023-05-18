@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="typeS">Scholar</label>
-                        <select class="form-control" name="typeS" id="typeS">
+                        <select class="form-control" name="typeS" id="typeS" value="{{$ePEAP[0]->typeS }}">
                             <option value="new">New</option>
                             <option value="old">Old</option>
                         </select>

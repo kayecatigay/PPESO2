@@ -33,11 +33,11 @@
                   <label for="jobdesc">Job Description</label>
                   <input type="text" class="form-control" id="jobdesc" name="jobdesc" value="{{$wrk[0]->jobdesc}}">
                </div>
-            </div>
+            </div> <br>
             <div class="row">
                <div class="col-4 form-group">
                   <label for="skills">Skills</label>
-                  <input type="text" size="30" id="skills" name="skills" value="{{$wrk[0]->skills}}">
+                  <input type="hidden" size="30" id="skills" name="skills" value="{{$wrk[0]->skills}}">
                   <div class="col">
                      <input type="checkbox" id="hardworking" name="hardworking">
                      <label for="hardworking">Hardworking</label> <br>
@@ -59,6 +59,7 @@
                </div>
                <div class="col form-group">
                   <label for="req">Requirements</label>
+                  <input type="hidden" size="30" id="req" name="req" value="{{$wrk[0]->req}}">
                   <div class="col">
                      <input type="checkbox" id="resume" name="resume">
                      <label for="resume">Resume</label> <br>
@@ -100,6 +101,14 @@
          if(askills[i]!="")
          {
             document.getElementById(askills[i]).checked=true;
+         }
+       }
+      varReq=document.getElementById("req").value;
+      aReqs=varReq.split(",");
+      for (let x = 0; x < aReqs.length; x++) {
+         if(aReqs[x]!="")
+         {
+            document.getElementById(aReqs[x]).checked=true;
          }
        }
     </script>

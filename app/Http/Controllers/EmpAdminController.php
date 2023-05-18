@@ -112,10 +112,10 @@ class EmpAdminController extends Controller
     $skills=substr($skills,1);  
 
     $req="";
-    $req.= ($request->input('resume')=="on") ? "|resume" :"";
-    $req.= ($request->input('visa')=="on") ? "|visa" :"";
-    $req.= ($request->input('indigency')=="on") ? "|indigency" :"";
-    $req.= ($request->input('PSA')=="on") ? "|psa" :"";
+    $req.= ($request->input('resume')=="on") ? ", resume" :"";
+    $req.= ($request->input('visa')=="on") ? ", visa" :"";
+    $req.= ($request->input('indigency')=="on") ? ", indigency" :"";
+    $req.= ($request->input('psa')=="on") ? ", psa" :"";
     $req=substr($req,1);  
 
     $Aworks= DB::update('update eworks set date="' .$request->input('date'). '",
