@@ -132,5 +132,8 @@ class EmpAdminController extends Controller
             
         return redirect('/AllWorks');
    }
-    
+    public function allESched(Request $request)
+    {
+        return view ('')
+    }
 }
