@@ -132,8 +132,9 @@ class EmpAdminController extends Controller
             
         return redirect('/AllWorks');
    }
-    public function allESched(Request $request)
+    public function allESched()
     {
-        return view ('')
+        $esched=DB::select('select * from eschedules');
+        return view('Esched',['sched'=>$esched]);
     }
 }

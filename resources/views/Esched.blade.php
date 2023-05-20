@@ -25,16 +25,27 @@
                      <table class="table">
                         <thead>
                            <tr>
-                              <th scope="col">Scholar</th>
+                              <th scope="col">Employee Name</th>
                               <th scope="col">Date</th>
                               <th scope="col">Time</th>
                               <th scope="col">Location</th>
-                              <th scope="col">Requirements</th>
-                              <th scope="col">Proctor</th>                           
+                              <th scope="col">Work</th>
+                              <th scope="col">Proctor</th>
+                              <th scope="col">Requirements</th>                           
                            </tr>
                         </thead>
                         <tbody>
-                           
+                           @foreach ($sched as $sc)
+                              <tr>
+                                 <td>{{ $sc->EmName }}</td>
+                                 <td>{{ $sc->Date }}</td>
+                                 <td>{{ $sc->Time }}</td>
+                                 <td>{{ $sc->Loc }}</td>
+                                 <td>{{ $sc->Work }}</td>
+                                 <td>{{ $sc->Proctor }}</td>
+                                 <td>{{ $sc->Req }}</td>
+                              </tr>
+                           @endforeach
                         </tbody>
                      </table>
                   </div>
