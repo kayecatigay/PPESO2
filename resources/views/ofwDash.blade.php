@@ -64,7 +64,7 @@
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delmod{{ $ofw->id }}">
+                                       <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-bs-toggle="modal" data-bs-target="#delmod{{ $ofw->id }}">
                                           Delete
                                        </button>
 

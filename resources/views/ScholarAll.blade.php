@@ -70,7 +70,7 @@
                                           <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                        </form>
                                        &emsp;
-                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $new->id }}">
+                                       <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $new->id }}">
                                           Delete
                                        </button>
 

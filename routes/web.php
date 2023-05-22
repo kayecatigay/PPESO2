@@ -109,6 +109,12 @@ Route::middleware("admin")->group(function () {
     Route::get('/updateWorks', [App\Http\Controllers\EmpAdminController::class, 'updateW']);
     Route::get('/deleteWork', [App\Http\Controllers\EmpAdminController::class, 'deleteW']);
     Route::get('/empSched', [App\Http\Controllers\EmpAdminController::class, 'allESched']);
+    Route::get('/addeSched', [App\Http\Controllers\EmpAdminController::class, 'addeSched']);
+    Route::get('/inserteSched', [App\Http\Controllers\EmpAdminController::class, 'insertEs']);
+    Route::get('/editeSched', [App\Http\Controllers\EmpAdminController::class, 'editeSched']);
+    Route::get('/deleteESched', [App\Http\Controllers\EmpAdminController::class, 'deleteESched']);
+    
+    
     
 
     

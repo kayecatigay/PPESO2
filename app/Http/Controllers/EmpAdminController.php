@@ -125,6 +125,7 @@ class EmpAdminController extends Controller
     
     return redirect ('/AllWorks');
    }
+   
    public function deleteW(Request $request)
    {
         // dd($request->input('delId'));
@@ -136,5 +137,22 @@ class EmpAdminController extends Controller
     {
         $esched=DB::select('select * from eschedules');
         return view('Esched',['sched'=>$esched]);
+    }
+    public function addeSched(Request $request)
+   {
+    return view ('addEsched');
+   }
+   public function insertEs(Request $request)
+   {
+    return redirect('');
+   }
+    public function editeSched(Request $request)
+    {
+
+        return view ('');
+    }
+    public function deleteESched(Request $request)
+    {
+        return view ('');
     }
 }

@@ -48,7 +48,7 @@
                                        </form>
                                        &emsp;
 
-                                       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delmod{{ $ann->id }}">
+                                       <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $ann->id }}">
                                           Delete
                                        </button>
 
