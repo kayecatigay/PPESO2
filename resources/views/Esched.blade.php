@@ -31,7 +31,8 @@
                               <th scope="col">Location</th>
                               <th scope="col">Work</th>
                               <th scope="col">Proctor</th>
-                              <th scope="col">Requirements</th>   
+                              <th scope="col">Requirements</th> 
+                              <th scope="col">Type</th>   
                               <th scope="col">Action</th>                           
                            </tr>
                         </thead>
@@ -44,11 +45,12 @@
                                  <td>{{ $sc->Loc }}</td>
                                  <td>{{ $sc->work }}</td>
                                  <td>{{ $sc->Proctor }}</td>
-                                 <td>{{ $sc->Req }}</td>
+                                 <td>{{ $sc->req }}</td>
+                                 <td>{{ $sc->type }}</td>
                                  <td>
                                  <span class="input-group">
                                     <form action ="editeSched" method="get">
-                                       <input type="hidden" id="schedID" name="schedID" value="{{ $sc->id }}">
+                                       <input type="hidden" id="eSchedid" name="eSchedid" value="{{ $sc->id }}">
                                        <input type="submit" class="btn btn-info" value="Edit" name="submit">
                                     </form>
                                     &emsp;

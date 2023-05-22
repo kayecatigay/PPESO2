@@ -12,14 +12,21 @@
          <p><h4>Schedule</h4></p>
          <div class="container">      
             <div class="row">
-               <div class="col-7">
-                  <label for="scholar">Name</label>
-                  <input type="text" class="form-control" id="scholar" name="scholar" >
+               <div class="col-6">
+                  <label for="emname">Name</label>
+                  <input type="text" class="form-control" id="emname" name="emname" >
                </div>
-               <div class="col-5">
+               <div class="col-4">
                   <label for="proctor">Proctor</label>
                   <input type="text" class="form-control" id="proctor" name="proctor">
                </div>
+               <div class="col">
+                  <label for="type">Type</label>
+                  <select class="form-control" name="type" id="type">
+                    <option value="exam">Exam</option>
+                    <option value="interview">Interview</option>
+                  </select>
+              </div>
             </div>
             <div class="row">
                <div class="col">
@@ -31,8 +38,8 @@
                   <input type="time" class="form-control" id="time" name="time">
                </div>
                <div class="col-7">
-                  <label for="location">Location</label>
-                  <input type="text" class="form-control" id="location" name="location">
+                  <label for="loc">Location</label>
+                  <input type="text" class="form-control" id="loc" name="loc">
                </div>
             </div>
             <div class="row form-group">

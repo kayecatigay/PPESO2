@@ -112,6 +112,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/addeSched', [App\Http\Controllers\EmpAdminController::class, 'addeSched']);
     Route::get('/inserteSched', [App\Http\Controllers\EmpAdminController::class, 'insertEs']);
     Route::get('/editeSched', [App\Http\Controllers\EmpAdminController::class, 'editeSched']);
+    Route::get('/updateESched', [App\Http\Controllers\EmpAdminController::class, 'updateEs']);
     Route::get('/deleteESched', [App\Http\Controllers\EmpAdminController::class, 'deleteESched']);
     
     

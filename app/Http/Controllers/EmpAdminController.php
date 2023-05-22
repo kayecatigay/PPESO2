@@ -144,12 +144,42 @@ class EmpAdminController extends Controller
    }
    public function insertEs(Request $request)
    {
-    return redirect('');
+    $req="";
+    $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+    $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+    $req.= ($request->input('validid')=="on") ? ", validid" :"";
+    $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+    $req.= ($request->input('water')=="on") ? ", water" :"";
+    $req=substr($req,1);  
+    // dd($req);
+    $AWorks=DB::insert('insert into eschedules(type, EmName, Date, Time, Loc, work, Proctor, req) 
+    values("' .$request->input('type') .'","' .$request->input('emname') .'","' .$request->input('date') .'","'.$request->input('time') .'","'
+    .$request->input('loc') .'","' .$request->input('work') .'","' .$request->input('proctor')  .'","'  .$req.'")');
+
+    return redirect('empSched');
    }
     public function editeSched(Request $request)
     {
+        $eSchedid=$request->input('eSchedid');
+        $showData = DB::select('select * from eschedules where id=' .$eSchedid);
+        return view ('editEsched',['sched'=>$showData]);
+    }
+    public function updateEs(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? ", validid" :"";
+        $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+        $req.= ($request->input('water')=="on") ? ", water" :"";
+        $req=substr($req,1);  
+        // dd($req);
+        $Esched=DB::update('update eschedules set type="' .$request->input('type'). '", EmName="' .$request->input('emname'). '",
+        Date="' .$request->input('date'). '", Time="' .$request->input('time'). '",
+        Loc="' .$request->input('loc'). '", work="' .$request->input('work'). '",
+        Proctor="' .$request->input('proctor'). '", req="' .$req .'" where id='.$request->input('id') .'');
 
-        return view ('');
+        return redirect('empSched');
     }
     public function deleteESched(Request $request)
     {
