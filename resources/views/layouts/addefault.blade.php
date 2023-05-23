@@ -114,7 +114,7 @@
                                     <h6 class="collapse-header">SERVICES</h6>
                                     <a class="collapse-item" href="/showAllOApp">Applicants</a>
                                     <a class="collapse-item" href="/ofwSched">Schedules</a>
-                                    <a class="collapse-item" href="/Oann">Announcements</a>
+                                    <a class="collapse-item" href="/Oannouncements">Announcements</a>
                                 </div>
                             </div>
                             

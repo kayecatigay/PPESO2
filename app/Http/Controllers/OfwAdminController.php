@@ -99,4 +99,57 @@ class OfwAdminController extends Controller
         DB::delete("DELETE FROM oschedules WHERE id = " .$request->input('delId'));
         return redirect('ofwSched');
     }
+    public function oAnn()
+    {
+        $OannData=DB::select('select * from oannouncements');
+        return view('Oannouncements',['Oann'=>$OannData]);
+    }
+    public function addOann()
+    {
+        return view('addOAnn');
+    }
+    public function insertoAnn(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? ", validid" :"";
+        $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+        $req.= ($request->input('water')=="on") ? ", water" :"";
+        $req=substr($req,1);  
+
+        // dd($request->input('type'));
+        $SchedData = DB::insert('insert into oannouncements(date, schedule, details, req) 
+        values("' .$request->input('date') .'","' .$request->input('sched') .'","' 
+        .$request->input('dets') .'","' .$req .'")');
+        return redirect('Oannouncements');
+    }
+    public function EditOAnn(Request $request)
+    {
+        $OannID=$request->input('OannID');
+        $showdata = DB::select('select * from oannouncements where id=' .$OannID);
+        // dd($showdata);
+        return view('editOann',['Oann'=>$showdata]);
+    }
+    public function updateOann(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? ", validid" :"";
+        $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+        $req.= ($request->input('water')=="on") ? ", water" :"";
+        $req=substr($req,1); 
+
+        $announceData = DB::update('update oannouncements set date="' .$request->input('date'). '",schedule= 
+        "' .$request->input('sched'). '",details= "' .$request->input('details'). '",req="' .$req. '"
+        where id='.$request->input('id') .' ');
+
+        return redirect('Oannouncements');
+    }
+    public function deleteOAnn(Request $request)
+    {
+        DB::delete("DELETE FROM oannouncements WHERE id = " .$request->input('delId'));
+        return redirect('Oannouncements');
+    }
 }

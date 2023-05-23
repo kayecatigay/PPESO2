@@ -127,6 +127,17 @@ Route::middleware("admin")->group(function () {
     Route::get('/editOsched', [App\Http\Controllers\OfwAdminController::class, 'editOsched']);
     Route::get('/updateOSched', [App\Http\Controllers\OfwAdminController::class, 'updateOSched']);
     Route::get('/deleteOsched', [App\Http\Controllers\OfwAdminController::class, 'deleteOsched']);
+    Route::get('/Oannouncements', [App\Http\Controllers\OfwAdminController::class, 'oAnn']);
+    Route::get('/addoAnnouncements', [App\Http\Controllers\OfwAdminController::class, 'addOann']);
+    Route::get('/insertoAnn', [App\Http\Controllers\OfwAdminController::class, 'insertoAnn']);
+    Route::get('/editOAnnouncements', [App\Http\Controllers\OfwAdminController::class, 'EditOAnn']);
+    Route::get('/updateOann', [App\Http\Controllers\OfwAdminController::class, 'updateOann']);
+    Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
+    
+    
+    
+    
+    
     
 });
 
