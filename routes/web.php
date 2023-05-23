@@ -134,10 +134,5 @@ Route::middleware("admin")->group(function () {
     Route::get('/updateOann', [App\Http\Controllers\OfwAdminController::class, 'updateOann']);
     Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
     
-    
-    
-    
-    
-    
 });
 

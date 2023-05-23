@@ -11,4 +11,5 @@ class uProfileController extends Controller
     {
         return view ('uProfile');
     }
+    
 }
