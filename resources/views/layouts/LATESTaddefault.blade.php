@@ -48,7 +48,7 @@
                             <div class="sidebar-brand-icon rotate-n-15">
                                 <i class="bi bi-person-workspace"></i>
                             </div>
-                            <div class="sidebar-brand-text mx-3">Ppeso Admin </div>
+                            <div class="sidebar-brand-text mx-3">Ppeso Admin</div>
                         </a>
 
                         <!-- Divider -->
@@ -67,27 +67,42 @@
 
                         <!-- Heading -->
                         <div class="sidebar-heading">
-                            SERVICES
+                            SERVICES 
                         </div>
 
+                        @for ($i = 0; $i < count($smenu); $i++)
                         <!-- Nav Item - Pages Collapse Menu -->
                         <li class="nav-item">
-                            <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapseTwo"
+                            @if(($smenu[$i][1])=="")
+                            <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#{{ $smenu[$i][0] }}"
                                 aria-expanded="true" aria-controls="collapseTwo">
                                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                <span>PEAP</span>
+                                <span>{{ $smenu[$i][0] }}</span>
                             </a>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+
+                            <div id="{{$smenu[$i][0]}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded">
                                     <h6 class="collapse-header">SERVICES</h6>
-                                    <a class="collapse-item" href="/showAllSApp">Scholarship</a>
-                                    <a class="collapse-item" href="/SAllSched">Schedules</a>
-                                    <a class="collapse-item" href="/Stracking">Tracking</a>
-                                    <a class="collapse-item" href="/Sannouncements">Announcements</a>
+                                    @for ($y = 0; $y < count($smenu[$i][2]); $y++)
+                                    <a class="collapse-item" href="{{ $smenu[$i][2][$y][1] }}">{{ $smenu[$i][2][$y][0] }}</a>
+                                    @endfor
                                 </div>
                             </div>
+
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ $smenu[$i][1] }}">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>{{ $smenu[$i][0] }}</span>
+                                </a>
+                            </li>
+                            @endif
                         </li>
-                        <li class="nav-item">
+                        @endfor
+                        
+
+
+                        <!-- <li class="nav-item">
                             <a class="nav-link collapsed" href="empD"  data-toggle="collapse" data-target="#collapseThree"
                             aria-expanded="true" aria-controls="collapseThree">
                                     <i class="fa fa-briefcase" aria-hidden="true"></i>
@@ -118,7 +133,7 @@
                                 </div>
                             </div>
                             
-                        </li>
+                        </li> -->
 
                         <!-- Divider -->
                         <hr class="sidebar-divider">

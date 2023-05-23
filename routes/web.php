@@ -64,11 +64,6 @@ Route::middleware("admin")->group(function () {
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
     Route::get('/adminprofile', [App\Http\Controllers\AdminController::class, 'aphome']);
-    
-    Route::get('/ofwD', [App\Http\Controllers\AdminController::class, 'ofwD']);
-    Route::get('/editOFW', [App\Http\Controllers\AdminController::class, 'editOdata']);
-    Route::get('/updateofwD', [App\Http\Controllers\AdminController::class, 'updateOdata']);
-    Route::get('/deleteofwD', [App\Http\Controllers\AdminController::class, 'deleteOdata']);
 
     Route::get('/usersD', [App\Http\Controllers\AdminController::class, 'usersD']);
     Route::get('/editUser', [App\Http\Controllers\AdminController::class, 'editUdata']);
@@ -123,5 +118,15 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
     Route::get('/showAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);
+    Route::get('/editOFW', [App\Http\Controllers\OfwAdminController::class, 'editOdata']);
+    Route::get('/updateofwD', [App\Http\Controllers\OfwAdminController::class, 'updateOdata']);
+    Route::get('/deleteofwD', [App\Http\Controllers\OfwAdminController::class, 'deleteOdata']);
+    Route::get('/ofwSched', [App\Http\Controllers\OfwAdminController::class, 'ofwSched']);
+    Route::get('/addOsched', [App\Http\Controllers\OfwAdminController::class, 'addOsched']);
+    Route::get('/insertoSched', [App\Http\Controllers\OfwAdminController::class, 'insertoSched']);
+    Route::get('/editOsched', [App\Http\Controllers\OfwAdminController::class, 'editOsched']);
+    Route::get('/updateOSched', [App\Http\Controllers\OfwAdminController::class, 'updateOSched']);
+    Route::get('/deleteOsched', [App\Http\Controllers\OfwAdminController::class, 'deleteOsched']);
+    
 });
 

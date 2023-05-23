@@ -83,9 +83,9 @@ class ServicesController extends Controller
     public function insertEMPdata(Request $request)
     {
         $language="";
-        $language.= ($request->input('english')=="on") ? "|english" :"";
-        $language.= ($request->input('tagalog')=="on") ? "|tagalog" :"";
-        $language.= ($request->input('chinese')=="on") ? "|chinese" :"";
+        $language.= ($request->input('english')=="on") ? ", english" :"";
+        $language.= ($request->input('tagalog')=="on") ? ", tagalog" :"";
+        $language.= ($request->input('chinese')=="on") ? ", chinese" :"";
         $language=substr($language,1);  
         
 
