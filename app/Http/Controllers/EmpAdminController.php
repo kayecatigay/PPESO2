@@ -198,11 +198,11 @@ class EmpAdminController extends Controller
     public function insertEann(Request $request)
     {
         $req="";
-        $req.= ($request->input('pencil')=="on") ? "|pencil" :"";
-        $req.= ($request->input('ballpen')=="on") ? "|ballpen" :"";
-        $req.= ($request->input('validid')=="on") ? "|validid" :"";
-        $req.= ($request->input('snacks')=="on") ? "|snacks" :"";
-        $req.= ($request->input('water')=="on") ? "|water" :"";
+        $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? ", validid" :"";
+        $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+        $req.= ($request->input('water')=="on") ? ", water" :"";
         $req=substr($req,1);  
 
         // dd($request->input('type'));
@@ -214,11 +214,22 @@ class EmpAdminController extends Controller
     public function EditeAnn(Request $request)
     {
         $EannID=$request->input('EannID');
-        $showData = DB::select('select * from eannoucements where id=' .$EannID);
+        $showData = DB::select('select * from eannouncements where id=' .$EannID);
         return view ('EditEann',['eann'=>$showData]);
     }
     public function updateEann(Request $request)
     {
-        return view('');
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? ", validid" :"";
+        $req.= ($request->input('snacks')=="on") ? ", snacks" :"";
+        $req.= ($request->input('water')=="on") ? ", water" :"";
+        $req=substr($req,1); 
+
+        $announceData = DB::update('update eannouncements set date="' .$request->input('date'). '",schedule= 
+        "' .$request->input('sched'). '",details= "' .$request->input('details'). '",req=
+        "' .$req. '" where id='.$request->input('id') .' ');
+        return redirect('Eannouncements');
     }
 }

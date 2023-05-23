@@ -22,8 +22,7 @@
                   <select class="form-control" name="sched" id="sched">
                      <option value="exam">Exam</option>
                      <option value="interview">Interview</option>
-                     <option value="passers">Passers</option>
-                    <option value="graduates">Graduates</option>
+                     <option value="meeting">Meeting</option>
                   </select>
                </div>
             </div>
