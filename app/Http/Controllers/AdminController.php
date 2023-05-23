@@ -37,8 +37,6 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
-                ],
-                [ 'Dashboard', '/admindashboard',array()
                 ]
                             
             );
