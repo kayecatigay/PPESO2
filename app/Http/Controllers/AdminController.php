@@ -13,7 +13,7 @@ class AdminController extends Controller
     {
         return view ('Aprofile');
     }
-    public function dashboard()
+    public function getLinks()
     {
         // switch ((Auth()->user()->roles))
         // {
@@ -34,22 +34,28 @@ class AdminController extends Controller
         // }
         // if(Auth()->user()->roles==1)
         // {
-            $smenus=array('PEAP','Employment','OFW');
+            $smenus=array(
+                ['PEAP','', 
+                    array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
+                ],
+                [ 'Dashboard', '/admindashboard',array()
+                ]
+                            
+            );
         // }
         // else
         // {
         //     $smenus=array();
         // }
+        return $smenus;
+    }
+    public function dashboard()
+    {
         
-        // $gmenus=
-        $ssub=array(
-            array('Scholarship','Schedules','Tracking','Announcements'),
-            array('Applicants','Works Available','Schedules','Announcements'),
-            array('Applicants','Schedules','Announcements'),
-            array(),
-        );
-        return view ('dashboard');
-        // return view ('dashboard',['smenu'=>$smenus,'submenu'=>$ssub]);
+        // return view ('dashboard');
+        // dd(count($smenus));
+        $smenus=$this->getLinks();
+        return view ('dashboard',['smenu'=>$smenus]);
     }
     public function ahome(Request $request)
     {

@@ -14,4 +14,8 @@ class OfwAdminController extends Controller
     {
         return view('OfwDashboard');
     }
+    public function showOFWdata()
+    {
+        return view('');
+    }
 }

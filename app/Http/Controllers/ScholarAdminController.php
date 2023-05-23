@@ -15,12 +15,13 @@ class ScholarAdminController extends Controller
     }
     public function scholarNOData()
     {
+        $smenus=(new AdminController)->getLinks();
         // $schedID=$request->input('schedID');
         // $showdata = DB::select('select * from sschedules where typeS=' .$schedID);
         $scholardata = DB::select('select * from scholarship where typeS="old"');
         $scholardatanew = DB::select('select * from scholarship where typeS="new"');
         // dd($scholardata);
-        return view('ScholarAll',['dataold'=>$scholardata,'datanew'=>$scholardatanew]);
+        return view('ScholarAll',['dataold'=>$scholardata,'datanew'=>$scholardatanew,'smenu'=>$smenus]);
     }
     // public function newSD()
     // {
@@ -57,9 +58,10 @@ class ScholarAdminController extends Controller
     }
     public function allSched()
     {
+        $smenus=(new AdminController)->getLinks();
         $schedData= DB::select('select * from sschedules');
         // dd($schedData);
-        return view ('Asched',['sched'=>$schedData]);
+        return view ('Asched',['sched'=>$schedData,'smenu'=>$smenus]);
     }
    
     public function addS(Request $request)
@@ -169,9 +171,14 @@ class ScholarAdminController extends Controller
 
         return redirect('/Sannouncements');
     }
-    public function Stracking()
+    public function Stracking(Request $request)
     {
-        $tracking = DB::select('select * from stracking');
-        return view('Stracking',['track'=>$tracking]);
+        $txtsearch=$request->input('filter');
+        // var_dump($txtsearch);
+        $condition= " where name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR sex like '%" .$txtsearch ."%' OR address like'%" 
+        .$txtsearch ."%' OR yearGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
+        ."%' OR companyName like '%" .$txtsearch ."%' OR dateEntry like '%" .$txtsearch ."%' ";
+        $tEracking = DB::select('select * from stracking' .$condition);
+        return view('Stracking',['track'=>$tEracking, 'txts' => $txtsearch]);
     }
 }

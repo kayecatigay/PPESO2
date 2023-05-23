@@ -232,4 +232,9 @@ class EmpAdminController extends Controller
         "' .$req. '" where id='.$request->input('id') .' ');
         return redirect('Eannouncements');
     }
+    public function deleteEann(Request $request)
+    {
+        DB::delete("DELETE FROM eannouncements WHERE id = " .$request->input('delId'));
+        return redirect ('Eannouncements');
+    }
 }
