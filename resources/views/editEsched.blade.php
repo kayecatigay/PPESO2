@@ -55,7 +55,7 @@
               </div>
               <div class="col form-group">
                 <label for="req">Requirements</label>
-                <input type="text" id="req" name="req" value="{{$sched[0]->req}}">
+                <input type="hidden" id="req" name="req" value="{{$sched[0]->req}}">
                 <div class="col ">
                     <input type="checkbox" id="pencil" name="pencil">
                     <label for="pencil">Pencil</label> &nbsp;

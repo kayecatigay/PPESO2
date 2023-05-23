@@ -183,6 +183,42 @@ class EmpAdminController extends Controller
     }
     public function deleteESched(Request $request)
     {
-        return view ('');
+        DB::delete("DELETE FROM eschedules WHERE id = " .$request->input('delId'));
+        return redirect ('empSched');
+    }
+    public function eAnn()
+    {
+        $eannouncements=DB::select('select * from eannouncements');
+        return view ('Eannouncements',['Eann'=>$eannouncements]);
+    }
+    public function addEann(Request $request)
+    {
+        return view ('addEann');
+    }
+    public function insertEann(Request $request)
+    {
+        $req="";
+        $req.= ($request->input('pencil')=="on") ? "|pencil" :"";
+        $req.= ($request->input('ballpen')=="on") ? "|ballpen" :"";
+        $req.= ($request->input('validid')=="on") ? "|validid" :"";
+        $req.= ($request->input('snacks')=="on") ? "|snacks" :"";
+        $req.= ($request->input('water')=="on") ? "|water" :"";
+        $req=substr($req,1);  
+
+        // dd($request->input('type'));
+        $SchedData = DB::insert('insert into eannouncements(date, schedule, details, req) 
+        values("' .$request->input('date') .'","' .$request->input('sched') .'","' .$request->input('dets') .'","'
+        .$req .'")');
+        return redirect('Eannouncements');
+    }
+    public function EditeAnn(Request $request)
+    {
+        $EannID=$request->input('EannID');
+        $showData = DB::select('select * from eannoucements where id=' .$EannID);
+        return view ('EditEann',['eann'=>$showData]);
+    }
+    public function updateEann(Request $request)
+    {
+        return view('');
     }
 }
