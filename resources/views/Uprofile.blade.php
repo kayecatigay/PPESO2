@@ -1,25 +1,27 @@
 @extends('layouts.default')
 @section('content')
-    <div class="container py-5 h-100" style="background-color: black;">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+    <section style="background-color: #0000; ">
+        <div class="row d-flex justify-content-center">
             <div class="col col-lg-9 col-xl-7">
                 <div class="card">
-                <div class="rounded-top text-white d-flex flex-row" style="background-color: black; height:200px;">
-                    <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                    <img src="assets/img/user.jpg"
-                        alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                        style="width: 150px; z-index: 1">
-                        <a href="#"></a><button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                        style="z-index: 1; ">Edit profile</button>
-                    </div>
-                    <div class="ms-4" style="margin-top: 130px;">
-                    <input type="text" style="background-color: black; border:0; color:white; font-size: 20px;"
-                        name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
-                    <input type="text" style="background-color: black; border:0; color:white; font-size: 10px;"
-                        name="email" id="email" value="{{ Auth::user()->email }}" >
+                    <div class="rounded-top text-white d-flex flex-row" style="background-image: url('/assets/images/bg.jpg'); height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img src="assets/images/user2.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"style="width: 130px; z-index: 1">
+                                    <form action ="editProfile" method="get">
+                                        <input type="hidden" id="prID" name="prID" value="{{ Auth::user()->id }}">
+                                        <input type="submit" class="btn btn-outline-dark" value="Edit Profile" name="submit" 
+                                        data-mdb-ripple-color="dark"style="padding: 0px 24px; ">
+                                    </form>
+                        </div>
+                        <div class="ms-4" style="margin-top: 130px;">
+                            <input type="text" style="background-color: transparent; border:0; color:white; font-size: 20px;"
+                                name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
+                            <input type="text" style="background-color: transparent; border:0; color:white; font-size: 10px;"
+                                name="email" id="email" value="{{ Auth::user()->email }}" >
+                        </div>
                     </div>
                 </div>
-                <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                <div class="p-4 text-black" style="background-color: #D0F0C0;">
                     <div class="d-flex justify-content-end text-center py-1">
                         <!-- <div>
                             <p class="mb-1 h5">253</p>
@@ -90,5 +92,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
