@@ -150,12 +150,7 @@
             </div>
           </div> 
         </div>
-            <div class="row">
-              
-              
-              <div>
-              
-            </div>
+
           <div class="row">
             <div class="col-5">&nbsp;</div>
             <div class="col"><button type="submit" class="btn btn-primary">Apply</button></div>

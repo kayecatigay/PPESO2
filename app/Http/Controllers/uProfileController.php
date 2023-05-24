@@ -15,6 +15,15 @@ class uProfileController extends Controller
         // return view ('uProfile',['pr'=>$profhome]);
         return view ('uProfile');
     }
+    public function addP(Request $request)
+    {
+        return view('AddProfile');
+    }
+    public function insertP(Request $request)
+    {
+        $pData=DB::insert('insert into');
+        return redirect('uProfile');
+    }
     public function editP(Request $request)
     {
         $prID=$request->input('prID');
@@ -23,4 +32,5 @@ class uProfileController extends Controller
         // dd($showdata);
         return view('editProfile',['ePr'=>$showdata]); 
     }
+    
 }

@@ -6,7 +6,7 @@
           <h2>Profile</h2>
           <p>Personal Data</p>
         
-        <form action="UpdateProfile">
+        <form action="insertProfile">
         
             <input type="hidden" id="userid" name="userid" value="{{ $ePr[0]->id}}">
 

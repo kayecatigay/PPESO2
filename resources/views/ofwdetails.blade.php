@@ -68,9 +68,9 @@
             <small id="guardian" class="form-text text-muted">Sitio, Barangay, City/Municipality, Province</small>
           </div>
           <div class="col-3 from group">
-              <label for ="passnum">Passport Number</label>
-              <input type="text" class="form-control" id="passnum" name="passnum" placeholder="13254543">
-            </div>
+            <label for ="passnum">Passport Number</label>
+            <input type="text" class="form-control" id="passnum" name="passnum" placeholder="13254543">
+          </div>
           <div class ="row">
             <div class=" col-5 form-group">
               <label for="emailadd">Email address</label>

@@ -28,7 +28,13 @@ Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news'
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'about']);
 
 Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'phome']);
+Route::get('/AddProfile', [App\Http\Controllers\uProfileController::class, 'addP']);
+Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'insertP']);
 Route::get('/editProfile', [App\Http\Controllers\uProfileController::class, 'editP']);
+Route::get('/UpdateProfile', [App\Http\Controllers\uProfileController::class, 'updateP']);
+
+
+
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);

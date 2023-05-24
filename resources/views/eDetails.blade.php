@@ -155,7 +155,7 @@
     </div>
   </section><!-- End Services Section -->
   <script>
-    function myFunction() {
+    function myspouseFunction() {
     var status = document.getElementById("cstatus").value;
     var x = document.getElementById("hidespouse");
     // alert(status);
