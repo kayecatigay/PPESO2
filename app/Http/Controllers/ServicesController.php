@@ -37,12 +37,7 @@ class ServicesController extends Controller
     public function insertdata(Request $request)
     {
        
-        $scholardata = DB::insert('insert into scholarship(userid, typeS, name, sex, address, emailadd, contactnum, placeofbirth, birthday, age, height, weight, bloodtype, religion, 
-        guardian, relation, yGraduated, school, work, companyn) values("' .$request->input('userid') .'","' .$request->input('typeS') .'","' .$request->input('name') .'","' .$request->input('gender') .'","' 
-        .$request->input('add') .'","' .$request->input('emailadd') .'","' .$request->input('contactnum') .'","' .$request->input('birthplace') .'","' 
-        .$request->input('birthday') .'",' .$request->input('age') .',' .$request->input('height') .',' .$request->input('weight') .',"'
-        .$request->input('bloodtype') .'","' .$request->input('religion') .'","' .$request->input('guardian') .'","' .$request->input('relationship') .'","'
-        .$request->input('yGraduated') .'","' .$request->input('school') .'","' .$request->input('work') .'","' .$request->input('cname') .'") ');
+        $scholardata = DB::insert('insert into scholarship(userid, typeS) values("' .$request->input('userid') .'","' .$request->input('typeS') .'") ');
 
         return view ('scholarhome');
     }
@@ -82,19 +77,10 @@ class ServicesController extends Controller
     }
     public function insertEMPdata(Request $request)
     {
-        $language="";
-        $language.= ($request->input('english')=="on") ? ", english" :"";
-        $language.= ($request->input('tagalog')=="on") ? ", tagalog" :"";
-        $language.= ($request->input('chinese')=="on") ? ", chinese" :"";
-        $language=substr($language,1);  
-        
 
-        $empdata= DB::insert('insert into employment(posidesired, name, gender, address, telephone, cellphone, emailadd, birthday, Cstatus, spouse, height, weight, religion, language,
-        elem, hschool, college, degree, cname, position, crname, crcompany, crposition, crcontact, userid) values("' .$request->input('posidesi') .'","' .$request->input('name') .'","'
-        .$request->input('gender') .'","' .$request->input('add') .'","' .$request->input('telnum') .'","' .$request->input('contactnum') .'","' .$request->input('emailadd') .'","' .$request->input('birthday') .'","'
-        .$request->input('cstatus') .'","' .$request->input('spouse') .'",' .$request->input('height') .',' .$request->input('weight') .',"' .$request->input('religion') .'","' .$language .'","'
-        .$request->input('elem') .'","' .$request->input('hs') .'","' .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('cname') .'","' .$request->input('posi') .'","'
-        .$request->input('crname') .'","' .$request->input('crcname') .'","' .$request->input('crposi') .'","' .$request->input('crcontact') .'",' .$request->input('userid') .')');
+        $empdata= DB::insert('insert into employment(userid, posidesired, cname, crname, crcontact) 
+        values(' .$request->input('userid') .',"'.$request->input('posidesired') .$request->input('cname') .'","' 
+        .$request->input('crname') .'","' .$request->input('crcontact') .')');
     
         return view('emphomepage');
     }
@@ -118,12 +104,9 @@ class ServicesController extends Controller
     public function ofwinsert(Request $request)
     {
         //$name=$request->input('lastname') ."," .$request->input('firstname') ." " .$request->input('middlename');
-        $ofwData = DB::insert('insert into ofw(userid, lastname, firstname, middlename, suffix, birthday, age, sex, contactnum, address, passnum, 
-        emailadd, fbacc, JobDesc, OfwCat, Company, Country, PeriodOfEmp) values(' .$request->input('userid') .',"' .$request->input('lastname') .'","' .$request->input('firstname') .'","'
-        .$request->input('middlename') .'","' .$request->input('suffix') .'","' .$request->input('birthday') .'",' .$request->input('age') .',"'
-        .$request->input('sex') .'","' .$request->input('contactnum') .'","' .$request->input('address') .'","'.$request->input('passnum') .'","'
-        .$request->input('emailadd') .'","' .$request->input('fbacc') .'","' .$request->input('jobdesi').'","' .$request->input('ofwcat') .'","' 
-        .$request->input('company') .'","' .$request->input('country') .'","' .$request->input('period') .'")');
+        $ofwData = DB::insert('insert into ofw(userid, JobDesc, OfwCat, Company, Country, PeriodOfEmp) 
+        values(' .$request->input('userid') .',"' .$request->input('JobDesc').'","' .$request->input('OfwCat') .'","' 
+        .$request->input('Company') .'","' .$request->input('Country') .'","' .$request->input('PeriodOfEmp') .'")');
 
         return view('ofwhomepage');
     }

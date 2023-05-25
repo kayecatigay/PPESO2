@@ -10,15 +10,12 @@
           <p>OFW Fill up form</p>
         </div>
         <form action="ofwinsertD">
-          <div class="form-group">
-            <label for="ofwId"></label>
-            <input type="hidden" class="form-control" id="ofwId" name="ofwId"  placeholder="Enter Name">
-          </div>
+          
           <div class="form-group">
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
-                <a class="btn btn-success" href="addDesc">ADD TABLE </a>
+                
             <div class="card-body">
                 <div class="container table-container">
                     <table class="table">
@@ -34,37 +31,37 @@
                            </tr>
                         </thead>
                         <tbody>
-                            @foreach ($ofw as $reg)
+                            
                               <tr>
-                                  <td>{{ $reg->JobDesc }}</td>
-                                  <td>{{ $reg->OfwCat}}</td>
-                                  <td>{{ $reg->Company }}</td>
-                                  <td>{{ $reg->Country }}</td>
-                                  <td>{{ $reg->PeriodOfEmp }}</td>
+                                  <td>baba</td>
+                                  <td>bebe</td>
+                                  <td>bibi</td>
+                                  <td>country</td>
+                                  <td>Employment</td>
                                   <td>
                                       <span class="input-group">
                                         
                                         &emsp;
-                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $reg->id }}">
+                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod">
                                         Delete
                                         </button>
 
                                         <!-- DELETE Modal -->
-                                        <div class="modal fade" id="delmod{{ $reg->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="delmod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">   
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $reg->id }} </h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: </h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Do you really want to delete this record: {{ $reg->JobDesc}}?
+                                                        Do you really want to delete this record: ?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <form action ="/deleteWorke" method="get" >
                                                             @csrf
-                                                            <input type="hidden" id="delId" name="delId" value="{{ $reg->id }}">
-                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $reg->id }}').modal('hide');" >Yes</button>
+                                                            <input type="hidden" id="delId" name="delId" >
+                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod').modal('hide');" >Yes</button>
                                                         </form>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                     </div>
@@ -75,7 +72,8 @@
                                       </span>
                                   </td>
                               </tr>
-                            @endforeach
+                              <a class="btn btn-success" href="addofwT">ADD TABLE </a>
+                            
                         </tbody>
                     </table>
                 </div>

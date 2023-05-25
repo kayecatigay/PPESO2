@@ -34,6 +34,12 @@ Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'i
 Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
 Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
 
+Route::get('/addEmpTable', [App\Http\Controllers\uProfileController::class, 'addE']);
+Route::get('/insertEmpF', [App\Http\Controllers\uProfileController::class, 'insertEmpF']);
+
+Route::get('/addofwT', [App\Http\Controllers\uProfileController::class, 'addO']);
+Route::get('/insertOf', [App\Http\Controllers\uProfileController::class, 'insertOf']);
+
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);

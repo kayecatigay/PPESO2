@@ -96,4 +96,27 @@ class uProfileController extends Controller
         DB::delete("DELETE FROM uwork WHERE id = " .$request->input('delId'));
         return redirect('userprofile');
     }
+    public function addE()
+    {
+        return view ('addEmpT');
+    }
+    public function insertEmpF(Request $request)
+    {
+        $EmpData = DB::insert('insert into employment(userid, posidesired, cname, crname, crcontact) 
+        values("' .$request->input('userid') .'","' .$request->input('posidesired') .'","' 
+        .$request->input('cname') .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
+
+        return redirect('Eregistration');
+    }
+    public function addO()
+    {
+        return view('addOt');
+    }
+    public function insertOf(Request $request)
+    {
+        $OfwData = DB::insert('insert into ofw(userid, JobDesc, OfwCat, Company, Country, PeriodOfEmp) 
+        values("' .$request->input('userid') .'","' .$request->input('JobDesc') .'","'.$request->input('OfwCat') .'","'  
+        .$request->input('Company') .'","' .$request->input('Country') .'","'  .$request->input('PeriodOfEmp') .'" )');
+        return redirect('ofwregistration');
+    }
 }

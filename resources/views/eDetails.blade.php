@@ -14,75 +14,67 @@
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
           
-          <div class="row">
-              <label for="posidesi">Position Desired:</label>
-              <input type="text" id="posidesi" name="posidesi" placeholder="Enter Position">
-          </div>
-        
-          <div class="container" id="myTable">
-                <div class="table-responsive">
-                    <table class="table" style="text-align:center">
-                        <thead>
-                            <tr>
-                                <th>Company Name</th>
-                                <th>Position</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                  <input type="text" style="border:0px" id="cname" name="cname">
-                                </td>
-                                <td>
-                                  <input type="text" style="border:0px" id="posi" name="posi">
-                                </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <input type="text" style="border:0px" id="cname" name="cname">
-                              </td>
-                              <td>
-                                <input type="text" style="border:0px" id="posi" name="posi">
-                              </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button type="button" onclick="mytableFunction()">Add</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col form-group">
-                    <label for="cname">Company Name</label>
-                    <input type="text" class="form-control" id="cname" name="cname"  placeholder="Enter Company name">
-                </div>
-                <div class="col-5 form-group">
-                    <label for="posi">Position</label>
-                    <input type="text" class="form-control" id="posi" name="posi"  placeholder="Enter Position">
-                </div>
-            </div><br>  
+            <div class="card-body">
+              <div class="container table-container">
+                <table class="table"style="text-align:center;">
+                  <thead>
+                      <tr>
+                        <th scope="col">Position Desired</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Record</th>
+                        <th scope="col">Character Reference</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    @foreach( $reg as $emp)
+                      <tr>
+                        <td>{{ $emp->posidesired }}</td>
+                        <td>{{ $emp->cname }}</td>
+                        <td>{{ $emp->crname }}</td>
+                        <td>{{ $emp->crcontact }}</td>
+                        <td>
+                          <span class="input-group">
+                            <form action ="editSched" method="get">
+                                <input type="hidden" id="schedID" name="schedID" value="">
+                                <input type="submit" class="btn btn-info" value="Edit" name="submit">
+                            </form>
+                            &emsp;
+                            <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod">
+                                Delete
+                            </button>
 
-                <p>Character Reference</p>
-            <div class="row"> 
-              <div class="col form-group">
-                <label for="crname">Name</label>
-                <input type="text" class="form-control" id="crname" name="crname"  placeholder="Enter name">
-              </div>
-              <div class="col form-group">
-                <label for="crcontact">Contact Number</label>
-                <input type="text" class="form-control" id="crcontact" name="crcontact"  placeholder="ex: 09876543212">
+                                <!-- DELETE Modal -->
+                                <div class="modal fade" id="delmod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">   
+                                      <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID:  </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                            Do you really want to delete this record: ?
+                                      </div>
+                                      <div class="modal-footer">
+                                            <form action ="/deleteSched" method="get" >
+                                              @csrf
+                                              <input type="hidden" id="delId" name="delId" value="">
+                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod ').modal('hide');" >Yes</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                <!-- DELETE Modal -->
+                            </div>
+                          </span>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table> <a class="btn btn-success" style="padding:5px; font-size:12px;" href="addEmpTable">ADD TABLE </a>
               </div>
             </div>
-            
-            <div class="row">
-              <div class="col form-group">
-                <label for="crcname">Company Name</label>
-                <input type="text" class="form-control" id="crcname" name="crcname"  placeholder="Enter name">
-              </div>
-              <div class="col form-group">
-                <label for="crposi">Position</label>
-                <input type="text" class="form-control" id="crposi" name="crposi"  placeholder="Enter position">
-              </div>
-            </div> <br>
             <div class="row">
             <div class="col-5">&nbsp;</div>
             <div class="col"><button type="submit"  class="btn btn-primary">Apply</button></div>

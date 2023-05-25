@@ -259,7 +259,7 @@
                                 <td>
                                     <span class="input-group">
                                         
-                                        &emsp;
+                                      
                                         <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $wrk->id }}">
                                         Delete
                                         </button>

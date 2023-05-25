@@ -11,10 +11,6 @@
         </div>
         <form action="scholardata">
           <div class="form-group">
-            <label for="SchId"></label>
-            <input type="hidden" class="form-control" id="SchId" name="SchId"  placeholder="Enter Name">
-          </div>
-          <div class="form-group">
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
