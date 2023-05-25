@@ -18,7 +18,7 @@ class uProfileController extends Controller
     public function addP(Request $request)
     {
         
-        $userid=$request->input('userid');
+        $userid=Auth::user()->id;
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         $showwork = DB::select('select * from uwork where userid=' .$userid);
         return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork]);
@@ -89,7 +89,7 @@ class uProfileController extends Controller
         .$request->input('crname') .'","' .$request->input('crcontact') .'","' .$request->input('crcname') .'","'
         .$request->input('crposi') .'" )');
 
-        return redirect('userprofile');
+        return redirect('AddProfile');
     }
     public function deleteWorke(Request $request)
     {

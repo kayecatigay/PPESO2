@@ -35,9 +35,6 @@ Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']
 Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
 
 
-
-
-
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);
 Route::get('/Sregistration',[App\Http\Controllers\ServicesController::class, 'registrationform']);

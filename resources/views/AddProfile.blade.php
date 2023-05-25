@@ -260,12 +260,12 @@
                                     <span class="input-group">
                                         
                                         &emsp;
-                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $wrk->id }}">
+                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $wrk->id }}">
                                         Delete
                                         </button>
 
                                         <!-- DELETE Modal -->
-                                        <div class="modal fade" id="delmod{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="delmod1{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">   
                                                     <div class="modal-header">
@@ -279,7 +279,7 @@
                                                         <form action ="/deleteWorke" method="get" >
                                                             @csrf
                                                             <input type="hidden" id="delId" name="delId" value="{{ $wrk->id }}">
-                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $wrk->id }}').modal('hide');" >Yes</button>
+                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod1{{ $wrk->id }}').modal('hide');" >Yes</button>
                                                         </form>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                     </div>

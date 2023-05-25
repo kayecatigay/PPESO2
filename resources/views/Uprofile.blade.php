@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-image: url('/assets/images/bg.jpg'); height:200px;">
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                            <img src="assets/images/user2.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"style="width: 130px; z-index: 1">
+                            <img src="assets/images/user2.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 130px; z-index: 1">
                                     <form action ="AddProfile" method="get">
                                         <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
                                         <input type="submit" class="btn btn-outline-dark" value="Edit Profile" name="submit" 
@@ -18,6 +18,12 @@
                                 name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
                             <input type="text" style="background-color: transparent; border:0; color:white; font-size: 10px;"
                                 name="email" id="email" value="{{ Auth::user()->email }}" >
+                        </div>
+                        <div class="ms-4" style="margin-top: 150px; margin-right:110px;">
+                             
+                        </div>
+                        <div class="ms-4" style="margin-top: 160px;">
+                           <a href="#"> <i class="fa fa-camera" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

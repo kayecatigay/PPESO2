@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\Controller;
 
 class ServicesController extends Controller
 {
@@ -113,7 +113,7 @@ class ServicesController extends Controller
  
         $ofw = DB::select('select * from ofw where userid=' .Auth()->user()->id);
         $registered=($ofw) ? true : false;
-        return view('ofwdetails',['reg'=>$registered]);
+        return view('ofwdetails',['ofw'=>$registered]);
     }
     public function ofwinsert(Request $request)
     {

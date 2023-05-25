@@ -18,101 +18,68 @@
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
-          <div class="row">
-            <div class="col-3 form-group">
-              <label for="lastname">Lastname</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" value="{{ Auth::user()->lastname }}">
+                <a class="btn btn-success" href="addDesc">ADD TABLE </a>
+            <div class="card-body">
+                <div class="container table-container">
+                    <table class="table">
+                      
+                        <thead>
+                           <tr>
+                              <th scope="col">Job Description</th>
+                              <th scope="col">Ofw Category</th>
+                              <th scope="col">Company</th>
+                              <th scope="col">Country</th>
+                              <th scope="col">Period of Employment</th>          
+                              <th scope="col">Action</th>            
+                           </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($ofw as $reg)
+                              <tr>
+                                  <td>{{ $reg->JobDesc }}</td>
+                                  <td>{{ $reg->OfwCat}}</td>
+                                  <td>{{ $reg->Company }}</td>
+                                  <td>{{ $reg->Country }}</td>
+                                  <td>{{ $reg->PeriodOfEmp }}</td>
+                                  <td>
+                                      <span class="input-group">
+                                        
+                                        &emsp;
+                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $reg->id }}">
+                                        Delete
+                                        </button>
+
+                                        <!-- DELETE Modal -->
+                                        <div class="modal fade" id="delmod{{ $reg->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">   
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $reg->id }} </h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Do you really want to delete this record: {{ $reg->JobDesc}}?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action ="/deleteWorke" method="get" >
+                                                            @csrf
+                                                            <input type="hidden" id="delId" name="delId" value="{{ $reg->id }}">
+                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $reg->id }}').modal('hide');" >Yes</button>
+                                                        </form>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <!-- DELETE Modal -->
+                                      </span>
+                                  </td>
+                              </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-3 form-group">
-              <label for="firstname">Firstname</label>
-              <input type="text" class="form-control" id="firstname" name="firstname" value="{{ Auth::user()->firstname }}">
-            </div>
-            <div class="col-3 form-group">
-              <label for="middlename">Middlename</label>
-              <input type="text" class="form-control" id="middlename" name="middlename" value="{{ Auth::user()->middlename }}">
-            </div>
-            <div class="col-1 form-group">
-              <label for="suffix">Suffix</label>
-              <select class="form-control" name="suffix" id="suffix">
-                <option value="n/a">N/A</option>
-                <option value="sr">Jr.</option>
-                <option value="jr">Sr.</option>
-              </select>
-            </div>
-          </div>
-          <div class ="row">
-            <div class="col-3 form-group">
-              <label for="birthday">Date of Birth</label>
-              <input type="date" class="form-control" id="birthday" name="birthday"  placeholder="" onchange="setage()">
-            </div>
-            <div class="col-2 form-group">
-              <label for="age">Age</label>
-              <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age">
-            </div>
-            <div class="col-2 form-group">
-              <label for="sex">Sex</label>
-              <select class="form-control" name="sex" id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-              </select>
-            </div>
-            <div class="col-3 form-group">
-              <label for="contactnum">Contact Number</label>
-              <input type="number" class="form-control" id="contactnum" name="contactnum"  placeholder="ex. 09123456789">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6 form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" name="address"  placeholder="Enter Address" >
-            <small id="guardian" class="form-text text-muted">Sitio, Barangay, City/Municipality, Province</small>
-          </div>
-          <div class="col-3 from group">
-            <label for ="passnum">Passport Number</label>
-            <input type="text" class="form-control" id="passnum" name="passnum" placeholder="13254543">
-          </div>
-          <div class ="row">
-            <div class=" col-5 form-group">
-              <label for="emailadd">Email address</label>
-              <input type="email" class="form-control" id="emailadd" name="emailadd"  placeholder="ex. abc@gmail.com">
-            </div>
-            <div class="col-5 form-group">
-              <label for="fbacc">Facebook Account</label>
-              <input type="facebook" class="form-control" id="fbacc" name="fbacc"> <br>
-            </div>
-         
-          <div class="container table-container" style="text-align:center">
-            <table class="table table-stripped border">
-              <thead>
-                <tr>
-                  <th scope="col">Job Description</th>
-                  <th scope="col">Ofw Category</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Period of Employment</th>
-                </tr>
-              </thead>
-              <tbody class="table table-bordered">
-                <tr>
-                  <td>
-                    <input type="text" id="jobdesi" name="jobdesi" >
-                  </td>
-                  <td>
-                    <input type="text" id="ofwcat" name="ofwcat">
-                  </td>
-                  <td>
-                   <input type="text" id="company" name="company">
-                  </td>
-                  <td>
-                    <input type="text" id="country" name="country">
-                  </td>
-                  <td>
-                    <input type="text" id="period" name="period">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
     </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>
