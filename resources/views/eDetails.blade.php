@@ -27,12 +27,11 @@
                       </tr>
                   </thead>
                   <tbody>
-                    @foreach( $reg as $emp)
                       <tr>
-                        <td>{{ $emp->posidesired }}</td>
-                        <td>{{ $emp->cname }}</td>
-                        <td>{{ $emp->crname }}</td>
-                        <td>{{ $emp->crcontact }}</td>
+                        <td>{{ $reg->posidesired }}</td>
+                        <td>{{ $reg->cname }}</td>
+                        <td>{{ $reg->crname }}</td>
+                        <td>{{ $reg->crcontact }}</td>
                         <td>
                           <span class="input-group">
                             <form action ="editSched" method="get">
@@ -70,7 +69,6 @@
                           </span>
                         </td>
                       </tr>
-                    @endforeach
                   </tbody>
                 </table> <a class="btn btn-success" style="padding:5px; font-size:12px;" href="addEmpTable">ADD TABLE </a>
               </div>

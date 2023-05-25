@@ -18,7 +18,7 @@
                 
             <div class="card-body">
                 <div class="container table-container">
-                    <table class="table">
+                    <table class="table" style="text-align:center;">
                       
                         <thead>
                            <tr>
@@ -41,7 +41,6 @@
                                   <td>
                                       <span class="input-group">
                                         
-                                        &emsp;
                                         <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod">
                                         Delete
                                         </button>
