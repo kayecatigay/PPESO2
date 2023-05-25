@@ -30,8 +30,10 @@ Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'about']);
 Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'phome']);
 Route::get('/AddProfile', [App\Http\Controllers\uProfileController::class, 'addP']);
 Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'insertP']);
-Route::get('/editProfile', [App\Http\Controllers\uProfileController::class, 'editP']);
-Route::get('/UpdateProfile', [App\Http\Controllers\uProfileController::class, 'updateP']);
+
+Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
+Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
+
 
 
 

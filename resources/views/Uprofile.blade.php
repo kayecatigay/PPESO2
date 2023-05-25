@@ -8,7 +8,7 @@
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                             <img src="assets/images/user2.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"style="width: 130px; z-index: 1">
                                     <form action ="AddProfile" method="get">
-                                        <input type="hidden" id="prID" name="prID" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
                                         <input type="submit" class="btn btn-outline-dark" value="Edit Profile" name="submit" 
                                         data-mdb-ripple-color="dark"style="padding: 0px 24px; ">
                                     </form>
