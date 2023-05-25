@@ -6,9 +6,9 @@
           <h2>Profile</h2>
           <p>Personal Data</p>
         
-        <form action="insertProfile">
+        <form action="insertProfile" method="get">
         
-            <input type="hidden" id="userid" name="userid" value="{{ $ePr[0]->id}}">
+            <input type="hidden" id="userid" name="userid" >
 
             <div class="row">
                 <div class="col-7 form-group">
@@ -34,8 +34,8 @@
             </div>
             <div class="row">
                 <div class="col-6 form-group">
-                    <label for="add">Address</label>
-                    <input type="text" class="form-control" id="add" name="add"  placeholder="Enter Address" >
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address"  placeholder="Enter Address" >
                 </div>
                 <div class="col form-group">
                     <label for="contactnum">Contact Number</label>
@@ -70,11 +70,11 @@
                     <input type="number" readonly class="form-control" id="age" name="age"  placeholder="Enter Age">
                 </div>
                 <div class="col form-group">
-                    <label for="height">Height (kg)</label>
+                    <label for="height">Height (cm)</label>
                     <input type="text" class="form-control" id="height" name="height"  placeholder="Enter Height">
                 </div>
                 <div class="col form-group">
-                    <label for="weight">Weight (cm)</label>
+                    <label for="weight">Weight (kg)</label>
                     <input type="text" class="form-control" id="weight" name="weight"  placeholder="Enter Weight">
                 </div>
             </div>
