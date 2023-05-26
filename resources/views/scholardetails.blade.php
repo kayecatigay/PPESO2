@@ -7,29 +7,45 @@
     <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Services</h2>
-          <p>Scholarship Form</p>
+          <p>My Scholarship Application</p>
         </div>
         <form action="scholardata">
+          
+            <button type="submit" class="btn btn-primary">Apply Now!</button>
+
+            <div class="card-body">
+              <div class="container table-container">
+                <table class="table"style="text-align:center;">
+                  <thead>
+                      <tr>
+                        <th scope="col">Application Id</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  @foreach ($reg as $emp)
+                    <tr>
+                      <td>{{ $emp->appId }}</td>
+                      <td>{{ $emp->date }}</td>
+                      <td>{{ $emp->status }}</td>
+                      <td>{{ $emp->posidesired }}</td>
+                      <td>{{ $emp->cname }}</td>
+                      <td>{{ $emp->crname }}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>       
           <div class="form-group">
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
-          <div class="row">
-            <div class="col">
-              <label for="typeS">Scholar</label>
-              <select class="form-control" name="typeS" id="typeS">
-                <option value="new">New</option>
-                <option value="old">Old</option>
-              </select>
-            </div>
-            <div class="col-9">&nbsp;</div>
+          
           </div> <br>
 
-          <div class="row">
-            <div class="col-5"><button type="submit" class="btn btn-primary">Apply</button></div>
-            <div class="col">&nbsp;</div>
-            <div class="col">&nbsp;</div>
-          </div>
           
         </form>
     </div>

@@ -17,9 +17,15 @@ class uProfileController extends Controller
     }
     public function addP(Request $request)
     {
-        
         $userid=Auth::user()->id;
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
+        // dd($showdata);
+        if(!$showdata)
+        {
+            $pData = DB::insert('insert into uprofile(userid) values(' .$userid .')');
+            $showdata1 = DB::select('select * from uprofile where userid=' .$userid);
+            dd($showdata1);
+        }
         $showwork = DB::select('select * from uwork where userid=' .$userid);
         return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork]);
     }
@@ -102,11 +108,17 @@ class uProfileController extends Controller
     }
     public function insertEmpF(Request $request)
     {
-        $EmpData = DB::insert('insert into employment(userid, posidesired, cname, crname, crcontact) 
-        values("' .$request->input('userid') .'","' .$request->input('posidesired') .'","' 
-        .$request->input('cname') .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
+        $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
+        values("' .$request->input('userid') .'","' .$request->input('appId') .'","' .$request->input('date') 
+        .'","' .$request->input('status') .'","' .$request->input('posidesired') .'","' .$request->input('cname') 
+        .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
 
         return redirect('Eregistration');
+    }
+    public function cancelE(Request $request)
+    { 
+        DB::delete("DELETE FROM employment WHERE id = " .$request->input('delId'));
+        return redirect('Eregistration');   
     }
     public function addO()
     {

@@ -14,6 +14,24 @@
           
             <div class="row form-group">
                <div class="col">
+                  <label for="appId">Application ID</label>
+                  <input type="text" class="form-control" id="appId" name="appId">
+               </div>
+               <div class="col">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date" name="date" >
+               </div>
+               <div class="col">
+                  <label for="status">Status</label>
+                  <select class="form-control" name="status" id="status" >
+                     <option value="pending">Pending</option>
+                     <option value="approved">Approved</option>
+                     <option value="denied">Denied</option>
+                  </select>
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col">
                   <label for="posidesired">Position Desired</label>
                   <input type="text" class="form-control" id="posidesired" name="posidesired">
                </div>

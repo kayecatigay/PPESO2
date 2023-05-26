@@ -36,6 +36,8 @@ Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'ins
 
 Route::get('/addEmpTable', [App\Http\Controllers\uProfileController::class, 'addE']);
 Route::get('/insertEmpF', [App\Http\Controllers\uProfileController::class, 'insertEmpF']);
+Route::get('/cancelTable', [App\Http\Controllers\uProfileController::class, 'cancelE']);
+
 
 Route::get('/addofwT', [App\Http\Controllers\uProfileController::class, 'addO']);
 Route::get('/insertOf', [App\Http\Controllers\uProfileController::class, 'insertOf']);

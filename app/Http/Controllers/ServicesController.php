@@ -37,9 +37,10 @@ class ServicesController extends Controller
     public function insertdata(Request $request)
     {
        
-        $scholardata = DB::insert('insert into scholarship(userid, typeS) values("' .$request->input('userid') .'","' .$request->input('typeS') .'") ');
-
-        return view ('scholarhome');
+        $scholardata = DB::insert('insert into scholarship(appId, date, status, userid) 
+        values("' .$request->input('appId') .'","' .$request->input('date') .'","'
+        .$request->input('status') .'",' .$request->input('userid') .') ');
+        return redirect ('scholardetails');
     }
     public function viewolddata(Request $request)
     {
@@ -72,15 +73,16 @@ class ServicesController extends Controller
         }
  
         $employee = DB::select('select * from employment where userid=' .Auth()->user()->id);
-        $registered=($employee) ? true : false;
-        return view('eDetails',['reg'=>$registered]);
+        // $registered=($employee) ? true : false;
+        // dd($employee[0]);
+        return view('eDetails',['reg'=>$employee]);
     }
     public function insertEMPdata(Request $request)
     {
 
         $empdata= DB::insert('insert into employment(userid, posidesired, cname, crname, crcontact) 
-        values(' .$request->input('userid') .',"'.$request->input('posidesired') .$request->input('cname') .'","' 
-        .$request->input('crname') .'","' .$request->input('crcontact') .')');
+        values(' .$request->input('userid') .',"'.$request->input('posidesired') .'","' .$request->input('cname') .'","' 
+        .$request->input('crname') .'","' .$request->input('crcontact') .'")');
     
         return view('emphomepage');
     }
