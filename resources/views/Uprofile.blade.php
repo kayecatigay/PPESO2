@@ -2,45 +2,26 @@
 @section('content')
     <section style="background-color: #0000; ">
         <div class="row d-flex justify-content-center">
-            <div class="col col-lg-9 col-xl-7">
+            <div class="col-lg-9 col-xl-9">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-image: url('/assets/images/bg.jpg'); height:200px;">
-                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                            <img src="assets/images/user2.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 130px; z-index: 1">
-                                    <form action ="AddProfile" method="get">
-                                        <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
-                                        <input type="submit" class="btn btn-outline-dark" value="Edit Profile" name="submit" 
-                                        data-mdb-ripple-color="dark"style="padding: 0px 24px; ">
-                                    </form>
-                        </div>
-                        <div class="ms-4" style="margin-top: 130px;">
-                            <input type="text" style="background-color: transparent; border:0; color:white; font-size: 20px;"
-                                name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
-                            <input type="text" style="background-color: transparent; border:0; color:white; font-size: 10px;"
-                                name="email" id="email" value="{{ Auth::user()->email }}" >
-                        </div>
-                        <div class="ms-4" style="margin-top: 150px; margin-right:110px;">
-                             
-                        </div>
-                        <div class="ms-4" style="margin-top: 160px;">
-                           <a href="#"> <i class="fa fa-camera" aria-hidden="true"></i></a>
+                        <div class="ms-2 mt-6" style="width: 150px; margin-top: 120px;">
+                           <div class="mt-auto mb-auto">
+                                <input type="text" readonly style="background-color: transparent; border:0; color:white; font-size: 30px;"
+                                    name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
+                                <input type="text"  readonly style="background-color: transparent; border:0; margin-left:0; width:160%; color:white; font-size: 15px;"
+                                    name="email" id="email" value="{{ Auth::user()->email }}" >
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="p-4 text-black" style="background-color: #D0F0C0;">
-                    <div class="d-flex justify-content-end text-center py-1">
-                        <!-- <div>
-                            <p class="mb-1 h5">253</p>
-                            <p class="small text-muted mb-0">Photos</p>
-                        </div>
-                        <div class="px-3">
-                            <p class="mb-1 h5">1026</p>
-                            <p class="small text-muted mb-0">Followers</p>
-                        </div>
-                        <div>
-                            <p class="mb-1 h5">478</p>
-                            <p class="small text-muted mb-0">Following</p>
-                        </div> -->
+                <div class="p-0 text-black" style="background-color: #C1E1C1;">
+                    <div class="d-flex">
+                       <form action ="AddProfile" method="get">
+                            <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
+                            <input type="submit" class="btn btn-outline-dark" value="Edit Profile" name="submit" 
+                            data-mdb-ripple-color="dark" style="padding: 0px 20px; margin-left:10px; margin-bottom:10px; margin-top: 10px;">
+                        </form>
                     </div>
                 </div>
                 <div class="card-body p-4 text-black">

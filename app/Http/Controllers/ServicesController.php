@@ -31,8 +31,8 @@ class ServicesController extends Controller
         }
  
         $scholar = DB::select('select * from scholarship where userid=' .Auth()->user()->id);
-        $registered=($scholar) ? true : false;
-        return view('scholardetails',['reg'=>$registered]);
+        // $registered=($scholar) ? true : false;
+        return view('scholardetails',['reg'=>$scholar]);
     }
     public function insertdata(Request $request)
     {
@@ -100,8 +100,8 @@ class ServicesController extends Controller
         }
  
         $ofw = DB::select('select * from ofw where userid=' .Auth()->user()->id);
-        $registered=($ofw) ? true : false;
-        return view('ofwdetails',['ofw'=>$registered]);
+        // $registered=($ofw) ? true : false;
+        return view('ofwdetails',['ofw'=>$ofw]);
     }
     public function ofwinsert(Request $request)
     {

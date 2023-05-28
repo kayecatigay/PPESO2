@@ -43,8 +43,7 @@
                         <td>
                           <span class="input-group">
                             
-                            &emsp; 
-                            <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
+                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
                                 Cancel
                             </button>
 

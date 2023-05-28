@@ -34,6 +34,10 @@ Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'i
 Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
 Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
 
+Route::get('/AddSchTable', [App\Http\Controllers\uProfileController::class, 'addS']);
+Route::get('/insertSchT', [App\Http\Controllers\uProfileController::class, 'insertSchT']);
+Route::get('/cancelsTable', [App\Http\Controllers\uProfileController::class, 'cancelS']);
+
 Route::get('/addEmpTable', [App\Http\Controllers\uProfileController::class, 'addE']);
 Route::get('/insertEmpF', [App\Http\Controllers\uProfileController::class, 'insertEmpF']);
 Route::get('/cancelTable', [App\Http\Controllers\uProfileController::class, 'cancelE']);
@@ -41,7 +45,7 @@ Route::get('/cancelTable', [App\Http\Controllers\uProfileController::class, 'can
 
 Route::get('/addofwT', [App\Http\Controllers\uProfileController::class, 'addO']);
 Route::get('/insertOf', [App\Http\Controllers\uProfileController::class, 'insertOf']);
-
+Route::get('/cancelOfwT', [App\Http\Controllers\uProfileController::class, 'cancelO']);
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);
@@ -74,6 +78,8 @@ Route::middleware("admin")->group(function () {
 
     // 0=user 1=scholar admin, 2=emp admin 3=ofw admin 4 =super admin
     // All your admin routes go here.
+    
+    Route::get('/GenStatus', [App\Http\Controllers\AdminController::class, 'status']);
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);

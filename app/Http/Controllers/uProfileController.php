@@ -131,4 +131,25 @@ class uProfileController extends Controller
         .$request->input('Company') .'","' .$request->input('Country') .'","'  .$request->input('PeriodOfEmp') .'" )');
         return redirect('ofwregistration');
     }
+    public function cancelO(Request $request)
+    {
+        DB::delete("DELETE FROM ofw WHERE id = " .$request->input('delId'));
+        return redirect('ofwdetails');   
+    }
+    public function addS()
+    {
+        return view('addSchT');
+    }
+    public function insertSchT(Request $request)
+    {
+        $SchData=DB :: insert('insert into scholarship(appId, date, status, userid)
+        values("' .$request->input('appId') .'","' .$request->input('date') 
+        .'","' .$request->input('status') .'","' .$request->input('userid')  .'" )');
+        return redirect('Sregistration');
+    }
+    public function cancelS(Request $request)
+    {
+        DB::delete("DELETE FROM scholarship WHERE id = " .$request->input('delId'));
+        return redirect('Sregistration');   
+    }
 }

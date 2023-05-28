@@ -104,4 +104,8 @@ class AdminController extends Controller
         DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
         return redirect('/usersD');
     }
+    public function status()
+    {
+        return view('');
+    }
 }

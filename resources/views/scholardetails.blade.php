@@ -11,7 +11,7 @@
         </div>
         <form action="scholardata">
           
-            <button type="submit" class="btn btn-primary">Apply Now!</button>
+            <a href="AddSchTable" class="btn btn-primary">Apply Now!</a>
 
             <div class="card-body">
               <div class="container table-container">
@@ -25,14 +25,44 @@
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($reg as $emp)
+                  @foreach ($reg as $sc)
                     <tr>
-                      <td>{{ $emp->appId }}</td>
-                      <td>{{ $emp->date }}</td>
-                      <td>{{ $emp->status }}</td>
-                      <td>{{ $emp->posidesired }}</td>
-                      <td>{{ $emp->cname }}</td>
-                      <td>{{ $emp->crname }}</td>
+                      <td>{{ $sc->appId }}</td>
+                      <td>{{ $sc->date }}</td>
+                      <td>{{ $sc->status }}</td>
+                      <td >
+                          <span class="input-group">
+                            
+                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $sc->id }}">
+                                Cancel
+                            </button>
+
+                                <!-- DELETE Modal -->
+                                <div class="modal fade"  id="delmod{{ $sc->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">   
+                                      <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $sc->id }} </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                            Do you really want to cancel this record: {{ $sc->appId}}?
+                                      </div>
+                                      <div class="modal-footer">
+                                            <form action ="/cancelsTable" method="get" >
+                                              @csrf
+                                              <input type="hidden" id="delId" name="delId" value="{{ $sc->id }}">
+                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $sc->id }}').modal('hide');" >Yes</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                <!-- DELETE Modal -->
+
+                            </div>
+                          </span>
+                        </td>
                     </tr>
                   @endforeach
                   </tbody>

@@ -15,68 +15,68 @@
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
           </div>
-                
-            <div class="card-body">
-                <div class="container table-container">
-                    <table class="table" style="text-align:center;">
-                      
-                        <thead>
-                           <tr>
-                              <th scope="col">Job Description</th>
-                              <th scope="col">Ofw Category</th>
-                              <th scope="col">Company</th>
-                              <th scope="col">Country</th>
-                              <th scope="col">Period of Employment</th>          
-                              <th scope="col">Action</th>            
-                           </tr>
-                        </thead>
-                        <tbody>
+          <a class="btn btn-success" href="addofwT">ADD TABLE </a>
+          <div class="card-body">
+            <div class="container table-container">
+              <table class="table" style="text-align:center;">
+                <thead>
+                    <tr>
+                      <th scope="col">Job Description</th>
+                      <th scope="col">Ofw Category</th>
+                      <th scope="col">Company</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Period of Employment</th>          
+                      <th scope="col">Action</th>            
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($ofw as $odata)
+                      <tr>
+                          <td>{{$odata->JobDesc}}</td>
+                          <td>{{$odata->OfwCat}}</td>
+                          <td>{{$odata->Company}}</td>
+                          <td>{{$odata->Country}}</td>
+                          <td>{{$odata->PeriodOfEmp}}</td>
+                          <td >
+                          <span class="input-group">
                             
-                              <tr>
-                                  <td>baba</td>
-                                  <td>bebe</td>
-                                  <td>bibi</td>
-                                  <td>country</td>
-                                  <td>Employment</td>
-                                  <td>
-                                      <span class="input-group">
-                                        
-                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod">
-                                        Delete
-                                        </button>
+                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $odata->id }}">
+                                Cancel
+                            </button>
 
-                                        <!-- DELETE Modal -->
-                                        <div class="modal fade" id="delmod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">   
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Do you really want to delete this record: ?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action ="/deleteWorke" method="get" >
-                                                            @csrf
-                                                            <input type="hidden" id="delId" name="delId" >
-                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod').modal('hide');" >Yes</button>
-                                                        </form>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>   
-                                        <!-- DELETE Modal -->
-                                      </span>
-                                  </td>
-                              </tr>
-                              <a class="btn btn-success" href="addofwT">ADD TABLE </a>
-                            
-                        </tbody>
-                    </table>
-                </div>
+                                <!-- DELETE Modal -->
+                                <div class="modal fade"  id="delmod{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">   
+                                      <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $odata->id }} </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      </div>
+                                      <div class="modal-body">
+                                            Do you really want to cancel this record: {{ $odata->JobDesc}}?
+                                      </div>
+                                      <div class="modal-footer">
+                                            <form action ="/cancelOfwT" method="get" >
+                                              @csrf
+                                              <input type="hidden" id="delId" name="delId" value="{{ $odata->id }}">
+                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $odata->id }}').modal('hide');" >Yes</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                      </div>
+                                  </div>
+                                </div>
+                                <!-- DELETE Modal -->
+
+                            </div>
+                          </span>
+                        </td>
+                      </tr>
+                    @endforeach
+                </tbody>
+              </table>
             </div>
+          </div>
+      </form>   
     </div>
           <div class="row">
             <div class="col-5">&nbsp;</div>

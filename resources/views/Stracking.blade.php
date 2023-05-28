@@ -19,8 +19,8 @@
                     <form action="Stracking"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" id="filter" name="filter" class="form-control bg-dark border-0 small text-white" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2" value="{{$txts}}">
+                            <input type="text" id="filter" name="filter" class="form-control border-0 small" 
+                              placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" value="{{$txts}}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
