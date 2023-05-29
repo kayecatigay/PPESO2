@@ -1,20 +1,20 @@
-@extends('layouts.default')
+@extends('layouts.addefault')
 
-@section('content')
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Services</h2>
-          
-          <p>My Employment Application</p>
-          <a class="btn btn-primary" style="padding:5px; font-size:14px;" href="addEmpTable">APPLY NOW! </a>
-        </div>
-        <!-- <form action="empdata"> -->
-          <div class="form-group">
-            <label for="userid"></label>
-            <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
-          </div>
+@section('maincontent')
+<style>
+   /* Set the table container to overflow horizontally */
+   .table-container {
+      overflow-x: auto;
+      white-space: nowrap;
+   }
+</style>      
+      <div class="col-xl-16">
+         <div class="card shadow mb-4">
+            <div
+               class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+               <h6 class="m-0 font-weight-bold text-dark">Employment</h6>
+            </div>
+               
             <div class="card-body">
               <div class="container table-container">
                 <table class="table"style="text-align:center;">
@@ -31,7 +31,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                    @foreach ($reg as $emp)
+                    @foreach ($status as $emp)
                       <tr>
                         <td>{{ $emp->appId }}</td>
                         <td>{{ $emp->date }}</td>
@@ -43,10 +43,10 @@
                         <td>
                           <span class="input-group">
                           @if ($emp->status=="pending")
-                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
-                                Cancel
+                            <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
+                                Approve
                             </button>
-                          @endif
+                            @endif
                                 <!-- DELETE Modal -->
                               <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
@@ -59,7 +59,7 @@
                                             Do you really want to cancel this record: {{ $emp->posidesired}}?
                                       </div>
                                       <div class="modal-footer">
-                                          <form action ="/canceleTable" method="get" >
+                                          <form action ="/Eapprove" method="get" >
                                             @csrf
                                             <input type="hidden" id="delId" name="delId" value="{{ $emp->id }}">
                                             <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $emp->id }}').modal('hide');" >Yes</button>
@@ -81,20 +81,23 @@
             </div>
             
           </div>
-        <!-- </form> -->
-    </div>
-  </section><!-- End Services Section -->
-  <script>
-    function myspouseFunction() {
-    var status = document.getElementById("cstatus").value;
-    var x = document.getElementById("hidespouse");
-    // alert(status);
-    if (status === "married") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-      document.getElementById("spouse").value="";
-    }
-  }
-  </script>
+      </div>
+      
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+      </button> -->
+
+
+   <script>
+      // Add event listener to scroll the table
+      var tableContainer = document.querySelector('.table-container');
+      tableContainer.addEventListener('wheel', function(event) {
+         event.preventDefault();
+         tableContainer.scrollLeft += event.deltaY;
+      });
+   </script>
+
 @endsection
+
+<!-- End of Page Wrapper -->

@@ -13,9 +13,9 @@ class ContactController extends Controller
         return view('contactus');
     }
 
-    public function test123()
+    public function sendmess(Request $request)
     {
-
+        // dd($request->input('num'));
         $curl = curl_init();
         $datasms = array(
         'api_key' => "2PuNpyDN0KtI8wEsyKM3lj8Znth",
@@ -23,7 +23,7 @@ class ContactController extends Controller
         'text' => "Hello! 
          
             PPESO",
-        'to' => "639272962299",
+        'to' => $request->input('num'),
         'from' => "PPESO"
         );
 
@@ -39,7 +39,7 @@ class ContactController extends Controller
       ),
     ));
 
-    var_dump($curl);
+    // var_dump($curl);
     $response = curl_exec($curl);
     $err = curl_error($curl);
 
@@ -72,6 +72,10 @@ class ContactController extends Controller
         //     );
 
                 // print($message);
+    }
+    public function sendsms()
+    {
+        return view('messages');
     }
 }
 ?>

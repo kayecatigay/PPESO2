@@ -238,4 +238,17 @@ class EmpAdminController extends Controller
         DB::delete("DELETE FROM eannouncements WHERE id = " .$request->input('delId'));
         return redirect ('Eannouncements');
     }
+    public function estatus()
+    {
+        $estatus=DB::select('select * from employment');
+        return view('estatus',['status'=>$estatus]);
+    }
+    public function eapprove(Request $request)
+    {
+        $id = $request->input('delId');
+        DB::update('update employment set status="Approved" where id= ' .$id);
+
+        $estatus=DB::select('select * from employment');
+        return view('estatus',['status'=>$estatus]);
+    }
 }

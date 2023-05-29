@@ -48,7 +48,6 @@
                               <th scope="col">School</th>
                               <th scope="col">Work</th>
                               <th scope="col">Company Name</th>
-                              <th scope="col">Date Entry</th>
                            </tr>
                         </thead>
                         
@@ -57,13 +56,12 @@
                               <tr>
                                  <td>{{ $tr->name }}</td>
                                  <td>{{ $tr->age }}</td>
-                                 <td>{{ $tr->sex }}</td>
+                                 <td>{{ $tr->gender }}</td>
                                  <td>{{ $tr->address }}</td>
-                                 <td>{{ $tr->yearGraduated }}</td>
+                                 <td>{{ $tr->yGraduated }}</td>
                                  <td>{{ $tr->school }}</td>
                                  <td>{{ $tr->work }}</td>
-                                 <td>{{ $tr->companyName }}</td>
-                                 <td>{{ $tr->dateEntry }}</td>
+                                 <td>{{ $tr->cname }}</td>
                               </tr>
                            @endforeach
                         </tbody>

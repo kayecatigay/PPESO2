@@ -187,10 +187,30 @@ class ScholarAdminController extends Controller
     {
         $txtsearch=$request->input('filter');
         // var_dump($txtsearch);
-        $condition= " where name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR sex like '%" .$txtsearch ."%' OR address like'%" 
-        .$txtsearch ."%' OR yearGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
-        ."%' OR companyName like '%" .$txtsearch ."%' OR dateEntry like '%" .$txtsearch ."%' ";
-        $tEracking = DB::select('select * from stracking' .$condition);
-        return view('Stracking',['track'=>$tEracking, 'txts' => $txtsearch]);
+        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%" .$txtsearch ."%' OR address like'%" 
+        .$txtsearch ."%' OR yGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
+        ."%' OR cname like '%" .$txtsearch ."%' )";
+        // $tEracking = DB::select('select * from stracking' .$condition);
+        $scholardata = DB::select('
+        SELECT *
+        FROM uprofile as p
+        INNER JOIN users as u
+        ON p.userid = u.id
+        where yGraduated!="n/a" and yGraduated!=""
+        ' .$condition .';');
+        return view('Stracking',['track'=>$scholardata, 'txts' => $txtsearch]);
+    }
+    public function pstatus()
+    {
+        $pstatus=DB::select('select * from scholarship');
+        return view('pstatus',['status'=>$pstatus]);
+    }
+    public function approve(Request $request)
+    {
+        $id = $request->input('delId');
+        DB::update('update scholarship set status="Approved" where id= ' .$id);
+        
+        $pstatus=DB::select('select * from scholarship');
+        return view('pstatus',['status'=>$pstatus]);
     }
 }

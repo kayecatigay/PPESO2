@@ -153,4 +153,17 @@ class OfwAdminController extends Controller
         DB::delete("DELETE FROM oannouncements WHERE id = " .$request->input('delId'));
         return redirect('Oannouncements');
     }
+    public function ostatus()
+    {
+        $ostatus=DB::select('select * from ofw');
+        return view('ostatus',['status'=>$ostatus]);
+    }
+    public function oapprove(Request $request)
+    {
+        $id = $request->input('delIdofw');
+        DB::update('update ofw set status="Approved" where id= ' .$id);
+
+        $ostatus=DB::select('select * from ofw');
+        return view('ostatus',['status'=>$ostatus]);
+    }
 }

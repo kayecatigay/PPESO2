@@ -81,9 +81,9 @@
                                 <div class="bg-white py-2 collapse-inner rounded">
                                     <h6 class="collapse-header">SERVICES</h6>
                                     <a class="collapse-item" href="/showAllSApp">Scholarship</a>
-                                    <a class="collapse-item" href="/SAllSched">Schedules</a>
                                     <a class="collapse-item" href="/Stracking">Tracking</a>
                                     <a class="collapse-item" href="/Sannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/Pstatus">Status</a>
                                 </div>
                             </div>
                         </li>
@@ -98,8 +98,8 @@
                                     <h6 class="collapse-header">SERVICES</h6>
                                     <a class="collapse-item" href="/showAllEApp">Applicants</a>
                                     <a class="collapse-item" href="/AllWorks">Works Available</a>
-                                    <a class="collapse-item" href="/empSched">Schedules</a>
                                     <a class="collapse-item" href="/Eannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/Estatus">Status</a>
                                 </div>
                             </div>
                         </li>
@@ -113,8 +113,8 @@
                                 <div class="bg-white py-2 collapse-inner rounded">
                                     <h6 class="collapse-header">SERVICES</h6>
                                     <a class="collapse-item" href="/showAllOApp">Applicants</a>
-                                    <a class="collapse-item" href="/ofwSched">Schedules</a>
                                     <a class="collapse-item" href="/Oannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/Ostatus">Status</a>
                                 </div>
                             </div>
                             
@@ -136,11 +136,11 @@
                             </a>
                         </li>
 
-                        <!-- Nav Item - Charts -->
                         <li class="nav-item">
-                            <a class="nav-link" href="GenStatus">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                <span>Status</span></a>
+                            <a class="nav-link" href="SendSms" aria-expanded="true" aria-controls="collapsePages">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Send SMS</span>
+                            </a>
                         </li>
 
                         <li class="nav-item">

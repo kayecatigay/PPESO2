@@ -79,7 +79,6 @@ Route::middleware("admin")->group(function () {
     // 0=user 1=scholar admin, 2=emp admin 3=ofw admin 4 =super admin
     // All your admin routes go here.
     
-    Route::get('/GenStatus', [App\Http\Controllers\AdminController::class, 'status']);
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
@@ -153,6 +152,18 @@ Route::middleware("admin")->group(function () {
     Route::get('/editOAnnouncements', [App\Http\Controllers\OfwAdminController::class, 'EditOAnn']);
     Route::get('/updateOann', [App\Http\Controllers\OfwAdminController::class, 'updateOann']);
     Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
+    
+    Route::get('/SendSms', [App\Http\Controllers\ContactController::class, 'sendsms']);
+    Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendmess']);
+    
+    Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
+    Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
+    
+    Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
+    Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);
+    
+    Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
+    Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove']);
     
 });
 

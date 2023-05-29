@@ -32,11 +32,11 @@
                       <td>{{ $sc->status }}</td>
                       <td >
                           <span class="input-group">
-                            
+                          @if ($sc->status=="pending")
                             <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $sc->id }}">
                                 Cancel
                             </button>
-
+                          @endif
                                 <!-- DELETE Modal -->
                                 <div class="modal fade"  id="delmod{{ $sc->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg">
