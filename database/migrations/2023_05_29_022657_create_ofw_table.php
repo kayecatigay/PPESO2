@@ -15,18 +15,15 @@ class CreateOfwTable extends Migration
     {
         Schema::create('ofw', function (Blueprint $table) {
             $table->id();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('middlename');
-            $table->string('suffix');
-            $table->string('birthday');
-            $table->integer('age');
-            $table->string('sex');
-            $table->string('contactnum');
-            $table->string('add');
-            $table->string('passnum');
-            $table->string('emailadd');
-            $table->string('fbacc');
+            $table->integer('userid');
+            $table->string('appID');
+            $table->date('date');
+            $table->string('status');
+            $table->string('JobDesc');
+            $table->string('OfwCat');
+            $table->string('Company');
+            $table->string('Country');
+            $table->string('PeriodOfEmp');
             $table->timestamps();
         });
     }

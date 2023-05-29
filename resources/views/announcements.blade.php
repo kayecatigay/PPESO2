@@ -2,6 +2,7 @@
 
 
 @section('homecontent')
+
 <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
@@ -15,7 +16,7 @@
             <div class="col-xl-2 col-md-4">
               <div class="icon-box">
                 <i class="ri-store-line"></i>
-                <h3><a href="GeneralA">General </a></h3>
+                <h3><a href="GeneralA/general">General </a></h3>
               </div>
             </div>
           </div>
@@ -23,24 +24,24 @@
             <div class="col-xl-2 col-md-4">
               <div class="icon-box">
                 <i class="ri-calendar-todo-line"></i>
-                <h3><a href="empA">Employment </a></h3>
+                <h3><a href="GeneralA/emp">Employment </a></h3>
               </div>
             </div>
             <div class="col-xl-2 col-md-4">
               <div class="icon-box">
                 <i class="ri-paint-brush-line"></i>
-                <h3><a href="scholarA">PEAP </a></h3>
+                <h3><a href="GeneralA/peap">PEAP </a></h3>
               </div>
             </div>
             <div class="col-xl-2 col-md-4">
               <div class="icon-box">
                 <i class="ri-database-2-line"></i>
-                <h3><a href="ofwA">OFW </a></h3>
+                <h3><a href="GeneralA/ofw">OFW </a></h3>
               </div>
             </div>
           </div>
       </div>
     </section><!-- End Hero -->
-  <main id="main">
+
 
 @endsection

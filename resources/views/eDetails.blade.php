@@ -10,7 +10,7 @@
           <p>My Employment Application</p>
           <a class="btn btn-primary" style="padding:5px; font-size:14px;" href="addEmpTable">APPLY NOW! </a>
         </div>
-        <form action="empdata">
+        <!-- <form action="empdata"> -->
           <div class="form-group">
             <label for="userid"></label>
             <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
@@ -48,9 +48,9 @@
                             </button>
 
                                 <!-- DELETE Modal -->
-                                <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog modal-lg">
-                                      <div class="modal-content">   
+                              <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">   
                                       <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $emp->id }} </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -59,18 +59,18 @@
                                             Do you really want to cancel this record: {{ $emp->posidesired}}?
                                       </div>
                                       <div class="modal-footer">
-                                            <form action ="/cancelTable" method="get" >
-                                              @csrf
-                                              <input type="hidden" id="delId" name="delId" value="{{ $emp->id }}">
-                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $emp->id }}').modal('hide');" >Yes</button>
-                                            </form>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                          <form action ="/canceleTable" method="get" >
+                                            @csrf
+                                            <input type="hidden" id="delId" name="delId" value="{{ $emp->id }}">
+                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $emp->id }}').modal('hide');" >Yes</button>
+                                          </form>
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                       </div>
                                   </div>
                                 </div>
                                 <!-- DELETE Modal -->
 
-                            </div>
+                              </div>
                           </span>
                         </td>
                       </tr>
@@ -81,7 +81,7 @@
             </div>
             
           </div>
-        </form>
+        <!-- </form> -->
     </div>
   </section><!-- End Services Section -->
   <script>

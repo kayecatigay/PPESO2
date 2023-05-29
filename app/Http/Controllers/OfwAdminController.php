@@ -101,8 +101,9 @@ class OfwAdminController extends Controller
     }
     public function oAnn()
     {
-        $OannData=DB::select('select * from oannouncements');
-        return view('Oannouncements',['Oann'=>$OannData]);
+        $annData = DB::select('select * from genannouncements where service="OFW"');
+        // dd($annData);
+        return view ('Sannouncements',['Sann'=>$annData]);
     }
     public function addOann()
     {

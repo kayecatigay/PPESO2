@@ -187,9 +187,10 @@ class EmpAdminController extends Controller
         return redirect ('empSched');
     }
     public function eAnn()
-    {
-        $eannouncements=DB::select('select * from eannouncements');
-        return view ('Eannouncements',['Eann'=>$eannouncements]);
+    { 
+        $annData = DB::select('select * from genannouncements where service="EMP"');
+        // dd($annData);
+        return view ('Sannouncements',['Sann'=>$annData]);
     }
     public function addEann(Request $request)
     {

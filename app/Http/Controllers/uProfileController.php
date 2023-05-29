@@ -99,7 +99,7 @@ class uProfileController extends Controller
     }
     public function deleteWorke(Request $request)
     {
-        DB::delete("DELETE FROM uwork WHERE id = " .$request->input('delId'));
+        DB::delete("DELETE FROM uwork WHERE id = " .$request->input('delIdWRK'));
         return redirect('userprofile');
     }
     public function addE()
@@ -108,15 +108,20 @@ class uProfileController extends Controller
     }
     public function insertEmpF(Request $request)
     {
+        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
+        $ndate=date("Y-m-d");
+        $status="pending";
+
         $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
-        values("' .$request->input('userid') .'","' .$request->input('appId') .'","' .$request->input('date') 
-        .'","' .$request->input('status') .'","' .$request->input('posidesired') .'","' .$request->input('cname') 
+        values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate 
+        .'","' .$status .'","' .$request->input('posidesired') .'","' .$request->input('cname') 
         .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
 
         return redirect('Eregistration');
     }
     public function cancelE(Request $request)
     { 
+        // dd("SAD");
         DB::delete("DELETE FROM employment WHERE id = " .$request->input('delId'));
         return redirect('Eregistration');   
     }
@@ -126,15 +131,21 @@ class uProfileController extends Controller
     }
     public function insertOf(Request $request)
     {
-        $OfwData = DB::insert('insert into ofw(userid, JobDesc, OfwCat, Company, Country, PeriodOfEmp) 
-        values("' .$request->input('userid') .'","' .$request->input('JobDesc') .'","'.$request->input('OfwCat') .'","'  
-        .$request->input('Company') .'","' .$request->input('Country') .'","'  .$request->input('PeriodOfEmp') .'" )');
+        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
+        $ndate=date("Y-m-d");
+        $status="pending";
+
+        $OfwData = DB::insert('insert into ofw(userid, appID, date, status, JobDesc, OfwCat, Company, Country, PeriodOfEmp) 
+        values(' .Auth()->user()->id .',"' .$transID .'","' .$ndate .'","' .$status .'","'.$request->input('JobDesc') .'","'
+        .$request->input('OfwCat') .'","' .$request->input('Company') .'","' 
+        .$request->input('Country') .'","'  .$request->input('PeriodOfEmp') .'" )');
         return redirect('ofwregistration');
     }
     public function cancelO(Request $request)
     {
-        DB::delete("DELETE FROM ofw WHERE id = " .$request->input('delId'));
-        return redirect('ofwdetails');   
+        // dd("sad");
+        DB::delete("DELETE FROM ofw WHERE id = " .$request->input('delIdofw'));
+        return redirect('ofwregistration');   
     }
     public function addS()
     {
@@ -142,9 +153,12 @@ class uProfileController extends Controller
     }
     public function insertSchT(Request $request)
     {
+        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
+        $ndate=date("Y-m-d");
+        $status="pending";
+        // dd($ndate);
         $SchData=DB :: insert('insert into scholarship(appId, date, status, userid)
-        values("' .$request->input('appId') .'","' .$request->input('date') 
-        .'","' .$request->input('status') .'","' .$request->input('userid')  .'" )');
+        values("' .$transID .'","' .$ndate .'","' .$status .'","' .Auth()->user()->id  .'" )');
         return redirect('Sregistration');
     }
     public function cancelS(Request $request)

@@ -7,20 +7,20 @@
     <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Services</h2>
-          <p>OFW Fill up form</p>
+          <p>My OFW Application</p>
+          <a class="btn btn-success" href="addofwT">APPLY NOW! </a>
         </div>
-        <form action="ofwinsertD">
+        <!-- <form action="ofwinsertD"> -->
           
-          <div class="form-group">
-            <label for="userid"></label>
-            <input type="hidden" class="form-control" id="userid" name="userid" value="{{ Auth::user()->id }}" >
-          </div>
-          <a class="btn btn-success" href="addofwT">ADD TABLE </a>
+          
           <div class="card-body">
             <div class="container table-container">
               <table class="table" style="text-align:center;">
                 <thead>
                     <tr>
+                      <th scope="col">Application ID</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Job Description</th>
                       <th scope="col">Ofw Category</th>
                       <th scope="col">Company</th>
@@ -32,6 +32,10 @@
                 <tbody>
                     @foreach($ofw as $odata)
                       <tr>
+
+                          <td>{{$odata->appID}}</td>
+                          <td>{{$odata->date}}</td>
+                          <td>{{$odata->status}}</td>
                           <td>{{$odata->JobDesc}}</td>
                           <td>{{$odata->OfwCat}}</td>
                           <td>{{$odata->Company}}</td>
@@ -40,12 +44,12 @@
                           <td >
                           <span class="input-group">
                             
-                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $odata->id }}">
+                            <button type="button" class="btn btn-danger" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmodofw{{ $odata->id }}">
                                 Cancel
                             </button>
 
                                 <!-- DELETE Modal -->
-                                <div class="modal fade"  id="delmod{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade"  id="delmodofw{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg">
                                       <div class="modal-content">   
                                       <div class="modal-header">
@@ -56,10 +60,10 @@
                                             Do you really want to cancel this record: {{ $odata->JobDesc}}?
                                       </div>
                                       <div class="modal-footer">
-                                            <form action ="/cancelOfwT" method="get" >
+                                            <form id="frmofw" action ="\cancelOfwT" method="get" >
                                               @csrf
-                                              <input type="hidden" id="delId" name="delId" value="{{ $odata->id }}">
-                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $odata->id }}').modal('hide');" >Yes</button>
+                                              <input type="hidden" id="delIdofw" name="delIdofw" value="{{ $odata->id }}">
+                                              <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmodofw{{ $odata->id }}').modal('hide');" >Yes</button>
                                             </form>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                       </div>
@@ -76,13 +80,8 @@
               </table>
             </div>
           </div>
-      </form>   
+      <!-- </form>    -->
     </div>
-          <div class="row">
-            <div class="col-5">&nbsp;</div>
-            <div class="col"><button type="submit" class="btn btn-primary">Apply</button></div>
-            <div class="col">&nbsp;</div>
-          </div>
   </section><!-- End Services Section -->
 
   <script>

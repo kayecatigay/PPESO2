@@ -18,10 +18,19 @@ class ScholarAdminController extends Controller
         $smenus=(new AdminController)->getLinks();
         // $schedID=$request->input('schedID');
         // $showdata = DB::select('select * from sschedules where typeS=' .$schedID);
-        $scholardata = DB::select('select * from scholarship where typeS="old"');
-        $scholardatanew = DB::select('select * from scholarship where typeS="new"');
+        $scholardata = DB::select('
+        SELECT *
+        FROM scholarship as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
+        //  dd($scholardata);
+        
         // dd($scholardata);
-        return view('ScholarAll',['dataold'=>$scholardata,'datanew'=>$scholardatanew,'smenu'=>$smenus]);
+        return view('ScholarAll',['dataold'=>$scholardata,'smenu'=>$smenus]);
     }
     // public function newSD()
     // {
@@ -116,13 +125,14 @@ class ScholarAdminController extends Controller
     }
     public function sAnn()
     {
-        $annData = DB::select('select * from sannouncements');
+        $annData = DB::select('select * from genannouncements where service="PEAP"');
         // dd($annData);
         return view ('Sannouncements',['Sann'=>$annData]);
     }
-    public function addAnn()
+    public function addAnn(Request $request)
     {
-        return view ('addAnn');
+        $showdata=$request->input('srv');
+        return view ('addAnn',['srv'=>$showdata]);
     }
     public function insertA(Request $request)
     {
@@ -134,10 +144,12 @@ class ScholarAdminController extends Controller
         $req.= ($request->input('water')=="on") ? "|water" :"";
         $req=substr($req,1);  
 
+        $body= $request->input('body')." with ".$req;
+
         // dd($request->input('type'));
-        $SchedData = DB::insert('insert into sannouncements(date, schedule, details, req) 
-        values("' .$request->input('date') .'","' .$request->input('sched') .'","' .$request->input('dets') .'","'
-        .$req .'")');
+        $SchedData = DB::insert('insert into genannouncements(service, title, body, dateFrom, dateTo) 
+        values("' .$request->input('service') .'","' .$request->input('title') .'","' .$body.'","' 
+        .$request->input('dateFrom') .'","' .$request->input('dateTo') .'")');
 
         return redirect('Sannouncements');
     }

@@ -233,75 +233,75 @@
 
             <p>Work Experience</p> 
                 <a class="btn btn-success" href="addWorkE">ADD </a>
-            <div class="card-body">
-                <div class="container table-container">
-                    <table class="table">
-                        <thead>
-                           <tr>
-                              <th scope="col">Company Name</th>
-                              <th scope="col">Position</th>
-                              <th scope="col">Character Reference</th>
-                              <th scope="col">Contact</th>
-                              <th scope="col">Cr Company</th>
-                              <th scope="col">Cr Position</th>            
-                              <th scope="col">Action</th>            
-                           </tr>
-                        </thead>
-                        <tbody>
-                           @foreach ($uwork as $wrk)
+                <div class="card-body">
+                    <div class="container table-container">
+                        <table class="table" style="text-align:center;">
+                            <thead>
                             <tr>
-                                <td>{{ $wrk->cname }}</td>
-                                <td>{{ $wrk->position}}</td>
-                                <td>{{ $wrk->crname }}</td>
-                                <td>{{ $wrk->crcontact }}</td>
-                                <td>{{ $wrk->crcname }}</td>
-                                <td>{{ $wrk->crposi }}</td>
-                                <td>
-                                    <span class="input-group">
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Character Reference</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Cr Company</th>
+                                <th scope="col">Cr Position</th>            
+                                <th scope="col">Action</th>            
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($uwork as $wrk)
+                                <tr>
+                                    <td>{{ $wrk->cname }}</td>
+                                    <td>{{ $wrk->position}}</td>
+                                    <td>{{ $wrk->crname }}</td>
+                                    <td>{{ $wrk->crcontact }}</td>
+                                    <td>{{ $wrk->crcname }}</td>
+                                    <td>{{ $wrk->crposi }}</td>
+                                    <td>
+                                        <span class="input-group">
+                                            
                                         
-                                      
-                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $wrk->id }}">
-                                        Delete
-                                        </button>
+                                            <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $wrk->id }}">
+                                            Delete
+                                            </button>
 
-                                        <!-- DELETE Modal -->
-                                        <div class="modal fade" id="delmod1{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">   
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $wrk->id }} </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Do you really want to delete this record: {{ $wrk->cname}}?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action ="/deleteWorke" method="get" >
-                                                            @csrf
-                                                            <input type="hidden" id="delId" name="delId" value="{{ $wrk->id }}">
-                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod1{{ $wrk->id }}').modal('hide');" >Yes</button>
-                                                        </form>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                            <!-- DELETE Modal -->
+                                            <div class="modal fade" id="delmod1{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">   
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $wrk->id }} </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Do you really want to delete this record: {{ $wrk->cname}}?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <form action ="/deleteWorke" method="get" >
+                                                                @csrf
+                                                                <input type="hidden" id="delIdWRK" name="delIdWRK" value="{{ $wrk->id }}">
+                                                                <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod1{{ $wrk->id }}').modal('hide');" >Yes</button>
+                                                            </form>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>   
-                                        <!-- DELETE Modal -->
-                                    </span>
-                                </td>
-                            </tr>
-                           @endforeach
-                        </tbody>
-                    </table>
+                                            </div>   
+                                            <!-- DELETE Modal -->
+                                        </span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
             <div class="row">
                 <div class="col-5">&nbsp;</div>
                 <div class="col"><button type="submit" class="btn btn-outline-dark">Submit</button></div>
                 <div class="col">&nbsp;</div>
             </div>
-        <!-- <div> -->
+            <!-- <div> -->
         </form>
     </div>
 <script>

@@ -23,7 +23,7 @@ class ContactController extends Controller
         'text' => "Hello! 
         
             PPESO",
-        'to' => "639217292184",
+        'to' => "639272962299",
         'from' => "PPESO"
         );
 
@@ -45,11 +45,12 @@ class ContactController extends Controller
 
     curl_close($curl);
 
-    if ($err) {
-      echo "cURL Error #:" . $err;
-    } else {
-      echo $response;
-    }
+    echo "Message sent!";
+    // if ($err) {
+    //   echo "cURL Error #:" . $err;
+    // } else {
+    //   echo $response;
+    // }
 
 
 

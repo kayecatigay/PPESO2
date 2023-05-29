@@ -9,9 +9,9 @@
           <h2>Services</h2>
           <p>My Scholarship Application</p>
         </div>
-        <form action="scholardata">
+        <!-- <form action="scholardata"> -->
           
-            <a href="AddSchTable" class="btn btn-primary">Apply Now!</a>
+            <a href="insertSchT" class="btn btn-primary">Apply Now!</a>
 
             <div class="card-body">
               <div class="container table-container">
@@ -49,7 +49,7 @@
                                             Do you really want to cancel this record: {{ $sc->appId}}?
                                       </div>
                                       <div class="modal-footer">
-                                            <form action ="/cancelsTable" method="get" >
+                                            <form action ="\cancelsTable" method="get" >
                                               @csrf
                                               <input type="hidden" id="delId" name="delId" value="{{ $sc->id }}">
                                               <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $sc->id }}').modal('hide');" >Yes</button>
@@ -77,7 +77,7 @@
           </div> <br>
 
           
-        </form>
+        <!-- </form> -->
     </div>
   </section><!-- End Services Section -->
 

@@ -35,7 +35,7 @@
             <div class="row form-group">
                <div class="col">
                   <label for="crcname">Character Reference Company Name</label>
-                  <input type="text" class="form-control" id="crcname" name="ccrname">
+                  <input type="text" class="form-control" id="crcname" name="crcname">
                </div>
                <div class="col">
                   <label for="crposi">Character Reference Position</label>

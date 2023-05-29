@@ -163,7 +163,7 @@
   
   <!-- ======= Homepage Section ======= --> 
   @section('homecontent')
-  <section>
+
     <div class="container">
       <div class="row">   
           <!-- ======= Content Section ======= --> 
@@ -171,7 +171,7 @@
           <!-- ======= END content Section ======= -->
       </div>
     </div>
-  </section>
+
   @show
 <!-- ======= Homepage Section ======= -->
   

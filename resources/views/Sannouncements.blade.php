@@ -14,7 +14,8 @@
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">Announcements</h6>
                <form action="/addAnnouncements">
-                  <input class="font-weight-bold" style="background-color:#5F9EA0; border:none;" 
+                  <input type="hidden" id="srv" name="srv" value="{{ $Sann[0]->service }}">   
+                  <input class="font-weight-bold" style="background-color:#5F9EA0; border-radius: 4px;border:none;" 
                   type="submit" value="Add" />
                </form>
                
@@ -25,20 +26,22 @@
                      <table class="table">
                         <thead style="text-align:center">
                            <tr>
-                              <th scope="col">Date</th>
-                              <th scope="col">Schedule</th>
-                              <th scope="col">Details</th>
-                              <th scope="col">Requirements</th>
+                              <th scope="col">Date From</th>
+                              <th scope="col">Date To</th>
+                              <th scope="col">Title</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Image</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody style="text-align:center">
                            @foreach ($Sann as $ann)
                               <tr>
-                                 <td>{{ $ann->date }}</td>
-                                 <td>{{ $ann->schedule }}</td>
-                                 <td>{{ $ann->details }}</td>
-                                 <td>{{ $ann->req }}</td>
+                                 <td>{{ $ann->dateFrom }}</td>
+                                 <td>{{ $ann->dateTo }}</td>
+                                 <td>{{ $ann->title }}</td>
+                                 <td>{{ $ann->body }}</td>
+                                 <td>{{ $ann->image }}</td>
                                  <td>
                                     <span class="input-group">
 
@@ -61,7 +64,7 @@
                                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                      Do you really want to delete this schedule: {{ $ann->schedule}}?
+                                                      Do you really want to delete this schedule: {{ $ann->title}}?
                                                 </div>
                                                 <div class="modal-footer">
                                                       <form action ="deleteAnn" method="get" >

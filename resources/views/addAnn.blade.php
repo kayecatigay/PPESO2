@@ -14,40 +14,42 @@
           
             <div class="row">
                <div class="col">
-                  <label for="date">Date</label>
-                  <input type="date" class="form-control" id="date" name="date">
+                  <label for="dateFrom">Date From</label>
+                  <input type="date" class="form-control" id="dateFrom" name="dateFrom">
                </div>
                <div class="col">
-                  <label for="sched">Schedule</label>
-                  <select class="form-control" name="sched" id="sched">
-                     <option value="exam">Exam</option>
-                     <option value="interview">Interview</option>
-                     <option value="passers">Passers</option>
-                    <option value="graduates">Graduates</option>
-                  </select>
+                  <label for="dateTo">Date To</label>
+                  <input type="date" class="form-control" id="dateTo" name="dateTo">
+               </div>
+               <div class="col">
+                  <input type="hidden" value="{{$srv}}" id="service" name="service">
                </div>
             </div>
             <div class="row form-group">
                <div class="col">
-                  <label for="dets">details</label>
-                  <input type="text" class="form-control" id="dets" name="dets">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
                </div>
            
-                  <div class="col form-group">
-                     <label for="req">Requirements</label>
-                     <div class="col form-control">
-                        <input type="checkbox" id="pencil" name="pencil">
-                        <label for="pencil">Pencil</label> &nbsp;
-                        <input type="checkbox" id="ballpen" name="ballpen">
-                        <label for="ballpen">Ballpen</label> &nbsp;
-                        <input type="checkbox" id="validid" name="validid">
-                        <label for="validid">Valid Id</label> &nbsp;
-                        <input type="checkbox" id="snacks" name="snacks">
-                        <label for="snacks">Snacks</label> &nbsp;
-                        <input type="checkbox" id="water" name="water">
-                        <label for="water">Water</label> &nbsp;
-                     </div>
+               <div class="col">
+                  <label for="body">Description</label>
+                  <input type="text" class="form-control" id="body" name="body">
+               </div>
+               <div class="col-5 form-group">
+                  <label for="req">Requirements</label>
+                  <div class="col form-control">
+                     <input type="checkbox" id="pencil" name="pencil">
+                     <label for="pencil">Pencil</label> &nbsp;
+                     <input type="checkbox" id="ballpen" name="ballpen">
+                     <label for="ballpen">Ballpen</label> &nbsp;
+                     <input type="checkbox" id="validid" name="validid">
+                     <label for="validid">Valid Id</label> &nbsp;
+                     <input type="checkbox" id="snacks" name="snacks">
+                     <label for="snacks">Snacks</label> &nbsp;
+                     <input type="checkbox" id="water" name="water">
+                     <label for="water">Water</label> &nbsp;
                   </div>
+               </div>
                
             </div>
             <div class="row">

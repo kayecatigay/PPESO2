@@ -33,15 +33,15 @@ Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'i
 
 Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
 Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
+Route::get('/deleteWorke', [App\Http\Controllers\uProfileController::class, 'deleteWorke']);
 
-Route::get('/AddSchTable', [App\Http\Controllers\uProfileController::class, 'addS']);
+
 Route::get('/insertSchT', [App\Http\Controllers\uProfileController::class, 'insertSchT']);
 Route::get('/cancelsTable', [App\Http\Controllers\uProfileController::class, 'cancelS']);
 
 Route::get('/addEmpTable', [App\Http\Controllers\uProfileController::class, 'addE']);
 Route::get('/insertEmpF', [App\Http\Controllers\uProfileController::class, 'insertEmpF']);
-Route::get('/cancelTable', [App\Http\Controllers\uProfileController::class, 'cancelE']);
-
+Route::get('/canceleTable', [App\Http\Controllers\uProfileController::class, 'cancelE']);
 
 Route::get('/addofwT', [App\Http\Controllers\uProfileController::class, 'addO']);
 Route::get('/insertOf', [App\Http\Controllers\uProfileController::class, 'insertOf']);
@@ -63,10 +63,10 @@ Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, '
 Route::get('/ofwinsertD',[App\Http\Controllers\ServicesController::class, 'ofwinsert']);
 
 Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class, 'GAnnounce']);
-Route::get('/GeneralA',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
-Route::get('/scholarA',[App\Http\Controllers\AnnouncementsController::class, 'scholarAnn']);
-Route::get('/empA',[App\Http\Controllers\AnnouncementsController::class, 'empAnn']);
-Route::get('/ofwA',[App\Http\Controllers\AnnouncementsController::class, 'ofwAnn']);
+Route::get('/GeneralA/{srv}',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
+Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
+
+
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
