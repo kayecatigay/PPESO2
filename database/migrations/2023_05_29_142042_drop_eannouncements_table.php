@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterGenannouncementsnewimaTable extends Migration
+class DropEannouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class AlterGenannouncementsnewimaTable extends Migration
      */
     public function up()
     {
-        Schema::table('genannouncements', function (Blueprint $table) {
-            $table->binary('image')->nullable();
-        });
+        Schema::drop('eannouncements');   
     }
 
     /**
@@ -25,6 +23,6 @@ class AlterGenannouncementsnewimaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('eannouncements');
     }
 }

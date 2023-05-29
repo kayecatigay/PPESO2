@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterGenannouncementstimestampsTable extends Migration
+class DropSannouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class AlterGenannouncementstimestampsTable extends Migration
      */
     public function up()
     {
-        Schema::alter('GenAnnouncements', function (Blueprint $table) {
-            $table->timestamp('created_at')->change();
-        });
+        Schema::drop('sannouncements');    
     }
 
     /**
@@ -25,6 +23,6 @@ class AlterGenannouncementstimestampsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('sannouncements');
     }
 }

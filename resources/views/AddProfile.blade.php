@@ -40,8 +40,8 @@
                 </div>
                 <div class="col form-group">
                     <label for="contactnum">Contact Number</label>
-                    <input type="text" class="form-control" id="contactnum" name="contactnum"  
-                    placeholder="ex. 09123456789" value="{{ $pdata[0]->contactnum}}">
+                    <input type="number" class="form-control" id="contactnum" name="contactnum"  
+                    placeholder="ex. 09123456789" onkeypress="checkContact()" value="{{ $pdata[0]->contactnum}}">
                 </div>
                 <div class="col form-group">
                     <label for="telnum">Telephone Number</label>
@@ -79,12 +79,12 @@
                 </div>
                 <div class="col form-group">
                     <label for="height">Height (cm)</label>
-                    <input type="text" class="form-control" id="height" name="height"  
+                    <input type="number" class="form-control" id="height" name="height"  
                     placeholder="Enter Height" value="{{ $pdata[0]->height}}">
                 </div>
                 <div class="col form-group">
                     <label for="weight">Weight (kg)</label>
-                    <input type="text" class="form-control" id="weight" name="weight"  
+                    <input type="number" class="form-control" id="weight" name="weight"  
                     placeholder="Enter Weight" value="{{ $pdata[0]->weight}}">
                 </div>
             </div>
@@ -357,6 +357,15 @@
         var cell2 = row.insertCell(1);
         cell1.innerHTML = "";
         cell2.innerHTML = "";
+    }
+    function checkContact()
+    {
+        let text = document.getElementById("contactnum").value;
+        let length = text.length;
+        if (length>10){
+            document.getElementById("contactnum").value=text.substr(0,10);
+            alert("11 only")
+        }
     }
 </script>
 @endsection

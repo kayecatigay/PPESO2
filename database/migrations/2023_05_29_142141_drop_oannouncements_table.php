@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterOfwTable extends Migration
+class DropOannouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class AlterOfwTable extends Migration
      */
     public function up()
     {
-        Schema::table('ofw', function($table) {
-            $table->integer('userid')->after('id');
-        });
+        Schema::drop('oannouncements');   
     }
 
     /**
@@ -25,9 +23,6 @@ class AlterOfwTable extends Migration
      */
     public function down()
     {
-        Schema::table('ofw', function($table) {
-            $table->dropColumn('userid')->after('id');;
-        });
-        
+        Schema::dropIfExists('oannouncements');
     }
 }

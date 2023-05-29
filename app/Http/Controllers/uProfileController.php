@@ -24,7 +24,6 @@ class uProfileController extends Controller
         {
             $pData = DB::insert('insert into uprofile(userid) values(' .$userid .')');
             $showdata1 = DB::select('select * from uprofile where userid=' .$userid);
-            dd($showdata1);
         }
         $showwork = DB::select('select * from uwork where userid=' .$userid);
         return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork]);

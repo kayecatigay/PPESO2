@@ -21,7 +21,7 @@
                             <li class="list-group-item" style="font-size:10px;">{{$gen->created_at}}</li>
                             
                         </div>
-                        <p class="card-text">{{$gen->body}}</p>
+                        <p class="card-text">{{ substr($gen->body,0,20) ."..."}}</p>
                         <div class="card-body">
                             <div class="row">
                                

@@ -16,6 +16,7 @@ class AnnouncementsController extends Controller
     {
         // dd($srv);
         $genAnn = DB::select('select * from genannouncements where service="'.$srv .'"');
+        // dd($genAnn);
         return view('genAnn',['ann'=>$genAnn]);
     }
     public function genInfo($id)

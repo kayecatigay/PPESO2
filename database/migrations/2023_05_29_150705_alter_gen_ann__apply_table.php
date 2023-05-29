@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterOfwnameTable extends Migration
+class AlterGenAnnApplyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterOfwnameTable extends Migration
      */
     public function up()
     {
-        Schema::table('ofw', function($table) {
-            $table->integer('name')->after('userid');
+        Schema::table('genannouncements', function (Blueprint $table) {
+            $table->integer('apply')->after('body');
         });
     }
 
@@ -25,8 +25,8 @@ class AlterOfwnameTable extends Migration
      */
     public function down()
     {
-        Schema::table('ofw', function($table) {
-            $table->dropColumn('name')->after('userid');;
+        Schema::table('genannouncements', function (Blueprint $table) {
+            $table->dropColumn('apply')->after('body');
         });
     }
 }

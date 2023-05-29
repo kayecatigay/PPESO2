@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterGenannouncementsupdateTable extends Migration
+class AlterGeneralannTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,10 @@ class AlterGenannouncementsupdateTable extends Migration
     public function up()
     {
         Schema::table('genannouncements', function (Blueprint $table) {
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->dropColumn('description/body');
+        });
+        Schema::table('genannouncements', function (Blueprint $table) {
+            $table->string('body')->after('title');
         });
     }
 
@@ -25,6 +28,8 @@ class AlterGenannouncementsupdateTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('genannouncements', function (Blueprint $table) {
+            $table->dropColumn('body')->after('title');
+        });
     }
 }
