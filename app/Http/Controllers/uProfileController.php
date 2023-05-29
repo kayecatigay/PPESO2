@@ -17,7 +17,7 @@ class uProfileController extends Controller
     }
     public function addP(Request $request)
     {
-        $userid=Auth::user()->id;
+        $userid=Auth::user()->id; 
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         // dd($showdata);
         if(!$showdata)
