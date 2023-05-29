@@ -13,6 +13,7 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">OFW Applicants</h6>
+               <a href="/OPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
             </div>
                <!-- Card Body -->
                <div class="card-body">
@@ -28,7 +29,6 @@
                               <th scope="col">Address</th>
                               <th scope="col">Passport Number</th>
                               <th scope="col">Email Address</th>
-                              <th scope="col">Fb Account</th>
                               <th scope="col">Job Description</th>
                               <th scope="col">Ofw Category</th>
                               <th scope="col">Company</th>
@@ -44,7 +44,7 @@
                                  <td>{{ $name }}</td>
                                  <td>{{ $data->birthday }}</td>
                                  <td>{{ $data->age }}</td>
-                                 <td>{{ $data->sex }}</td>
+                                 <td>{{ $data->gender }}</td>
                                  <td>{{ $data->contactnum }}</td>
                                  <td>{{ $data->address }}</td>
                                  <td>{{ $data->passnum }}</td>
@@ -54,7 +54,6 @@
                                  <td>{{ $data->Company }}</td>
                                  <td>{{ $data->Country }}</td>
                                  <td>{{ $data->PeriodOfEmp }}</td>
-                                 <td>{{ $data->fbacc }}</td>
                                  <td>
                                     <span class="input-group">
 

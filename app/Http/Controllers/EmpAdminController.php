@@ -87,6 +87,7 @@ class EmpAdminController extends Controller
         $skills.= ($request->input('technical')=="on") ? ", technicality" :"";
         $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
         $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
+        $skills=substr($skills,1);  
 
         $req="";
         $req.= ($request->input('resume')=="on") ? ", resume" :"";
@@ -270,6 +271,16 @@ class EmpAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('EmpData',['data'=>$empData]);
+        return view('NLEmploy',['data'=>$empData]);
+    }
+    public function workP()
+    {
+        $works= DB::select('select * from eworks');
+        return view ('NLWorks',['work'=>$works]);
+    }
+    public function estatP()
+    {
+        $estatus=DB::select('select * from employment');
+        return view('NLEstatus',['status'=>$estatus]);
     }
 }

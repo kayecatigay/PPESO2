@@ -16,7 +16,15 @@ class OfwAdminController extends Controller
     }
     public function showOFWdata(Request $request)
     {
-        $ofwData=DB::select('select * from ofw');
+        $ofwData= DB::select('
+        SELECT *
+        FROM ofw as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
         return view('OfwData',['ofwdata'=>$ofwData]);
     }
     public function editOdata(request $request) {
@@ -165,5 +173,23 @@ class OfwAdminController extends Controller
 
         $ostatus=DB::select('select * from ofw');
         return view('ostatus',['status'=>$ostatus]);
+    }
+    public function ofwP()
+    {
+        $ofwData= DB::select('
+        SELECT *
+        FROM ofw as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
+        return view('NLOfw',['ofwdata'=>$ofwData]);
+    }
+    public function ostatP()
+    {
+        $ostatus=DB::select('select * from ofw');
+        return view('NLOstatus',['status'=>$ostatus]);
     }
 }

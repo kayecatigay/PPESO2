@@ -166,6 +166,13 @@ Route::middleware("admin")->group(function () {
     Route::get('/statPrint', [App\Http\Controllers\ScholarAdminController::class, 'statP']);
     
     Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
+    Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
+    Route::get('/EstatPrint', [App\Http\Controllers\EmpAdminController::class, 'estatP']);
+    
+    Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);
+    Route::get('/OstatusPrint', [App\Http\Controllers\OfwAdminController::class, 'ostatP']);
+    
+    Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     
 });
 

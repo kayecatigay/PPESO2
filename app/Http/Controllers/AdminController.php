@@ -112,4 +112,17 @@ class AdminController extends Controller
     {
         return view('status');
     }
+    public function dashboardP()
+    {
+        
+        
+        // return view ('dashboard');
+        // dd(count($smenus));
+        $smenus=$this->getLinks();
+        $Tusers=DB::select('select * from users');
+        $muser=DB::select('select * from uprofile where gender="male"');
+        $fuser=DB::select('select * from uprofile where gender="female"');
+        // dd(count($muser));
+        return view ('NLDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
+    }
 }

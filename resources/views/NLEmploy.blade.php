@@ -53,7 +53,7 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($dataold as $old)
+                           @foreach ($data as $old)
                               <tr>
                                  <td>{{ $old->date }}</td>
                                  <td>{{ $old->name }}</td>

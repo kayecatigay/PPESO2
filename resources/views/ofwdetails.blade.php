@@ -20,12 +20,12 @@
                     <tr>
                       <th scope="col">Application ID</th>
                       <th scope="col">Date</th>
-                      <th scope="col">Status</th>
                       <th scope="col">Job Description</th>
                       <th scope="col">Ofw Category</th>
                       <th scope="col">Company</th>
                       <th scope="col">Country</th>
-                      <th scope="col">Period of Employment</th>          
+                      <th scope="col">Period of Employment</th>  
+                      <th scope="col">Status</th>       
                       <th scope="col">Action</th>            
                     </tr>
                 </thead>
@@ -35,12 +35,12 @@
 
                           <td>{{$odata->appID}}</td>
                           <td>{{$odata->date}}</td>
-                          <td>{{$odata->status}}</td>
                           <td>{{$odata->JobDesc}}</td>
                           <td>{{$odata->OfwCat}}</td>
                           <td>{{$odata->Company}}</td>
                           <td>{{$odata->Country}}</td>
                           <td>{{$odata->PeriodOfEmp}}</td>
+                          <td>{{$odata->status}}</td>
                           <td >
                           <span class="input-group">
                           @if ($odata->status=="pending")
