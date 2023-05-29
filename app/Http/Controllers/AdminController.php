@@ -53,7 +53,11 @@ class AdminController extends Controller
         // return view ('dashboard');
         // dd(count($smenus));
         $smenus=$this->getLinks();
-        return view ('dashboard',['smenu'=>$smenus]);
+        $Tusers=DB::select('select * from users');
+        $muser=DB::select('select * from uprofile where gender="male"');
+        $fuser=DB::select('select * from uprofile where gender="female"');
+        // dd(count($muser));
+        return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
     }
     public function ahome(Request $request)
     {
