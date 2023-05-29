@@ -12,7 +12,8 @@
          <div class="card shadow mb-4">
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">Users</h6>
+               <h6 class="m-0 font-weight-bold text-dark">Scholar Status</h6>
+               <a href="/statPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
             </div>
                <!-- Card Body -->
                <div class="card-body">

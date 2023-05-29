@@ -2,7 +2,7 @@
 @section('content')
     
     <div class="container" data-aos="fade-up">
-        <div class="section-title">
+        <div class="section-title"><br>
           <h2>Profile</h2>
           <p>Personal Data</p>
         

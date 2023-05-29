@@ -91,11 +91,6 @@ Route::middleware("admin")->group(function () {
 
     Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
     Route::get('/showAllSApp', [App\Http\Controllers\ScholarAdminController::class, 'scholarNOData']);
-    Route::get('/newScholar', [App\Http\Controllers\ScholarAdminController::class, 'newSD']);
-    Route::get('/oldScholar', [App\Http\Controllers\ScholarAdminController::class, 'oldSD']);
-    Route::get('/editPEAP', [App\Http\Controllers\ScholarAdminController::class, 'editPdata']);
-    Route::post('/updateEpeap', [App\Http\Controllers\ScholarAdminController::class, 'updatePdata']);
-    Route::post('/deletepeadD', [App\Http\Controllers\ScholarAdminController::class, 'deletePdata']);
     Route::get('/SAllSched', [App\Http\Controllers\ScholarAdminController::class, 'allSched']);
     Route::get('/SchedExam', [App\Http\Controllers\ScholarAdminController::class, 'Ssexam']);
     Route::get('/addSched', [App\Http\Controllers\ScholarAdminController::class, 'addS']);
@@ -164,6 +159,13 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
     Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove']);
+    
+    Route::get('/ScholarPrint', [App\Http\Controllers\ScholarAdminController::class, 'scholarP']);
+    Route::get('/StrackingPrint', [App\Http\Controllers\ScholarAdminController::class, 'trackingP']);
+    Route::get('/SannPrint', [App\Http\Controllers\ScholarAdminController::class, 'sannP']);
+    Route::get('/statPrint', [App\Http\Controllers\ScholarAdminController::class, 'statP']);
+    
+    Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
     
 });
 

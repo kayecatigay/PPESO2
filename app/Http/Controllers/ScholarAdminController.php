@@ -213,4 +213,51 @@ class ScholarAdminController extends Controller
         $pstatus=DB::select('select * from scholarship');
         return view('pstatus',['status'=>$pstatus]);
     }
+    public function scholarP()
+    {
+        $smenus=(new AdminController)->getLinks();
+        // $schedID=$request->input('schedID');
+        // $showdata = DB::select('select * from sschedules where typeS=' .$schedID);
+        $scholardata = DB::select('
+        SELECT *
+        FROM scholarship as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
+        //  dd($scholardata);
+        
+        // dd($scholardata);
+        return view('NLScholars',['dataold'=>$scholardata,'smenu'=>$smenus]);
+    }
+    public function trackingP(Request $request)
+    {
+        $txtsearch=$request->input('filter');
+        // var_dump($txtsearch);
+        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%" .$txtsearch ."%' OR address like'%" 
+        .$txtsearch ."%' OR yGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
+        ."%' OR cname like '%" .$txtsearch ."%' )";
+        // $tEracking = DB::select('select * from stracking' .$condition);
+        $scholardata = DB::select('
+        SELECT *
+        FROM uprofile as p
+        INNER JOIN users as u
+        ON p.userid = u.id
+        where yGraduated!="n/a" and yGraduated!=""
+        ' .$condition .';');
+        return view('NLtracking',['track'=>$scholardata, 'txts' => $txtsearch]);
+    }
+    public function sannP(Request $request)
+    {
+        $annData = DB::select('select * from genannouncements where service="PEAP"');
+        // dd($annData);
+        return view ('NLSAnn',['Sann'=>$annData]);
+    }
+    public function statP()
+    {
+        $pstatus=DB::select('select * from scholarship');
+        return view('NLSstatus',['status'=>$pstatus]);
+    }
 }

@@ -10,15 +10,20 @@
 </style>   
       <div class="col-xl-16">
          <div class="card shadow mb-4">
-            <div
-               class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">Announcements</h6>
-               <form action="/addAnnouncements">
-                  <input type="hidden" id="srv" name="srv" value="{{ $Sann[0]->service }}">   
-                  <input class="font-weight-bold" style="background-color:#5F9EA0; border-radius: 4px;border:none;" 
-                  type="submit" value="Add" />
-               </form>
-               
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+               <div class="col-2">
+                  <h6 class="m-0 font-weight-bold text-dark">Announcements</h6>
+               </div>   
+               <div class="col-9">
+                  <a href="/SannPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+               </div>
+               <div class="col">
+                  <form action="/addAnnouncements">
+                     <input type="hidden" id="srv" name="srv" value="{{ $Sann[0]->service }}">   
+                     <input class="font-weight-bold" style="background-color:#5F9EA0; border-radius: 4px;border:none;" 
+                     type="submit" value="Add" />
+                  </form>
+               </div>
             </div>
                <!-- Card Body -->
                <div class="card-body">

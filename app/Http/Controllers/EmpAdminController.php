@@ -16,7 +16,15 @@ class EmpAdminController extends Controller
     }
     public function showEmpData()
     {
-        $empData= DB::select('select * from employment');
+        $empData= DB::select('
+        SELECT *
+        FROM employment as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
         return view('EmpData',['data'=>$empData]);
         // return view('EmpData');
     }
@@ -250,5 +258,18 @@ class EmpAdminController extends Controller
 
         $estatus=DB::select('select * from employment');
         return view('estatus',['status'=>$estatus]);
+    }
+    public function ePrint()
+    {
+        $empData= DB::select('
+        SELECT *
+        FROM employment as s
+        INNER JOIN uprofile as p
+        ON s.userid = p.userid
+        INNER JOIN users as u
+        ON p.userid = u.id;
+        
+        ');
+        return view('EmpData',['data'=>$empData]);
     }
 }

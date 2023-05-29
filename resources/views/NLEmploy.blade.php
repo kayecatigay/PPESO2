@@ -1,29 +1,35 @@
-@extends('layouts.addefault')
 
-@section('maincontent')
 <style>
    /* Set the table container to overflow horizontally */
-   .table-container {
-      overflow-x: auto;
-      white-space: nowrap;
+
+   #table {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      border-collapse: collapse;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   #table td, #table th {
+      border: 1px solid #ddd;
+      padding: 8px;
    }
 </style>   
                        
-      <div class="col-xl-16">
+      <div class="col-xl-20">
          <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <div class="row">
-                  <div class="col">
-                     <h6 class="m-0 font-weight-bold text-dark">Application Forms</h6>
-                  
-                     <a href="/ScholarPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+                  <div class="col"><br> <br> <br>
+                     <h1 class="m-0 font-weight-bold text-dark" style="text-align:center;">Application Forms</h1>
                   </div>
                </div>
             </div>
                <!-- Card Body -->
                <div class="card-body">
                   <div class="container table-container">
-                     <table class="table">
+                     <table class="table" id="table">
                         <thead>
                            <tr>
                               <th scope="col">Created At</th>
@@ -84,6 +90,6 @@
          tableContainer.scrollLeft += event.deltaY;
       });
    </script>
-@endsection
+
 
 <!-- End of Page Wrapper -->

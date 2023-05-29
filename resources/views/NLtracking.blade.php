@@ -1,40 +1,30 @@
-@extends('layouts.addefault')
 
-@section('maincontent')
 <style>
    /* Set the table container to overflow horizontally */
-   .table-container {
-      overflow-x: auto;
-      white-space: nowrap;
+   #table {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      border-collapse: collapse;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   #table td, #table th {
+      border: 1px solid #ddd;
+      padding: px;
    }
 </style>   
       <div class="col-xl-16">
-         <div class="card shadow mb-4">
+         <div class="card shadow mb-4"><br> <br> <br>
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-dark">Scholarship Tracking</h6>
-               <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>    
-                    <form action="Stracking"
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" id="filter" name="filter" class="form-control border-0 small" 
-                              placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" value="{{$txts}}">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <a href="/StrackingPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
-               
+               <h2 class="m-0 font-weight-bold text-dark" style="text-align:center;">Scholarship Tracking</h2>            
             </div>
                <!-- Card Body -->
                <div class="card-body">
                   <div class="container table-container">
-                     <table class="table">
+                     <table class="table" id="table">
                         <thead style="text-align:center">
                            <tr>
                               <th scope="col">Name</th>
@@ -77,6 +67,5 @@
          tableContainer.scrollLeft += event.deltaY;
       });
    </script>
-@endsection
 
 <!-- End of Page Wrapper -->
