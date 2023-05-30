@@ -39,7 +39,7 @@
             <div class="col" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
-                    <h4><a href="empA">Announcements</a></h4>
+                    <h4><a href="GeneralA/emp">Announcements</a></h4>
                     <p>Schedules, Lists, etc.</p>
                 </div>
             </div>
