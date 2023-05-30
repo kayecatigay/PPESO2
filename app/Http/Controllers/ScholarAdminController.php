@@ -251,7 +251,8 @@ class ScholarAdminController extends Controller
     }
     public function sannP(Request $request)
     {
-        $annData = DB::select('select * from genannouncements where service="PEAP"');
+        $psrv=$request->input('psrv');
+        $annData = DB::select('select * from genannouncements where service="' .$psrv .'"');
         // dd($annData);
         return view ('NLSAnn',['Sann'=>$annData]);
     }

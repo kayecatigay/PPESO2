@@ -19,7 +19,7 @@
          <div class="card shadow mb-4"><br><br><br>
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <div class="col">
-                  <h1 class="m-0 font-weight-bold text-dark" style="text-align:center;"> Scholarship Announcements</h1>
+                  <h1 class="m-0 font-weight-bold text-dark" style="text-align:center;"> {{ $Sann[0]->service }} Announcements</h1>
                </div>   
                
             </div>

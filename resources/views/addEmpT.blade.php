@@ -14,14 +14,20 @@
           
             
             <div class="row form-group">
-               <div class="col">
+               <div class="col-7">
                   <label for="posidesired">Position Desired</label>
                   <input type="text" class="form-control" id="posidesired" name="posidesired">
                </div>
                <div class="col">
-                  <label for="cname">Company</label>
-                  <input type="text" class="form-control" id="cname" name="cname">
+                  <label for="cname">Company </label>
+                  <select class="form-control" name="cname" id="cname">
+                     @foreach ( $company as $com)
+                        <option value="{{ $com->company}}">{{ $com->company}}</option>
+                     @endforeach
+                  </select>
+               
                </div>
+               
             </div>
             <div class="row form-group">
                <div class="col">

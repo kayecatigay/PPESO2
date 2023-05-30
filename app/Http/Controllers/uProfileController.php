@@ -103,7 +103,9 @@ class uProfileController extends Controller
     }
     public function addE()
     {
-        return view ('addEmpT');
+        $empdata=DB::select('select * from eworks');
+        $company=DB::select('select company from eworks');
+        return view ('addEmpT',['emp'=>$empdata,'company'=>$company]);
     }
     public function insertEmpF(Request $request)
     {

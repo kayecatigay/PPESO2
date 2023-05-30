@@ -15,7 +15,11 @@
                   <h6 class="m-0 font-weight-bold text-dark">Announcements</h6>
                </div>   
                <div class="col-9">
-                  <a href="/SannPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+                  <form action="/SannPrint" target="_blank">
+                     <input type="hidden" id="psrv" name="psrv" value="{{ $Sann[0]->service }}">
+                     <input class="btn btn-outline-dark" style="padding:1px 10px;" type="submit" value="Print">
+                  </form>
+                  
                </div>
                <div class="col">
                   <form action="/addAnnouncements">
