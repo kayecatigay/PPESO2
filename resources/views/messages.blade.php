@@ -9,7 +9,7 @@
    }
 </style>      
       <div class="col-xl-16">
-         <form action="/send">
+         <form action="/send" target="_Blank">
             <div class="container">
                <h6 class="m-0 font-weight-bold text-dark">Messages</h6> <br>
                <div class="form-group">

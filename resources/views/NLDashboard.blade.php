@@ -28,16 +28,15 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1"><br>
                                             <h3 style="text-align:center;"> Total Users = {{$totalusers}} </h3></div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                   
+                    </div>                   
                 </div>
 
                 <!-- Content Row -->
