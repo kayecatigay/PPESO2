@@ -33,11 +33,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address"  
-                    placeholder="Enter Address" value="{{ $pdata[0]->address}}" >
+                <div class="col form-group">
+                    <label for="province">Province</label>
+                    <select class="form-control" name="region" id="region" 
+                        placeholder="Enter Address" value="{{ $pdata[0]->address}}" >>
+                        <option value="mimaropa">IV-B MIMAROPA</option>
+                    </select>
                 </div>
+                <div class="col form-group">
+                    <label for="municipality">Municipality</label>
+                    <select class="form-control" name="region" id="region" 
+                        placeholder="Enter Address" value="#" >
+                        <option value="mimaropa">Puerto Galera</option>
+                        <option value="mimaropa">San Teodoro</option>
+                        <option value="mimaropa">Baco</option>
+                        <option value="mimaropa">Calapan</option>
+                        <option value="mimaropa">Naujan</option>
+                        <option value="mimaropa">Victoria</option>
+                        <option value="mimaropa">Pola</option>
+                        <option value="mimaropa">Socorro</option>
+                        <option value="mimaropa">Pinamalayan</option>
+                        <option value="mimaropa">Gloria</option>
+                        <option value="mimaropa">Bansud</option>
+                        <option value="mimaropa">Bongabong</option>
+                        <option value="mimaropa">Roxas</option>
+                        <option value="mimaropa">Mansalay</option>
+                        <option value="mimaropa">Bulalacao</option>
+                        
+                    </select>
+                </div>
+                <!-- <div class="col form-group">
+                    <label for="region">Barangay</label>
+                    <select class="form-control" name="region" id="region" 
+                        placeholder="Enter Address" value="{{ $pdata[0]->address}}" >>
+                        <option value="mimaropa">IV-B MIMAROPA</option>
+                    </select>
+                </div> -->
                 <div class="col form-group">
                     <label for="contactnum">Contact Number</label>
                     <input type="number" class="form-control" id="contactnum" name="contactnum"  

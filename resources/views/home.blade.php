@@ -69,7 +69,8 @@
                 <div class="icon-box">
                   <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                   <h4><a href="scholarhomepage">Scholarship</a></h4>
-                  <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                  <p>PESO Educational Assistance Program.</p>
+                  <p>Apply for more information.</p>
                 </div>
               </div>
 
@@ -77,7 +78,8 @@
                 <div class="icon-box">
                   <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
                   <h4><a href="employmenthomepage">Employment</a></h4>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                  <p>Jobs are hiring!</p>
+                  <p>Apply for more information.</p>
                 </div>
               </div>
 
@@ -85,7 +87,8 @@
                 <div class="icon-box">
                   <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
                   <h4><a href="ofwhomepage">OFW</a></h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                  <p>OFW Assistance Program</p>
+                  <p>Apply for more information.</p>
                 </div>
               </div>
             </div>
