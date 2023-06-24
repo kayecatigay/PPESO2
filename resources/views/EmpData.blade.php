@@ -43,11 +43,12 @@
                         </thead>
                         <tbody>
                            @foreach ($data as $emp)
+                           @php $address = $emp->region."," .$emp->province."," .$emp->mun."," .$emp->barangay."," .$emp->sitio; @endphp
                               <tr>
                                  <td>{{ $emp->name }}</td>
                                  <td>{{ $emp->posidesired }}</td>
                                  <td>{{ $emp->gender }}</td>
-                                 <td>{{ $emp->address }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $emp->telenum }}</td>
                                  <td>{{ $emp->contactnum }}</td>
                                  <td>{{ $emp->emailadd }}</td>

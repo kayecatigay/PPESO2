@@ -94,7 +94,8 @@ class AdminController extends Controller
         // dd($request->input('roles'));
         $urole=0;
         $urole= ($request->input('roles')== "user") ? 0 : $urole;
-        $urole= ($request->input('roles')== "supadmin") ? 4 : $urole;
+        $urole= ($request->input('roles')== "supadmin") ? 5 : $urole;
+        $urole= ($request->input('roles')== "employer") ? 4 : $urole;
         $urole= ($request->input('roles')== "oadmin") ? 3 : $urole;
         $urole= ($request->input('roles')== "eadmin") ? 2 : $urole;
         $urole= ($request->input('roles')== "sadmin") ? 1 : $urole;

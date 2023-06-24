@@ -31,54 +31,63 @@
                         <option value="male">Male</option>
                     </select>
                 </div>
+                <div class="col form-group">
+                    <label for="contactnum">Contact Number</label>
+                    <input type="number" required class="form-control" id="contactnum" name="contactnum"  
+                    placeholder="ex. 09123456789" onkeypress="checkContact()" value="{{ $pdata[0]->contactnum}}">
+                </div>
             </div>
             <div class="row">
-                <div class="col form-group">
-                    <label for="province">Province</label>
+                <div class="col-2 form-group">
+                    <label for="region">Region</label>
                     <select class="form-control" name="region" id="region" 
-                        placeholder="Enter Address" value="{{ $pdata[0]->address}}" >>
+                        placeholder="Enter Address"  >>
                         <option value="mimaropa">IV-B MIMAROPA</option>
                     </select>
                 </div>
-                <div class="col form-group">
-                    <label for="municipality">Municipality</label>
-                    <select class="form-control" name="region" id="region" 
+                <div class="col-2 form-group">
+                    <label for="province">Province</label>
+                    <select class="form-control" name="province" id="province" 
+                        placeholder="Enter Address" >>
+                        <option value="ormin">Oriental Mindoro</option>
+                        <option value="ormin">Occidental Mindoro</option>
+                    </select>
+                </div>
+                <div class="col-2 form-group">
+                    <label for="mun">Municipality</label>
+                    <select class="form-control" name="mun" id="mun" 
                         placeholder="Enter Address" value="#" >
-                        <option value="mimaropa">Puerto Galera</option>
-                        <option value="mimaropa">San Teodoro</option>
-                        <option value="mimaropa">Baco</option>
-                        <option value="mimaropa">Calapan</option>
-                        <option value="mimaropa">Naujan</option>
-                        <option value="mimaropa">Victoria</option>
-                        <option value="mimaropa">Pola</option>
-                        <option value="mimaropa">Socorro</option>
-                        <option value="mimaropa">Pinamalayan</option>
-                        <option value="mimaropa">Gloria</option>
-                        <option value="mimaropa">Bansud</option>
-                        <option value="mimaropa">Bongabong</option>
-                        <option value="mimaropa">Roxas</option>
-                        <option value="mimaropa">Mansalay</option>
-                        <option value="mimaropa">Bulalacao</option>
+                        <option value="puerto">Puerto Galera</option>
+                        <option value="san teordoro">San Teodoro</option>
+                        <option value="baco">Baco</option>
+                        <option value="calapan">Calapan</option>
+                        <option value="naujan">Naujan</option>
+                        <option value="victoria">Victoria</option>
+                        <option value="pola">Pola</option>
+                        <option value="socorro">Socorro</option>
+                        <option value="pinamalayan">Pinamalayan</option>
+                        <option value="gloria">Gloria</option>
+                        <option value="bansud">Bansud</option>
+                        <option value="bongabong">Bongabong</option>
+                        <option value="roxas">Roxas</option>
+                        <option value="mansalay">Mansalay</option>
+                        <option value="bulalacao">Bulalacao</option>
                         
                     </select>
                 </div>
-                <!-- <div class="col form-group">
-                    <label for="region">Barangay</label>
-                    <select class="form-control" name="region" id="region" 
-                        placeholder="Enter Address" value="{{ $pdata[0]->address}}" >>
+                <div class="col form-group">
+                    <label for="barangay">Barangay</label>
+                    <select class="form-control" name="barangay" id="barangay" 
+                        placeholder="Enter Address"  >>
                         <option value="mimaropa">IV-B MIMAROPA</option>
                     </select>
-                </div> -->
-                <div class="col form-group">
-                    <label for="contactnum">Contact Number</label>
-                    <input type="number" class="form-control" id="contactnum" name="contactnum"  
-                    placeholder="ex. 09123456789" onkeypress="checkContact()" value="{{ $pdata[0]->contactnum}}">
                 </div>
                 <div class="col form-group">
-                    <label for="telnum">Telephone Number</label>
-                    <input type="text" class="form-control" id="telnum" name="telnum"  
-                    placeholder="ex. 288-1111" value="{{ $pdata[0]->telenum}}">
+                    <label for="sitio">Sitio</label>
+                    <input type="text" class="form-control" id="sitio" name="sitio"
+                    placeholder="Enter Sitio" value="{{ $pdata[0]->sitio}}">
                 </div>
+               
             </div>
             <div class="row">
                 <div class="col-4 orm-group">
@@ -86,12 +95,17 @@
                     <input type="email" class="form-control" id="emailadd" name="emailadd"  
                     placeholder="ex. abc@gmail.com" value="{{ $pdata[0]->emailadd}}">
                 </div> 
-                <div class="col-5 form-group">
+                <div class="col-4 form-group">
                     <label for="birthplace">Place of Birth</label>
                     <input type="text" class="form-control" id="birthplace" name="birthplace"  
                     placeholder="Enter place of birth" value="{{ $pdata[0]->pobirth}}">
                 </div>
-                <div class="col-3 from group">
+                <div class="col form-group">
+                    <label for="telnum">Telephone Number</label>
+                    <input type="text" class="form-control" id="telnum" name="telnum"  
+                    placeholder="ex. 288-1111" value="{{ $pdata[0]->telenum}}">
+                </div>
+                <div class="col from group">
                     <label for ="passnum">Passport Number</label>
                     <input type="text" class="form-control" id="passnum" name="passnum" 
                     placeholder="13254543" value="{{ $pdata[0]->passnum}}">
@@ -323,9 +337,19 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                        </table>
+                        </table> <br><br>
+                        
                     </div>
+                    
                 </div>
+                    
+                    <?php
+                        // echo Form::open(array('url' => '/uploadfile','files'=>'true'));
+                        // echo 'Select the file to upload.';
+                        // echo Form::file('image');
+                        // echo Form::submit('Upload File');
+                        // echo Form::close();
+                    ?>
 
             <div class="row">
                 <div class="col-5">&nbsp;</div>
@@ -334,6 +358,13 @@
             </div>
             <!-- <div> -->
         </form>
+        <p>Resume</p>
+        <form action = '/uploadfile' method="get" files='true'>
+            <h6>Select file to upload</h6>
+        <input type="file" id="txtfile" name="txtfile">
+        <button type="submit" style="padding:3px;" class="btn btn-outline-dark">Submit</button>
+        </form>
+
     </div>
 <script>
     function setage()

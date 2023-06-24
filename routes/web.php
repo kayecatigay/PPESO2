@@ -66,7 +66,8 @@ Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class
 Route::get('/GeneralA/{srv}',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
 Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
 
-
+// Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
+Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 

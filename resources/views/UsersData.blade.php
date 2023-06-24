@@ -46,6 +46,9 @@
                                     @break
                                
                                  @case(4)
+                                    @php $urole = "Employer"; @endphp
+                                    @break
+                                 @case(5)
                                     @php $urole = "Super Admin"; @endphp
                                     @break
                               

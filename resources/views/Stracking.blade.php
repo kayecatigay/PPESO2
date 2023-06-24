@@ -50,11 +50,11 @@
                         
                         <tbody style="text-align:center">
                            @foreach ($track as $tr)
+                          
                               <tr>
                                  <td>{{ $tr->name }}</td>
                                  <td>{{ $tr->age }}</td>
                                  <td>{{ $tr->gender }}</td>
-                                 <td>{{ $tr->address }}</td>
                                  <td>{{ $tr->yGraduated }}</td>
                                  <td>{{ $tr->school }}</td>
                                  <td>{{ $tr->work }}</td>

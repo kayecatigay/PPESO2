@@ -187,7 +187,7 @@ class ScholarAdminController extends Controller
     {
         $txtsearch=$request->input('filter');
         // var_dump($txtsearch);
-        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%" .$txtsearch ."%' OR address like'%" 
+        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%" 
         .$txtsearch ."%' OR yGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
         ."%' OR cname like '%" .$txtsearch ."%' )";
         // $tEracking = DB::select('select * from stracking' .$condition);
@@ -236,7 +236,7 @@ class ScholarAdminController extends Controller
     {
         $txtsearch=$request->input('filter');
         // var_dump($txtsearch);
-        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%" .$txtsearch ."%' OR address like'%" 
+        $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%"  
         .$txtsearch ."%' OR yGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
         ."%' OR cname like '%" .$txtsearch ."%' )";
         // $tEracking = DB::select('select * from stracking' .$condition);

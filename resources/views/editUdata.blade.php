@@ -23,6 +23,7 @@
                         <option value="sadmin">Scholar Admin</option>
                         <option value="eadmin">Employee Admin</option>
                         <option value="oadmin">OFW Admin</option>
+                        <option value="employer">Employer</option>
                         <option value="supadmin">Super Admin</option>
                     </select>
                 </div>

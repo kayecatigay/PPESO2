@@ -44,8 +44,10 @@ class EmpAdminController extends Controller
         $language=substr($language,1);  
 
         $empdata= DB::update('update employment set name="' .$request->input('name'). '",posidesired="' 
-        .$request->input('posidesi'). '",gender="' .$request->input('gender'). '",address="' 
-        .$request->input('add'). '",telephone="' .$request->input('telnum'). '",cellphone="' 
+        .$request->input('posidesi'). '",gender="' .$request->input('gender'). '",region= "' 
+        .$request->input('region'). '",province="' .$request->input('province'). '",mun= "' 
+        .$request->input('mun'). '",barangay="' .$request->input('barangay'). '",  sitio="' 
+        .$request->input('sitio'). '",telephone="' .$request->input('telnum'). '",cellphone="' 
         .$request->input('cellphone'). '",emailadd="' .$request->input('emailadd'). '",birthday="' 
         .$request->input('birthday'). '",Cstatus="' .$request->input('cstatus'). '",spouse="' 
         .$request->input('spouse'). '",height="' .$request->input('height'). '",weight="' 

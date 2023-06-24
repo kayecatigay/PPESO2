@@ -48,11 +48,12 @@
                         </thead>
                         <tbody>
                            @foreach ($dataold as $old)
+                           @php $address = $old->region."," .$old->province."," .$old->mun."," .$old->barangay."," .$old->sitio; @endphp
                               <tr>
                                  <td>{{ $old->date }}</td>
                                  <td>{{ $old->name }}</td>
                                  <td>{{ $old->gender }}</td>
-                                 <td>{{ $old->address }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $old->emailadd }}</td>
                                  <td>{{ $old->contactnum }}</td>
                                  <td>{{ $old->birthday }}</td>
