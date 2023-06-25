@@ -285,4 +285,22 @@ class EmpAdminController extends Controller
         $estatus=DB::select('select * from employment');
         return view('NLEstatus',['status'=>$estatus]);
     }
+    public function employers()
+    {
+        $employers= DB::select('
+        SELECT *
+        FROM users
+        INNER JOIN uprofile 
+        ON users.id = uprofile.userid
+        WHERE users.roles = 4;
+        
+        ');
+        // $employers = DB::select('select * from users where roles = 4');
+        return view('employerW',['employer'=>$employers]);
+    }
+    public function delEmp(Request $request)
+    {
+        DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
+        return redirect ('EmployerW');
+    }
 }

@@ -66,7 +66,7 @@ Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class
 Route::get('/GeneralA/{srv}',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
 Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
 
-// Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
+Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
 Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
@@ -130,6 +130,9 @@ Route::middleware("admin")->group(function () {
     Route::get('/editEAnnouncements', [App\Http\Controllers\EmpAdminController::class, 'EditeAnn']);
     Route::get('/updateEann', [App\Http\Controllers\EmpAdminController::class, 'updateEann']);
     Route::get('/deleteEAnn', [App\Http\Controllers\EmpAdminController::class, 'deleteEann']);
+    Route::get('/EmployerW', [App\Http\Controllers\EmpAdminController::class, 'employers']);
+    Route::get('/deleteEmployer', [App\Http\Controllers\EmpAdminController::class, 'delEmp']);
+    
     
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
     Route::get('/showAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);

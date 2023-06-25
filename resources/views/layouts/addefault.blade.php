@@ -99,7 +99,7 @@
                                     <a class="collapse-item" href="/showAllEApp">Applicants</a>
                                     <a class="collapse-item" href="/AllWorks">Works Available</a>
                                     <a class="collapse-item" href="/Eannouncements">Announcements</a>
-                                    <a class="collapse-item" href="/Estatus">Employer</a>
+                                    <a class="collapse-item" href="/EmployerW">Employer</a>
                                     <a class="collapse-item" href="/Estatus">Status</a>
                                 </div>
                             </div>

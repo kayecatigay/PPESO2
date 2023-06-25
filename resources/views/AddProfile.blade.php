@@ -362,7 +362,7 @@
         <form action = '/uploadfile' method="get" files='true'>
             <h6>Select file to upload</h6>
         <input type="file" id="txtfile" name="txtfile">
-        <button type="submit" style="padding:3px;" class="btn btn-outline-dark">Submit</button>
+        <button type="submit" name="submit" style="padding:3px;" class="btn btn-outline-dark">Upload File</button>
         </form>
 
     </div>
