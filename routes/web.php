@@ -31,10 +31,11 @@ Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'pho
 Route::get('/AddProfile', [App\Http\Controllers\uProfileController::class, 'addP']);
 Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'insertP']);
 
+Route::get('/getbarangay/{id}', [App\Http\Controllers\uProfileController::class, 'selectB']);
+
 Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
 Route::get('/insertWorke', [App\Http\Controllers\uProfileController::class, 'insertWorke']);
 Route::get('/deleteWorke', [App\Http\Controllers\uProfileController::class, 'deleteWorke']);
-
 
 Route::get('/insertSchT', [App\Http\Controllers\uProfileController::class, 'insertSchT']);
 Route::get('/cancelsTable', [App\Http\Controllers\uProfileController::class, 'cancelS']);

@@ -55,10 +55,10 @@
                 </div>
                 <div class="col-2 form-group">
                     <label for="mun">Municipality</label>
-                    <select class="form-control" name="mun" id="mun" 
+                    <select class="form-control" name="mun" id="mun"  onchange="loadDoc()"
                         placeholder="Enter Address" value="#" >
                         <option value="puerto">Puerto Galera</option>
-                        <option value="san teordoro">San Teodoro</option>
+                        <option value="san teodoro">San Teodoro</option>
                         <option value="baco">Baco</option>
                         <option value="calapan">Calapan</option>
                         <option value="naujan">Naujan</option>
@@ -75,10 +75,10 @@
                         
                     </select>
                 </div>
-                <div class="col form-group">
+                <div class="col form-group" id="brgy" name="brgy">
                     <label for="barangay">Barangay</label>
                     <select class="form-control" name="barangay" id="barangay" 
-                        placeholder="Enter Address"  >>
+                        placeholder="Enter Address"  >
                         <option value="mimaropa">IV-B MIMAROPA</option>
                     </select>
                 </div>
@@ -364,9 +364,22 @@
         <input type="file" id="txtfile" name="txtfile">
         <button type="submit" name="submit" style="padding:3px;" class="btn btn-outline-dark">Upload File</button>
         </form>
-
     </div>
 <script>
+    function loadDoc() {
+        txtmun=document.getElementById("mun").value;
+        // alert(txtmun);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("brgy").innerHTML =
+            this.responseText;
+            }
+        };
+        xhttp.open("GET", "/getbarangay/" +txtmun, true);
+        xhttp.send();
+    }
+
     function setage()
     {
     dob=new Date(document.getElementById("birthday").value);

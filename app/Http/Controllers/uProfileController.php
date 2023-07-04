@@ -39,13 +39,15 @@ class uProfileController extends Controller
         $language=substr($language,1); 
 
         $userid=$request->input('userid');
+        $mun=$request->input('mun');
+        $barangay=DB::select('select * from barangay where mun=' .$mun);
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
         {
             $uPData = DB::update('update uprofile set suffix="' .$request->input('suffix'). '",
             gender="' .$request->input('gender'). '",region= "' .$request->input('region'). '",
             province="' .$request->input('province'). '",mun= "' .$request->input('mun'). '",
-            barangay="' .$request->input('barangay'). '",  sitio="' .$request->input('sitio'). '",
+            barangay="' .$barangay. '",  sitio="' .$request->input('sitio'). '",
             contactnum="' .$request->input('contactnum'). '",telenum= "' .$request->input('telnum'). '",
             emailadd="' .$request->input('emailadd'). '",pobirth= "' .$request->input('birthplace'). '",
             passnum="' .$request->input('passnum'). '",birthday= "' .$request->input('birthday'). '",
@@ -66,7 +68,7 @@ class uProfileController extends Controller
             school, work, cname, guardian, relation, cstatus, spouse, language, elem, hs, college, degree) 
             values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
-            .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
+            .$barangay .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'
             .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
             .$request->input('age') .'","' .$request->input('height') .'","' .$request->input('weight') .'","'
@@ -170,5 +172,20 @@ class uProfileController extends Controller
     {
         DB::delete("DELETE FROM scholarship WHERE id = " .$request->input('delId'));
         return redirect('Sregistration');   
+    }
+
+    public function selectB($mun)
+    {
+        $barangay=DB::select("select * from barangay where mun='" .$mun ."'");
+        // $Puerto=DB::select('select barangay where mun=' .$mun);
+        $frm='<label for="barangay">Barangay</label>
+            <select class="form-control" name="barangay" id="barangay" 
+            placeholder="Enter Address"  >';
+            foreach ($barangay as $brgy)
+            {
+                $frm.='<option value="'.$brgy->barangay .'">'.$brgy->barangay .'</option>';
+            }
+        $frm.='</select>';
+        return $frm;
     }
 }
