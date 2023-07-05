@@ -39,6 +39,7 @@
                               <th scope="col">College</th>
                               <th scope="col">Degree</th>
                               <th scope="col">Company Name</th>
+                              <th scope="col">Resume</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -63,7 +64,9 @@
                                  <td>{{ $emp->college }}</td>
                                  <td>{{ $emp->degree }}</td>
                                  <td>{{ $emp->cname }}</td>
-                                  
+                                 <td a href="{{ route('files.show', $file->userid) }}">Download File</a></td>
+                                 
+                                 
                               </tr>
                            @endforeach
                         </tbody>

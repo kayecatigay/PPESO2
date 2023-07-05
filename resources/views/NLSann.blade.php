@@ -33,7 +33,6 @@
                               <th scope="col">Date To</th>
                               <th scope="col">Title</th>
                               <th scope="col">Description</th>
-                              <th scope="col">Image</th>
                            </tr>
                         </thead>
                         <tbody style="text-align:center">
@@ -43,7 +42,6 @@
                                  <td>{{ $ann->dateTo }}</td>
                                  <td>{{ $ann->title }}</td>
                                  <td>{{ $ann->body }}</td>
-                                 <td>{{ $ann->image }}</td>
                                  
                               </tr>   
                            @endforeach                                 

@@ -127,6 +127,9 @@ class ScholarAdminController extends Controller
     {
         $annData = DB::select('select * from genannouncements where service="PEAP"');
         // dd($annData);
+        if (empty($annData)) {
+            return redirect('Sannouncements');
+        }
         return view ('Sannouncements',['Sann'=>$annData]);
     }
     public function addAnn(Request $request)
@@ -156,30 +159,24 @@ class ScholarAdminController extends Controller
     public function editAnn(Request $request)
     {
         $annData=$request->input('annID');
-        
-        $showdata = DB::select('select * from sannouncements where id=' .$annData);
+        // $psrv=$request->input('psrv');
+        // $annData = DB::select('select * from genannouncements where service="' .$psrv .'"');
+        $showdata = DB::select('select * from genannouncements where id=' .$annData);
         // dd($showdata);
         return view('editAnn',['ann'=>$showdata]); 
     }
     public function updateA(Request $request)
     {
-        $req="";
-        $req.= ($request->input('pencil')=="on") ? "|pencil" :"";
-        $req.= ($request->input('ballpen')=="on") ? "|ballpen" :"";
-        $req.= ($request->input('validid')=="on") ? "|validid" :"";
-        $req.= ($request->input('snacks')=="on") ? "|snacks" :"";
-        $req.= ($request->input('water')=="on") ? "|water" :"";
-        $req=substr($req,1); 
 
-        $announceData = DB::update('update sannouncements set date="' .$request->input('date'). '",schedule= 
-        "' .$request->input('sched'). '",details= "' .$request->input('dets'). '",req=
-        "' .$req. '" where id='.$request->input('id') .' ');
+        $announceData = DB::update('update genannouncements set dateTo="' .$request->input('dateTo'). '",dateFrom= 
+        "' .$request->input('dateFrom'). '",title="' .$request->input('title'). '",body= 
+        "' .$request->input('body') .'" where service = "PEAP"');
 
         return redirect('/Sannouncements');
     }
     public function deleteAnn(Request $request)
     {
-        DB::delete("DELETE FROM sannouncements WHERE id = " .$request->input('delId'));
+        DB::delete("DELETE FROM genannouncements WHERE id = " .$request->input('delId'));
 
         return redirect('/Sannouncements');
     }
@@ -254,7 +251,7 @@ class ScholarAdminController extends Controller
         $psrv=$request->input('psrv');
         $annData = DB::select('select * from genannouncements where service="' .$psrv .'"');
         // dd($annData);
-        return view ('NLSAnn',['Sann'=>$annData]);
+        return view ('Sannouncements',['Sann'=>$annData]);
     }
     public function statP()
     {

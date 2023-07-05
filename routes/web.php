@@ -67,8 +67,12 @@ Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class
 Route::get('/GeneralA/{srv}',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
 Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
 
-Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
-Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
+// Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
+// Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
+
+Route::get('/upload', [App\Http\Controllers\FileUploadController::class, 'showUploadForm']);
+Route::post('/upload', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
+
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
@@ -179,5 +183,6 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     
+    Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
 });
 

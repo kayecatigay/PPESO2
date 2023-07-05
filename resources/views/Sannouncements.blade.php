@@ -39,7 +39,6 @@
                               <th scope="col">Date To</th>
                               <th scope="col">Title</th>
                               <th scope="col">Description</th>
-                              <th scope="col">Image</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
@@ -50,7 +49,6 @@
                                  <td>{{ $ann->dateTo }}</td>
                                  <td>{{ $ann->title }}</td>
                                  <td>{{ $ann->body }}</td>
-                                 <td>{{ $ann->image }}</td>
                                  <td>
                                     <span class="input-group">
 

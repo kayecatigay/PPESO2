@@ -50,13 +50,14 @@
                     <select class="form-control" name="province" id="province" 
                         placeholder="Enter Address" >>
                         <option value="ormin">Oriental Mindoro</option>
-                        <option value="ormin">Occidental Mindoro</option>
                     </select>
                 </div>
                 <div class="col-2 form-group">
                     <label for="mun">Municipality</label>
                     <select class="form-control" name="mun" id="mun"  onchange="loadDoc()"
-                        placeholder="Enter Address" value="#" >
+                        placeholder="Enter Address">
+                        <option >{{ $pdata[0]->mun}}</option>
+                        <option style="text-align:center">--select--</option>
                         <option value="puerto">Puerto Galera</option>
                         <option value="san teodoro">San Teodoro</option>
                         <option value="baco">Baco</option>
@@ -79,7 +80,7 @@
                     <label for="barangay">Barangay</label>
                     <select class="form-control" name="barangay" id="barangay" 
                         placeholder="Enter Address"  >
-                        <option value="mimaropa">IV-B MIMAROPA</option>
+                        <option value="{{ $pdata[0]->barangay}}">{{ $pdata[0]->barangay}}</option>
                     </select>
                 </div>
                 <div class="col form-group">
@@ -150,37 +151,39 @@
                 </div>
                 <div class="col form-group">
                     <label for="yGraduated">Year Graduated</label>
-                    <select class="form-control" name="yGraduated" id="yGraduated" onclick="myFunction()" 
+                    <select class="form-control" name="yGraduated" id="yGraduated"
                     value="{{ $pdata[0]->yGraduated}}">
 
+                        <option value="{{ $pdata[0]->yGraduated}}">{{ $pdata[0]->yGraduated}}</option>
                         <option value="n/a">N/A</option>
-                        <option value="year">2022</option>
-                        <option value="year">2021</option>
-                        <option value="year">2020</option>
-                        <option value="year">2019</option>
-                        <option value="year">2018</option>
-                        <option value="year">2017</option>
-                        <option value="year">2016</option>
-                        <option value="year">2015</option>
-                        <option value="year">2014</option>
-                        <option value="year">2013</option>
-                        <option value="year">2012</option>
-                        <option value="year">2011</option>
-                        <option value="year">2010</option>
-                        <option value="year">2009</option>
-                        <option value="year">2008</option>
-                        <option value="year">2007</option>
-                        <option value="year">2006</option>
-                        <option value="year">2005</option>
-                        <option value="year">2004</option>
-                        <option value="year">2003</option>
-                        <option value="year">2002</option>
-                        <option value="year">2001</option>
-                        <option value="year">2000</option>
-                        <option value="year">1999</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
                     </select>
                 </div>
-                <div class="col" id="hideschool" style="display: none;">
+                <div class="col">
                     <label for="school">School</label>
                     <input type="text" class="form-control" id="school" name="school" value="{{ $pdata[0]->school}}">
                 </div>
@@ -359,10 +362,15 @@
             <!-- <div> -->
         </form>
         <p>Resume</p>
-        <form action = '/uploadfile' method="get" files='true'>
-            <h6>Select file to upload</h6>
-        <input type="file" id="txtfile" name="txtfile">
-        <button type="submit" name="submit" style="padding:3px;" class="btn btn-outline-dark">Upload File</button>
+        @if(session('success'))
+            <div>{{ session('success') }}</div>
+        @endif
+
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" required>
+            <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
+            <button type="submit">Upload</button>
         </form>
     </div>
 <script>
@@ -388,18 +396,6 @@
     var year = age_dt.getUTCFullYear();  
     var age = Math.abs(year - 1970);  
     document.getElementById("age").value=age;
-    }
-    function myFunction() 
-    {
-    var status = document.getElementById("yGraduated").value;
-    var x = document.getElementById("hideschool");
-    // alert(status);
-    if (status === "year") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-        document.getElementById("spouse").value="";
-    }
     }
     function workFunction() 
     {

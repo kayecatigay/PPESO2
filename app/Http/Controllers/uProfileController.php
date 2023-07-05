@@ -39,15 +39,13 @@ class uProfileController extends Controller
         $language=substr($language,1); 
 
         $userid=$request->input('userid');
-        $mun=$request->input('mun');
-        $barangay=DB::select('select * from barangay where mun=' .$mun);
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
         {
             $uPData = DB::update('update uprofile set suffix="' .$request->input('suffix'). '",
             gender="' .$request->input('gender'). '",region= "' .$request->input('region'). '",
             province="' .$request->input('province'). '",mun= "' .$request->input('mun'). '",
-            barangay="' .$barangay. '",  sitio="' .$request->input('sitio'). '",
+            barangay="' .$request->input('barangay'). '",  sitio="' .$request->input('sitio'). '",
             contactnum="' .$request->input('contactnum'). '",telenum= "' .$request->input('telnum'). '",
             emailadd="' .$request->input('emailadd'). '",pobirth= "' .$request->input('birthplace'). '",
             passnum="' .$request->input('passnum'). '",birthday= "' .$request->input('birthday'). '",
@@ -55,7 +53,7 @@ class uProfileController extends Controller
             weight="' .$request->input('weight'). '",bloodtype= "' .$request->input('bloodtype'). '",
             yGraduated="' .$request->input('yGraduated'). '",school= "' .$request->input('school'). '",
             work="' .$request->input('work'). '",cname= "' .$request->input('cname'). '",
-            guardian="' .$request->input('guardian'). '",relation= "' .$request->input('ralationship'). '",
+            guardian="' .$request->input('guardian'). '",relation= "' .$request->input('relationship'). '",
             cstatus="' .$request->input('cstatus'). '",spouse= "' .$request->input('spouse'). '",
             language="' .$language. '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
@@ -68,7 +66,7 @@ class uProfileController extends Controller
             school, work, cname, guardian, relation, cstatus, spouse, language, elem, hs, college, degree) 
             values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
-            .$barangay .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
+            .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'
             .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
             .$request->input('age') .'","' .$request->input('height') .'","' .$request->input('weight') .'","'

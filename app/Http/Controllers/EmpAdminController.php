@@ -14,8 +14,11 @@ class EmpAdminController extends Controller
     {
         return view('EmpDashboard');
     }
-    public function showEmpData()
+    public function showEmpData(Request $request)
     {
+       
+        $fileData=DB::select('select * from files ');
+        
         $empData= DB::select('
         SELECT *
         FROM employment as s
@@ -25,7 +28,7 @@ class EmpAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('EmpData',['data'=>$empData]);
+        return view('EmpData',['data'=>$empData, 'file'=>$fileData]);
         // return view('EmpData');
     }
     public function editEdata(request $request) {
