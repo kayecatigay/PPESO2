@@ -18,7 +18,7 @@ class FileUploadController extends Controller
 
         // Validate the uploaded file
         $request->validate([
-            'file' => 'required|mimes:jpg,jpeg,png,pdf,docx',
+            'file' => 'required|mimes:jpg,jpeg,png,pdf,docx,',
         ]);
 
         // Get the uploaded file
@@ -50,13 +50,13 @@ class FileUploadController extends Controller
         // Define the file path
         $filePath = public_path('uploads/' . $file->filename);
 
-        $userid = Auth::user->id();
+        // $userid = Auth::user->id();
         // Check if the file exists
         if (file_exists($filePath)) {
             // Set the appropriate headers for file download
             $headers = [
                 'Content-Type' => 'application/octet-stream',
-                'Content-Disposition' => 'inline; filename="' . $file->original_name . '",userid="'. $userid .'"',
+                'Content-Disposition' => 'inline; filename="' . $file->original_name  .'"',
                 
             ];
             
