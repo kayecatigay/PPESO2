@@ -78,6 +78,8 @@ Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index'
 
 Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
+Route::get('/notif', [App\Http\Controllers\NotificationController::class, 'notification']);
+Route::get('/sendnotif', [App\Http\Controllers\NotificationController::class, 'sendNotification']);
 // Route::get('/testside', [App\Http\Controllers\ServicesController::class, 'testsidebar']);
 
 Route::middleware("admin")->group(function () {
@@ -184,5 +186,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
+
+   
 });
 

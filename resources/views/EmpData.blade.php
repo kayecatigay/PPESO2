@@ -64,7 +64,7 @@
                                  <td>{{ $emp->college }}</td>
                                  <td>{{ $emp->degree }}</td>
                                  <td>{{ $emp->cname }}</td>
-                                 <td a href="{{ route('files.show', $file->userid) }}">Download File</a></td>
+                                
                                  
                                  
                               </tr>
