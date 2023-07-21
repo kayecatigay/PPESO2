@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
-                    <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
+                    <div class="icon"><i class="bi bi-pencil-square" aria-hidden="true"></i></div>
                     <h4><a href="Eregistration">Registration</a></h4>
                     <p>Bio-Data </p>   
                 </div>
@@ -38,7 +38,7 @@
 
             <div class="col" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
-                    <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
+                    <div class="icon"><i class="bi bi-table" ></i></div>
                     <h4><a href="GeneralA/emp">Announcements</a></h4>
                     <p>Schedules, Lists, etc.</p>
                 </div>

@@ -31,9 +31,9 @@
             <div class="col" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
                 
-                        <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <div class="icon"><i class="bi bi-pencil-square" aria-hidden="true"></i></div>
                         <h4><a href="Sregistration">Registration</a></h4>
-                        <p>New Scholar</p>
+                        <p>Scholar</p>
                     
                 </div>
             </div>
