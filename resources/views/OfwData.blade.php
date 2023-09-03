@@ -34,19 +34,19 @@
                               <th scope="col">Company</th>
                               <th scope="col">Country</th>
                               <th scope="col">Period of Employment</th>
-                              <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
                            @foreach ($ofwdata as $data)
                               @php $name = $data->lastname.",".$data->firstname. " " .$data->middlename; @endphp
+                              @php $address = $data->region."," .$data->province."," .$data->mun."," .$data->barangay."," .$data->sitio; @endphp
                               <tr>
                                  <td>{{ $name }}</td>
                                  <td>{{ $data->birthday }}</td>
                                  <td>{{ $data->age }}</td>
                                  <td>{{ $data->gender }}</td>
                                  <td>{{ $data->contactnum }}</td>
-                                 <td>{{ $data->address }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $data->passnum }}</td>
                                  <td>{{ $data->emailadd }}</td>
                                  <td>{{ $data->JobDesc }}</td>
@@ -54,45 +54,6 @@
                                  <td>{{ $data->Company }}</td>
                                  <td>{{ $data->Country }}</td>
                                  <td>{{ $data->PeriodOfEmp }}</td>
-                                 <td>
-                                    <span class="input-group">
-
-                                       <form action ="/editOFW" method="get">
-                                          <input type="hidden" id="ofwID" name="ofwID" value="{{ $data->id }}">
-                                          <input type="submit" class="btn btn-info" value="Edit" name="submit">
-                                       </form>
-                                       &emsp;
-                                       <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $data->id }}">
-                                          Delete
-                                       </button>
-
-                                          <!-- DELETE Modal -->
-                                          <div class="modal fade" id="delmod{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog modal-lg">
-                                             <div class="modal-content">
-                                             <div class="modal-header">
-                                                   <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $data->id }} </h5>
-                                                   <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                                             </div>
-                                             <div class="modal-body">
-                                                   Do you really want to delete this record: {{ $name}}?
-                                             </div>
-                                             <div class="modal-footer">
-                                                   <form action ="deleteofwD" method="get" >
-                                                      @csrf
-                                                      <input type="hidden" id="delId" name="delId" value="{{ $data->id }}">
-                                                      <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $data->id }}').modal('hide');" >Yes</button>
-                                                   </form>
-                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                             </div>
-                                             </div>
-                                          </div>
-                                          <!-- DELETE Modal -->
-
-                                       </div>
-                                    </span>
-                                    </td>
-                                 </td> 
                               </tr>
                            @endforeach
                         </tbody>

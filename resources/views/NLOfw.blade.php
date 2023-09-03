@@ -47,13 +47,14 @@
                         <tbody>
                            @foreach ($ofwdata as $data)
                               @php $name = $data->lastname.",".$data->firstname. " " .$data->middlename; @endphp
+                              @php $address = $data->region."," .$data->province."," .$data->mun."," .$data->barangay."," .$data->sitio; @endphp
                               <tr>
                                  <td>{{ $name }}</td>
                                  <td>{{ $data->birthday }}</td>
                                  <td>{{ $data->age }}</td>
                                  <td>{{ $data->gender }}</td>
                                  <td>{{ $data->contactnum }}</td>
-                                 <td>{{ $data->address }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $data->passnum }}</td>
                                  <td>{{ $data->emailadd }}</td>
                                  <td>{{ $data->JobDesc }}</td>
