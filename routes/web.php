@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,8 @@ Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 Route::get('/notif', [App\Http\Controllers\NotificationController::class, 'notification']);
 Route::get('/sendnotif', [App\Http\Controllers\NotificationController::class, 'sendNotification']);
 // Route::get('/testside', [App\Http\Controllers\ServicesController::class, 'testsidebar']);
+
+Route::get('/send-email',[MailController::class,'sendEmail']);
 
 Route::middleware("admin")->group(function () {
 

@@ -4,7 +4,7 @@
 @section('homecontent')
 <!-- ======= Hero Section ======= -->
    
-    <section id="hero" class="d-flex align-items-center justify-content-center">
+<section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="col-xl-6 col-lg-8">
@@ -16,14 +16,17 @@
           <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
             <h2><b>ANNOUNCEMENTS</b></h2>
             <div class="col-xl-2 col-md-4">
-              <div class="icon-box">
-                <i class="ri-calendar-todo-line"></i>
-                <h3><a href="Announcements">General</a></h3>
-              </div>
+              <a href="Announcements">
+                <div class="icon-box">
+                  <i class="ri-calendar-todo-line"></i>
+                  <h3 style="color:white;">General</h3>
+                </div>
+              </a>
             </div>
           </div>
       </div>
     </section><!-- End Hero -->
+    
   <main id="main">
 
     <!-- ======= About Section ======= -->
@@ -56,36 +59,47 @@
     </section><!-- End About Section -->
   
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="services" class="services" frameborder="0">
       <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>Services</h2>
             <p>Check our Services</p>
           </div>
 
-            <div class="row">
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                  <h4><a href="scholarhomepage">Scholarship</a></h4>
-                  <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <div class="d-flex justify-content-around" >
+              
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100" >
+                  <a href="scholarhomepage">
+                    <div class="icon-box" style="color:black;">
+                      <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
+                      <h4>Scholarship</h4>
+                      <p>PESO Educational Assistance Program.</p>
+                      <p>Apply for more information.</p>
+                    </div>
+                  </a>
                 </div>
+              
+
+              <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <a href="employmenthomepage">
+                  <div class="icon-box" style="color:black;">
+                    <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
+                    <h4>Employment</h4>
+                    <p>Jobs are hiring!</p>
+                    <p>Apply for more information.</p>
+                  </div>
+                </a>
               </div>
 
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
-                  <h4><a href="employmenthomepage">Employment</a></h4>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
-                  <h4><a href="ofwhomepage">OFW</a></h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                </div>
+              <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <a href="ofwhomepage">
+                  <div class="icon-box" style="color:black;">
+                    <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
+                    <h4>OFW</h4>
+                    <p>OFW Assistance Program</p>
+                    <p>Apply for more information.</p>
+                  </div>
+                </a>
               </div>
             </div>
  
@@ -113,7 +127,13 @@
         </div>
 
         <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+          <div class="mapouter">
+            <div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Oriental Mindoro Provincial Capitol, C54G+CVF, Oriental Mindoro Provincial Capitol, Calapan, 5200, Oriental Mindoro, Calapan, Oriental Mindoro&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              <a href="https://2yu.co"></a><br><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style>
+              <a href="https://embedgooglemap.2yu.co/"></a>
+              <style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>
+            </div>
+          </div>
         </div>
 
         <div class="row mt-5">
@@ -123,19 +143,23 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Provincial Capitol Compound <br>
+                Nucable Avenue Extension <br>
+                Brgy. Camilmil, Calapan City <br>
+                Oriental Mindoro
+                Philippines, 5200 </p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>ppeso@ormindoro.gov.ph</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>288-7253</p>
               </div>
 
             </div>
