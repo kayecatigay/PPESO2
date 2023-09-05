@@ -251,7 +251,7 @@ class ScholarAdminController extends Controller
         $psrv=$request->input('psrv');
         $annData = DB::select('select * from genannouncements where service="' .$psrv .'"');
         // dd($annData);
-        return view ('Sannouncements',['Sann'=>$annData]);
+        return view ('NLSann',['Sann'=>$annData]);
     }
     public function statP()
     {

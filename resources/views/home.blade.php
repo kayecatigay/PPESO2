@@ -16,10 +16,12 @@
           <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
             <h2><b>ANNOUNCEMENTS</b></h2>
             <div class="col-xl-2 col-md-4">
-              <div class="icon-box">
-                <i class="ri-calendar-todo-line"></i>
-                <h3><a href="Announcements">General</a></h3>
-              </div>
+              <a href="Announcements">
+                <div class="icon-box">
+                  <i class="ri-calendar-todo-line"></i>
+                  <h3>General</h3>
+                </div>
+              </a>
             </div>
           </div>
       </div>

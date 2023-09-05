@@ -5,7 +5,7 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size:10px;
       border-collapse: collapse;
-      width: 100%;
+      width: 70%;
       margin-left: auto;
       margin-right: auto;
    }

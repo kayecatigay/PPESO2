@@ -5,7 +5,7 @@
         <div class="section-title"><br>
           <h2>Profile</h2>
           <p>Personal Data</p>
-        
+            
         <form action="insertProfile" method="get">
         
             <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
@@ -16,6 +16,9 @@
                     <input type="text" class="form-control" readonly id="name" name="name" value="{{ Auth::user()->name }}">
                 
                 </div>
+                <?php
+                dd("Sdsd");
+                ?>
                 <div class="col-1 form-group">
                     <label for="suffix">Suffix</label>
                     <select class="form-control" name="suffix" id="suffix" value="{{ $pdata[0]->suffix}}">
@@ -23,7 +26,9 @@
                         <option value="sr">Jr.</option>
                         <option value="jr">Sr.</option>
                     </select>
+            
                 </div>
+
                 <div class="col form-group">
                     <label for="gender">Gender</label>
                     <select class="form-control" name="gender" id="gender" value="{{ $pdata[0]->gender}}">
@@ -31,11 +36,13 @@
                         <option value="male">Male</option>
                     </select>
                 </div>
+                
                 <div class="col form-group">
                     <label for="contactnum">Contact Number</label>
                     <input type="number" required class="form-control" id="contactnum" name="contactnum"  
                     placeholder="ex. 09123456789" onkeypress="checkContact()" value="{{ $pdata[0]->contactnum}}">
                 </div>
+               
             </div>
             <div class="row">
                 <div class="col-2 form-group">
@@ -45,6 +52,7 @@
                         <option value="mimaropa">IV-B MIMAROPA</option>
                     </select>
                 </div>
+
                 <div class="col-2 form-group">
                     <label for="province">Province</label>
                     <select class="form-control" name="province" id="province" 
@@ -359,6 +367,7 @@
                 <div class="col"><button type="submit" class="btn btn-outline-dark">Submit</button></div>
                 <div class="col">&nbsp;</div>
             </div>
+
             <!-- <div> -->
         </form>
         <p>Resume</p>
