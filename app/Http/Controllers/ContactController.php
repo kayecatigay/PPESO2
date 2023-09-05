@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contactus');
+        return view('emails.contactus');
     }
 
     public function sendmess(Request $request)
