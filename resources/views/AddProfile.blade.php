@@ -384,34 +384,29 @@
             <!-- <div> -->
         </form>
         <p>Resume</p>
-        @if(session('success'))
-            <div>{{ session('success') }}</div>
-        @endif
-
+  
         <form method="POST" action="/uploadfile" enctype="multipart/form-data">
             @csrf
             <input type="file" name="file" required>
-            <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
+            <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> 
+            &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
             <button type="submit">Upload</button>
-        </form>
-    </div>
-        <!-- <p>Work Experience</p> 
-            <a class="btn btn-success" href="addWorkE">ADD </a> -->
+        </form> <br>
             <div class="card-body">
                 <div class="container table-container">
                 
                     <table class="table" style="text-align:center;">
                         <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Original Name</th>
-                            <th scope="col">Created At</th>
-                            <th scope="col">Updated At</th>            
-                            <th scope="col">Action</th>            
-                        </tr>
+                            <tr>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Original Name</th>
+                                <th scope="col">Created At</th>
+                                <th scope="col">Updated At</th>            
+                                <th scope="col">Action</th>            
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach ($files as $file)
+                            @foreach ($files as $file)
                             <tr>
                                 <td>{{ $file->filename }}</td>
                                 <td>{{ $file->original_name}}</td>
@@ -457,9 +452,12 @@
                                     </span>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
 <script>
     function loadDoc() {
         txtmun=document.getElementById("mun").value;

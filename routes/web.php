@@ -142,7 +142,9 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteEAnn', [App\Http\Controllers\EmpAdminController::class, 'deleteEann']);
     Route::get('/EmployerW', [App\Http\Controllers\EmpAdminController::class, 'employers']);
     Route::get('/deleteEmployer', [App\Http\Controllers\EmpAdminController::class, 'delEmp']);
-    
+    // Route::get('/view-file/{filename}',[App\Http\Controllers\FileUploadController::class, 'viewFile']);
+    // Route::get('/view-file/{filename}', 'YourController@viewFile')->name('view.file');
+
     
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
     Route::get('/showAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);
@@ -182,6 +184,10 @@ Route::middleware("admin")->group(function () {
     Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
     Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
     Route::get('/EstatPrint', [App\Http\Controllers\EmpAdminController::class, 'estatP']);
+    Route::get('/resPrint', [App\Http\Controllers\EmpAdminController::class, 'resShow']);
+    
+
+    
     
     Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);
     Route::get('/OstatusPrint', [App\Http\Controllers\OfwAdminController::class, 'ostatP']);

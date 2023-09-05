@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 
 class EmpAdminController extends Controller
@@ -16,7 +18,7 @@ class EmpAdminController extends Controller
     }
     public function showEmpData(Request $request)
     {
-       
+        $userid=Auth::user()->id;
         // $fileData=DB::select('select * from files ');
         
         $empData= DB::select('
@@ -28,7 +30,8 @@ class EmpAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('EmpData',['data'=>$empData]);
+        $fileData=DB::select('select * from files where userid=' .$userid);
+        return view('EmpData',['data'=>$empData,'files'=>$fileData]);
         // return view('EmpData');
     }
     public function editEdata(request $request) {
@@ -287,6 +290,13 @@ class EmpAdminController extends Controller
     {
         $estatus=DB::select('select * from employment');
         return view('NLEstatus',['status'=>$estatus]);
+    }
+    public function resShow(Request $request)
+    {
+        $id=$request->input('fileId');
+        $show = DB::select('select * from files where id=' .$id);
+        // dd($show);
+        return view('NLEResume',['show'=>$show]);
     }
     public function employers()
     {

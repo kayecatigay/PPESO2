@@ -28,7 +28,7 @@ class FileUploadController extends Controller
 
         // Generate a unique name for the file
         $fileName = time() . '_' . $file->getClientOriginalName();
-
+        
         // Move the uploaded file to the desired location
         $file->move(public_path('uploads'), $fileName);
 
@@ -38,9 +38,21 @@ class FileUploadController extends Controller
         $savedFile->filename = $fileName;
         $savedFile->original_name = $file->getClientOriginalName();
         $savedFile->save();
-        
+        // dd($savedFile);
         // Return a success response
-        return view('EmpData', ['file' => $savedFile]);
+
+        $showdata = DB::select('select * from uprofile where userid=' .$userid);
+
+        // dd($showdata);
+        if(!$showdata)
+        {
+            $pData = DB::insert('insert into uprofile(userid) values(' .$userid .')');
+            $showdata = DB::select('select * from uprofile where userid=' .$userid);
+        }
+        // dd($showdata);
+        $showwork = DB::select('select * from uwork where userid=' .$userid);
+        $fileData=DB::select('select * from files where userid=' .$userid);
+        return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork,'files'=>$fileData]);
     }
     public function showFile($id)
     {
@@ -67,4 +79,5 @@ class FileUploadController extends Controller
         // If the file doesn't exist, you can handle the error as needed
         abort(404, 'File not found');
     }
+    
 }
