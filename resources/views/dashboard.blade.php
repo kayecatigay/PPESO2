@@ -87,14 +87,12 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Resources</h6>
                                 
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
+                                
                                 <div class="mt-4 text-center small">
                                     <span class="mr-2">
                                         <i class="fas fa-circle text-primary"></i> Direct
@@ -146,7 +144,7 @@
                     <div class="col-lg-6 mb-4">
 
                         <!-- Illustrations -->
-                        <div class="card shadow mb-4">
+                        <!-- <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                             </div>
@@ -162,7 +160,7 @@
                                 <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
                                     unDraw &rarr;</a>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Approach -->
                        
