@@ -83,9 +83,16 @@ class ServicesController extends Controller
         }
  
         $employee = DB::select('select * from employment where userid=' .Auth()->user()->id);
-        // $registered=($employee) ? true : false;
+         // $registered=($employee) ? true : false;
         // dd($employee[0]);
-        return view('eDetails',['reg'=>$employee]);
+        $userId = Auth::user()->id;
+        $allowed = DB::select('SELECT * FROM uprofile WHERE userid = ?', [$userId]);
+
+        if (count($allowed) > 0) {
+            return view('eDetails',['reg'=>$employee]);
+        } else {
+            return redirect('/AddProfile')->with('message', 'This information is required');
+        }
     }
     public function insertEMPdata(Request $request)
     {
@@ -111,7 +118,15 @@ class ServicesController extends Controller
  
         $ofw = DB::select('select * from ofw where userid=' .Auth()->user()->id);
         // $registered=($ofw) ? true : false;
-        return view('ofwdetails',['ofw'=>$ofw]);
+        $userId = Auth::user()->id;
+        $allowed = DB::select('SELECT * FROM uprofile WHERE userid = ?', [$userId]);
+
+        if (count($allowed) > 0) {
+            return view('ofwdetails',['ofw'=>$ofw]);
+        } else {
+            return redirect('/AddProfile')->with('message', 'This information is required');
+        }
+        
     }
     public function ofwinsert(Request $request)
     {
