@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
         @if(session('message'))
-          <div class="alert alert-danger">
+          <div class="alert alert-danger" style="width:400px;">
               {{ session('message') }}
           </div>
         @endif
