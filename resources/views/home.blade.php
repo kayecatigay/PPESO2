@@ -19,7 +19,7 @@
               <a href="Announcements">
                 <div class="icon-box">
                   <i class="ri-calendar-todo-line"></i>
-                  <h3>General</h3>
+                  <h3 style="color:white;">General</h3>
                 </div>
               </a>
             </div>

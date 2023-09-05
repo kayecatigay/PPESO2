@@ -31,6 +31,8 @@ Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'pho
 Route::get('/AddProfile', [App\Http\Controllers\uProfileController::class, 'addP']);
 Route::get('/insertProfile', [App\Http\Controllers\uProfileController::class, 'insertP']);
 
+Route::get('/deleteR', [App\Http\Controllers\uProfileController::class, 'delResume']);
+
 Route::get('/getbarangay/{id}', [App\Http\Controllers\uProfileController::class, 'selectB']);
 
 Route::get('/addWorkE', [App\Http\Controllers\uProfileController::class, 'addW']);
@@ -71,7 +73,8 @@ Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'g
 // Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
 
 Route::get('/upload', [App\Http\Controllers\FileUploadController::class, 'showUploadForm']);
-Route::post('/upload', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
+Route::post('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
+
 
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);

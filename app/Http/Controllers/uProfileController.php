@@ -25,10 +25,12 @@ class uProfileController extends Controller
         if(!$showdata)
         {
             $pData = DB::insert('insert into uprofile(userid) values(' .$userid .')');
-            $showdata1 = DB::select('select * from uprofile where userid=' .$userid);
+            $showdata = DB::select('select * from uprofile where userid=' .$userid);
         }
+        // dd($showdata);
         $showwork = DB::select('select * from uwork where userid=' .$userid);
-        return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork]);
+        $fileData=DB::select('select * from files where userid=' .$userid);
+        return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork,'files'=>$fileData]);
     }
     public function insertP(Request $request)
     {
@@ -81,6 +83,11 @@ class uProfileController extends Controller
         }
         
         return redirect('userprofile');
+    }
+    public function delResume(Request $request)
+    {
+        DB::delete("DELETE FROM files WHERE id = " .$request->input('delRes'));
+        return redirect('AddProfile');
     }
     public function editP(Request $request)
     {

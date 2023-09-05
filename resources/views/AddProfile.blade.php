@@ -16,9 +16,8 @@
                     <input type="text" class="form-control" readonly id="name" name="name" value="{{ Auth::user()->name }}">
                 
                 </div>
-                <?php
-                dd("Sdsd");
-                ?>
+               
+                
                 <div class="col-1 form-group">
                     <label for="suffix">Suffix</label>
                     <select class="form-control" name="suffix" id="suffix" value="{{ $pdata[0]->suffix}}">
@@ -28,7 +27,7 @@
                     </select>
             
                 </div>
-
+              
                 <div class="col form-group">
                     <label for="gender">Gender</label>
                     <select class="form-control" name="gender" id="gender" value="{{ $pdata[0]->gender}}">
@@ -60,6 +59,7 @@
                         <option value="ormin">Oriental Mindoro</option>
                     </select>
                 </div>
+                
                 <div class="col-2 form-group">
                     <label for="mun">Municipality</label>
                     <select class="form-control" name="mun" id="mun"  onchange="loadDoc()"
@@ -286,11 +286,12 @@
                     placeholder="Enter degree, achievements, etc." value="{{ $pdata[0]->degree}}">
                 </div>
             </div> <br>
-
+            
             <p>Work Experience</p> 
                 <a class="btn btn-success" href="addWorkE">ADD </a>
                 <div class="card-body">
                     <div class="container table-container">
+                    
                         <table class="table" style="text-align:center;">
                             <thead>
                             <tr>
@@ -313,24 +314,28 @@
                                     <td>{{ $wrk->crcname }}</td>
                                     <td>{{ $wrk->crposi }}</td>
                                     <td>
+                                        
                                         <span class="input-group">
                                             
                                         
                                             <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $wrk->id }}">
                                             Delete
                                             </button>
-
+                                            
                                             <!-- DELETE Modal -->
                                             <div class="modal fade" id="delmod1{{ $wrk->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">   
+                                                    
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $wrk->id }} </h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                         </div>
+                                                        
                                                         <div class="modal-body">
                                                             Do you really want to delete this record: {{ $wrk->cname}}?
                                                         </div>
+                                                        
                                                         <div class="modal-footer">
                                                             <form action ="/deleteWorke" method="get" >
                                                                 @csrf
@@ -339,15 +344,19 @@
                                                             </form>
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>   
                                             <!-- DELETE Modal -->
+                                            
                                         </span>
                                     </td>
+                                    
                                 </tr>
                             @endforeach
                             </tbody>
+                            
                         </table> <br><br>
                         
                     </div>
@@ -375,13 +384,78 @@
             <div>{{ session('success') }}</div>
         @endif
 
-        <form method="POST" action="/upload" enctype="multipart/form-data">
+        <form method="POST" action="/uploadfile" enctype="multipart/form-data">
             @csrf
             <input type="file" name="file" required>
             <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}">
             <button type="submit">Upload</button>
         </form>
     </div>
+        <!-- <p>Work Experience</p> 
+            <a class="btn btn-success" href="addWorkE">ADD </a> -->
+            <div class="card-body">
+                <div class="container table-container">
+                
+                    <table class="table" style="text-align:center;">
+                        <thead>
+                        <tr>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Original Name</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Updated At</th>            
+                            <th scope="col">Action</th>            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($files as $file)
+                            <tr>
+                                <td>{{ $file->filename }}</td>
+                                <td>{{ $file->original_name}}</td>
+                                <td>{{ $file->created_at }}</td>
+                                <td>{{ $file->updated_at}}</td>
+                                <td>
+                                        
+                                    <span class="input-group">
+                                        
+                                    
+                                        <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $file->id }}">
+                                        Delete
+                                        </button>
+                                        
+                                        <!-- DELETE Modal -->
+                                        <div class="modal fade" id="delmod1{{ $file->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">   
+                                                
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> DELETE RECORD ID: {{ $file->id }} </h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    </div>
+                                                    
+                                                    <div class="modal-body">
+                                                        Do you really want to delete this record: {{ $file->filename}}?
+                                                    </div>
+                                                    
+                                                    <div class="modal-footer">
+                                                        <form action ="/deleteR" method="get" >
+                                                            @csrf
+                                                            <input type="hidden" id="delRes" name="delRes" value="{{ $file->id }}">
+                                                            <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod1{{ $file->id }}').modal('hide');" >Yes</button>
+                                                        </form>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <!-- DELETE Modal -->
+                                        
+                                    </span>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 <script>
     function loadDoc() {
         txtmun=document.getElementById("mun").value;
