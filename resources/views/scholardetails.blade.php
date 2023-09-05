@@ -10,7 +10,7 @@
           <p>My Scholarship Application</p>
         </div>
         <!-- <form action="scholardata"> -->
-          
+        
             <a href="insertSchT" class="btn btn-primary">Apply Now!</a>
 
             <div class="card-body">

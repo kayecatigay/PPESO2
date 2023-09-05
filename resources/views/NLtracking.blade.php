@@ -5,7 +5,7 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size:10px;
       border-collapse: collapse;
-      width: 100%;
+      width: 70%;
       margin-left: auto;
       margin-right: auto;
    }
@@ -40,11 +40,12 @@
                         
                         <tbody style="text-align:center">
                            @foreach ($track as $tr)
+                           @php $address = $tr->region."," .$tr->province."," .$tr->mun."," .$tr->barangay."," .$tr->sitio; @endphp
                               <tr>
                                  <td>{{ $tr->name }}</td>
                                  <td>{{ $tr->age }}</td>
                                  <td>{{ $tr->gender }}</td>
-                                 <td>{{ $tr->address }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $tr->yGraduated }}</td>
                                  <td>{{ $tr->school }}</td>
                                  <td>{{ $tr->work }}</td>

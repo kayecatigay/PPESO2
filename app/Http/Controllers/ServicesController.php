@@ -32,7 +32,17 @@ class ServicesController extends Controller
  
         $scholar = DB::select('select * from scholarship where userid=' .Auth()->user()->id);
         // $registered=($scholar) ? true : false;
-        return view('scholardetails',['reg'=>$scholar]);
+        $userId = Auth::user()->id;
+        $allowed = DB::select('SELECT * FROM uprofile WHERE userid = ?', [$userId]);
+
+        if (count($allowed) > 0) {
+            return view('scholardetails',['reg'=>$scholar]);
+        } else {
+            return redirect('/AddProfile')->with('message', 'This information is required');
+        }
+        // $allowed = DB::select('select * from uprofile where userid=' .Auth()->user()->id);
+        // dd($allowed);
+        
     }
     public function insertdata(Request $request)
     {

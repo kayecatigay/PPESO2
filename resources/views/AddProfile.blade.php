@@ -1,6 +1,10 @@
 @extends('layouts.default')
 @section('content')
-    
+        @if(session('message'))
+          <div class="alert alert-danger">
+              {{ session('message') }}
+          </div>
+        @endif
     <div class="container" data-aos="fade-up">
         <div class="section-title"><br>
           <h2>Profile</h2>
