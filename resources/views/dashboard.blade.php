@@ -104,7 +104,7 @@
                                         <i class="fas fa-circle text-info"></i> Referral
                                     </span>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
