@@ -36,24 +36,57 @@ class AdminController extends Controller
         {
             $smenus=array(
                 ['PEAP','', 
-                    array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
+                    array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'])
                 ]
-                            
             );
         }
-        // elseif(Auth()->user()->roles==2)
-        // {
-        //     $smenus=array(
-        //         ['PEAP','', 
-        //             array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
-        //     ],
-        //     ['Employment','', 
-        //     array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
-        // ]
+        elseif(Auth()->user()->roles==2)
+        {
+            $smenus=array(
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ]
+            );
+        }
+        elseif(Auth()->user()->roles==3)
+        {
+            $smenus=array(
+                ['OFW','', 
+                    array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
+                    ['Status','/Ostatus'])
+                ]
+            );
+        }
+        elseif(Auth()->user()->roles==4)
+        {
+            $smenus=array(
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ]
+            );
+        }
+        elseif(Auth()->user()->roles==5)
+        {
+            $smenus=array(
+                ['PEAP','', 
+                    array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'])
+                ],
 
-                            
-        //     );
-        // }
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ],
+                
+                ['OFW','', 
+                    array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
+                    ['Status','/Ostatus'])
+                ]
+            );
+        }
         else
         {
             $smenus=array();
