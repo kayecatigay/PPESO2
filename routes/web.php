@@ -3,6 +3,7 @@
 use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -77,17 +78,16 @@ Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'g
 Route::get('/upload', [App\Http\Controllers\FileUploadController::class, 'showUploadForm']);
 Route::post('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
 
-
-
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
 Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
-Route::get('/notif', [App\Http\Controllers\NotificationController::class, 'notification']);
-Route::get('/sendnotif', [App\Http\Controllers\NotificationController::class, 'sendNotification']);
+// Route::get('/notif', [App\Http\Controllers\NotificationController::class, 'notification']);
+// Route::get('/sendnotif', [App\Http\Controllers\NotificationController::class, 'sendNotification']);
 // Route::get('/testside', [App\Http\Controllers\ServicesController::class, 'testsidebar']);
 
 Route::get('/send-email',[MailController::class,'sendEmail']);
+
 
 Route::middleware("admin")->group(function () {
 
@@ -171,8 +171,10 @@ Route::middleware("admin")->group(function () {
     Route::get('/SendSms', [App\Http\Controllers\ContactController::class, 'sendsms']);
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendmess']);
     
+    Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
     Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
     Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
+    Route::get('/sendpNotifMail',[NotificationController::class,'sendpNotif']);
     
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);

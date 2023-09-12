@@ -2,48 +2,33 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Mail\NotifMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class NotificationController extends Controller
 {
-    public function notification()
+    public function sendpNotif(Request $request)
     {
-        $data = [
-            'email' => 'mryktlynln@gmail.com',
-            'subject' => 'Test Subject',
-            'message' => 'This is a test notification email.'
-        ];
-        return view('email.notification', $data);
-    }
-    public function sendNotification(Request $request)
-    {
-        $emailNotification = new EmailNotification();
-        $emailNotification->sendNotification('recipient@example.com', 'Test Subject', 'This is a test notification email.');
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $messageBody = $request->input('message');
 
-        // Additional code or response
-    }
-}
-class EmailNotification
-{
-    public function sendNotification($email, $subject, $message)
-    {
-        $data = [
-            'email' => $email,
-            'subject' => $subject,
-            'message' => $message
+        // dd($email);
+        $detail = [
+            'title' => $subject,
+            'name' => $name,
+            'body' => $messageBody
         ];
 
-        Mail::send('email.notification', $data, function($message) use ($data) {
-            $message->to($data['email'])
-                    ->subject($data['subject']);
-        });
-        
-        if (Mail::failures()) {
-            return false;
-        }
+        Mail::to($email)->send(new NotifMail($detail));
+        return redirect('Pstatus');
 
-        return true;
+        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+        ->setUsername('mryktlynln@gmail.com')
+        ->setPassword('jbtsuceqxtpfxiuo');
     }
 }

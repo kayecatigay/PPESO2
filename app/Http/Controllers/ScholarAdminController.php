@@ -202,6 +202,19 @@ class ScholarAdminController extends Controller
         $pstatus=DB::select('select * from scholarship');
         return view('pstatus',['status'=>$pstatus]);
     }
+    public function pnotif(Request $request)
+    {
+        $id = $request->input('PNid');
+        // dd($id);
+        $PeapData = DB::select('
+        SELECT *
+        FROM users
+        INNER JOIN scholarship ON users.id = scholarship.userid
+        WHERE scholarship.id =' .$id );
+        // dd($PeapData);
+
+        return view('pEmail',['pData'=>$PeapData]);
+    }
     public function approve(Request $request)
     {
         $id = $request->input('delId');
