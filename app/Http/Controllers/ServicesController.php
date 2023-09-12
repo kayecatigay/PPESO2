@@ -94,6 +94,42 @@ class ServicesController extends Controller
             return redirect('/AddProfile')->with('message', 'This information is required');
         }
     }
+    public function addE()
+    {
+        $empdata=DB::select('select * from eworks');
+        $company=DB::select('select company from eworks');
+        return view ('addEmpT',['emp'=>$empdata,'company'=>$company]);
+    }
+    
+    public function insertEmpF(Request $request)
+    {
+        $empdata=DB::select('select * from eworks');
+        $company=DB::select('select company from eworks');
+
+        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
+        $ndate=date("Y-m-d");
+        $status="pending";
+        $desire=$request->input('posidesired');
+        $comname=$request->input('cname');
+
+        $available = DB::select('select * from employment where posidesired = ? and cname = ?', [$desire, $comname]);
+        // dd($available);
+        if (!empty($available)) 
+        {
+            echo '<script>alert("Position is already taken.");</script>';
+            return view('addEmpT',['emp'=>$empdata,'company'=>$company]);
+        }
+        else
+        {
+            $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
+            values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate .'","' .$status .'","' .$desire 
+            .'","' .$comname .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
+            
+            return redirect('Eregistration');
+        }
+  
+        
+    }
     public function insertEMPdata(Request $request)
     {
 

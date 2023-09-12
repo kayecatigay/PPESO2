@@ -34,6 +34,7 @@ class EmpAdminController extends Controller
         return view('EmpData',['data'=>$empData,'files'=>$fileData]);
         // return view('EmpData');
     }
+    
     public function editEdata(request $request) {
         $empID=$request->input('empID');
         $showdata = DB::select('select * from employment where id=' .$empID);

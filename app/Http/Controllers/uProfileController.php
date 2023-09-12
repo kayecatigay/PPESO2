@@ -114,25 +114,7 @@ class uProfileController extends Controller
         DB::delete("DELETE FROM uwork WHERE id = " .$request->input('delIdWRK'));
         return redirect('userprofile');
     }
-    public function addE()
-    {
-        $empdata=DB::select('select * from eworks');
-        $company=DB::select('select company from eworks');
-        return view ('addEmpT',['emp'=>$empdata,'company'=>$company]);
-    }
-    public function insertEmpF(Request $request)
-    {
-        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
-        $ndate=date("Y-m-d");
-        $status="pending";
-
-        $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
-        values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate 
-        .'","' .$status .'","' .$request->input('posidesired') .'","' .$request->input('cname') 
-        .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
-
-        return redirect('Eregistration');
-    }
+    
     public function cancelE(Request $request)
     { 
         // dd("SAD");

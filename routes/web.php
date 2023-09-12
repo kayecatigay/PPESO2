@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +44,6 @@ Route::get('/deleteWorke', [App\Http\Controllers\uProfileController::class, 'del
 
 Route::get('/insertSchT', [App\Http\Controllers\uProfileController::class, 'insertSchT']);
 Route::get('/cancelsTable', [App\Http\Controllers\uProfileController::class, 'cancelS']);
-
-Route::get('/addEmpTable', [App\Http\Controllers\uProfileController::class, 'addE']);
-Route::get('/insertEmpF', [App\Http\Controllers\uProfileController::class, 'insertEmpF']);
 Route::get('/canceleTable', [App\Http\Controllers\uProfileController::class, 'cancelE']);
 
 Route::get('/addofwT', [App\Http\Controllers\uProfileController::class, 'addO']);
@@ -60,6 +59,8 @@ Route::get('/oldscholarupdate',[App\Http\Controllers\ServicesController::class, 
 
 Route::get('/employmenthomepage',[App\Http\Controllers\ServicesController::class, 'emphome']);
 Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
+Route::get('/addEmpTable', [App\Http\Controllers\ServicesController::class, 'addE']);
+Route::get('/insertEmpF', [App\Http\Controllers\ServicesController::class, 'insertEmpF']);
 Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
 
 Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);

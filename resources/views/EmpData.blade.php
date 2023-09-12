@@ -65,10 +65,10 @@
                                  <td>{{ $emp->degree }}</td>
                                  <td>{{ $emp->cname }}</td>
                                  <td>
-                                    <form action="/resPrint" target="_blank">
-                                       <input type="hidden" id="fileId" name="fileId" value="{{ $files[0]->id}}">
-                                       <input class="btn btn-outline-dark" style="padding:1px 10px;" type="submit" value="{{ $files[0]->original_name}}">
-                                    </form>
+                                    <input type="text" style="border:none;" size="15" value="{{ $files[0]->original_name}}">
+                                    <a href="/uploads/{{ $files[0]->filename}}" download>
+                                       <i class="fa fa-download" style="color:black;" aria-hidden="true"></i>
+                                    </a>
                                  </td>
                                  
                                  
