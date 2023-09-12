@@ -15,36 +15,49 @@ class AdminController extends Controller
     }
     public function getLinks()
     {
-        // switch ((Auth()->user()->roles))
-        // {
-        //     case "1":
-        //         $smenus=array('PEAP');
-        //         break;
-        //     case "2":
-        //         $smenus=array('Employment');
-        //         break;
-        //     case "3":
-        //         $smenus=array('OFW');
-        //         break;
-        //     case "4":
-        //         $smenus=array('PEAP','Employment','OFW');
-        //         break;
-        //     default:
-        //         $smenus=array('');
-        // }
-        // if(Auth()->user()->roles==1)
-        // {
+        switch ((Auth()->user()->roles))
+        {
+            case "1":
+                $smenus=array('PEAP');
+                break;
+            case "2":
+                $smenus=array('Employment');
+                break;
+            case "3":
+                $smenus=array('OFW');
+                break;
+            case "4":
+                $smenus=array('PEAP','Employment','OFW');
+                break;
+            default:
+                $smenus=array('');
+        }
+        if(Auth()->user()->roles==1)
+        {
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
                 ]
                             
             );
-        // }
-        // else
+        }
+        // elseif(Auth()->user()->roles==2)
         // {
-        //     $smenus=array();
+        //     $smenus=array(
+        //         ['PEAP','', 
+        //             array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
+        //     ],
+        //     ['Employment','', 
+        //     array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
+        // ]
+
+                            
+        //     );
         // }
+        else
+        {
+            $smenus=array();
+        }
         return $smenus;
     }
     public function dashboard()
