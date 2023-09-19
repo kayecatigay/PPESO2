@@ -32,18 +32,6 @@ class ScholarAdminController extends Controller
         // dd($scholardata);
         return view('ScholarAll',['dataold'=>$scholardata,'smenu'=>$smenus]);
     }
-    // public function newSD()
-    // {
-    //     $scholardata = DB::select('select * from scholarship');
-    //     // dd($scholardata);
-    //     return view('newSD',['data'=>$scholardata]);
-    // }
-    // public function oldSD()
-    // {
-    //     $scholardata = DB::select('select * from scholarship');
-    //     // dd($scholardata);
-    //     return view('oldSD',['data'=>$scholardata]);
-    // }
     public function editPdata(request $request) {
         $peadID=$request->input('peadID');
         $showdata = DB::select('select * from scholarship where id=' .$peadID);
@@ -199,8 +187,9 @@ class ScholarAdminController extends Controller
     }
     public function pstatus()
     {
+        $smenus=(new AdminController)->getLinks();
         $pstatus=DB::select('select * from scholarship');
-        return view('pstatus',['status'=>$pstatus]);
+        return view('pstatus',['status'=>$pstatus,'smenu'=>$smenus]);
     }
     public function pnotif(Request $request)
     {

@@ -26,9 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $titles=DB::select('select * from titles');
+        // $titles=DB::select('select * from titles');
         // dd($titles);
-        return view('home',['title' => $titles]);
+        // return view('home',['title' => $titles]);
+        return view('home');
     }
     public function news()
     {
