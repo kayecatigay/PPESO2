@@ -256,10 +256,25 @@ class EmpAdminController extends Controller
         DB::delete("DELETE FROM eannouncements WHERE id = " .$request->input('delId'));
         return redirect ('Eannouncements');
     }
+    
     public function estatus()
     {
+        $smenus=(new AdminController)->getLinks();
         $estatus=DB::select('select * from employment');
-        return view('estatus',['status'=>$estatus]);
+        return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
+    }
+    public function enotif(Request $request)
+    {
+        $id = $request->input('ENid');
+        // dd($id);
+        $EmpData = DB::select('
+        SELECT *
+        FROM users
+        INNER JOIN employment ON users.id = employment.userid
+        WHERE employment.id =' .$id );
+        // dd($EmpData);
+
+        return view('eEmail',['eData'=>$EmpData]);
     }
     public function eapprove(Request $request)
     {

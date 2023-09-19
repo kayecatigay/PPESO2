@@ -47,6 +47,12 @@
                             <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
                                 Approve
                             </button>
+                            <form action="\Enotif">
+                              <input type="hidden" id="ENid" name="ENid" value="{{ $emp->id}}">
+                              <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
+                                  Notify
+                              </button>
+                            </form>
                             @endif
                                 <!-- DELETE Modal -->
                               <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -29,6 +29,6 @@ class NotifMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Notification from PESO')->view('emails.NotifMail');
+        return $this->subject('Notification Mail from PESO')->view('emails.NotifMail');
     }
 }

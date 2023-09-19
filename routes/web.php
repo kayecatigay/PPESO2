@@ -176,9 +176,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
     Route::get('/sendpNotifMail',[NotificationController::class,'sendpNotif']);
     
+    Route::get('/Enotif', [App\Http\Controllers\EmpAdminController::class, 'enotif']);
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);
-    
+    Route::get('/sendeNotifMail',[NotificationController::class,'sendpNotif']);
+
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
     Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove']);
     
