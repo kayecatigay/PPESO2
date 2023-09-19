@@ -14,10 +14,12 @@ class EmpAdminController extends Controller
 {
     public function EAdashboard()
     {
-        return view('EmpDashboard');
+        $smenus=(new AdminController)->getLinks();
+        return view('EmpDashboard',['smenu'=>$smenus]);
     }
     public function showEmpData(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $userid=Auth::user()->id;
         // $fileData=DB::select('select * from files ');
         
@@ -31,17 +33,21 @@ class EmpAdminController extends Controller
         
         ');
         $fileData=DB::select('select * from files where userid=' .$userid);
-        return view('EmpData',['data'=>$empData,'files'=>$fileData]);
+        return view('EmpData',['data'=>$empData,'files'=>$fileData,'smenu'=>$smenus]);
         // return view('EmpData');
     }
     
-    public function editEdata(request $request) {
+    public function editEdata(request $request) 
+    {
+        $smenus=(new AdminController)->getLinks();
         $empID=$request->input('empID');
         $showdata = DB::select('select * from employment where id=' .$empID);
         //dd($prod);
-        return view('editEdata',['data'=>$showdata]); 
+        return view('editEdata',['data'=>$showdata,'smenu'=>$smenus]); 
     }
-    public function updateEdata(request $request) {
+    public function updateEdata(request $request) 
+    {
+        $smenus=(new AdminController)->getLinks();
         // dd($request->input('gender'));
         
         $language="";
@@ -68,25 +74,30 @@ class EmpAdminController extends Controller
 
         // dd ($empdata);
         
-        return redirect('/showAllEApp');
+        return redirect('/showAllEApp',['smenu'=>$smenus]);
     }
-    public function deleteEdata(Request $request){
+    public function deleteEdata(Request $request)
+    {
+        $smenus=(new AdminController)->getLinks();
         // dd($request->input('id'));
         DB::delete("DELETE FROM employment WHERE id = " .$request->input('delId'));
         
-        return redirect('/showAllEApp');
+        return redirect('/showAllEApp',['smenu'=>$smenus]);
     }
     public function Allworks()
     {
+        $smenus=(new AdminController)->getLinks();
         $works= DB::select('select * from eworks');
-        return view ('Eworks',['work'=>$works]);
+        return view ('Eworks',['work'=>$works,'smenu'=>$smenus]);
     }
     public function addworks(Request $request)
     {
-        return view('addWorks');
+        $smenus=(new AdminController)->getLinks();
+        return view('addWorks',['smenu'=>$smenus]);
     }
     public function insertWorks(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $skills="";
         $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
         $skills.= ($request->input('risk')=="on") ? ", risk taker" :"";
@@ -108,16 +119,18 @@ class EmpAdminController extends Controller
         $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
         values("' .$request->input('date') .'","' .$request->input('jobdesc') .'","'.$request->input('company') .'","'
         .$skills .'","' .$req .'","' .$request->input('contact') .'")');
-        return redirect ('AllWorks');
+        return redirect ('AllWorks',['smenu'=>$smenus]);
     }
    public function editW(Request $request)
    {
+        $smenus=(new AdminController)->getLinks();
         $workID=$request->input('workID');
         $showData = DB::select('select * from eworks where id=' .$workID);
-        return view ('editW',['wrk'=>$showData]);
+        return view ('editW',['wrk'=>$showData,'smenu'=>$smenus]);
    }
    public function updateW(Request $request)
    {
+    $smenus=(new AdminController)->getLinks();
     $skills="";
     $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
     $skills.= ($request->input('risk')=="on") ? ", risk" :"";
@@ -141,27 +154,31 @@ class EmpAdminController extends Controller
     skills="' .$skills .'", req="' .$req. '",contact="' .$request->input('contact'). '" 
     where id='.$request->input('id') .' ');
     
-    return redirect ('/AllWorks');
+    return redirect ('/AllWorks',['smenu'=>$smenus]);
    }
    
    public function deleteW(Request $request)
    {
+        $smenus=(new AdminController)->getLinks();
         // dd($request->input('delId'));
         DB::delete("DELETE FROM eworks WHERE id = " .$request->input('delId'));
             
-        return redirect('/AllWorks');
+        return redirect('/AllWorks',['smenu'=>$smenus]);
    }
     public function allESched()
     {
+        $smenus=(new AdminController)->getLinks();
         $esched=DB::select('select * from eschedules');
-        return view('Esched',['sched'=>$esched]);
+        return view('Esched',['sched'=>$esched,'smenu'=>$smenus]);
     }
     public function addeSched(Request $request)
    {
-    return view ('addEsched');
+        $smenus=(new AdminController)->getLinks();
+        return view ('addEsched',['smenu'=>$smenus]);
    }
    public function insertEs(Request $request)
    {
+    $smenus=(new AdminController)->getLinks();
     $req="";
     $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
     $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -174,16 +191,18 @@ class EmpAdminController extends Controller
     values("' .$request->input('type') .'","' .$request->input('emname') .'","' .$request->input('date') .'","'.$request->input('time') .'","'
     .$request->input('loc') .'","' .$request->input('work') .'","' .$request->input('proctor')  .'","'  .$req.'")');
 
-    return redirect('empSched');
+    return redirect('empSched',['smenu'=>$smenus]);
    }
     public function editeSched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $eSchedid=$request->input('eSchedid');
         $showData = DB::select('select * from eschedules where id=' .$eSchedid);
-        return view ('editEsched',['sched'=>$showData]);
+        return view ('editEsched',['sched'=>$showData,'smenu'=>$smenus]);
     }
     public function updateEs(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -197,25 +216,29 @@ class EmpAdminController extends Controller
         Loc="' .$request->input('loc'). '", work="' .$request->input('work'). '",
         Proctor="' .$request->input('proctor'). '", req="' .$req .'" where id='.$request->input('id') .'');
 
-        return redirect('empSched');
+        return redirect('empSched',['smenu'=>$smenus]);
     }
     public function deleteESched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         DB::delete("DELETE FROM eschedules WHERE id = " .$request->input('delId'));
-        return redirect ('empSched');
+        return redirect ('empSched',['smenu'=>$smenus]);
     }
     public function eAnn()
     { 
+        $smenus=(new AdminController)->getLinks();
         $annData = DB::select('select * from genannouncements where service="EMP"');
         // dd($annData);
-        return view ('Sannouncements',['Sann'=>$annData]);
+        return view ('Sannouncements',['Sann'=>$annData,'smenu'=>$smenus]);
     }
     public function addEann(Request $request)
     {
-        return view ('addEann');
+        $smenus=(new AdminController)->getLinks();
+        return view ('addEann',['smenu'=>$smenus]);
     }
     public function insertEann(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -228,16 +251,18 @@ class EmpAdminController extends Controller
         $SchedData = DB::insert('insert into eannouncements(date, schedule, details, req) 
         values("' .$request->input('date') .'","' .$request->input('sched') .'","' .$request->input('dets') .'","'
         .$req .'")');
-        return redirect('Eannouncements');
+        return redirect('Eannouncements',['smenu'=>$smenus]);
     }
     public function EditeAnn(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $EannID=$request->input('EannID');
         $showData = DB::select('select * from eannouncements where id=' .$EannID);
-        return view ('EditEann',['eann'=>$showData]);
+        return view ('EditEann',['eann'=>$showData,'smenu'=>$smenus]);
     }
     public function updateEann(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -249,12 +274,13 @@ class EmpAdminController extends Controller
         $announceData = DB::update('update eannouncements set date="' .$request->input('date'). '",schedule= 
         "' .$request->input('sched'). '",details= "' .$request->input('details'). '",req=
         "' .$req. '" where id='.$request->input('id') .' ');
-        return redirect('Eannouncements');
+        return redirect('Eannouncements',['smenu'=>$smenus]);
     }
     public function deleteEann(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         DB::delete("DELETE FROM eannouncements WHERE id = " .$request->input('delId'));
-        return redirect ('Eannouncements');
+        return redirect ('Eannouncements',['smenu'=>$smenus]);
     }
     
     public function estatus()
@@ -265,6 +291,7 @@ class EmpAdminController extends Controller
     }
     public function enotif(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $id = $request->input('ENid');
         // dd($id);
         $EmpData = DB::select('
@@ -274,18 +301,20 @@ class EmpAdminController extends Controller
         WHERE employment.id =' .$id );
         // dd($EmpData);
 
-        return view('eEmail',['eData'=>$EmpData]);
+        return view('eEmail',['eData'=>$EmpData,'smenu'=>$smenus]);
     }
     public function eapprove(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $id = $request->input('delId');
         DB::update('update employment set status="Approved" where id= ' .$id);
 
         $estatus=DB::select('select * from employment');
-        return view('estatus',['status'=>$estatus]);
+        return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
     }
     public function ePrint()
     {
+        $smenus=(new AdminController)->getLinks();
         $empData= DB::select('
         SELECT *
         FROM employment as s
@@ -295,27 +324,31 @@ class EmpAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('NLEmploy',['data'=>$empData]);
+        return view('NLEmploy',['data'=>$empData,'smenu'=>$smenus]);
     }
     public function workP()
     {
+        $smenus=(new AdminController)->getLinks();
         $works= DB::select('select * from eworks');
-        return view ('NLWorks',['work'=>$works]);
+        return view ('NLWorks',['work'=>$works,'smenu'=>$smenus]);
     }
     public function estatP()
     {
+        $smenus=(new AdminController)->getLinks();
         $estatus=DB::select('select * from employment');
-        return view('NLEstatus',['status'=>$estatus]);
+        return view('NLEstatus',['status'=>$estatus,'smenu'=>$smenus]);
     }
     public function resShow(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $id=$request->input('fileId');
         $show = DB::select('select * from files where id=' .$id);
         // dd($show);
-        return view('NLEResume',['show'=>$show]);
+        return view('NLEResume',['show'=>$show,'smenu'=>$smenus]);
     }
     public function employers()
     {
+        $smenus=(new AdminController)->getLinks();
         $employers= DB::select('
         SELECT *
         FROM users
@@ -325,11 +358,12 @@ class EmpAdminController extends Controller
         
         ');
         // $employers = DB::select('select * from users where roles = 4');
-        return view('employerW',['employer'=>$employers]);
+        return view('employerW',['employer'=>$employers,'smenu'=>$smenus]);
     }
     public function delEmp(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
-        return redirect ('EmployerW');
+        return redirect ('EmployerW',['smenu'=>$smenus]);
     }
 }

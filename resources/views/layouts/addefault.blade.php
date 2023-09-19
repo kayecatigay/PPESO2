@@ -40,9 +40,9 @@
         <div id="wrapper">
         @section('sidebar')
                 <!-- Sidebar -->
-                <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" style="background-color:#C1E1C1;" id="accordionSidebar" >
+                <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" >
                     @section('sidebar content')
-                   
+
                         <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
                             <div class="sidebar-brand-icon rotate-n-15">
@@ -69,57 +69,35 @@
                         <div class="sidebar-heading">
                             SERVICES
                         </div>
-
+            
                         <!-- Nav Item - Pages Collapse Menu -->
-                        <li class="nav-item">
-                            <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapseTwo"
-                                aria-expanded="true" aria-controls="collapseTwo">
-                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                <span>PEAP</span>
-                            </a>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                <div class="bg-white py-2 collapse-inner rounded">
-                                    <h6 class="collapse-header">SERVICES</h6>
-                                    <a class="collapse-item" href="/showAllSApp">Scholarship</a>
-                                    <a class="collapse-item" href="/Stracking">Tracking</a>
-                                    <a class="collapse-item" href="/Sannouncements">Announcements</a>
-                                    <a class="collapse-item" href="/Pstatus">Status</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link collapsed" href="empD"  data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="true" aria-controls="collapseThree">
-                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                <span>Employment</span>
-                            </a>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                <div class="bg-white py-2 collapse-inner rounded">
-                                    <h6 class="collapse-header">SERVICES</h6>
-                                    <a class="collapse-item" href="/showAllEApp">Applicants</a>
-                                    <a class="collapse-item" href="/AllWorks">Works Available</a>
-                                    <a class="collapse-item" href="/Eannouncements">Announcements</a>
-                                    <a class="collapse-item" href="/EmployerW">Employer</a>
-                                    <a class="collapse-item" href="/Estatus">Status</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link collapsed" href="ofwD" data-toggle="collapse" data-target="#collapsedFour"
-                            aria-expanded="true" aria-controls="collapsedFour">
-                                <i class="fa fa-plane" aria-hidden="true"></i>
-                                <span>Ofw</span>
-                            </a>
-                            <div id="collapsedFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                <div class="bg-white py-2 collapse-inner rounded">
-                                    <h6 class="collapse-header">SERVICES</h6>
-                                    <a class="collapse-item" href="/showAllOApp">Applicants</a>
-                                    <a class="collapse-item" href="/Oannouncements">Announcements</a>
-                                    <a class="collapse-item" href="/Ostatus">Status</a>
-                                </div>
-                            </div>
-                            
-                        </li>
+                                        
+                        @foreach ($smenu as $mkey => $menus)
+                            <li class="nav-item">
+                                @if(count($smenu)>0)
+                                    <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapse{{$mkey}}"
+                                        aria-expanded="true" aria-controls="collapse{{$mkey}}">
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>{{ $menus[0] }}</span>
+                                    </a>
+                                    <div id="collapse{{$mkey}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                        <div class="bg-white py-2 collapse-inner rounded">
+                                            <h6 class="collapse-header">SERVICES</h6>
+                                            @foreach ($menus[2] as $submenu)
+                                                <a class="collapse-item" href="{{ $submenu[1] }}">{{ $submenu[0] }}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @else
+                                    <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        <span>NONE</span>
+                                    </a>
+                                @endif
+                            </li>
+                        @endforeach
+                        
+                        
 
                         <!-- Divider -->
                         <hr class="sidebar-divider">
@@ -131,7 +109,7 @@
 
                         <!-- Nav Item - Pages Collapse Menu -->
                         <li class="nav-item">
-                            <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
+                                <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
                                 <i class="fa fa-users" aria-hidden="true"></i>
                                 <span>Users</span>
                             </a>
@@ -150,6 +128,12 @@
                                 <span>Homepage</span></a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="edithomepage">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                <span>Edit</span></a>
+                        </li>
+
                         <!-- Divider -->
                         <hr class="sidebar-divider d-none d-md-block">
 
@@ -166,13 +150,13 @@
             @section('topbardefault')   
                 @section('search')
                     <!-- Topbar Search -->
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>    
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>    
                     
                 @show
                 <!-- Topbar Navbar -->   
@@ -203,123 +187,10 @@
                         </li>
 
                         @section('alerts')
-                            <!-- Nav Item - Alerts -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bell fa-fw"></i>
-                                    <!-- Counter - Alerts -->
-                                    <span class="badge badge-danger badge-counter">3+</span>
-                                </a>
-                                <!-- Dropdown - Alerts -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Alerts Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-primary">
-                                                <i class="fas fa-file-alt text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 12, 2019</div>
-                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-success">
-                                                <i class="fas fa-donate text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 7, 2019</div>
-                                            $290.29 has been deposited into your account!
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-warning">
-                                                <i class="fas fa-exclamation-triangle text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 2, 2019</div>
-                                            Spending Alert: We've noticed unusually high spending for your account.
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                                </div>
-                            </li>
+                            
                         @show
                         @section('messages')
-                            <!-- Nav Item - Messages -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-envelope fa-fw"></i>
-                                    <!-- Counter - Messages -->
-                                    <span class="badge badge-danger badge-counter">7</span>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="messagesDropdown">
-                                    <h6 class="dropdown-header">
-                                        Message Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                                alt="...">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div class="font-weight-bold">
-                                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                                problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                                alt="...">
-                                            <div class="status-indicator"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">I have the photos that you ordered last month, how
-                                                would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun · 1d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                                alt="...">
-                                            <div class="status-indicator bg-warning"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">Last month's report looks great, I am very happy with
-                                                the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                                alt="...">
-                                            <div class="status-indicator bg-success"></div>
-                                        </div>
-                                        <div>
-                                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                                told me that people say this to all dogs, even if they aren't good...</div>
-                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                                </div>
-                            </li>
+                            
                         @show
                         @section('userinfo')
                             <div class="topbar-divider d-none d-sm-block"></div>
@@ -389,19 +260,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                   
-                    <a class="btn btn-primary" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                        {{ __('Yes') }} <br>
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>

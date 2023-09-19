@@ -151,7 +151,7 @@ Route::middleware("admin")->group(function () {
 
     
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
-    Route::get('/showAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);
+    Route::get('/ShowAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);
     Route::get('/editOFW', [App\Http\Controllers\OfwAdminController::class, 'editOdata']);
     Route::get('/updateofwD', [App\Http\Controllers\OfwAdminController::class, 'updateOdata']);
     Route::get('/deleteofwD', [App\Http\Controllers\OfwAdminController::class, 'deleteOdata']);
