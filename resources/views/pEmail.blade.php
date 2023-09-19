@@ -53,9 +53,9 @@
         const selectedValue = subjectSelect.value;
 
         // Display a message based on the selected value
-        if (selectedValue === "exam") {
+        if (selectedValue === "Exam") {
             messageElement.textContent = "You are required to attend an exam regarding your application in this program.";
-        } else if (selectedValue === "interview") {
+        } else if (selectedValue === "Interview") {
             messageElement.textContent = "You are required to comply in an interview regarding your application in this program.";
         } else {
             messageElement.textContent = ""; // Clear the message if no option is selected

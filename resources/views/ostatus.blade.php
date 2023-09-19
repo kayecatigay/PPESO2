@@ -49,6 +49,12 @@
                             <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmodofw{{ $odata->id }}">
                                 Approve
                             </button>
+                            <form action="\Onotif">
+                              <input type="hidden" id="ONid" name="ONid" value="{{ $odata->id}}">
+                              <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
+                                  Notify
+                              </button>
+                            </form>
                           @endif
                                 <!-- DELETE Modal -->
                                 <div class="modal fade"  id="delmodofw{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

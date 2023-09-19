@@ -166,6 +166,19 @@ class OfwAdminController extends Controller
         $ostatus=DB::select('select * from ofw');
         return view('ostatus',['status'=>$ostatus]);
     }
+    public function onotif(Request $request)
+    {
+        $id = $request->input('ONid');
+        // dd($id);
+        $OfwData = DB::select('
+        SELECT *
+        FROM users
+        INNER JOIN ofw ON users.id = ofw.userid
+        WHERE ofw.id =' .$id );
+        // dd($EmpData);
+
+        return view('oEmail',['oData'=>$OfwData]);
+    }
     public function oapprove(Request $request)
     {
         $id = $request->input('delIdofw');

@@ -181,9 +181,11 @@ Route::middleware("admin")->group(function () {
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);
     Route::get('/sendeNotifMail',[NotificationController::class,'sendpNotif']);
 
+    Route::get('/Onotif', [App\Http\Controllers\OfwAdminController::class, 'onotif']);
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
     Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove']);
-    
+    Route::get('/sendoNotifMail',[NotificationController::class,'sendpNotif']);
+
     Route::get('/ScholarPrint', [App\Http\Controllers\ScholarAdminController::class, 'scholarP']);
     Route::get('/StrackingPrint', [App\Http\Controllers\ScholarAdminController::class, 'trackingP']);
     Route::get('/SannPrint', [App\Http\Controllers\ScholarAdminController::class, 'sannP']);
