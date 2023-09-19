@@ -168,7 +168,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/updateOann', [App\Http\Controllers\OfwAdminController::class, 'updateOann']);
     Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
     
-    Route::get('/SendSms', [App\Http\Controllers\ContactController::class, 'sendsms']);
+    Route::get('/SendSms', [App\Http\Controllers\AdminController::class, 'sendsms']);
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendmess']);
     
     Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
@@ -191,17 +191,14 @@ Route::middleware("admin")->group(function () {
     Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
     Route::get('/EstatPrint', [App\Http\Controllers\EmpAdminController::class, 'estatP']);
     Route::get('/resPrint', [App\Http\Controllers\EmpAdminController::class, 'resShow']);
-    
-
-    
-    
     Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);
     Route::get('/OstatusPrint', [App\Http\Controllers\OfwAdminController::class, 'ostatP']);
-    
     Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
 
-   
+    Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
+    Route::get('/editTitle', [App\Http\Controllers\EditController::class, 'title']);
+    
 });
 

@@ -4,12 +4,19 @@
 @section('homecontent')
 <!-- ======= Hero Section ======= -->
    
-    <section id="hero" class="d-flex align-items-center justify-content-center">
+<section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="col-xl-6 col-lg-8">
-              <h1>{{$title[0]->description}}</h1>
-              <h2>Camilmil, Calapan City, Oriental Mindoro</h2>
+              <form action="/editTitle">
+                <label for="title" style="color:white;">Title: </label>
+                <input type="text" style="font-size:large;" id="title" name="title">
+                <h1>Provincial Peso Services Management System</h1>
+                <input type="submit" value="Submit">
+              </form>
+              <form action="editLocation">
+                <h2>Camilmil, Calapan City, Oriental Mindoro</h2>
+              </form>
             </div>
           </div>
 

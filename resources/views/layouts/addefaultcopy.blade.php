@@ -40,9 +40,9 @@
         <div id="wrapper">
         @section('sidebar')
                 <!-- Sidebar -->
-                <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" >
+                <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" style="background-color:#C1E1C1;" id="accordionSidebar" >
                     @section('sidebar content')
-
+                   
                         <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
                             <div class="sidebar-brand-icon rotate-n-15">
@@ -69,35 +69,57 @@
                         <div class="sidebar-heading">
                             SERVICES
                         </div>
-            
+
                         <!-- Nav Item - Pages Collapse Menu -->
-                        
-                        @for ($i = 0; $i < count($smenu); $i++)
-                            <li class="nav-item">
-                                @if(count($submenu[$i])>0)
-                                    <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapse{{$i}}"
-                                        aria-expanded="true" aria-controls="collapse{{$i}}">
-                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                        <span>{{ $smenu[$i] }}</span>
-                                    </a>
-                                    <div id="collapse{{$i}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                        <div class="bg-white py-2 collapse-inner rounded">
-                                            <h6 class="collapse-header">SERVICES</h6>
-                                            @for ($y = 0; $y < count($submenu[$i]); $y++)
-                                                <a class="collapse-item" href="/showAllSApp">{{ $submenu[$i][$y] }}</a>
-                                            @endfor
-                                        </div>
-                                    </div>
-                                @else
-                                    <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        <span>{{ $smenu[$i] }}</span>
-                                    </a>
-                                @endif
-                            </li>
-                        @endfor
-                        
-                        
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="peapD" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="true" aria-controls="collapseTwo">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>PEAP</span>
+                            </a>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllSApp">Scholarship</a>
+                                    <a class="collapse-item" href="/Stracking">Tracking</a>
+                                    <a class="collapse-item" href="/Sannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/Pstatus">Status</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="empD"  data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="true" aria-controls="collapseThree">
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                <span>Employment</span>
+                            </a>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllEApp">Applicants</a>
+                                    <a class="collapse-item" href="/AllWorks">Works Available</a>
+                                    <a class="collapse-item" href="/Eannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/EmployerW">Employer</a>
+                                    <a class="collapse-item" href="/Estatus">Status</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="ofwD" data-toggle="collapse" data-target="#collapsedFour"
+                            aria-expanded="true" aria-controls="collapsedFour">
+                                <i class="fa fa-plane" aria-hidden="true"></i>
+                                <span>Ofw</span>
+                            </a>
+                            <div id="collapsedFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">SERVICES</h6>
+                                    <a class="collapse-item" href="/showAllOApp">Applicants</a>
+                                    <a class="collapse-item" href="/Oannouncements">Announcements</a>
+                                    <a class="collapse-item" href="/Ostatus">Status</a>
+                                </div>
+                            </div>
+                            
+                        </li>
 
                         <!-- Divider -->
                         <hr class="sidebar-divider">
@@ -115,11 +137,11 @@
                             </a>
                         </li>
 
-                        <!-- Nav Item - Charts -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                <span>Status</span></a>
+                            <a class="nav-link" href="SendSms" aria-expanded="true" aria-controls="collapsePages">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Send SMS</span>
+                            </a>
                         </li>
 
                         <li class="nav-item">
@@ -151,18 +173,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>    
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    
                 @show
                 <!-- Topbar Navbar -->   
                     <ul class="navbar-nav ml-auto">
@@ -324,17 +335,9 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/userprofile">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -386,10 +389,19 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                   
+                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        {{ __('Yes') }} <br>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>

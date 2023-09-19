@@ -13,25 +13,27 @@ class AdminController extends Controller
     {
         return view ('Aprofile');
     }
+
     public function getLinks()
     {
-        switch ((Auth()->user()->roles))
-        {
-            case "1":
-                $smenus=array('PEAP');
-                break;
-            case "2":
-                $smenus=array('Employment');
-                break;
-            case "3":
-                $smenus=array('OFW');
-                break;
-            case "4":
-                $smenus=array('PEAP','Employment','OFW');
-                break;
-            default:
-                $smenus=array('');
-        }
+        // switch ((Auth()->user()->roles))
+        // {
+        //     case "1":
+        //         $smenus=array('PEAP');
+        //         break;
+        //     case "2":
+        //         $smenus=array('Employment');
+        //         break;
+        //     case "3":
+        //         $smenus=array('OFW');
+        //         break;
+        //     case "4":
+        //         $smenus=array('PEAP','Employment','OFW');
+        //         break;
+        //     default:
+        //         $smenus=array('');
+        // }
+
         if(Auth()->user()->roles==1)
         {
             $smenus=array(
@@ -56,7 +58,7 @@ class AdminController extends Controller
                 ['OFW','', 
                     array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
                     ['Status','/Ostatus'])
-                ]
+            ],
             );
         }
         elseif(Auth()->user()->roles==4)
@@ -91,6 +93,8 @@ class AdminController extends Controller
         {
             $smenus=array();
         }
+        // dd(Auth()->user()->roles);
+        // dd($smenus);
         return $smenus;
     }
     public function dashboard()
@@ -124,9 +128,10 @@ class AdminController extends Controller
 
     public function usersD(Request $request)
     {
+        $smenus=$this->getLinks();
         $users = DB::select('select * from users');
         // dd($users);
-        return view('UsersData',['user'=>$users]);
+        return view('UsersData',['user'=>$users,'smenu'=>$smenus]);
     }
     public function editUdata(Request $request)
     {
@@ -171,5 +176,10 @@ class AdminController extends Controller
         $fuser=DB::select('select * from uprofile where gender="female"');
         // dd(count($muser));
         return view ('NLDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
+    }
+    public function sendsms()
+    {
+        $smenus=$this->getLinks();
+        return view('messages',['smenu'=>$smenus]);
     }
 }

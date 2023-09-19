@@ -73,9 +73,6 @@ class ContactController extends Controller
 
                 // print($message);
     }
-    public function sendsms()
-    {
-        return view('messages');
-    }
+    
 }
 ?>
