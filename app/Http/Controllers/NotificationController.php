@@ -12,16 +12,24 @@ class NotificationController extends Controller
 {
     public function sendpNotif(Request $request)
     {
+        $dateformat = date_create($request->input('datetime'));
+        // echo date_format($dateformat,"F d, Y  -  g:i a");
+
+        
         $name = $request->input('name');
         $email = $request->input('email');
         $subject = $request->input('subject');
         $messageBody = $request->input('message');
+        $location = $request->input('location');
+        $date = date_format($dateformat,"F d, Y  -  g:i a");
 
-        // dd($email);
+        // dd($date);
         $detail = [
             'title' => $subject,
             'name' => $name,
-            'body' => $messageBody
+            'body' => $messageBody,
+            'location' => $location,
+            'date' => $date
         ];
 
         Mail::to($email)->send(new NotifMail($detail));

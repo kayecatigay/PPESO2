@@ -6,7 +6,7 @@
     <title>Test Mail</title>
 </head>
 <body>
-    <h1>{{$details['title']}}</h1>
+    <h3>{{$details['title']}}</h3>
     <p>from: {{$details['name']}}</p>
     <p>{{$details['body']}}</p>
     

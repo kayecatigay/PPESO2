@@ -1,7 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')        
-    <div class="col-lg-10 mt-5 mt-lg-0" >
+    <div class="col-lg-12 mt-5 mt-lg-0" >
 
         <form action="sendpNotifMail" method="get" >
         @csrf <!-- Add CSRF token field -->
@@ -10,7 +10,8 @@
             <input type="text" name="name" readonly class="form-control" id="name" value="{{ $pData[0]->name}}" required>
             </div>
             <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control"  readonly name="email" id="email" value="{{ $pData[0]->email}}" required>
+            <input type="email" class="form-control"  name="email" id="email" required>
+            <!-- <input type="email" class="form-control"  readonly name="email" id="email" value="{{ $pData[0]->email}}" required> -->
             </div>
         </div>
         <div class="row">
@@ -26,7 +27,7 @@
                 <input type="text" class="form-control" name="location" id="location" placeholder="Location" required>
             </div>
             <div class="col-3 form-group mt-3">
-                <input type="datetime-local" class="form-control" name="date" id="date"  required>
+                <input type="datetime-local" class="form-control" name="datetime" id="datetime" required>
             </div>
         </div>
         <div class="form-group mt-3">
@@ -53,9 +54,9 @@
 
         // Display a message based on the selected value
         if (selectedValue === "exam") {
-            messageElement.textContent = "You are allowed to attend an exam regarding your application in this program.";
+            messageElement.textContent = "You are required to attend an exam regarding your application in this program.";
         } else if (selectedValue === "interview") {
-            messageElement.textContent = "You are allowed to comply in an interview regarding your application in this program.";
+            messageElement.textContent = "You are required to comply in an interview regarding your application in this program.";
         } else {
             messageElement.textContent = ""; // Clear the message if no option is selected
         }
