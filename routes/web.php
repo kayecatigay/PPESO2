@@ -30,6 +30,7 @@ Route::get('profile', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'about']);
+Route::get('/policy', [App\Http\Controllers\HomeController::class, 'ppolicy']);
 
 Route::get('/userprofile', [App\Http\Controllers\uProfileController::class, 'phome']);
 Route::get('/AddProfile', [App\Http\Controllers\uProfileController::class, 'addP']);
@@ -149,7 +150,6 @@ Route::middleware("admin")->group(function () {
     // Route::get('/view-file/{filename}',[App\Http\Controllers\FileUploadController::class, 'viewFile']);
     // Route::get('/view-file/{filename}', 'YourController@viewFile')->name('view.file');
 
-    
     Route::get('/Oadmindashboard', [App\Http\Controllers\OfwAdminController::class, 'OAdashboard']);
     Route::get('/ShowAllOApp', [App\Http\Controllers\OfwAdminController::class, 'showOFWdata']);
     Route::get('/editOFW', [App\Http\Controllers\OfwAdminController::class, 'editOdata']);

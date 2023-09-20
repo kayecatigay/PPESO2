@@ -83,8 +83,8 @@
                                     <div class="col">
                                         <div class = " checkbox">
                                             <label>
-                                               <input type = "checkbox" style="font-style:10px;"
-                                                value =""> By signing up, you agree to our <a href="">Privacy Policy</a> 
+                                               <input type = "checkbox"  style="font-style:10px;"
+                                                value =""> By signing up, you agree to our <a href="/policy" target="_blank">Privacy Policy</a> 
                                             </label>
                                         </div>
                                     </div>
