@@ -106,8 +106,19 @@ class AdminController extends Controller
         $Tusers=DB::select('select * from users');
         $muser=DB::select('select * from uprofile where gender="male"');
         $fuser=DB::select('select * from uprofile where gender="female"');
-        // dd(count($muser));
-        return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
+        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
+
+        // dd($Company);
+        return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+                    'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+                    'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
+                    'company'=>$Company]);
     }
     public function ahome(Request $request)
     {

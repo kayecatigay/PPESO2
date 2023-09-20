@@ -87,21 +87,25 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Resources</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">ACCEPTED</h6>
                                 
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
                                 
                                 <div class="mt-4 text-center small">
+                                    
                                     <span class="mr-2">
-                                        <i class="fas fa-circle text-primary"></i> Direct
+                                        
+                                        <i class="fas fa-circle text-primary"> {{ $apeap}} </i> PEAP
                                     </span>
                                     <span class="mr-2">
-                                        <i class="fas fa-circle text-success"></i> Social
+                                        
+                                        <i class="fas fa-circle text-success"> {{ $aemp }}</i> EMP
                                     </span>
                                     <span class="mr-2">
-                                        <i class="fas fa-circle text-info"></i> Referral
+                                        
+                                        <i class="fas fa-circle text-info"> {{ $aofw }}</i> OFW
                                     </span>
                                 </div>
                             </div> 
@@ -118,30 +122,18 @@
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Applicants</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">COMPANY</h6>
                             </div>
                             <div class="card-body">
-                                
-                                <h4 class="small font-weight-bold">PEAP<span
-                                        class="float-right">60%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                
-                                <h4 class="small font-weight-bold">EMP<span
-                                        class="float-right">50%</span></h4>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 50%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div><br>
-
-                                <h4 class="small font-weight-bold">OFW<span
-                                        class="float-right">10%</span></h4>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 10%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                @foreach ($company as $com)
+                                    <h4 class="small font-weight-bold">{{ $com->cname }}<span
+                                            
+                                        class="float-right">{{ $com->totalapp }}</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 80%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
 
