@@ -36,7 +36,61 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                   
+                    </div>  
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-3">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">ACCEPTED</h6>
+                                
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                
+                                <div class="mt-7 text-center small">
+                                    
+                                    <span class="mr-5">
+                                        
+                                        <i class="fa fa-graduation-cap text-primary"> {{ $apeap}} </i> PEAP
+                                    </span>
+                                    <span class="mr-5">
+                                        
+                                        <i class="fa fa-briefcase text-success"> {{ $aemp }}</i> EMP
+                                    </span>
+                                    <span class="mr-2">
+                                        
+                                        <i class="fa fa-plane text-info"> {{ $aofw }}</i> OFW
+                                    </span>
+                                </div>
+                                
+                            </div> 
+                        </div>
+                        <div class="card shadow mb-3">
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">COMPANY</h6><h6 class="m-0 font-weight-bold text-dark">APPLICANTS</h6>
+                                
+                            </div>
+                            <!-- Card Body -->
+
+                                    <div class="card-body">
+                                    @foreach ($company as $com)
+                                        <h4 
+                                            class="small font-weight-bold">{{ $com->cname }}<span
+                                            class="float-right">{{ $com->totalapp }}</span>
+                                        </h4>
+                                        <div class="progress mb-2">
+                                        <?php $percentage = ($com->totalapp / 100); ?>
+                                        <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
+                                        aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endforeach
+                                    </div>
+                               
+                                
+                        </div>
+                    </div>                 
                 </div>
 
                 <!-- Content Row -->
