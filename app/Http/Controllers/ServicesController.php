@@ -74,7 +74,7 @@ class ServicesController extends Controller
     {
         return view ('emphomepage');
     }
-    public function Eregistrationform()
+    public function Eregistrationform(Request $request)
     {
         if (!Auth::check()) { //check if user is logged in
             session(['routeto' => '/Eregistration']);
@@ -82,6 +82,7 @@ class ServicesController extends Controller
             exit; // do not read the remaing codes , exit public function
         }
  
+        // $jobdescription=$request->input('avaiPosi');
         $employee = DB::select('select * from employment where userid=' .Auth()->user()->id);
          // $registered=($employee) ? true : false;
         // dd($employee[0]);
@@ -94,11 +95,13 @@ class ServicesController extends Controller
             return redirect('/AddProfile')->with('message', 'This information is required');
         }
     }
-    public function addE()
+    public function addE(Request $request)
     {
-        $empdata=DB::select('select * from eworks');
+        
         $company=DB::select('select company from eworks');
-        return view ('addEmpT',['emp'=>$empdata,'company'=>$company]);
+        $companies = DB::table('eworks')->select('jobdesc', 'company')->get();
+        // dd($company);
+        return view ('addEmpT',['emp'=>$companies,'company'=>$company]);
     }
     
     public function insertEmpF(Request $request)
@@ -109,7 +112,7 @@ class ServicesController extends Controller
         $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
         $ndate=date("Y-m-d");
         $status="pending";
-        $desire=$request->input('posidesired');
+        $desire=$request->input('avaiPosi');
         $comname=$request->input('cname');
 
         $available = DB::select('select * from employment where posidesired = ? and cname = ?', [$desire, $comname]);
@@ -138,6 +141,12 @@ class ServicesController extends Controller
         .$request->input('crname') .'","' .$request->input('crcontact') .'")');
     
         return view('emphomepage');
+    }
+    public function availableW()
+    {
+        $works=DB::select('select * from eworks');
+        // dd($works);
+        return view('worksA',['availableW'=>$works]);
     }
 
     public function ofwhome()

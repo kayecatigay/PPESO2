@@ -23,6 +23,14 @@
                 </div>
               </a>
             </div>
+            <div class="col-xl-2 col-md-4">
+              <a href="/JobVacant">
+                <div class="icon-box">
+                <i class="bi bi-briefcase"></i>
+                <h3 style="color:white;">Works Available</h3>
+                </div>
+              </a>
+            </div>
           </div>
       </div>
     </section><!-- End Hero -->

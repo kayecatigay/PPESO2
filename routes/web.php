@@ -64,6 +64,7 @@ Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Er
 Route::get('/addEmpTable', [App\Http\Controllers\ServicesController::class, 'addE']);
 Route::get('/insertEmpF', [App\Http\Controllers\ServicesController::class, 'insertEmpF']);
 Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
+Route::get('/JobVacant',[App\Http\Controllers\ServicesController::class, 'availableW']);
 
 Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);
 Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, 'ofwform']);
