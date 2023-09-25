@@ -47,19 +47,9 @@
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
               <h3>About</h3>
-              <p>
-                <blockquote>The Provincial Employment Services Office (PESO) is a government agency in the Philippines 
-                that provides employment assistance and services to the local community. PESO is usually 
-                established by provincial governments and is responsible for implementing employment programs 
-                and services, including job fairs, skills training, and employment referral services. <br></blockquote> 
-                 <blockquote> The primary objective of PESO is to promote job opportunities and 
-                  reduce unemployment rates in the province by facilitating the employment and training 
-                  needs of job seekers. It also helps employers in finding suitable candidates for their 
-                  job openings by providing them with a pool of qualified applicants. Overall, PESO plays 
-                  a vital role in bridging the gap between job seekers and employers, supporting local 
-                  economic development and contributing to the government's efforts 
-                  to reduce poverty and inequality.</blockquote>
-              </p>
+              <p style="text-align:justify;">
+                {{$show[0]->about}}
+                </p>
             </div>
         </div>
 
@@ -81,8 +71,8 @@
                     <div class="icon-box" style="color:black;">
                       <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                       <h4>Scholarship</h4>
-                      <p>PESO Educational Assistance Program.</p>
-                      <p>Apply for more information.</p>
+                      <p>{{$show[0]->stext}}</p>
+                        <p>{{$show[0]->Sstext}}</p>
                     </div>
                   </a>
                 </div>
@@ -93,8 +83,8 @@
                   <div class="icon-box" style="color:black;">
                     <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
                     <h4>Employment</h4>
-                    <p>Jobs are hiring!</p>
-                    <p>Apply for more information.</p>
+                      <p>{{$show[0]->etext}}</p>
+                      <p>{{$show[0]->Eetext}}</p>
                   </div>
                 </a>
               </div>
@@ -104,8 +94,9 @@
                   <div class="icon-box" style="color:black;">
                     <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
                     <h4>OFW</h4>
-                    <p>OFW Assistance Program</p>
-                    <p>Apply for more information.</p>
+                      <p>{{$show[0]->aOfw}}</p>
+                      <p>{{$show[0]->AaOfw}}</p>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -151,23 +142,20 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Provincial Capitol Compound <br>
-                Nucable Avenue Extension <br>
-                Brgy. Camilmil, Calapan City <br>
-                Oriental Mindoro
-                Philippines, 5200 </p>
+                <p>{{$show[0]->conLoc}}</p>
+
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>ppeso@ormindoro.gov.ph</p>
+                <p>{{$show[0]->email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>288-7253</p>
+                <p>{{$show[0]->cell}}</p>
               </div>
 
             </div>

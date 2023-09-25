@@ -203,8 +203,9 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
 
-    Route::get('/edithomepage', [App\Http\Controllers\AdminController::class, 'edithomepage']);
-    Route::get('/ehome', [App\Http\Controllers\AdminController::class, 'homeedit']);
+    Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
+    Route::get('/ehome', [App\Http\Controllers\EditController::class, 'homeedit']);
+    Route::get('/insertEdit', [App\Http\Controllers\EditController::class, 'insertData']);
     
 });
 
