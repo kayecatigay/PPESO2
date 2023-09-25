@@ -12,6 +12,8 @@ class EditController extends Controller
     
     public function homeedit(Request $request)
     {
+        // $showdata = $this->insertData($request);
+        // return view('edithome',['show'=>$showdata]);
         return view('edithome');
     }
     public function edithomepage()
