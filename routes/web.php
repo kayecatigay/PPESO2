@@ -173,7 +173,6 @@ Route::middleware("admin")->group(function () {
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendsms']);
     Route::post('/send-sms', [App\Http\Controllers\ContactController::class, 'sendSms']);
 
-
     Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
     Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
     Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
@@ -204,8 +203,8 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
 
-    Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
-    Route::get('/editTitle', [App\Http\Controllers\EditController::class, 'title']);
+    Route::get('/edithomepage', [App\Http\Controllers\AdminController::class, 'edithomepage']);
+    Route::get('/ehome', [App\Http\Controllers\AdminController::class, 'homeedit']);
     
 });
 

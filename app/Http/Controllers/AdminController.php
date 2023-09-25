@@ -204,4 +204,14 @@ class AdminController extends Controller
         $smenus=$this->getLinks();
         return view('messages',['smenu'=>$smenus]);
     }
+    public function edithomepage(Request $request)
+    {
+        $smenus=$this->getLinks();
+        return view('Eadminhome',['smenu'=>$smenus]);
+    }
+    public function homeedit(Request $request)
+    {
+        $smenus=$this->getLinks();
+        return view('edithome',['smenu'=>$smenus]);
+    }
 }
