@@ -73,6 +73,46 @@ class ContactController extends Controller
 
                 // print($message);
     }
-    
+    function sendssms($mobile, $message, $apicode) 
+    {
+        $ch = curl_init();
+        $heze = array('mobile' => $mobile, 'message' => $message, 'apicode' => $apicode);
+        curl_setopt($ch, CURLOPT_URL,"https://hezesms.phserver.online/broadcast.php");
+        curl_setopt($ch,CURLOPT_TIMEOUT, 60);
+        //time out of the curl handler
+        curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 60);
+        //time out of the curl socket connection closing
+        curl_setopt($ch,CURLOPT_MAXREDIRS, 3);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch,CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($heze));
+        curl_setopt($ch,CURLOPT_HEADER, 0);
+        curl_setopt($ch,CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1');
+        //proxy as Mozilla browser
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec ($ch);
+        curl_close ($ch);
+        return json_decode($response, true);
+        // redirect('SendSms');
+    }
+    public function sendSms(Request $request)
+{
+    $mobile = $request->input('mobile');
+    $message = $request->input('message');
+    $apicode = $request->input('apicode');
+
+    // dd($apicode);
+
+    $response = $this->sendssms($mobile, $message, $apicode);
+
+    if ($response['success']) {
+        // If the SMS was sent successfully, you can return a success view
+        return view('success'); // Replace 'success' with the actual view name
+    } else {
+        // If there was an error sending the SMS, you can return an error view
+        return view('error'); // Replace 'error' with the actual view name
+    }
+}
+
 }
 ?>

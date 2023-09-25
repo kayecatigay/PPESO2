@@ -170,8 +170,10 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
     
     Route::get('/SendSms', [App\Http\Controllers\AdminController::class, 'sendsms']);
-    Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendmess']);
-    
+    Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendsms']);
+    Route::post('/send-sms', [App\Http\Controllers\ContactController::class, 'sendSms']);
+
+
     Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
     Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
     Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
