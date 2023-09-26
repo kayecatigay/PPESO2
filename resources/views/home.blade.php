@@ -48,7 +48,6 @@
             <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
               <h3>About</h3>
               <p style="text-align:justify;">
-                {{$show[0]->about}}
                 </p>
             </div>
         </div>
@@ -71,8 +70,7 @@
                     <div class="icon-box" style="color:black;">
                       <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                       <h4>Scholarship</h4>
-                      <p>{{$show[0]->stext}}</p>
-                        <p>{{$show[0]->Sstext}}</p>
+                      
                     </div>
                   </a>
                 </div>
@@ -83,8 +81,7 @@
                   <div class="icon-box" style="color:black;">
                     <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
                     <h4>Employment</h4>
-                      <p>{{$show[0]->etext}}</p>
-                      <p>{{$show[0]->Eetext}}</p>
+                     
                   </div>
                 </a>
               </div>
@@ -94,8 +91,6 @@
                   <div class="icon-box" style="color:black;">
                     <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
                     <h4>OFW</h4>
-                      <p>{{$show[0]->aOfw}}</p>
-                      <p>{{$show[0]->AaOfw}}</p>
                     </div>
                   </div>
                 </a>
@@ -142,20 +137,17 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>{{$show[0]->conLoc}}</p>
 
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{$show[0]->email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>{{$show[0]->cell}}</p>
               </div>
 
             </div>

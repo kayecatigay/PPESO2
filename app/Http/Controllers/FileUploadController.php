@@ -38,7 +38,7 @@ class FileUploadController extends Controller
         $savedFile->filename = $fileName;
         $savedFile->original_name = $file->getClientOriginalName();
         $savedFile->save();
-        // dd($savedFile);
+        dd($savedFile);
         // Return a success response
 
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
@@ -53,6 +53,38 @@ class FileUploadController extends Controller
         $showwork = DB::select('select * from uwork where userid=' .$userid);
         $fileData=DB::select('select * from files where userid=' .$userid);
         return view('AddProfile',['pdata'=>$showdata,'uwork'=>$showwork,'files'=>$fileData]);
+    }
+    public function uploadPhoto(Request $request)
+    {
+        $userid=$request->input('userid');
+        // Validate the uploaded file
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,pdf,docx,',
+        ]);
+        
+        // Get the uploaded file
+        $file = $request->file('file');
+       
+        $userid = Auth()->user()->id;
+
+        // Generate a unique name for the file
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        
+        // Move the uploaded file to the desired location
+        $file->move(public_path('uploads'), $fileName);
+
+        // Save file details to the database
+        $savedFile = new File();
+        $savedFile->userid = $userid; 
+        $savedFile->filename = $fileName;
+        $savedFile->original_name = $file->getClientOriginalName();
+        $savedFile->save();
+        // dd($savedFile);
+        // Return a success response
+        $showData = DB::select('select * from homepage');
+        $fileData=DB::select('select * from files where userid=' .$userid);
+
+        return view('Eadminhome',['files'=>$fileData,'show'=>$showData]);
     }
     public function showFile($id)
     {

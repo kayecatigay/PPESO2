@@ -80,6 +80,7 @@ Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'g
 Route::get('/upload', [App\Http\Controllers\FileUploadController::class, 'showUploadForm']);
 Route::post('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
 
+
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 
 Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
@@ -203,9 +204,15 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
 
-    Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
     Route::get('/ehome', [App\Http\Controllers\EditController::class, 'homeedit']);
     Route::get('/insertEdit', [App\Http\Controllers\EditController::class, 'insertData']);
+    Route::post('/uploadPic', [App\Http\Controllers\EditController::class, 'uploadPic']);
+
+    Route::post('/uploadphoto', [App\Http\Controllers\FileUploadController::class, 'uploadPhoto']);
     
+
 });
+Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
+
+
 
