@@ -29,6 +29,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $showdata = DB:: select('select * from homepage');
+        // dd($request->input('file'));
         return view('home',['show'=>$showdata]);
     }
     public function news()
