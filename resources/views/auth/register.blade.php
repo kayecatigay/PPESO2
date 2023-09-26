@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="w3 card w3-white" style="opacity:0.5">
+                    <div class="w3 card w3-white" style="opacity:0.7">
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
@@ -96,8 +96,12 @@
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Register') }}
                                         </button>
+                                        <a class="btn btn-primary" href="{{ route('login') }}">
+                                            {{ __('Login') }}
+                                        </a>
                                     </div>
                                 </div>
+                                
                             </form>
                         </div>
                     </div>
