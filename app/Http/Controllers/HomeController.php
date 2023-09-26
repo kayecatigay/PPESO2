@@ -44,5 +44,17 @@ class HomeController extends Controller
     {
         return view('policy');
     }
+    public function choose()
+    {
+        return view('choosing');
+    }
+    public function localReq()
+    {
+        return view('cLocal');
+    }
+    public function OseasReq()
+    {
+        return view('cOverseas');
+    }
 }
 ?>

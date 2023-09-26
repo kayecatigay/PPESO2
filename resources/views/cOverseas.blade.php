@@ -35,8 +35,8 @@
                                                         <div class="w3-dropdown-click">
                                                             <button onclick="myFunction()" class="btn btn-primary">Register</button>
                                                             <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-                                                            <a href="#" class="w3-bar-item w3-button">Local</a>
-                                                            <a href="#" class="w3-bar-item w3-button">Overseas</a>
+                                                            <a href="/empLocal" class="w3-bar-item w3-button">Local</a>
+                                                            <a href="/empOvers" class="w3-bar-item w3-button">Overseas</a>
                                                             </div>
                                                         </div>
                                                 </div>

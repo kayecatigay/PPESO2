@@ -21,6 +21,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 Auth::routes(['verify' => true]);
+Route::get('/choose', [App\Http\Controllers\HomeController::class, 'choose']);
+Route::get('/empLocal', [App\Http\Controllers\HomeController::class, 'localReq']);
+Route::get('/empOvers', [App\Http\Controllers\HomeController::class, 'OseasReq']);
 
 Route::get('profile', function () {
     // Only verified users may enter...
