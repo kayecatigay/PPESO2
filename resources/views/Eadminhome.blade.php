@@ -4,14 +4,13 @@
 @section('homecontent')
 <!-- ======= Hero Section ======= -->
    
-<section id="hero" class="d-flex align-items-center justify-content-center">
-  
+    <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             <div class="col-xl-6 col-lg-8">
               <form action="/ehome">
                 @if(isset(Auth()->user()->roles))
-                  @if((Auth()->user()->roles)==5)
+                  @if (Auth::check() && in_array(Auth::user()->roles, range(1, 5)))
                   <input type="submit" value="Edit">
                   @endif
                 @endif
