@@ -5,6 +5,7 @@
 <body class="img js-fullheight" style="background-image: url(assets/images/bg.jpg);">
     <section class="ftco-section">
         <form action="">
+            @csrf
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-sm-6 col-md-11">
@@ -13,7 +14,35 @@
                                 <h2>Requirements</h2>
                                 <h6>Local Employer</h6>
                             </div>
-
+                            <div class="card-body">
+                                <input type="file" name="file" required>
+                                <input type="hidden" id="userid" name="userid" > 
+                                <button type="submit">Upload</button>
+                                <div class="card-body">
+                                    <div class="container table-container">
+                                    
+                                        <table class="table" style="text-align:center;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">File Name</th>
+                                                    <th scope="col">Original Name</th>
+                                                    <th scope="col">Created At</th>
+                                                    <th scope="col">Updated At</th>            
+                                                    <th scope="col">Action</th>            
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>filename</td>
+                                                    <td>original_name</td>
+                                                    <td>created_at</td>
+                                                    <td>updated_at</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                     @csrf
                                     
@@ -31,14 +60,4 @@
     </section>
 </body>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("Demo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
 @endsection
