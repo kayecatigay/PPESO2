@@ -1,4 +1,6 @@
-
+<header id="header" >
+        <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
+    </header>
 <style>
    /* Set the table container to overflow horizontally */
    #table {

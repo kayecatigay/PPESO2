@@ -1,7 +1,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <header id="header" >
+        <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
+    </header>
     <!-- Main Content -->
     <div id="content">
 
@@ -13,8 +15,6 @@
             @section('dashboard')
                 <!-- Page Heading -->
                 <div style="display: block; margin-left: auto; margin-right: auto; width: 80%;">
-                    <BR>
-                        <h1 style="text-align:center;" class="h3 mb-0 text-gray-800">PROVINCIAL PESO SERVICES MANAGEMENT SYSTEM</h1> <BR>
                         <h3 style="text-align:center;" class="h3 mb-0 text-gray-800">DASHBOARD</h3> <br>
                     
                 </div>

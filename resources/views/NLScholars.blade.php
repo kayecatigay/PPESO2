@@ -1,4 +1,6 @@
-
+<header id="header" >
+        <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
+    </header>
 <style>
    /* Set the table container to overflow horizontally */
 
@@ -17,7 +19,7 @@
    }
 </style>   
                        
-      <div class="col-xl-20">
+      <div class="col-xl-19">
          <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <div class="row">
