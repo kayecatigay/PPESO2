@@ -24,6 +24,7 @@ Auth::routes(['verify' => true]);
 Route::get('/choose', [App\Http\Controllers\HomeController::class, 'choose']);
 Route::get('/empLocal', [App\Http\Controllers\HomeController::class, 'localReq']);
 Route::get('/iCompany', [App\Http\Controllers\HomeController::class, 'inserts']);
+Route::get('/updateAll', [App\Http\Controllers\HomeController::class, 'update']);
 Route::get('/empOvers', [App\Http\Controllers\HomeController::class, 'OseasReq']);
 
 Route::get('profile', function () {
@@ -95,6 +96,7 @@ Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 
 Route::get('/send-email',[MailController::class,'sendEmail']);
 
+Route::get('/needapproval', [App\Http\Controllers\HomeController::class, 'napproval']);
 
 Route::middleware("admin")->group(function () {
 

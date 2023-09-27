@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.noheaderfooter')
 
 @section('content')
 
@@ -16,34 +16,34 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    
-                                    <div class="col form-group">
+                                    <div class="col-14 form-group">
                                         <label for="rep">Representative:</label> <br>
-                                        <input type="text" placeholder="Fist name" id="fname" name="fname">
+                                        <label for="rep">First name:</label>
+                                        <input type="text" placeholder="Fist name" id="fname" name="fname" >
+                                        <label for="rep">Middle name:</label>
                                         <input type="text" placeholder="Middle name" id="mname" name="mname">
-                                        <input type="text" placeholder="Last name" id="lname" name="lname">
+                                        <label for="rep">Last name:</label>
+                                        <input type="text" placeholder="Last name" id="lname" name="lname" >
                                     </div>
-                                    <div class="col form-group">
-                                       <label for="pass"> Password:</label>
-                                        <input type="password" id="pass" name="pass" >
-                                        
-                                    </div>
-                                </div>
+                                </div><br>
+                                
                                 <div class="row">
                                     <div class="col form-group">
                                         <label for="cname">Company Name:</label>
-                                        <input type="text" id="cname" name="cname">
+                                        <input type="text" size="20;" id="cname" name="cname">
                                     </div>
                                     <div class="col form-group">
                                        <label for="email"> Email Address:</label>
-                                        <input type="email" id="email" name="email" ><br>
+                                        <input type="email" size="30;" id="email" name="email" ><br>
                                     </div>
                                     <div class="col form-group">
                                         <label for="contact">Contact Number:</label>
-                                        <input type="text" id="contact" name="contact" ><br>
+                                        <input type="text" size="30;" id="contact" name="contact" ><br>
                                     </div>
-                                    
-                                    
+                                    <div class="col form-group">
+                                       <label for="pass"> Password:</label>
+                                        <input type="password" size="20;" id="pass" name="pass" value="1111">
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

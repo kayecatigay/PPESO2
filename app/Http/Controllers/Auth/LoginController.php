@@ -43,8 +43,7 @@ class LoginController extends Controller
             // dd(auth()->user()->roles);
             if(auth()->user()->roles==99)
             {
-                dd("need approval from ppeso");
-                exit;
+                return '/needapproval';
             }
             if (auth()->user()->roles) {
                 return '/adminhomepage';

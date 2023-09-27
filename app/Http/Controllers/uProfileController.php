@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class uProfileController extends Controller
 {
-    public function phome()
+    public function phome(Request $request)
     {
         $name=Auth::user()->name;
         $userid=Auth::user()->id;
@@ -17,9 +17,11 @@ class uProfileController extends Controller
         $company = DB:: select('select * from company where representative="' .$name. '"');
         if($company)
         {
+ 
             $fileData=DB::select('select * from reqs where userid=' .$userid);
             $showData=DB::select('select * from company where representative="' .$name. '"');
             $showNames=DB::select('select * from users where id=' .$userid);
+
             return view ('comprofile',['show'=>$showData,'name'=>$showNames,'files'=>$fileData]);
         }
         else

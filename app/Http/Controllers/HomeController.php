@@ -55,11 +55,11 @@ class HomeController extends Controller
         return view('cLocal');
     }
     public function inserts(Request $request)
-    {
+    {    
         $pass=Hash::make($request->input('pass'));
         // dd( $pass));
         $representative=$request->input('lname').',' .$request->input('fname').' '.$request->input('mname');
-
+        
         $insertData= DB :: insert ('insert into company(cname, contact, email, representative) 
         values("' .$request->input('cname') .'","' .$request->input('contact') .'",
         "' .$request->input('email') .'","' .$representative .'")');
@@ -70,9 +70,41 @@ class HomeController extends Controller
 
         return redirect('home');
     }
+    public function update(Request $request)
+    {
+        $name = Auth::user()->name;
+        $userid = Auth::user()->id;
+    
+        $fileData = DB::select('select * from reqs where userid=' . $userid);
+    
+        $showData = DB::update('update company set cname="' . $request->input('cname') . '", contact="' . $request->input('contact') . '", email="' . $request->input('email') . '", representative="' . $request->input('rep') . '" where id=' . $userid);
+    
+        $showNames = DB::update('update users set firstname="' . $request->input('fname') . '", middlename="' . $request->input('mname') . '", lastname="' . $request->input('lname') . '" where name="' . $name . '"');
+    
+        // Check if $showData and $showNames are successful updates
+        if ($showData !== false && $showNames !== false) {
+            // Reload the updated data
+            $fileData = DB::select('select * from reqs where userid=' . $userid);
+    
+            // Retrieve user data again
+            $showData = DB::select('select * from company where id=' . $userid);
+            $showNames = DB::select('select * from users where name="' . $name . '"');
+    
+            return view('comprofile', ['show' => $showData, 'name' => $showNames, 'files' => $fileData]);
+        } else {
+            // Handle the case where the updates fail
+            return redirect()->back()->with('error', 'Failed to update profile.');
+        }
+    }
+    
     public function OseasReq()
     {
         return view('cOverseas');
     }
+    public function napproval()
+    {
+        return view('needapproval');
+    }
+
 }
 ?>
