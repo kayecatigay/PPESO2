@@ -146,10 +146,11 @@ class AdminController extends Controller
     }
     public function editUdata(Request $request)
     {
+        $smenus=$this->getLinks();
         $userID = $request->input('usrID');
         $showdata = DB::select('select * from users where id=' .$userID);
         // dd($userID);
-        return view('editUdata',['usr'=>$showdata]);
+        return view('editUdata',['usr'=>$showdata,'smenu'=>$smenus]);
     }
     public function updateUdata(Request $request)
     {

@@ -11,9 +11,24 @@ class uProfileController extends Controller
 {
     public function phome()
     {
+        $name=Auth::user()->name;
+        $userid=Auth::user()->id;
+
+        $company = DB:: select('select * from company where representative="' .$name. '"');
+        if($company)
+        {
+            $fileData=DB::select('select * from reqs where userid=' .$userid);
+            $showData=DB::select('select * from company where representative="' .$name. '"');
+            $showNames=DB::select('select * from users where id=' .$userid);
+            return view ('comprofile',['show'=>$showData,'name'=>$showNames,'files'=>$fileData]);
+        }
+        else
+        {
+            return view ('uProfile');
+        }
         // $profhome=DB::select('select * from users');
         // return view ('uProfile',['pr'=>$profhome]);
-        return view ('uProfile');
+        
     }
     public function addP(Request $request)
     {

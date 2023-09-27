@@ -23,6 +23,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('/choose', [App\Http\Controllers\HomeController::class, 'choose']);
 Route::get('/empLocal', [App\Http\Controllers\HomeController::class, 'localReq']);
+Route::get('/iCompany', [App\Http\Controllers\HomeController::class, 'inserts']);
 Route::get('/empOvers', [App\Http\Controllers\HomeController::class, 'OseasReq']);
 
 Route::get('profile', function () {
@@ -82,7 +83,7 @@ Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'g
 
 Route::get('/upload', [App\Http\Controllers\FileUploadController::class, 'showUploadForm']);
 Route::post('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'uploadFile']);
-
+Route::post('/uploadReqs', [App\Http\Controllers\FileUploadController::class, 'uploadReqs']);
 
 Route::get('/contactus', [App\Http\Controllers\ContactController::class, 'index']);
 

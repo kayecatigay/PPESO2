@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\reqs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class FileUploadController extends Controller
 {
@@ -111,5 +114,36 @@ class FileUploadController extends Controller
         // If the file doesn't exist, you can handle the error as needed
         abort(404, 'File not found');
     }
-    
+    public function uploadReqs(Request $request)
+    {
+
+        $userid=$request->input('userid');
+        // Validate the uploaded file
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,pdf,docx,',
+        ]);
+        
+        // Get the uploaded file
+        $file = $request->file('file');
+       
+        $userid = Auth()->user()->id;
+
+        // Generate a unique name for the file
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        
+        // Move the uploaded file to the desired location
+        $file->move(public_path('uploads'), $fileName);
+
+        // Save file details to the database
+        $savedFile = new reqs();
+        $savedFile->userid = $userid; 
+        $savedFile->filename = $fileName;
+        $savedFile->original_name = $file->getClientOriginalName();
+        $savedFile->save();
+        // dd($savedFile);
+        // Return a success response
+ 
+return redirect('userprofile');
+       
+    }
 }

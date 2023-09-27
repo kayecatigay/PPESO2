@@ -40,9 +40,17 @@ class LoginController extends Controller
     }
     protected function redirectPath()
         {
+            // dd(auth()->user()->roles);
+            if(auth()->user()->roles==99)
+            {
+                dd("need approval from ppeso");
+                exit;
+            }
             if (auth()->user()->roles) {
                 return '/adminhomepage';
-            } else {
+            }
+             else {
+                
                 if (session('routeto')=="") {
                     return '/home';
                 }
