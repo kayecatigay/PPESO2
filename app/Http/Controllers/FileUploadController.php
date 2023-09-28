@@ -41,7 +41,7 @@ class FileUploadController extends Controller
         $savedFile->filename = $fileName;
         $savedFile->original_name = $file->getClientOriginalName();
         $savedFile->save();
-        dd($savedFile);
+        // dd($savedFile);
         // Return a success response
 
         $showdata = DB::select('select * from uprofile where userid=' .$userid);

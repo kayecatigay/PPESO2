@@ -108,6 +108,11 @@ class HomeController extends Controller
     {
         return view('needapproval');
     }
-
+    public function deletecol(Request $request)
+    {
+        DB::delete("DELETE FROM reqs WHERE id = " .$request->input('delId'));
+        // dd($request->input('delId'));
+        return view('comprofile');
+    }
 }
 ?>

@@ -193,6 +193,14 @@
                         <option value="2001">2001</option>
                         <option value="2000">2000</option>
                         <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1994">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
                     </select>
                 </div>
                 <div class="col">
@@ -415,8 +423,6 @@
                                 <td>
                                         
                                     <span class="input-group">
-                                        
-                                    
                                         <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $file->id }}">
                                         Delete
                                         </button>

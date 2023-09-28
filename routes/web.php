@@ -26,6 +26,8 @@ Route::get('/empLocal', [App\Http\Controllers\HomeController::class, 'localReq']
 Route::get('/iCompany', [App\Http\Controllers\HomeController::class, 'inserts']);
 Route::get('/updateAll', [App\Http\Controllers\HomeController::class, 'update']);
 Route::get('/empOvers', [App\Http\Controllers\HomeController::class, 'OseasReq']);
+Route::get('/deleteReq', [App\Http\Controllers\HomeController::class, 'deletecol']);
+
 
 Route::get('profile', function () {
     // Only verified users may enter...
