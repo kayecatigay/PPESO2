@@ -7,8 +7,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <br><br><br><br><br><br><h1 class="font-weight-bold" style="color:white; text-align:center; ">
-                    NEED APPROVAL FROM PPESO</h1> <br><br>
+                    <br><br><br><br><br><br>
+                    <h1 class="font-weight-bold" style="color:white; text-align:center; ">
+                    NEED APPROVAL FROM PPESO</h1>
+                    <h3 class="font-weight-bold" style="color:white; text-align:center; ">
+                    PASS THE <a href="userprofile">REQUIREMENTS</a>  FIRST</h3> <br><br>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-5">
                                 <a class="btn btn-dark" href="{{ route('login') }}">

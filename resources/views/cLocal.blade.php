@@ -13,6 +13,7 @@
                             <div class="card-header" style="text-align:center; ">
                                 <h2>Registration</h2>
                                 <h6>Local Employer</h6>
+                                <input type="text" id="type" name="type" value="local">
                             </div>
                             <div class="card-body">
                                 <div class="row">

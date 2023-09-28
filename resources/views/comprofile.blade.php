@@ -55,14 +55,32 @@
                                     </div>
                             </div>
                             </form>
-                            <div>
-                            <h4 style="text-align:center" >Requirements</h4><br>
+                            <div style="text-align:center;">
+                                <div class="btn-group dropdown">
+                                    <h4 style="text-align:center">List of Requirements: &emsp;</h4>
+                                    <button class="dropdown-toggle" type="button" style="border:none; color:none;" 
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Show
+                                    </button>
+                                    <input type="hidden" id="type" name="type" value="{{$show[0]->type}}">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="requirementsDropdown">
+                                        <li class="dropdown-item">Company Profile</li>
+                                        <li class="dropdown-item">Business Permit</li>
+                                        <li class="dropdown-item">Mayor's Permit</li>
+                                        <li class="dropdown-item">Barangay Clearance</li>
+                                        <li class="dropdown-item">NBI Clearance</li>
+                                        <li class="dropdown-item">Philjob.net accreditation</li>
+                                        
+                                        <li class="dropdown-item">Certificate of no objection-file</li>
+                                        <li class="dropdown-item">DMW SRA Permit File</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <form method="POST" action="/uploadReqs" enctype="multipart/form-data">
                                     @csrf
-                                <div class="container">
+                                <div class="container" style="text-align: center;"><br>
                                     <input type="file" name="file" required>
                                     <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> 
-                                    &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
                                     <button type="submit">Upload</button>
                                 </div>
                                     
@@ -98,8 +116,8 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-5">
                                 <a  class="btn btn-primary"  href="home" value="Back">Back</a>
-                                </div>
-                            </div>
+                                </div> 
+                            </div><br>
                         </div>
                     </div>
                 </div>
@@ -107,5 +125,28 @@
         
     </section>
 </body>
-
+<script>
+    // Get the value of {{$show[0]->type}}
+    var typeValue = document.getElementById("type").value;
+    
+    // Get the dropdown menu element
+    var dropdownMenu = document.getElementById("requirementsDropdown");
+    
+    // Check the value and show/hide items accordingly
+    if (typeValue === "overseas") {
+        // If {{$show[0]->type}} is overseas, show all items
+        dropdownMenu.style.display = "block";
+    } 
+    else {
+        // If {{$show[0]->type}} is local, show only the first 6 items
+        var dropdownItems = dropdownMenu.getElementsByClassName("dropdown-item");
+        for (var i = 0; i < dropdownItems.length; i++) {
+            if (i < 6) {
+                dropdownItems[i].style.display = "block";
+            } else {
+                dropdownItems[i].style.display = "none";
+            }
+        }
+    }
+</script>
 @endsection

@@ -56,13 +56,14 @@ class HomeController extends Controller
     }
     public function inserts(Request $request)
     {    
+        $type=$request->input('type');
         $pass=Hash::make($request->input('pass'));
-        // dd( $pass));
+        // dd( $type);
         $representative=$request->input('lname').',' .$request->input('fname').' '.$request->input('mname');
         
-        $insertData= DB :: insert ('insert into company(cname, contact, email, representative) 
-        values("' .$request->input('cname') .'","' .$request->input('contact') .'",
-        "' .$request->input('email') .'","' .$representative .'")');
+        $insertData= DB :: insert ('insert into company(type, cname, contact, email, representative) 
+        values("' .$type .'","' .$request->input('cname') .'",
+        "' .$request->input('contact') .'","' .$request->input('email') .'","' .$representative .'")');
 
         $insertRep= DB :: insert ('insert into users (roles, name, lastname, firstname, middlename, email, password)
         values(99,"' .$representative .'","' .$request->input('lname') .'","' .$request->input('fname') .'",
@@ -81,6 +82,7 @@ class HomeController extends Controller
     
         $showNames = DB::update('update users set firstname="' . $request->input('fname') . '", middlename="' . $request->input('mname') . '", lastname="' . $request->input('lname') . '" where name="' . $name . '"');
     
+        
         // Check if $showData and $showNames are successful updates
         if ($showData !== false && $showNames !== false) {
             // Reload the updated data
@@ -95,9 +97,10 @@ class HomeController extends Controller
             // Handle the case where the updates fail
             return redirect()->back()->with('error', 'Failed to update profile.');
         }
+        // dd($showData);
     }
     
-    public function OseasReq()
+    public function OseasReq(Request $request)
     {
         return view('cOverseas');
     }
