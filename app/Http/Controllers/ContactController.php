@@ -96,26 +96,27 @@ class ContactController extends Controller
         // redirect('SendSms');
     }
     public function sendSms(Request $request)
-{
-    $mobile = $request->input('mobile');
-    $message = $request->input('message');
-    $apicode = $request->input('apicode');
+    {
+        $mobile = $request->input('mobile');
+        $message = $request->input('message');
+        $apicode = $request->input('apicode');
 
-    // dd($apicode);
+        // dd($apicode);
 
-    $response = $this->sendssms($mobile, $message, $apicode);
+        $response = $this->sendssms($mobile, $message, $apicode);
 
-    if (isset($response['success']) && $response['success']) {
-        // If the 'success' key is set to true in the response, you can return a success view
-        return view('messages'); // Replace 'success' with the actual view name
-    } else {
-        // If there was an error sending the SMS or the 'success' key is not set, you can return an error view
-        session()->flash('error', 'There was an error sending the SMS.');
+        if (isset($response['success']) && $response['success']) {
+            // If the 'success' key is set to true in the response, you can return a success view
+            return view('messages'); // Replace 'success' with the actual view name
+        } else {
+            // If there was an error sending the SMS or the 'success' key is not set, you can return an error view
+            session()->flash('error', 'There was an error sending the SMS.');
 
-        // Then, redirect back to the view where you want to display the alert
-        return redirect()->back();    }
-    
-}
+            // Then, redirect back to the view where you want to display the alert
+            return redirect()->back();    
+        }
+        
+    }
 
 }
 ?>

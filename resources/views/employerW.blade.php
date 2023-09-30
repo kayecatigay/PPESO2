@@ -24,6 +24,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Email Address</th>
                         <th scope="col">Company Name</th>
+                        <th scope="col">Representative</th>
                         <th scope="col">Action</th>
                       </tr>
                   </thead>
