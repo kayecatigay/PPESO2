@@ -74,7 +74,7 @@ class HomeController extends Controller
         values(99,"' .$representative .'","' .$request->input('lname') .'","' .$request->input('fname') .'",
         "' .$request->input('mname') .'","' .$request->input('email') .'","' .$pass .'")');
 
-        return redirect('home');
+        return redirect('/homeEmp');
     }
     public function update(Request $request)
     {

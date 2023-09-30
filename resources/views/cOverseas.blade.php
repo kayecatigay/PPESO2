@@ -13,7 +13,7 @@
                             <div class="card-header" style="text-align:center; ">
                                 <h2>Registration</h2>
                                 <h6>Overseas Employer</h6>
-                                <input type="text" id="type" name="type" value="overseas">
+                                <input type="hidden" id="type" name="type" value="overseas">
                             </div>
                             <div class="card-body">
                                 <div class="row">
