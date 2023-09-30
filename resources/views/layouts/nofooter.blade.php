@@ -188,25 +188,11 @@
                 <li><i class="bx bx-chevron-right"></i> <a href="aboutus">About us</a></li>
               </ul>
             </div>
-
             <div class="col-lg-3 col-md-6 footer-links">
-              <!-- <br> <br>
-              <h4>Our Services</h4>
-              <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="scholarhomepage">PEAP</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="employmenthomepage">Employment</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="ofwhomepage">OFW Assistance Program</a></li>
-              </ul> -->
+              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminlogo.png') ?>" alt="Oriental Mindoro Official Logo" style="width:200px;height:200px;"></a>
             </div>
-
-            <div class="col-lg-4 col-md-6 footer-newsletter">
-              <br> <br>
-              <h4>Email</h4>
-              <p>Send us a message.</p>
-              <form action="" method="post">
-                <input type="email" name="email"><input type="submit" value="Subscribe">
-              </form>
-
+            <div class="col-lg-4 col-md-6 footer-links">
+              <a target="_blank" href="https://ph.polomap.com/calapan-city/9285"><img src="<?= url('assets/img/pesologooo.png') ?>" alt="Public Employment Services Office Official Logo" style="width:200px;height:200px;"></a>
             </div>
           @show
           </div>

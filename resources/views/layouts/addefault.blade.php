@@ -113,12 +113,15 @@
                         </div>
 
                         <!-- Nav Item - Pages Collapse Menu -->
-                        <li class="nav-item">
+                        @if(Auth::user()->roles == 5)
+                            <li class="nav-item">
                                 <a class="nav-link" href="usersD" aria-expanded="true" aria-controls="collapsePages">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <span>Users</span>
-                            </a>
-                        </li>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    <span>Users</span>
+                                </a>
+                            </li>
+                        @endif
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="SendSms" aria-expanded="true" aria-controls="collapsePages">

@@ -202,13 +202,8 @@
             </div>
 
             <div class="col-lg-4 col-md-6 footer-newsletter">
-              <br> <br>
-              <h4>Email</h4>
-              <p>Send us a message.</p>
-              <form action="" method="post">
-                <input type="email" name="email"><input type="submit" value="Subscribe">
-              </form>
-
+              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminlogo.png') ?>" alt="Oriental Mindoro Official Logo" style="width:160px;height:160px;"></a>
+              <a target="_blank" href="https://ph.polomap.com/calapan-city/9285"><img src="<?= url('assets/img/pesologooo.png') ?>" alt="Public Employment Services Office Official Logo" style="width:160px;height:160px;"></a>
             </div>
           @show
           </div>

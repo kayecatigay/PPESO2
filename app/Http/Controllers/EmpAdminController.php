@@ -349,21 +349,16 @@ class EmpAdminController extends Controller
     public function employers()
     {
         $smenus=(new AdminController)->getLinks();
-        $employers= DB::select('
-        SELECT *
-        FROM users
-        INNER JOIN uprofile 
-        ON users.id = uprofile.userid
-        WHERE users.roles = 4;
-        
-        ');
+        $employers = DB :: select('select * from company');
+        // dd($employers);
+        // $employers= DB::select(" SELECT * FROM company INNER JOIN users ON company.representative = users.name WHERE users.name = `.$name`;");
         // $employers = DB::select('select * from users where roles = 4');
         return view('employerW',['employer'=>$employers,'smenu'=>$smenus]);
     }
     public function delEmp(Request $request)
     {
         $smenus=(new AdminController)->getLinks();
-        DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
-        return redirect ('EmployerW',['smenu'=>$smenus]);
+        DB::delete("DELETE FROM company WHERE id = " .$request->input('delId'));
+        return view ('EmployerW',['smenu'=>$smenus]);
     }
 }
