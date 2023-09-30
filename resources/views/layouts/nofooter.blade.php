@@ -64,10 +64,7 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-            <li><a class="nav-link scrollto" href="\home">Home </a></li>
-            <li><a class="nav-link scrollto" href="\services">Services</a></li>
-            <li><a class="nav-link scrollto" href="\contactus">Contact Us</a></li>
-            <li><a class="nav-link scrollto" href="\announcements">Announcements</a></li>
+            <li><a class="nav-link scrollto" href="\homeEmp">Home </a></li>
             @guest
             @else        
               @if  (Auth::user()->roles>0)
@@ -75,23 +72,7 @@
               @endif
             @endguest
             
-            <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li> -->
+           
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -176,8 +157,75 @@
     </div>
 
   @show
-<!-- ======= Homepage Section ======= -->
-  
+<!-- ======= Footer ======= -->
+@section('footer')
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+          @section('footercontent')
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>For more info <span>:</span></h3>
+                <p>
+                Provincial Capitol Compound <br>
+                Nucable Avenue Extension <br>
+                Brgy. Camilmil, Calapan City <br>
+                Oriental Mindoro
+                Philippines, 5200 <br> <br>
+                  <strong>Phone:</strong> 288-7253<br>
+                  <strong>Email:</strong> ppeso@ormindoro.gov.ph<br>
+                  <strong>Fb Page:</strong> OrientalMindoro Peso<br>
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <br> <br> 
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="aboutus">About us</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <!-- <br> <br>
+              <h4>Our Services</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="scholarhomepage">PEAP</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="employmenthomepage">Employment</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="ofwhomepage">OFW Assistance Program</a></li>
+              </ul> -->
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <br> <br>
+              <h4>Email</h4>
+              <p>Send us a message.</p>
+              <form action="" method="post">
+                <input type="email" name="email"><input type="submit" value="Subscribe">
+              </form>
+
+            </div>
+          @show
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>PPESO</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

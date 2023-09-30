@@ -105,13 +105,16 @@ class ContactController extends Controller
 
     $response = $this->sendssms($mobile, $message, $apicode);
 
-    if ($response['success']) {
-        // If the SMS was sent successfully, you can return a success view
-        return view('success'); // Replace 'success' with the actual view name
+    if (isset($response['success']) && $response['success']) {
+        // If the 'success' key is set to true in the response, you can return a success view
+        return view('messages'); // Replace 'success' with the actual view name
     } else {
-        // If there was an error sending the SMS, you can return an error view
-        return view('error'); // Replace 'error' with the actual view name
-    }
+        // If there was an error sending the SMS or the 'success' key is not set, you can return an error view
+        session()->flash('error', 'There was an error sending the SMS.');
+
+        // Then, redirect back to the view where you want to display the alert
+        return redirect()->back();    }
+    
 }
 
 }

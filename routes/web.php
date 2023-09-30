@@ -35,6 +35,7 @@ Route::get('profile', function () {
     })->middleware('verified');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/homeEmp', [App\Http\Controllers\HomeController::class, 'emphome']);
 Route::get('/announcements', [App\Http\Controllers\HomeController::class, 'news']);
 Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'about']);
 Route::get('/policy', [App\Http\Controllers\HomeController::class, 'ppolicy']);

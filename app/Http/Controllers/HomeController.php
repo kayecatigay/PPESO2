@@ -34,6 +34,11 @@ class HomeController extends Controller
         // dd($request->input('file'));
         return view('home',['show'=>$showdata]);
     }
+    public function emphome()
+    {
+        $showdata = DB:: select('select * from homepage');
+        return view ('homeEmployer',['show'=>$showdata]);
+    }
     public function news()
     {
         return view('announcements');

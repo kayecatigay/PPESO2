@@ -42,12 +42,17 @@
                 <!-- Sidebar -->
                 <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar" >
                     @section('sidebar content')
-
+                    
+                    
+                    <div class="text-center d-none d-md-inline">
+                        <button class="btn" onclick="history.back()"><i class="fa fa-undo" aria-hidden="true"></i></button>
+                    </div> 
                         <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admindashboard">
                             <div class="sidebar-brand-icon rotate-n-15">
                                 <i class="bi bi-person-workspace"></i>
                             </div>
+                            
                             <div class="sidebar-brand-text mx-3">Ppeso Admin </div>
                         </a>
 
