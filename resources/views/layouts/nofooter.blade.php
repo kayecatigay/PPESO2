@@ -158,59 +158,6 @@
 
   @show
 <!-- ======= Footer ======= -->
-@section('footer')
-    <footer id="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-          @section('footercontent')
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-info">
-                <h3>For more info <span>:</span></h3>
-                <p>
-                Provincial Capitol Compound <br>
-                Nucable Avenue Extension <br>
-                Brgy. Camilmil, Calapan City <br>
-                Oriental Mindoro
-                Philippines, 5200 <br> <br>
-                  <strong>Phone:</strong> 288-7253<br>
-                  <strong>Email:</strong> ppeso@ormindoro.gov.ph<br>
-                  <strong>Fb Page:</strong> OrientalMindoro Peso<br>
-                </p>
-              </div>
-            </div>
-
-            <div class="col-lg-2 col-md-6 footer-links">
-              <br> <br> 
-              <h4>Useful Links</h4>
-              <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="aboutus">About us</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 footer-links">
-              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminlogo.png') ?>" alt="Oriental Mindoro Official Logo" style="width:200px;height:200px;"></a>
-            </div>
-            <div class="col-lg-4 col-md-6 footer-links">
-              <a target="_blank" href="https://ph.polomap.com/calapan-city/9285"><img src="<?= url('assets/img/pesologooo.png') ?>" alt="Public Employment Services Office Official Logo" style="width:200px;height:200px;"></a>
-            </div>
-          @show
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright <strong><span>PPESO</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-        </div>
-      </div>
-    </footer><!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
