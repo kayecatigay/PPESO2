@@ -11,12 +11,10 @@
                     <h1 class="font-weight-bold" style="color:white; text-align:center; ">
                     NEED APPROVAL FROM PPESO</h1>
                     <h3 class="font-weight-bold" style="color:white; text-align:center; ">
-                    PASS THE <a href="userprofile">REQUIREMENTS</a>  FIRST</h3> <br><br>
+                    PASS THE <a href="/userprofile">REQUIREMENTS</a>  FIRST</h3> <br><br>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-5">
-                                <a class="btn btn-dark" href="{{ route('login') }}">
-                                    {{ __('Back') }}
-                                </a>
+                                <a  class="btn btn-primary"  href="homeEmp" value="Back">Back</a>
                             </div>
                         </div>
                 </div>
