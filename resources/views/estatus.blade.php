@@ -21,7 +21,7 @@
                 <table class="table"style="text-align:center;">
                   <thead>
                       <tr>
-                        <th scope="col">Application Id</th>
+                        <th scope="col">Applicant Name</th>
                         <th scope="col">Date</th>
                         <th scope="col">Position Desired</th>
                         <th scope="col">Company</th>
@@ -32,9 +32,9 @@
                       </tr>
                   </thead>
                   <tbody>
-                    @foreach ($status as $emp)
+                    @foreach ($status as $key => $emp)
                       <tr>
-                        <td>{{ $emp->appId }}</td>
+                        <td>{{ $eName[$key]->name }}</td>
                         <td>{{ $emp->date }}</td>
                         <td>{{ $emp->posidesired }}</td>
                         <td>{{ $emp->cname }}</td>

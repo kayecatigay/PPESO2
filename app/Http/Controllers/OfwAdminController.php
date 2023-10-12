@@ -182,7 +182,11 @@ class OfwAdminController extends Controller
     {
         $smenus=(new AdminController)->getLinks();
         $ostatus=DB::select('select * from ofw');
-        return view('ostatus',['status'=>$ostatus,'smenu'=>$smenus]);
+        $ofwData = DB ::select('
+        SELECT users.name
+        FROM users
+        INNER JOIN ofw ON users.id = ofw.userid; ');
+        return view('ostatus',['status'=>$ostatus,'oName'=>$ofwData,'smenu'=>$smenus]);
     }
     public function onotif(Request $request)
     {

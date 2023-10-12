@@ -20,7 +20,7 @@
               <table class="table" style="text-align:center;">
                 <thead>
                     <tr>
-                      <th scope="col">Application ID</th>
+                      <th scope="col">Applicant Name</th>
                       <th scope="col">Date</th>
                       <th scope="col">Job Description</th>
                       <th scope="col">Ofw Category</th>
@@ -32,10 +32,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($status as $odata)
+                    @foreach($status as $key => $odata)
                       <tr>
 
-                          <td>{{$odata->appID}}</td>
+                          <td>{{ $oName[$key]->name }}</td>
                           <td>{{$odata->date}}</td>
                           <td>{{$odata->JobDesc}}</td>
                           <td>{{$odata->OfwCat}}</td>

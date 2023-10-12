@@ -287,7 +287,11 @@ class EmpAdminController extends Controller
     {
         $smenus=(new AdminController)->getLinks();
         $estatus=DB::select('select * from employment');
-        return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
+        $empData = DB ::select('
+        SELECT users.name
+        FROM users
+        INNER JOIN employment ON users.id = employment.userid; ');
+        return view('estatus',['status'=>$estatus,'eName'=>$empData,'smenu'=>$smenus]);
     }
     public function enotif(Request $request)
     {

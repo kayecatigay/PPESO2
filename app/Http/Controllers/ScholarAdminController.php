@@ -203,7 +203,12 @@ class ScholarAdminController extends Controller
     {
         $smenus=(new AdminController)->getLinks();
         $pstatus=DB::select('select * from scholarship');
-        return view('pstatus',['status'=>$pstatus,'smenu'=>$smenus]);
+        $peapData = DB ::select('
+        SELECT users.name
+        FROM users
+        INNER JOIN scholarship ON users.id = scholarship.userid; ');
+        // dd($peapData);
+        return view('pstatus',['status'=>$pstatus,'pName'=>$peapData,'smenu'=>$smenus]);
     }
     public function pnotif(Request $request)
     {

@@ -21,19 +21,20 @@
                 <table class="table" style="text-align:center;">
                   <thead>
                       <tr>
-                        <th scope="col">Application Id</th>
+                        <th scope="col">Applicant Name</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($status as $sc)
-                    <tr>
-                      <td>{{ $sc->appId }}</td>
-                      <td>{{ $sc->date }}</td>
-                      <td>{{ $sc->status }}</td>
-                      <td>
+                     
+                  @foreach ($status as $key => $sc)
+                     <tr>
+                        <td>{{ $pName[$key]->name }}</td>
+                        <td>{{ $sc->date }}</td>
+                        <td>{{ $sc->status }}</td>
+                        <td>
                            <span class="input-group">
 
                               @if ($sc->status=="pending")
