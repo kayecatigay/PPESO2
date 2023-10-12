@@ -28,10 +28,9 @@
                       </tr>
                   </thead>
                   <tbody>
-                     
-                  @foreach ($status as $key => $sc)
+                  @foreach ($status as  $sc)
                      <tr>
-                        <td>{{ $pName[$key]->name }}</td>
+                     <td>{{ $pName[$loop->index]->name }}</td>
                         <td>{{ $sc->date }}</td>
                         <td>{{ $sc->status }}</td>
                         <td>
