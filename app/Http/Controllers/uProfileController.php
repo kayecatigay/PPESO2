@@ -76,7 +76,9 @@ class uProfileController extends Controller
             work="' .$request->input('work'). '",cname= "' .$request->input('cname'). '",
             guardian="' .$request->input('guardian'). '",relation= "' .$request->input('relationship'). '",
             cstatus="' .$request->input('cstatus'). '",spouse= "' .$request->input('spouse'). '",
-            language="' .$language. '",elem= "' .$request->input('elem'). '",
+            language="' .$language. '",crname= "' .$request->input('crname'). '",
+            crcontact="' .$request->input('crcontact'). '",ip= "' .$request->input('ip'). '",
+            tribe="' .$request->input('tribe'). '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
             degree="' .$request->input('degree'). '" where userid='.$request->input('userid') .' ');
         }
@@ -84,7 +86,7 @@ class uProfileController extends Controller
         {
             $pData = DB::insert('insert into uprofile(userid, suffix, gender, region, province, barangay, mun, sitio,
             contactnum, telenum, emailadd, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
-            school, work, cname, guardian, relation, cstatus, spouse, language, elem, hs, college, degree) 
+            school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs, college, degree) 
             values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
@@ -94,7 +96,8 @@ class uProfileController extends Controller
             .$request->input('bloodtype') .'","' .$request->input('yGraduated') .'","' .$request->input('school') .'","'
             .$request->input('work') .'","' .$request->input('cname') .'","' .$request->input('guardian') .'","'
             .$request->input('relationship') .'","' .$request->input('cstatus') .'","' .$request->input('spouse') .'","'
-            .$language .'","' .$request->input('elem') .'","' .$request->input('hs') .'","'
+            .$language .'","' .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
+            .$request->input('tribe') .'","'.$request->input('elem') .'","' .$request->input('hs') .'","'
             .$request->input('college') .'","' .$request->input('degree') .'" )');
     
         }

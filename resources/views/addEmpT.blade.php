@@ -26,7 +26,7 @@
                   <input type="text" class="form-control" id="avaiPosi" name="avaiPosi" readonly>
                </div>
             </div>
-
+<!-- 
             <div class="row form-group">
                <div class="col">
                   <label for="crname">Character Reference</label>
@@ -36,8 +36,8 @@
                   <label for="crcontact">Character Reference's Contact Number</label>
                   <input type="text" class="form-control" id="crcontact" name="crcontact">
                </div>
-            </div> <br>
-            
+            </div> <br> -->
+            <br>
             <div class="row">
                <div class="col-5">&nbsp;</div>
                <div class="col">
