@@ -21,6 +21,7 @@
                      <table class="table" style="text-align:center">
                         <thead>
                            <tr>
+                              <th scope="col">Hired</th>
                               <th scope="col">Name</th>
                               <th scope="col">Position Desired</th>
                               <th scope="col">Gender</th>
@@ -46,6 +47,7 @@
                            @foreach ($data as $emp)
                            @php $address = $emp->region."," .$emp->province."," .$emp->mun."," .$emp->barangay."," .$emp->sitio; @endphp
                               <tr>
+                                 <td>{{ $emp->name }}</td>
                                  <td>{{ $emp->name }}</td>
                                  <td>{{ $emp->posidesired }}</td>
                                  <td>{{ $emp->gender }}</td>

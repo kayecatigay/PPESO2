@@ -125,25 +125,30 @@
                 </div>
             </div> 
             <div class="row">
-                <div class="col form-group">
+                <div class="col-3 form-group">
                     <label for="birthday">Date of Birth</label>
                     <input type="date" class="form-control" id="birthday" name="birthday"  
                     placeholder="" onchange="setage()" value="{{ $pdata[0]->birthday}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-1 form-group">
                     <label for="age">Age</label>
                     <input type="number" readonly class="form-control" id="age" name="age"  
                     placeholder="Enter Age" value="{{ $pdata[0]->age}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-2 form-group">
                     <label for="height">Height (cm)</label>
                     <input type="number" class="form-control" id="height" name="height"  
                     placeholder="Enter Height" value="{{ $pdata[0]->height}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-2 form-group">
                     <label for="weight">Weight (kg)</label>
                     <input type="number" class="form-control" id="weight" name="weight"  
                     placeholder="Enter Weight" value="{{ $pdata[0]->weight}}">
+                </div>
+                <div class="col-4 form-group">
+                    <label for="fb">Facebook</label>
+                    <input type="text" class="form-control" id="fb" name="fb" required
+                    placeholder="Enter Facebook Account" value="{{ $pdata[0]->fb}}">
                 </div>
             </div>
             <div class="row">  
@@ -351,7 +356,22 @@
                 </div>
             </div> <br>
             
-            <p>Work Experience</p> 
+            <div class="row form-inline">
+                <div class="col-9">
+                    <p>Work Experience</p>
+                </div>
+                <div class="col-1">
+                    <label class="form-group" for="hire">Hire</label>
+                    <select class="form-control" name="hire" id="hire">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                    
+               
+            </div>
+             
+                
                 <a class="btn btn-success" href="addWorkE">ADD </a>
                 <div class="card-body">
                     <div class="container table-container">

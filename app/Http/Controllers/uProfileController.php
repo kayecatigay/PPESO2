@@ -66,9 +66,9 @@ class uProfileController extends Controller
             $uPData = DB::update('update uprofile set suffix="' .$request->input('suffix'). '",
             gender="' .$request->input('gender'). '",region= "' .$request->input('region'). '",
             province="' .$request->input('province'). '",mun= "' .$request->input('mun'). '",
-            barangay="' .$request->input('barangay'). '",  sitio="' .$request->input('sitio'). '",
+            barangay="' .$request->input('barangay'). '",sitio="' .$request->input('sitio'). '",
             contactnum="' .$request->input('contactnum'). '",telenum= "' .$request->input('telnum'). '",
-            emailadd="' .$request->input('emailadd'). '",pobirth= "' .$request->input('birthplace'). '",
+            emailadd="' .$request->input('emailadd'). '",fb="' .$request->input('fb'). '", pobirth= "' .$request->input('birthplace'). '",
             passnum="' .$request->input('passnum'). '",birthday= "' .$request->input('birthday'). '",
             age="' .$request->input('age'). '",height= "' .$request->input('height'). '",
             weight="' .$request->input('weight'). '",bloodtype= "' .$request->input('bloodtype'). '",
@@ -85,13 +85,13 @@ class uProfileController extends Controller
         else
         {
             $pData = DB::insert('insert into uprofile(userid, suffix, gender, region, province, barangay, mun, sitio,
-            contactnum, telenum, emailadd, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
+            contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
             school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs, college, degree) 
             values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'
-            .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
+            .$request->input('fb') .'","' .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
             .$request->input('age') .'","' .$request->input('height') .'","' .$request->input('weight') .'","'
             .$request->input('bloodtype') .'","' .$request->input('yGraduated') .'","' .$request->input('school') .'","'
             .$request->input('work') .'","' .$request->input('cname') .'","' .$request->input('guardian') .'","'
