@@ -384,11 +384,11 @@
                 <div class="col form-group">
                     <label for="TypeofD">Type of Displacement</label>
                     <select name="TypeofD" id="TypeofD" class="form-control" onclick="othersFunction()" value="{{ $pdata[0]->TypeofD}}">
-                        <option value="n/a">N/A</option>
+                        <option value="na">N/A</option>
                         <option value="terminated">Terminated</option>
                         <option value="repatriated">Repatriated</option>
                         <option value="comShutdown">Company Shutdown</option>
-                        <option value="nowork/pay">No work, No pay</option>
+                        <option value="noworkpay">No work, No pay</option>
                         <option value="others">Others (please specify)</option>
                     </select>
                 </div>
