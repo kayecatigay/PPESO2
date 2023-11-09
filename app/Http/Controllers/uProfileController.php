@@ -80,13 +80,19 @@ class uProfileController extends Controller
             crcontact="' .$request->input('crcontact'). '",ip= "' .$request->input('ip'). '",
             tribe="' .$request->input('tribe'). '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
-            degree="' .$request->input('degree'). '" where userid='.$request->input('userid') .' ');
+            degree= "' .$request->input('degree'). '",DuetoCovid="' .$request->input('DuetoCovid'). '",
+            since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
+            TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
+            fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
+            eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
+            where userid='.$request->input('userid') .' ');
         }
         else
         {
             $pData = DB::insert('insert into uprofile(userid, suffix, gender, region, province, barangay, mun, sitio,
             contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
-            school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs, college, degree) 
+            school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs,
+            college, degree, DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, typeofA, eligibility, dateReceived) 
             values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
@@ -98,7 +104,10 @@ class uProfileController extends Controller
             .$request->input('relationship') .'","' .$request->input('cstatus') .'","' .$request->input('spouse') .'","'
             .$language .'","' .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
             .$request->input('tribe') .'","'.$request->input('elem') .'","' .$request->input('hs') .'","'
-            .$request->input('college') .'","' .$request->input('degree') .'" )');
+            .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('DuetoCovid') .'","'
+            .$request->input('since') .'","' .$request->input('DOArrival') .'","'.$request->input('TypeofD') .'","' 
+            .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
+            .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
     
         }
         

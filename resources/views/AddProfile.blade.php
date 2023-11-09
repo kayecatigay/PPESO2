@@ -329,7 +329,7 @@
                     </div>
                 </div>
             </div> <br> -->
-
+            <br> <br>
           <p>Educational Background</p>
             <div class="row">
                 <div class="col form-group">
@@ -354,17 +354,89 @@
                     <input type="text" class="form-control" id="degree" name="degree"  
                     placeholder="Enter degree, achievements, etc." value="{{ $pdata[0]->degree}}">
                 </div>
-            </div> <br>
+            </div> <br> <br>
             
+            <p>Displace Details</p> 
+            <div class="row">
+                <div class="col-3 form-group">
+                    <label for="DuetoCovid">Job Displacement Due to COVID-19:</label>
+                    <select name="DuetoCovid" id="DuetoCovid" class="form-control" value="{{ $pdata[0]->DuetoCovid}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 form-group">
+                    <label for="since">Since</label>
+                    <select name="since" id="since" class="form-control" value="{{ $pdata[0]->since}}">
+                        <option value="n/a">N/A</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="col-4 form-group">
+                    <label for="DOArrival">Date of Arrival in the Philippines</label>
+                    <input type="date" class="form-control" id="DOArrival" name="DOArrival" value="{{ $pdata[0]->DOArrival}}">
+                </div>
+                <div class="col form-group">
+                    <label for="TypeofD">Type of Displacement</label>
+                    <select name="TypeofD" id="TypeofD" class="form-control" onclick="othersFunction()" value="{{ $pdata[0]->TypeofD}}">
+                        <option value="n/a">N/A</option>
+                        <option value="terminated">Terminated</option>
+                        <option value="repatriated">Repatriated</option>
+                        <option value="comShutdown">Company Shutdown</option>
+                        <option value="nowork/pay">No work, No pay</option>
+                        <option value="others">Others (please specify)</option>
+                    </select>
+                </div>
+                <div class="col form-group " id="showOthers" style="display: none;">
+                    <label for="otherType">Others</label>
+                    <input type="text" class="form-control" id="otherType" name="otherType" value="{{ $pdata[0]->otherType}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="fAssistance">Are you still receiving your salary/financial assistance from your employer?</label>
+                    <select name="fAssistance" id="fAssistance" class="form-control" value="{{ $pdata[0]->fAssistance}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col form-group">
+                    <label for="typeofA">Type of Assistance Received</label>
+                    <input type="text" id="typeofA" name="typeofA" class="form-control" value="{{ $pdata[0]->typeofA}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="eligibility">Are you still eligible to apply/receive financial support/assistance such as unemployment
+                        benefit, special assistance/ayuda for domestic workers, temporary work suspension benefits, etc from the
+                        government?
+                    </label>
+                    <select name="eligibility" id="eligibility" class="form-control" value="{{ $pdata[0]->eligibility}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col-2 form-group">
+                    <label for="dateReceived"><br>Date Received</label>
+                    <input type="date" id="dateReceived" name="dateReceived" class="form-control" value="{{ $pdata[0]->dateReceived}}">
+                </div>
+            </div>
+
+            <br> <br>
             <div class="row form-inline">
-                <div class="col-9">
+                <div class="col-11">
                     <p>Work Experience</p>
                 </div>
                 <div class="col-1">
-                    <label class="form-group" for="hire">Hire</label>
+                    <label class="form-group" for="hire"><br>Hired</label>
                     <select class="form-control" name="hire" id="hire">
-                        <option value="yes">Yes</option>
                         <option value="no">No</option>
+                        <option value="yes">Yes</option>
                     </select>
                 </div>
                     
@@ -604,7 +676,19 @@
       document.getElementById("tribe").value="";
     }
     }
-    
+
+    function othersFunction() {
+    var status = document.getElementById("TypeofD").value;
+    var x = document.getElementById("showOthers");
+    // alert(status);
+    if (status === "others") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      document.getElementById("otherType").value="";
+    }
+    }
+
     function mytableFunction() 
     {
         var table = document.getElementById("myTable");
