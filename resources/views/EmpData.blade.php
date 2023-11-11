@@ -47,7 +47,7 @@
                            @foreach ($data as $emp)
                            @php $address = $emp->region."," .$emp->province."," .$emp->mun."," .$emp->barangay."," .$emp->sitio; @endphp
                               <tr>
-                                 <td>{{ $emp->name }}</td>
+                                 <td>{{ $emp->hire }}</td>
                                  <td>{{ $emp->name }}</td>
                                  <td>{{ $emp->posidesired }}</td>
                                  <td>{{ $emp->gender }}</td>

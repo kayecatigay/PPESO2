@@ -355,8 +355,15 @@
                     placeholder="Enter degree, achievements, etc." value="{{ $pdata[0]->degree}}">
                 </div>
             </div> <br> <br>
-            
-            <p>Displace Details</p> 
+
+            <div class="row form-inline">
+                <div class="col">
+                    <p>Displacement Details</p> 
+                </div>
+                <!-- <div class="col">
+                    <h5>(for OFW)</h5>        
+                </div> -->
+            </div>
             <div class="row">
                 <div class="col-3 form-group">
                     <label for="DuetoCovid">Job Displacement Due to COVID-19:</label>
@@ -434,7 +441,7 @@
                 </div>
                 <div class="col-1">
                     <label class="form-group" for="hire"><br>Hired</label>
-                    <select class="form-control" name="hire" id="hire">
+                    <select class="form-control" name="hire" id="hire" value="{{ $pdata[0]->hire}}">
                         <option value="no">No</option>
                         <option value="yes">Yes</option>
                     </select>

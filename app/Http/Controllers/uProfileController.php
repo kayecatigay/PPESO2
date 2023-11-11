@@ -63,7 +63,8 @@ class uProfileController extends Controller
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
         {
-            $uPData = DB::update('update uprofile set suffix="' .$request->input('suffix'). '",
+            $uPData = DB::update('update uprofile set hire="' .$request->input('hire'). '",
+            suffix="' .$request->input('suffix'). '",
             gender="' .$request->input('gender'). '",region= "' .$request->input('region'). '",
             province="' .$request->input('province'). '",mun= "' .$request->input('mun'). '",
             barangay="' .$request->input('barangay'). '",sitio="' .$request->input('sitio'). '",
@@ -89,11 +90,11 @@ class uProfileController extends Controller
         }
         else
         {
-            $pData = DB::insert('insert into uprofile(userid, suffix, gender, region, province, barangay, mun, sitio,
+            $pData = DB::insert('insert into uprofile(userid, hire, suffix, gender, region, province, barangay, mun, sitio,
             contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
             school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs,
             college, degree, DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, typeofA, eligibility, dateReceived) 
-            values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
+            values("' .$request->input('userid') .'","' .$request->input('hire') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'

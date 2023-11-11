@@ -167,6 +167,11 @@ class AdminController extends Controller
             .'" where id=' .$request->input('id').' ');
         return redirect('/usersD');
     }
+    public function eApplicant(Request $request)
+    {
+        $smenus=$this->getLinks();
+        return view('/empApp',['smenu'=>$smenus]);
+    }
     public function deleteUdata(Request $request)
     {
         DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));

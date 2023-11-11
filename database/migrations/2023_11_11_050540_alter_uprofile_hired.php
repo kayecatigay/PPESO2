@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterUprofilewithdatesreceived extends Migration
+class AlterUprofileHired extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterUprofilewithdatesreceived extends Migration
     public function up()
     {
         Schema::table('uprofile', function (Blueprint $table) {
-            $table->date('dateReceived')->after('eligibility')->nullable();
+            $table->string('hire')->after('userid')->nullable();
         });
     }
 

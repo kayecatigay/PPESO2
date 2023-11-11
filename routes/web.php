@@ -117,6 +117,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/updateEuser', [App\Http\Controllers\AdminController::class, 'updateUdata']);
     Route::get('/deleteuserD', [App\Http\Controllers\AdminController::class, 'deleteUdata']);
 
+    Route::get('/empApp', [App\Http\Controllers\AdminController::class, 'eApplicant']);
+
     Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
     Route::get('/showAllSApp', [App\Http\Controllers\ScholarAdminController::class, 'scholarNOData']);
     Route::get('/SAllSched', [App\Http\Controllers\ScholarAdminController::class, 'allSched']);

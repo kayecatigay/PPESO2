@@ -120,6 +120,13 @@
                                     <span>Users</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="empApp" aria-expanded="true" aria-controls="collapsePages">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    <span>Employer</span>
+                                </a>
+                            </li>
+
                         @endif
 
 
