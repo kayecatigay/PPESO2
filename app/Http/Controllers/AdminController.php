@@ -170,7 +170,8 @@ class AdminController extends Controller
     public function eApplicant(Request $request)
     {
         $smenus=$this->getLinks();
-        return view('/empApp',['smenu'=>$smenus]);
+        $showdata = DB::select("select * from company");
+        return view('/empApp',['empApp'=>$showdata,'smenu'=>$smenus]);
     }
     public function deleteUdata(Request $request)
     {

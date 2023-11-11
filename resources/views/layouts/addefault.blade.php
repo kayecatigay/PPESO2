@@ -132,8 +132,8 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="SendSms" aria-expanded="true" aria-controls="collapsePages">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <span>Send SMS</span>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>     
+                            <span>Send SMS</span>
                             </a>
                         </li>
 
