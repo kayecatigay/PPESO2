@@ -41,6 +41,7 @@
                               <th scope="col">Degree</th>
                               <th scope="col">Company Name</th>
                               <th scope="col">Resume</th>
+                              <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -68,11 +69,15 @@
                                  <td>{{ $emp->cname }}</td>
                                  <td>
                                     <input type="text" style="border:none;" size="15" value="{{ $files[0]->original_name}}">
+                                 </td>
+                                 <td>
+                                    <a href="/printApp">
+                                       <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                                    </a> &nbsp;
                                     <a href="/uploads/{{ $files[0]->filename}}" download>
                                        <i class="fa fa-download" style="color:black;" aria-hidden="true"></i>
                                     </a>
                                  </td>
-                                 
                                  
                               </tr>
                            @endforeach

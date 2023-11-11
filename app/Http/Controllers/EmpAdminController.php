@@ -365,4 +365,9 @@ class EmpAdminController extends Controller
         DB::delete("DELETE FROM company WHERE id = " .$request->input('delId'));
         return view ('EmployerW',['smenu'=>$smenus]);
     }
+    public function printApp(Request $request)
+    {
+        $showdata = DB::select('select * from uprofile');
+        return view ('NLEmpApp',['data'=>$showdata]);
+    }
 }

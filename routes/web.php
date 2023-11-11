@@ -161,6 +161,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteEAnn', [App\Http\Controllers\EmpAdminController::class, 'deleteEann']);
     Route::get('/EmployerW', [App\Http\Controllers\EmpAdminController::class, 'employers']);
     Route::get('/deleteEmployer', [App\Http\Controllers\EmpAdminController::class, 'delEmp']);
+    Route::get('/printApp', [App\Http\Controllers\EmpAdminController::class, 'printApp']);
+    
     // Route::get('/view-file/{filename}',[App\Http\Controllers\FileUploadController::class, 'viewFile']);
     // Route::get('/view-file/{filename}', 'YourController@viewFile')->name('view.file');
 
