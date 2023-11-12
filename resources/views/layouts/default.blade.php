@@ -6,6 +6,17 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Provincial PESO Service Management System</title>
+  <style>
+    /* Adjust the styles as needed */
+    .fixed-card {
+      position: fixed;
+      top: 500px;
+      left: 10px;
+      width: 300px; /* Adjust the width as needed */
+      z-index: 1000; /* Set a high z-index value */
+      opacity: 70%;
+    }
+  </style>
 
   <!-- Favicons -->
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">
@@ -19,7 +30,7 @@
   <!-- Vendor CSS Files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  
+
   <!-- <link href="<?= url('assets/vendor/aos/aos.css') ?>" rel="stylesheet"> -->
 
   <link href="<?= url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -51,6 +62,37 @@
 </head>
 
 <body>
+    <div class="card">
+      <div class="card fixed-card">
+        <div class="card-header">
+          Available Works
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">
+              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
+            </li>
+            <li class="list-group-item list-group-item-success">
+              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
+            </li>
+            <li class="list-group-item list-group-item-success">
+              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
+            </li>
+            <li class="list-group-item list-group-item-success">
+              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
+            </li>
+        </ul>
+      </div>
+        <div class="card-footer">
+          <button type="button" class="btn" id="left-panel-link" >Register</button>
+          
+        </div>
+      </div>
+    </div>
+     <div class="sep"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- ======= Header ======= -->
   @section('header')
