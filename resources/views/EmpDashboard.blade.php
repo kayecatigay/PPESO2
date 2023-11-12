@@ -1,4 +1,4 @@
-@extends('layouts.Eaddefault')
+@extends('layouts.addefault')
 
 @section('maincontent')
     <!-- Main Content -->

@@ -9,10 +9,14 @@
       </div>
       
       <div class="form-group">
-         <p><h4>Annoucements</h4></p>
+         <p><h4>Announcements</h4></p>
          <div class="container">      
           
             <div class="row">
+               <div class="col">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" >
+               </div>
                <div class="col">
                   <label for="dateFrom">Date From</label>
                   <input type="date" class="form-control" id="dateFrom" name="dateFrom">
@@ -27,30 +31,38 @@
             </div>
             <div class="row form-group">
                <div class="col">
-                  <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-               </div>
-           
-               <div class="col">
                   <label for="body">Description</label>
-                  <input type="text" class="form-control" id="body" name="body">
+                  @php
+                     $content = "Regarding in this program, all applicants are required to comply.\nPlease bring the following:\n";
+                     if(Auth::user()) {
+                        if(in_array(Auth::user()->roles, [1])) {
+                              $content .= "Report card (if incoming 1st year/Cert of Grades (1st/2nd sem) or if higher year\n";
+                              $content .= "Certificate of Good Moral Character from school\n";
+                              $content .= "Certificate of Residency from Barangay\n";
+                              $content .= "Birth Certificate\n";
+                              $content .= "Certificate of Indigency (C/MSWDO)\n";
+                              $content .= "One 1x1 picture\n";
+                              $content .= "Certificate proving legitimacy as Mangyan issued by tribal leader and verified by NCIP (for IPs only)\n";
+                        } elseif(in_array(Auth::user()->roles, [2])) {
+                              $content .= "Barangay Clearance\n";
+                              $content .= "NBI Clearance\n";
+                        } elseif(in_array(Auth::user()->roles, [3])) {
+                              $content .= "Request letter addressed to the governor\n";
+                              $content .= "Passport or Travel Document\n";
+                              $content .= "Seaman's Book (if sea-based)\n";
+                              $content .= "Proof of Being an OFW (contract, id, certification from employer)\n";
+                              $content .= "Birth Certificate/Marriage Contract of Family Members (for medical concern)\n";
+                        } else {
+                              $content .= "<!-- Content to display if the user has a role other than 1, 2, or 3 -->\n";
+                        }
+                     } else {
+                        $content .= "<!-- Content to display if the user is not logged in -->\n";
+                     }
+                  @endphp
+
+                  <textarea class="form-control" id="body" name="body">{{ $content }}</textarea>
+
                </div>
-               <div class="col-5 form-group">
-                  <label for="req">Requirements</label>
-                  <div class="col form-control">
-                     <input type="checkbox" id="pencil" name="pencil">
-                     <label for="pencil">Pencil</label> &nbsp;
-                     <input type="checkbox" id="ballpen" name="ballpen">
-                     <label for="ballpen">Ballpen</label> &nbsp;
-                     <input type="checkbox" id="validid" name="validid">
-                     <label for="validid">Valid Id</label> &nbsp;
-                     <input type="checkbox" id="snacks" name="snacks">
-                     <label for="snacks">Snacks</label> &nbsp;
-                     <input type="checkbox" id="water" name="water">
-                     <label for="water">Water</label> &nbsp;
-                  </div>
-               </div>
-               
             </div>
             <div class="row">
                <div class="col-5">&nbsp;</div>

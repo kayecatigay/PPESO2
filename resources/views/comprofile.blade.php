@@ -75,6 +75,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <h8 style="text-align:center;">(Upload in order)</h8>
                                 <form method="POST" action="/uploadReqs" enctype="multipart/form-data">
                                         @csrf
                                     <div class="container" style="text-align: center;"><br>

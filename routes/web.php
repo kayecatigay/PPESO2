@@ -118,8 +118,12 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteuserD', [App\Http\Controllers\AdminController::class, 'deleteUdata']);
 
     Route::get('/empApp', [App\Http\Controllers\AdminController::class, 'eApplicant']);
+    Route::get('/pEmpApp', [App\Http\Controllers\AdminController::class, 'pEmpApp']);
+    Route::get('/deleteempD', [App\Http\Controllers\AdminController::class, 'deleteempD']);
+    Route::get('/file/show/{fileName}', [App\Http\Controllers\DocFileController::class, 'show'])->name('file.show');
+    Route::post('/upload', [App\Http\Controllers\DocFileController::class, 'upload'])->name('file.upload');
 
-    Route::get('/Sadmindashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
+    Route::get('/SAdashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboard']);
     Route::get('/showAllSApp', [App\Http\Controllers\ScholarAdminController::class, 'scholarNOData']);
     Route::get('/SAllSched', [App\Http\Controllers\ScholarAdminController::class, 'allSched']);
     Route::get('/SchedExam', [App\Http\Controllers\ScholarAdminController::class, 'Ssexam']);

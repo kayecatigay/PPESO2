@@ -11,7 +11,22 @@ class ScholarAdminController extends Controller
 {
     public function SAdashboard()
     {
-        return view('ScholarDashboard');
+        $smenus=(new AdminController)->getLinks();
+        $Tusers=DB::select('select * from users');
+        $muser=DB::select('select * from uprofile where gender="male"');
+        $fuser=DB::select('select * from uprofile where gender="female"');
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
+        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
+
+        return view('PEAPdashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
+        'company'=>$Company]);
     }
     public function scholarNOData()
     {

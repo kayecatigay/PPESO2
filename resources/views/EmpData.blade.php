@@ -29,7 +29,7 @@
                               <th scope="col">Telephone </th>
                               <th scope="col">Cellphone</th>
                               <th scope="col">Email Address</th>
-                              <th scope="col">Birtday</th>
+                              <th scope="col">Birthday</th>
                               <th scope="col">Civil Status</th>
                               <th scope="col">Spouse</th>
                               <th scope="col">Height</th>

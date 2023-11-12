@@ -13,7 +13,21 @@ class OfwAdminController extends Controller
     public function OAdashboard()
     {
         $smenus=(new AdminController)->getLinks();
-        return view('OfwDashboard',['smenu'=>$smenus]);
+        $Tusers=DB::select('select * from users');
+        $muser=DB::select('select * from uprofile where gender="male"');
+        $fuser=DB::select('select * from uprofile where gender="female"');
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
+        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
+
+        return view('OfwDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
+        'company'=>$Company]);
     }
     public function showOFWdata(Request $request)
     {

@@ -39,7 +39,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
-                    ['Announcements','/Sannouncements'],['Status','/Pstatus'])
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Dashboard','/SAdashboard'])
                 ]
             );
         }
@@ -48,7 +48,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Eadmindashboard','/EAdashboard'])
                 ]
             );
         }
@@ -57,7 +57,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['OFW','', 
                     array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
-                    ['Status','/Ostatus'])
+                    ['Status','/Ostatus'],['Dashboard','/Oadmindashboard'])
             ],
             );
         }
@@ -75,17 +75,17 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
-                    ['Announcements','/Sannouncements'],['Status','/Pstatus'])
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Dashboard','/SAdashboard'])
                 ],
 
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Dashboard','/Eadmindashboard'])
                 ],
                 
                 ['OFW','', 
                     array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
-                    ['Status','/Ostatus'])
+                    ['Status','/Ostatus'],['Dashboard','/Oadmindashboard'])
                 ]
             );
         }
@@ -167,17 +167,30 @@ class AdminController extends Controller
             .'" where id=' .$request->input('id').' ');
         return redirect('/usersD');
     }
+    public function deleteUdata(Request $request)
+    {
+        DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
+        return redirect('/usersD');
+    }
     public function eApplicant(Request $request)
     {
         $smenus=$this->getLinks();
         $showdata = DB::select("select * from company");
         return view('/empApp',['empApp'=>$showdata,'smenu'=>$smenus]);
     }
-    public function deleteUdata(Request $request)
+    public function pEmpApp(Request $request)
     {
-        DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
-        return redirect('/usersD');
+        $userid=$request->input('showId');
+        // dd($userid);
+        $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);
+        return view ('NLEmpApp',['files'=>$showfile]);
     }
+    public function deleteempD(Request $request)
+    {
+        DB::delete("DELETE FROM company WHERE id = " .$request->input('delId'));
+        return redirect('/empApp');
+    }
+   
     public function status()
     {
         return view('status');

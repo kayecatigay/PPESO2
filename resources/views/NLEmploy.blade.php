@@ -1,3 +1,4 @@
+
 <header id="header" >
         <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
     </header>
@@ -35,47 +36,51 @@
                         <thead>
                            <tr>
                               <th scope="col">Created At</th>
+                              <th scope="col">Hired</th>
                               <th scope="col">Name</th>
-                              <th scope="col">Sex</th>
+                              <th scope="col">Position Desired</th>
+                              <th scope="col">Gender</th>
                               <th scope="col">Address</th>
+                              <th scope="col">Telephone</th>
+                              <th scope="col">Contact Number</th>
                               <th scope="col">Email Address</th>
-                              <th scope="col">Contact number</th>
-                              <th scope="col">Birth date</th>
-                              <th scope="col">Birth place</th>
-                              <th scope="col">Age</th>
+                              <th scope="col">Birthday</th>
+                              <th scope="col">Civil Status</th>
+                              <th scope="col">Spouse</th>
                               <th scope="col">Height</th>
                               <th scope="col">Weight</th>
-                              <th scope="col">Bloodtype</th>
-                              <th scope="col">Guardian</th>
-                              <th scope="col">Relation</th>
-                              <th scope="col">Year Graduated</th>
-                              <th scope="col">School</th>
-                              <th scope="col">Work</th>
+                              <th scope="col">Language</th>
+                              <th scope="col">Elementary</th>
+                              <th scope="col">High School</th>
+                              <th scope="col">College</th>
+                              <th scope="col">Degree</th>
                               <th scope="col">Company Name</th>
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($data as $old)
-                              @php $address = $old->region."," .$old->province."," .$old->mun."," .$old->barangay."," .$old->sitio; @endphp
+                           @foreach ($showdata as $data)
+                              @php $address = $data->region."," .$data->province."," .$data->mun."," .$data->barangay."," .$data->sitio; @endphp
                               <tr>
-                                 <td>{{ $old->date }}</td>
-                                 <td>{{ $old->name }}</td>
-                                 <td>{{ $old->gender }}</td>
+                                 <td>{{ $data->date }}</td>
+                                 <td>{{ $data->hire }}</td>
+                                 <td>{{ $data->name }}</td>
+                                 <td>{{ $data->posidesired }}</td>
+                                 <td>{{ $data->gender }}</td>
                                  <td>{{ $address }}</td>
-                                 <td>{{ $old->emailadd }}</td>
-                                 <td>{{ $old->contactnum }}</td>
-                                 <td>{{ $old->birthday }}</td>
-                                 <td>{{ $old->pobirth }}</td>
-                                 <td>{{ $old->age }}</td>
-                                 <td>{{ $old->height }}</td>
-                                 <td>{{ $old->weight }}</td>
-                                 <td>{{ $old->bloodtype }}</td>
-                                 <td>{{ $old->guardian }}</td>
-                                 <td>{{ $old->relation }}</td>
-                                 <td>{{ $old->yGraduated }}</td>
-                                 <td>{{ $old->school }}</td> 
-                                 <td>{{ $old->work }}</td>
-                                 <td>{{ $old->cname }}</td>                          
+                                 <td>{{ $data->telenum }}</td>
+                                 <td>{{ $data->contactnum }}</td>
+                                 <td>{{ $data->emailadd }}</td>
+                                 <td>{{ $data->birthday }}</td>
+                                 <td>{{ $data->cstatus }}</td>
+                                 <td>{{ $data->spouse }}</td>
+                                 <td>{{ $data->height }}</td>
+                                 <td>{{ $data->weight }}</td>
+                                 <td>{{ $data->language }}</td>
+                                 <td>{{ $data->elem }}</td>
+                                 <td>{{ $data->hs }}</td>
+                                 <td>{{ $data->college }}</td> 
+                                 <td>{{ $data->degree }}</td>
+                                 <td>{{ $data->uprofile_column }}</td>                          
                               </tr>
                            @endforeach
                         </tbody>
@@ -83,9 +88,14 @@
                   </div>
                </div>
          </div>
-      </div>   
-        
+      </div>   <br>
+      <div style="text-align:center;" class="btn btn-primary">
+         <button onclick="printPage()">Print</button>
+      </div>
    <script>
+      function printPage() {
+            window.print();
+        }
       // Add event listener to scroll the table
       var tableContainer = document.querySelector('.table-container');
       tableContainer.addEventListener('wheel', function(event) {

@@ -28,7 +28,7 @@
                     </select>
                 </div>
                  <div class="col form-group"> <br>
-                    <input type="submit" class="btn btn-primary" value="Submit" name="submit">
+                    <input type="submit" class="btn btn-primary" value="Change" name="submit">
                 </div>
             </div>
 @endsection

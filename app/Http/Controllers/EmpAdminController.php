@@ -15,7 +15,21 @@ class EmpAdminController extends Controller
     public function EAdashboard()
     {
         $smenus=(new AdminController)->getLinks();
-        return view('EmpDashboard',['smenu'=>$smenus]);
+        $Tusers=DB::select('select * from users');
+        $muser=DB::select('select * from uprofile where gender="male"');
+        $fuser=DB::select('select * from uprofile where gender="female"');
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
+        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
+        
+        return view('EmpDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
+        'company'=>$Company]);
     }
     public function showEmpData(Request $request)
     {
@@ -118,7 +132,7 @@ class EmpAdminController extends Controller
         
         $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
         values("' .$request->input('date') .'","' .$request->input('jobdesc') .'","'.$request->input('company') .'","'
-        .$skills .'","' .$req .'","' .$request->input('contact') .'")');
+        .$req .'","' .$request->input('contact') .'")');
         return redirect ('AllWorks',['smenu'=>$smenus]);
     }
    public function editW(Request $request)
@@ -367,7 +381,17 @@ class EmpAdminController extends Controller
     }
     public function printApp(Request $request)
     {
-        $showdata = DB::select('select * from uprofile');
-        return view ('NLEmpApp',['data'=>$showdata]);
+        $showdata = DB::select('
+            SELECT
+                s.cname AS uprofile_column,
+                s.*, p.*, u.*
+            FROM uprofile as s
+            INNER JOIN employment as p ON s.userid = p.userid
+            INNER JOIN users as u ON p.userid = u.id;
+        ');
+
+        // dd($showdata);
+        // $showdata = DB::select('select * from uprofile');
+        return view ('NLEmploy', compact('showdata'));
     }
 }

@@ -33,8 +33,6 @@
                         <th scope="col">Date</th>
                         <th scope="col">Job Description</th>
                         <th scope="col">Company</th>
-                        <th scope="col">Required skills</th>
-                        <th scope="col">Requirements </th>
                         <th scope="col">Contact Number</th>
                         <th scope="col">Action</th>
                      </tr>
@@ -45,8 +43,6 @@
                            <td>{{ $wrk->date }}</td>
                            <td>{{ $wrk->jobdesc }}</td>
                            <td>{{ $wrk->company }}</td>
-                           <td>{{ $wrk->skills }}</td>
-                           <td>{{ $wrk->req }}</td>
                            <td>{{ $wrk->contact }}</td>
                            <td>
                               <span class="input-group">

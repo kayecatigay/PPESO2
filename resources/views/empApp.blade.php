@@ -37,7 +37,12 @@
                                  <td>{{ $eapp->contact }}</td>
                                  <td>{{ $eapp->email }}</td>
                                  <td>{{ $eapp->representative }}</td>
-                                 <td><a href="#mga list ng files"><i class="fa fa-search-plus" aria-hidden="true"></i></a></td>
+                                 <td> 
+                                    <form action="/pEmpApp" method="get">
+                                       <input type="hidden" id="showId" name="showId" value="{{ $eapp->id }}">
+                                       <button type="submit" class="btn btn-primary" style="border:none;">Show</button>
+                                    </form> 
+                                 </td>
                                  <td>
                                     <span class="input-group">
 
@@ -63,7 +68,7 @@
                                                       Do you really want to delete this record: {{ $eapp->cname}}?
                                                 </div>
                                                 <div class="modal-footer">
-                                                      <form action ="deleteuserD" method="get" >
+                                                      <form action ="/deleteempD" method="get" >
                                                          @csrf
                                                          <input type="hidden" id="delId" name="delId" value="{{ $eapp->id }}">
                                                          <button type="submit" class="btn btn-danger" onclick="javascript:$('#delmod{{ $eapp->id }}').modal('hide');" >Yes</button>
