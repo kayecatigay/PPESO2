@@ -5,13 +5,16 @@
             <div class="col-lg-9 col-xl-9">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-image: url('/assets/images/bg.jpg'); height:200px;">
-                        <div class="ms-2 mt-6" style="width: 150px; margin-top: 120px;">
-                           <div class="mt-auto mb-auto">
+                        <div class="col" style="width: 200px; margin-top: 120px;">
+                           <div class="mt-auto mb-auto" style="width: 150px;">
                                 <input type="text" readonly style="background-color: transparent; border:0; color:white; font-size: 30px;"
-                                    name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
+                                    name="uname" id="uname" value= " &nbsp;{{ Auth::user()->name }}" > <br>
                                 <input type="text"  readonly style="background-color: transparent; border:0; margin-left:0; width:160%; color:white; font-size: 15px;"
-                                    name="email" id="email" value="{{ Auth::user()->email }}" >
+                                    name="email" id="email" value=" &emsp;{{ Auth::user()->email }}" >
                             </div>
+                        </div>
+                        <div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
+                            <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/img/orminlogo.png') }}" >
                         </div>
                     </div>
                 </div>
@@ -41,43 +44,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <p class="lead fw-normal mb-0">Recent Announcements</p>
-                        <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-mortarboard-fill"></i>
-                                </div>
-                                <h4><a href="scholarhomepage">Scholarship</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-briefcase-fill" ></i>
-                                </div>
-                                <h4><a href="employmenthomepage">Employment</a></h4>
-                            
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-airplane-engines-fill"></i>
-                                </div>
-                                <h4><a href="ofwhomepage">OFW</a></h4>
-                            
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 @endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Modal</title>
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
+</head>
+<body>
+
+<div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
+    <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/img/orminlogo.png') }}" onclick="openModal()">
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <form method="POST" action="/uploadPic" enctype="multipart/form-data">
+      @csrf
+      <input type="file" name="file" required>
+      <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> 
+      &emsp; &emsp;&emsp;
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+</div>
+
+<script src="{{ asset('js/modal.js') }}"></script>
+</body>
+</html>

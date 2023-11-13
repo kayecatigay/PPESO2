@@ -7,16 +7,26 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col"><br><br>
-              <div class="card" style="width: 15rem;">
-                <div class="card-header">
-                  Job Vacancies
+          <div class="col"><br><br>
+              <div class="card" style="width: 18rem; opacity:80%;">
+                <div class="card-header" style="background-color: yellowgreen;">
+                  <h5><b>JOB VACANCIES</b></h5>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-success">
-                      <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
-                    </li>
-                </ul>
+                <div class="table" style="width:100%">
+                    <dl class="row" style="height:8px;">
+                      <dt class="col" >POSITION</dt>
+                      <dt class="col">COMPANY</dt>
+                    </dl>
+                  @foreach ( $eworks as $work)
+                    <dl class="row" style="height:4px; border-bottom: black 1px solid;">
+                      <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
+                      <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
+                    </dl>
+                  @endforeach
+                </div>
+                <button class="btn btn-outline-dark" style="border:none;">
+                  <a href="/Eregistration" style="color:yellowgreen;"><b>Apply</b></a>
+                </button>
               </div>
             </div>
             <div class="col-6" style="margin: none;">

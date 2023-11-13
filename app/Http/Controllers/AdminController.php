@@ -128,7 +128,8 @@ class AdminController extends Controller
         }
         else
         {
-            return view('adminhome');
+            $showworks = DB:: select('select * from eworks');
+            return view('adminhome',['eworks'=>$showworks]);
         }
         
     }
