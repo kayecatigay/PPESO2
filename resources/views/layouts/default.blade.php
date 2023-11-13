@@ -62,34 +62,6 @@
 </head>
 
 <body>
-    <div class="card">
-      <div class="card fixed-card">
-        <div class="card-header">
-          Available Works
-        </div>
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-success">
-              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
-            </li>
-        </ul>
-      </div>
-        <div class="card-footer">
-          <button type="button" class="btn" id="left-panel-link" >Register</button>
-          
-        </div>
-      </div>
-    </div>
-     <div class="sep"></div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

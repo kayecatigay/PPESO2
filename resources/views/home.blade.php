@@ -7,7 +7,30 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-xl-6 col-lg-8">
+            
+            <div class="col"><br><br>
+              <div class="card" style="width: 18rem; opacity:80%;">
+                <div class="card-header" style="background-color: yellowgreen;">
+                  <h5><b>JOB VACANCIES</b></h5>
+                </div>
+                <div class="table" style="width:100%">
+                    <dl class="row" style="height:8px;">
+                      <dt class="col" >POSITION</dt>
+                      <dt class="col">COMPANY</dt>
+                    </dl>
+                  @foreach ( $eworks as $work)
+                    <dl class="row" style="height:4px; border-bottom: black 1px solid;">
+                      <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
+                      <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
+                    </dl>
+                  @endforeach
+                </div>
+                <button class="btn btn-outline-dark" style="border:none;">
+                  <a href="/Eregistration" style="color:yellowgreen;"><b>Apply</b></a>
+                </button>
+              </div>
+            </div>
+            <div class="col-6" style="margin: none;">
               <!-- <form action="/ehome">
                 @if(isset(Auth()->user()->roles))
                   @if (Auth::check() && in_array(Auth::user()->roles, range(1, 5)))
@@ -18,7 +41,9 @@
               </form> -->
                 <h1>{{$show[0]->title}}</h1>
                 <h2>{{$show[0]->loc}}</h2>
-              </form>
+            </div>
+            
+            <div class="col" style="width: none;">
             </div>
           </div>
 
@@ -32,14 +57,14 @@
                 </div>
               </a>
             </div>
-            <div class="col-xl-2 col-md-4">
+            <!-- <div class="col-xl-2 col-md-4">
               <a href="/JobVacant">
                 <div class="icon-box">
                 <i class="bi bi-briefcase"></i>
                 <h3 style="color:white;">Works Available</h3>
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
       </div>
     </section><!-- End Hero -->

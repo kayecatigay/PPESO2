@@ -31,8 +31,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $showdata = DB:: select('select * from homepage');
+        $showworks = DB:: select('select * from eworks');
         // dd($request->input('file'));
-        return view('home',['show'=>$showdata]);
+        return view('home',['show'=>$showdata,'eworks'=>$showworks]);
     }
     public function emphome()
     {

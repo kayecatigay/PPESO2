@@ -7,9 +7,23 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-xl-6 col-lg-8">
+            <div class="col"><br><br>
+              <div class="card" style="width: 15rem;">
+                <div class="card-header">
+                  Job Vacancies
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">
+                      <i class="fa fa-briefcase"style="font-size:20px;"></i>Company
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6" style="margin: none;">
               <h1>Provincial Peso Services Management System</h1>
               <h2>Camilmil, Calapan City, Oriental Mindoro</h2>
+            </div>
+            <div class="col" style="width: none;">
             </div>
           </div>
 
@@ -23,14 +37,14 @@
                 </div>
               </a>
             </div>
-            <div class="col-xl-2 col-md-4">
+            <!-- <div class="col-xl-2 col-md-4">
               <a href="/JobVacant">
                 <div class="icon-box">
                 <i class="bi bi-briefcase"></i>
                 <h3 style="color:white;">Works Available</h3>
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
       </div>
     </section><!-- End Hero -->
