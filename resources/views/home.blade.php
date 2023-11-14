@@ -8,26 +8,28 @@
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             
-            <div class="col"><br><br>
-              <div class="card" style="width: 18rem; opacity:80%;">
-                <div class="card-header" style="background-color: yellowgreen;">
-                  <h5><b>JOB VACANCIES</b></h5>
+            <div class="col">
+              <div style="@auth display: block; @else display: none; @endauth"><br><br>
+                <div class="card" style="width: 18rem; opacity:80%;">
+                  <div class="card-header" style="background-color: yellowgreen;">
+                    <h5><b>JOB VACANCIES</b></h5>
+                  </div>
+                  <div class="table" style="width:100%">
+                      <dl class="row" style="height:8px;">
+                        <dt class="col" >POSITION</dt>
+                        <dt class="col">COMPANY</dt>
+                      </dl>
+                    @foreach ( $eworks as $work)
+                      <dl class="row" style="height:4px; border-bottom: black 1px solid;">
+                        <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
+                        <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
+                      </dl>
+                    @endforeach
+                  </div>
+                  <button class="btn btn-outline-dark" style="border:none;">
+                    <a href="/Eregistration" style="color:yellowgreen;"><b>Apply</b></a>
+                  </button>
                 </div>
-                <div class="table" style="width:100%">
-                    <dl class="row" style="height:8px;">
-                      <dt class="col" >POSITION</dt>
-                      <dt class="col">COMPANY</dt>
-                    </dl>
-                  @foreach ( $eworks as $work)
-                    <dl class="row" style="height:4px; border-bottom: black 1px solid;">
-                      <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
-                      <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
-                    </dl>
-                  @endforeach
-                </div>
-                <button class="btn btn-outline-dark" style="border:none;">
-                  <a href="/Eregistration" style="color:yellowgreen;"><b>Apply</b></a>
-                </button>
               </div>
             </div>
             <div class="col-6" style="margin: none;">

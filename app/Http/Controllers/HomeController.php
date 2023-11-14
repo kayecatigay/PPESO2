@@ -32,6 +32,7 @@ class HomeController extends Controller
     {
         $showdata = DB:: select('select * from homepage');
         $showworks = DB:: select('select * from eworks');
+        
         // dd($request->input('file'));
         return view('home',['show'=>$showdata,'eworks'=>$showworks]);
     }
