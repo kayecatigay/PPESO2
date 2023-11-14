@@ -75,16 +75,16 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
-                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Dashboard','/SAdashboard'])
+                    ['Status','/Pstatus'],['Dashboard','/SAdashboard'])
                 ],
 
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Dashboard','/Eadmindashboard'])
+                ['Employer','/EmployerW'],['Status','/Estatus'],['Dashboard','/Eadmindashboard'])
                 ],
                 
                 ['OFW','', 
-                    array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
+                    array(['Applicants','/ShowAllOApp'],
                     ['Status','/Ostatus'],['Dashboard','/Oadmindashboard'])
                 ]
             );

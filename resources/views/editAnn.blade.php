@@ -34,7 +34,7 @@
               </div>
               <div class="col form-group">
                 <label for="body">Description</label>
-                <input type="text" class="form-control" id="body" name="body" value="{{$ann[0]->body}}">
+                <textarea class="form-control" id="body" name="body">{{$ann[0]->body}}</textarea>
               </div>
             </div>
             <div class="row">

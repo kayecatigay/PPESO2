@@ -48,7 +48,7 @@
                                  <td>{{ $ann->dateFrom }}</td>
                                  <td>{{ $ann->dateTo }}</td>
                                  <td>{{ $ann->title }}</td>
-                                 <td>{{ $ann->body }}</td>
+                                 <td title="{{ $ann->body }}">{{ substr($ann->body, 0, 50) }}{{ strlen($ann->body) > 50 ? '...' : '' }}</td>
                                  <td>
                                     <span class="input-group">
 
