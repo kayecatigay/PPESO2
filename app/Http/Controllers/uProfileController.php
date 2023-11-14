@@ -15,6 +15,7 @@ class uProfileController extends Controller
         $userid=Auth::user()->id;
 
         $company = DB:: select('select * from company where representative="' .$name. '"');
+        
         // dd($company);
         if($company)
         {

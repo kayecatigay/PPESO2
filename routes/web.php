@@ -226,6 +226,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/insertEdit', [App\Http\Controllers\EditController::class, 'insertData']);
     Route::post('/uploadPic', [App\Http\Controllers\EditController::class, 'uploadPic']);
 
+    Route::post('/uploadpPic', [App\Http\Controllers\HomeController::class, 'uploadpPic']);
+
     Route::post('/uploadphoto', [App\Http\Controllers\FileUploadController::class, 'uploadPhoto']);
     
 

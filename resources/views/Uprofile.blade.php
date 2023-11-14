@@ -1,5 +1,53 @@
 @extends('layouts.default')
 @section('content')
+<style>
+    .modal {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    opacity: 80%;
+    color: black;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 20%;
+    
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+input[type="file"]::file-selector-button {
+  padding: 0.3em 0.4em;
+  background-color: whitesmoke;
+  transition: 1s;
+  place-items: center;
+  border-radius: 0.2em;
+  border-color: none;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: black;
+  color: white;
+}
+
+</style>
     <section style="background-color: #0000; ">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-9 col-xl-9">
@@ -14,7 +62,22 @@
                             </div>
                         </div>
                         <div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
-                            <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/img/orminlogo.png') }}" >
+                            <img width="80%" height="80%" style="border-radius: 50%;" 
+                            src="{{ url('uploads/ . $pic[0]->filename') }}" alt="Photo" onclick="openModal()">
+                        </div>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal()">&times;</span>
+                                <form method="POST" action="/uploadpPic" enctype="multipart/form-data">
+                                    @csrf
+                                    <label for="file">Profile Picture</label>
+                                    <input type="file" name="file" required>
+                                    <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> <br>
+                                    <button type="submit" class="btn btn-outline-dark">Change</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -33,13 +96,13 @@
                         <div class="p-1" style="background-color: #f8f9fa;">
                             <div class="row">
                                 <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">PEAP</p></a>
+                                    <a href="scholarhomepage"><p class="font-italic mb-1 text-black">PEAP</p></a>
                                 </div>
                                 <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">Employment</p></a>
+                                    <a href="employmenthomepage"><p class="font-italic mb-1 text-black">Employment</p></a>
                                 </div>
                                 <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">Ofw Assistance Program</p></a>
+                                    <a href="ofwhomepage"><p class="font-italic mb-1 text-black">Ofw Assistance Program</p></a>
                                 </div>
                             </div>
                         </div>
@@ -48,35 +111,23 @@
             </div>
         </div>
     </section>
+<script>
+    function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Close the modal if the user clicks outside of it
+window.onclick = function (event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+</script>
 @endsection
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Modal</title>
-    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
-</head>
-<body>
 
-<div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
-    <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/img/orminlogo.png') }}" onclick="openModal()">
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <form method="POST" action="/uploadPic" enctype="multipart/form-data">
-      @csrf
-      <input type="file" name="file" required>
-      <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> 
-      &emsp; &emsp;&emsp;
-      <button type="submit">Upload</button>
-    </form>
-  </div>
-</div>
-
-<script src="{{ asset('js/modal.js') }}"></script>
-</body>
-</html>

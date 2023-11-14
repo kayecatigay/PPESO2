@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\File;
 
 
 
@@ -30,11 +31,47 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $userid = $request->input('userid');
+        $showpic = DB::select('select * from uprofile where userid="' .$userid);
         $showdata = DB:: select('select * from homepage');
         $showworks = DB:: select('select * from eworks');
         
         // dd($request->input('file'));
-        return view('home',['show'=>$showdata,'eworks'=>$showworks]);
+        return view('home',['show'=>$showdata,'eworks'=>$showworks,'pic'=>$showpic]);
+    }
+    public function uploadpPic(Request $request)
+    {
+        $userid = Auth()->user()->id;
+        // dd($userid);
+        // Validate the uploaded file
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png,pdf,docx,',
+        ]);
+        
+        // Get the uploaded file
+        $file = $request->file('file');
+        // dd($request->file('file'));
+
+        // Generate a unique name for the file
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        
+        // Move the uploaded file to the desired location
+        $file->move(public_path('uploads'), $fileName);
+
+        // Save file details to the database
+        $savedFile = new File();
+        // $savedFile->userid = $userid; 
+        $savedFile->filename = $fileName;
+        // $savedFile->original_name = $file->getClientOriginalName();
+        // $savedFile->save();
+
+        // dd($savedFile);
+        // Return a success response
+        $showData = DB::select('select * from uprofile where userid=' .$userid);
+        $upFile = DB::update('update uprofile set filename="' .$fileName .'"
+        where userid='.$userid );
+
+        return view('Uprofile',['show'=>$showData]);
     }
     public function emphome()
     {

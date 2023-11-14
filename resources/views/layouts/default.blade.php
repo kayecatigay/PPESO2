@@ -22,6 +22,7 @@
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">
   <link href="<?= url('assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
   <!-- Google Fonts -->  
@@ -45,7 +46,8 @@
   
   <script src="<?= url('assets/vendor/jquery/jquery.min.js') ?>"></script>
   <script src="<?= url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="<?= url('assets/css/style.css') ?>" rel="stylesheet">

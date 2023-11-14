@@ -102,4 +102,5 @@ class EditController extends Controller
 
         return view('Eadminhome',['files'=>$fileData,'show'=>$showData]);
     }
+    
 }
