@@ -32,12 +32,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $userid = $request->input('userid');
-        $showpic = DB::select('select * from uprofile where userid="' .$userid);
+        // $showpic = DB::select('select * from uprofile where userid=' .$userid);
         $showdata = DB:: select('select * from homepage');
         $showworks = DB:: select('select * from eworks');
         
         // dd($request->input('file'));
-        return view('home',['show'=>$showdata,'eworks'=>$showworks,'pic'=>$showpic]);
+        // return view('home',['show'=>$showdata,'eworks'=>$showworks,'pic'=>$showpic]);
+        return view('home',['show'=>$showdata,'eworks'=>$showworks]);
     }
     public function uploadpPic(Request $request)
     {
