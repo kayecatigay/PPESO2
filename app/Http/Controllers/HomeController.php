@@ -159,5 +159,6 @@ class HomeController extends Controller
         // dd($request->input('delId'));
         return redirect('/userprofile');
     }
+    
 }
 ?>

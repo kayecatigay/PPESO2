@@ -55,25 +55,6 @@
                         </div>
                     </div>
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <!-- <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Earnings (Annual)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Earnings (Monthly) Card Example -->
 
                     <!-- Pending Requests Card Example -->
                    
@@ -91,7 +72,7 @@
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
+                                
                                 </div>
                             </div>
                         </div>
@@ -154,7 +135,21 @@
                     </div>
                     
                 </div>
-
+                <div class="row">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="card shadow mb-4">
+                            
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    @foreach ($monthlyCounts as $data)
+                                    <canvas id="myappChart" style="width:100%;max-width:600px"></canvas>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Content Row -->
                 
             </div>
@@ -189,6 +184,44 @@ new Chart("myChart", {
     }
   }
 });
+
+var data = {!! json_encode($monthlyCounts) !!};
+    
+    var labels = data.map(function(item) {
+        // Assuming the 'month' property is in the format 'YYYY-MM'
+        var yearMonth = item.month.split('-');
+        var monthName = new Date(Date.UTC(yearMonth[0], yearMonth[1] - 1, 1)).toLocaleString('en-US', { month: 'long' });
+
+        return monthName;
+    });
+
+    var counts = data.map(function(item) {
+        return item.count;
+    });
+
+    var ctx = document.getElementById('myappChart').getContext('2d');
+    
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Counts per Month',
+                data: counts,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
 </script>
 @endsection
 

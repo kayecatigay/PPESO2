@@ -20,16 +20,15 @@ class ScholarAdminController extends Controller
         $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
         $AcceptedEMP=DB::select('select * from employment where status="Approved"');
         $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
-        $monthlyCounts = DB::select('SELECT SUBSTRING(date, 1, 7) as month, COUNT(*) as count FROM scholarship GROUP BY month');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, COUNT(*) as count FROM scholarship GROUP BY month');
 
         // dd($monthlyCounts);
         $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
         $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
 
         return view('PEAPdashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'totalusers'=>count($Tusers),
-        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
-        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
-        'company'=>$Company]);
+        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP), 'monthlyCounts' => $monthlyCounts,
+        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom), 'company'=>$Company]);
     }
     public function scholarNOData()
     {
