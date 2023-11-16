@@ -39,7 +39,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
-                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Dashboard','/SAdashboard'])
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Visualization','/SAdashboard'])
                 ]
             );
         }
@@ -48,7 +48,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Eadmindashboard','/EAdashboard'])
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/EAdashboard'])
                 ]
             );
         }
@@ -57,7 +57,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['OFW','', 
                     array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
-                    ['Status','/Ostatus'],['Dashboard','/Oadmindashboard'])
+                    ['Status','/Ostatus'],['Visualization','/Oadmindashboard'])
             ],
             );
         }
@@ -66,7 +66,7 @@ class AdminController extends Controller
             $smenus=array(
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'])
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/EAdashboard'])
                 ]
             );
         }
@@ -75,17 +75,17 @@ class AdminController extends Controller
             $smenus=array(
                 ['PEAP','', 
                     array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
-                    ['Status','/Pstatus'],['Dashboard','/SAdashboard'])
+                    ['Status','/Pstatus'],['Visualization','/SAdashboard'])
                 ],
 
                 ['Employment','', 
                 array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
-                ['Employer','/EmployerW'],['Status','/Estatus'],['Dashboard','/Eadmindashboard'])
+                ['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/Eadmindashboard'])
                 ],
                 
                 ['OFW','', 
                     array(['Applicants','/ShowAllOApp'],
-                    ['Status','/Ostatus'],['Dashboard','/Oadmindashboard'])
+                    ['Status','/Ostatus'],['Visualization','/Oadmindashboard'])
                 ]
             );
         }

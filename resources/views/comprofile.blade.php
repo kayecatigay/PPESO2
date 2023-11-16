@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-sm-6 col-md-11">
-                            <div class="w3 card w3-white" style="opacity:0.9">
+                            <div class="w3 card w3-white" style="opacity:90">
                                 <div class="card-header" style="text-align:center; ">
                                     <h2>Registration</h2>
                                     <h6>Local Employer</h6>
@@ -106,13 +106,13 @@
                                                         <td>{{$file->created_at}}</td>
                                                         <td>{{$file->updated_at}}</td>
                                                         <td>
-                                                            <span class="input-group">
+                                                            <span class="input-group" >
                                                                 <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $file->id }}">
                                                                     Delete
                                                                 </button>
 
                                                                 <!-- DELETE Modal -->
-                                                                <div class="modal fade" id="delmod1{{ $file->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal fade" id="delmod1{{ $file->id }}"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-lg">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
@@ -125,7 +125,7 @@
                                                                             </div>
 
                                                                             <div class="modal-footer">
-                                                                                <form action="/deleteR" method="get">
+                                                                                <form action="/deleteReq" method="get">
                                                                                     @csrf
                                                                                     <input type="hidden" id="delId" name="delId" value="{{ $file->id }}">
                                                                                     <button type="submit" class="btn btn-danger">Yes</button>
@@ -137,7 +137,6 @@
                                                                 </div>
                                                                 <!-- DELETE Modal -->
                                                             </span>
-
                                                         </td>
                                                     </tr>
                                                 @endforeach

@@ -157,7 +157,7 @@ class HomeController extends Controller
     {
         DB::delete("DELETE FROM reqs WHERE id = " .$request->input('delId'));
         // dd($request->input('delId'));
-        return view('comprofile');
+        return redirect('/userprofile');
     }
 }
 ?>
