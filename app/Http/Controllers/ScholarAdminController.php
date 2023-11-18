@@ -12,23 +12,44 @@ class ScholarAdminController extends Controller
     public function SAdashboard()
     {
         $smenus=(new AdminController)->getLinks();
-        $Tusers=DB::select('select * from users');
-        $muser=DB::select('select * from uprofile where gender="male"');
-        $fuser=DB::select('select * from uprofile where gender="female"');
+        $stat=DB::select('select * from scholarship where status="Approved"');
+        $genderCounts = DB::table('scholarship')
+        ->join('uprofile', 'scholarship.userid', '=', 'uprofile.userid')
+        ->select(
+            DB::raw('COUNT(CASE WHEN uprofile.gender = "male" THEN 1 END) AS male_count'),
+            DB::raw('COUNT(CASE WHEN uprofile.gender = "female" THEN 1 END) AS female_count')
+        )
+        ->first();
+        // Access the counts
+        $maleCount = $genderCounts->male_count;
+        $femaleCount = $genderCounts->female_count;
+        // dd($femaleCount);
+
+        $ipData = DB::select("
+        SELECT s.tribe
+        FROM uprofile as s
+        INNER JOIN scholarship as p ON s.userid = p.userid
+        WHERE LOWER(s.ip) = 'yes'
+        ");
+        
+        $ipCountByTribe = [];
+        foreach ($ipData as $entry) {
+        $tribe = $entry->tribe;
+
+        if (!isset($ipCountByTribe[$tribe])) {
+            $ipCountByTribe[$tribe] = 1;
+        } else {
+            $ipCountByTribe[$tribe]++;
+        }
+        }   
 
         $Applicants=DB::select('select * from scholarship');
-        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
-        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
-        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
         $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, COUNT(*) as count FROM scholarship GROUP BY month');
 
-        // dd($monthlyCounts);
-        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
-        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
 
-        return view('PEAPdashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'totalusers'=>count($Tusers),
-        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP), 'monthlyCounts' => $monthlyCounts,
-        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom), 'company'=>$Company]);
+        return view('PEAPdashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
+        'male'=>$maleCount,'female'=>$femaleCount, 'monthlyCounts' => $monthlyCounts,
+        'available' => count($ipData), 'ipCountByTribe' => $ipCountByTribe]);
     }
     public function scholarNOData()
     {
@@ -224,8 +245,8 @@ class ScholarAdminController extends Controller
         SELECT users.name
         FROM users
         INNER JOIN scholarship ON users.id = scholarship.userid; ');
-        // dd($peapData);
-        return view('pstatus',['status'=>$pstatus,'pName'=>$peapData,'smenu'=>$smenus]);
+       // dd($pstatus);
+        return view('pstatus',['pstatus'=>$pstatus,'pName'=>$peapData,'smenu'=>$smenus]);
     }
     public function pnotif(Request $request)
     {
@@ -244,11 +265,16 @@ class ScholarAdminController extends Controller
     public function approve(Request $request)
     {
         $smenus=(new AdminController)->getLinks();
+        $pstatus=DB::select('select * from scholarship');
+        $peapData = DB ::select('
+        SELECT users.name
+        FROM users
+        INNER JOIN scholarship ON users.id = scholarship.userid; ');
         $id = $request->input('delId');
         DB::update('update scholarship set status="Approved" where id= ' .$id);
         
         $pstatus=DB::select('select * from scholarship');
-        return view('pstatus',['status'=>$pstatus,'smenu'=>$smenus]);
+        return view('pstatus',['pstatus'=>$pstatus,'pName'=>$peapData,'smenu'=>$smenus]);
     }
     public function scholarP()
     {

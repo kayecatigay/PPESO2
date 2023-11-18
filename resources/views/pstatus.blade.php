@@ -28,9 +28,15 @@
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($status as  $sc)
+                  @foreach ($pstatus as $key => $sc)
                      <tr>
-                     <td>{{ $pName[$loop->index]->name }}</td>
+                        <td>
+                           @if(isset($pName[$key]))
+                              {{ $pName[$key]->name }}
+                           @else
+                              (None)
+                           @endif
+                     </td>
                         <td>{{ $sc->date }}</td>
                         <td>{{ $sc->status }}</td>
                         <td>
@@ -47,7 +53,7 @@
                                     </button>
                                  </form>
                               @endif
-                                <!-- DELETE Modal -->
+                              <!-- DELETE Modal -->
                                  <div class="modal fade"  id="delmod{{ $sc->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                        <div class="modal-content">   
@@ -69,11 +75,12 @@
                                        </div>
                                     </div>
                                  </div>
-                                <!-- DELETE Modal -->
+                              <!-- DELETE Modal -->
 
                               </div>
                            </span>
                         </td>
+                        
                     </tr>
                   @endforeach
                   </tbody>

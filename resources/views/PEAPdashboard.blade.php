@@ -27,28 +27,28 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
                                             Applicants</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$applicants}}</div>
+                                        <div class="h3 mb-0 font-weight-bold text-gray-800">{{$applicants}}</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fa fa-users fa-3x text-gray-300" aria-hidden="true"> </i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                            Applicants per month</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$totalusers}}</div>
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                            Accepted</div>
+                                        <div class="h3 mb-0 font-weight-bold text-gray-800">{{$accepted}}</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fa fa-graduation-cap fa-3x text-gray-300" aria-hidden="true"> </i>
                                     </div>
                                 </div>
                             </div>
@@ -64,78 +64,7 @@
 
                 <div class="row">
 
-                    <!-- Area Chart -->
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="card shadow mb-4">
-                            
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-3">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-dark">ACCEPTED</h6>
-                                
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                
-                                <div class="mt-7 text-center small">
-                                    
-                                    <span class="mr-5">
-                                        
-                                        <i class="fa fa-graduation-cap text-primary"> {{ $apeap}} </i> PEAP
-                                    </span>
-                                    <span class="mr-5">
-                                        
-                                        <i class="fa fa-briefcase text-success"> {{ $aemp }}</i> EMP
-                                    </span>
-                                    <span class="mr-2">
-                                        
-                                        <i class="fa fa-plane text-info"> {{ $aofw }}</i> OFW
-                                    </span>
-                                </div>
-                                
-                            </div> 
-                        </div>
-                        <div class="card shadow mb-3">
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-dark">COMPANY</h6><h6 class="m-0 font-weight-bold text-dark">APPLICANTS</h6>
-                                
-                            </div>
-                            <!-- Card Body -->
-
-                                    <div class="card-body">
-                                    @foreach ($company as $com)
-                                        <h4 
-                                            class="small font-weight-bold">{{ $com->cname }}<span
-                                            class="float-right">{{ $com->totalapp }}</span>
-                                        </h4>
-                                        <div class="progress mb-2">
-                                        <?php $percentage = ($com->totalapp / 100); ?>
-                                        <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
-                                        aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    @endforeach
-                                    </div>
-                               
-                                
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="row">
+                    <!-- Bar Chart -->
                     <div class="col-xl-7 col-lg-6">
                         <div class="card shadow mb-4">
                             
@@ -143,13 +72,33 @@
                             <div class="card-body">
                                 <div class="chart-area">
                                     @foreach ($monthlyCounts as $data)
-                                    <canvas id="myappChart" style="width:100%;max-width:600px"></canvas>
+                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
                                     @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Area Chart -->
+                    <div class="col-xl-4">
+                        <div class="card shadow mb-4" style="height: 180px">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow mb-4" style="height: 160px">
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
                 </div>
+                
                 <!-- Content Row -->
                 
             </div>
@@ -163,29 +112,8 @@
     <!-- End of Content Wrapper -->
 
 <script>
-var xValues = ["Male", "Female"];
-var yValues = [{{$muser}}, {{$fuser}}];
-var barColors = ["blue", "red"];
-
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Male/Female Applicants"
-    }
-  }
-});
-
-var data = {!! json_encode($monthlyCounts) !!};
+    
+    var data = {!! json_encode($monthlyCounts) !!};
     
     var labels = data.map(function(item) {
         // Assuming the 'month' property is in the format 'YYYY-MM'
@@ -206,11 +134,9 @@ var data = {!! json_encode($monthlyCounts) !!};
         data: {
             labels: labels,
             datasets: [{
-                label: 'Counts per Month',
+                label: 'Applicants per Month',
                 data: counts,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                backgroundColor: 'rgba(75, 192, 192, 1)',
             }]
         },
         options: {
@@ -219,9 +145,91 @@ var data = {!! json_encode($monthlyCounts) !!};
                     beginAtZero: true
                 }
             }
+        },
+        plugins: {
+            annotation: {
+                annotations: [{
+                    type: 'line',
+                    mode: 'horizontal',
+                    scaleID: 'y',
+                    value: 1,
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    label: {
+                        enabled: true,
+                        content: 'Value 1',
+                        position: 'right',
+                    }
+                }]
+            }
         }
     });
+    // Convert PHP variable to JavaScript variable
+    var ipCountByTribe = @json($ipCountByTribe);
 
+    // Check the result in the console
+    console.log(ipCountByTribe);
+
+    // Get the canvas element
+    var ctx = document.getElementById('ipChart').getContext('2d');
+
+    // Create a bar chart
+    var ipChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(ipCountByTribe),
+            datasets: [{
+                label: 'Number of IPs',
+                data: Object.values(ipCountByTribe),
+                backgroundColor: 'rgba(75, 100, 100, 1)',
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of IPs'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tribe'
+                    }
+                }
+            }
+        }
+    });
+    var maleCount = {{ $male }};
+    var femaleCount = {{ $female }};
+
+    // Get the canvas element
+    var ctx = document.getElementById('genderChart').getContext('2d');
+
+    // Create a bar chart
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Male', 'Female'],
+            datasets: [{
+                label: 'Gender Counts',
+                data: [maleCount, femaleCount],
+                backgroundColor: ['blue', 'pink'], // Adjust colors as needed
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
 </script>
 @endsection
 
