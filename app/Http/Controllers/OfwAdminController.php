@@ -13,21 +13,22 @@ class OfwAdminController extends Controller
     public function OAdashboard()
     {
         $smenus=(new AdminController)->getLinks();
-        $Tusers=DB::select('select * from users');
-        $muser=DB::select('select * from uprofile where gender="male"');
-        $fuser=DB::select('select * from uprofile where gender="female"');
-
-        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
-        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
-        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
-
-        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
-        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
-
-        return view('OfwDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
-        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
-        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
-        'company'=>$Company]);
+        $stat=DB::select('select * from ofw where status="Approved"');
+        $Applicants=DB::select('select * from ofw');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
+        COUNT(*) as count FROM ofw GROUP BY month');
+        
+        $ofwCounts = DB::table('ofw')
+        ->select(
+            DB::raw('COUNT(CASE WHEN OfwCat = "landbased" THEN 1 END) AS landbased_count'),
+            DB::raw('COUNT(CASE WHEN OfwCat = "seabased" THEN 1 END) AS seabased_count')
+        )
+        ->first();
+        $landbasedCount = $ofwCounts->landbased_count;
+        $seabasedCount = $ofwCounts->seabased_count;
+        // dd($landbasedCount);
+        return view('OfwDashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
+        'monthlyCounts' => $monthlyCounts, 'landbasedCount'=>$landbasedCount, 'seabasedCount'=>$seabasedCount]);
     }
     public function showOFWdata(Request $request)
     {
