@@ -20,10 +20,12 @@ class EmpAdminController extends Controller
         $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
         COUNT(*) as count FROM employment GROUP BY month');
 
+        $hiredEmp = DB::select('select * from users where roles=4');
+        // dd($hiredEmp);
         $companies = DB::select("SELECT cname, COUNT(*) as count FROM employment GROUP BY cname");
         // dd($companies);
         return view('EmpDashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
-        'monthlyCounts' => $monthlyCounts, 'companies' => $companies]);
+        'monthlyCounts' => $monthlyCounts, 'companies' => $companies, 'hiredEmp'=>count($hiredEmp)]);
     }
     public function showEmpData(Request $request)
     {
