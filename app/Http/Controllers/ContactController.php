@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('emails.contactus');
+        $showdata = DB:: select('select * from homepage');
+        return view('emails.contactus',['show'=>$showdata]);
     }
 
     public function sendmess(Request $request)

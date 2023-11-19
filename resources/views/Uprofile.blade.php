@@ -63,7 +63,8 @@ input[type="file"]::file-selector-button:hover {
                         </div>
                         <div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
                             <img width="80%" height="80%" style="border-radius: 50%;" 
-                            src="{{ url('uploads/ . $pic[0]->filename') }}" alt="Photo" onclick="openModal()">
+                            src="{{ asset('assets/images/user2.jpg') }}" alt="Photo" onclick="openModal()">
+                            <!-- <img width="80%" height="80%" style="border-radius: 50%;"src="{{ url('uploads/ . $pic[0]->filename') }}" alt="Photo" onclick="openModal()"> -->
                         </div>
 
                         <!-- The Modal -->
@@ -90,9 +91,9 @@ input[type="file"]::file-selector-button:hover {
                         </form>
                     </div>
                 </div>
-                <div class="card-body p-4 text-black">
-                    <div class="mb-5">
-                        <p class="lead fw-normal mb-1">Available Services</p>
+                <div class="card-body p-4 text-black ">
+                    <div class="mb-5 ">
+                        <h2 class="lead fw-normal mb-1" style="text-align:center;"><b class="fs-4">AVAILABLE SERVICES</b></h2>
                         <div class="p-1" style="background-color: #f8f9fa;">
                             <div class="row">
                                 <div class="col">

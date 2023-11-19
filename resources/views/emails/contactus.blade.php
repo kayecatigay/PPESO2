@@ -21,36 +21,32 @@
             </div>
           </div>
         </div>
-
+        
         <div class="row mt-5">
 
-          <div class="col-lg-4">
-          <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Provincial Capitol Compound <br>
-                Nucable Avenue Extension <br>
-                Brgy. Camilmil, Calapan City <br>
-                Oriental Mindoro
-                Philippines, 5200 </p>
-              </div>
+            <div class="col-lg-4">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>{{$show[0]->conLoc}}</p>
+                </div>
 
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>ppeso@ormindoro.gov.ph</p>
-              </div>
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>{{$show[0]->email}}</p>
+                </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>288-7253</p>
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>{{$show[0]->cell}}</p>
+                </div>
+
               </div>
 
             </div>
-
-          </div>
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 

@@ -15,7 +15,9 @@ class ServicesController extends Controller
     }
     public function index()
     {
-        return view ('services');
+        $showdata = DB:: select('select * from homepage');
+        $showworks = DB:: select('select * from eworks');
+        return view ('services',['show'=>$showdata,'eworks'=>$showworks]);
     }
 
     public function shome()

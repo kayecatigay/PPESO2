@@ -111,14 +111,32 @@ class AdminController extends Controller
         $AcceptedEMP=DB::select('select * from employment where status="Approved"');
         $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
 
-        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
-        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
+        $ipData = DB::select("
+        SELECT s.tribe
+        FROM uprofile as s
+        INNER JOIN scholarship as p ON s.userid = p.userid
+        WHERE LOWER(s.ip) = 'yes'
+        ");
+        
+        $ipCountByTribe = [];
+        foreach ($ipData as $entry) {
+        $tribe = $entry->tribe;
 
-        // dd($Company);
+        if (!isset($ipCountByTribe[$tribe])) {
+            $ipCountByTribe[$tribe] = 1;
+        } else {
+            $ipCountByTribe[$tribe]++;
+        }
+        }   
+
+        $peapApp = DB::table('scholarship')->distinct()->count('userid');
+        $empApp = DB::table('employment')->distinct()->count('userid');
+        $ofwApp = DB::table('ofw')->distinct()->count('userid');
+        // dd($peapApp);
         return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
-                    'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
-                    'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
-                    'company'=>$Company]);
+            'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+            'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'totalpeap'=>$peapApp, 
+            'totalemp'=>$empApp, 'totalofw'=>$ofwApp,'ipCountByTribe' => $ipCountByTribe]);
     }
     public function ahome(Request $request)
     {
@@ -128,8 +146,9 @@ class AdminController extends Controller
         }
         else
         {
+            $showdata = DB:: select('select * from homepage');
             $showworks = DB:: select('select * from eworks');
-            return view('adminhome',['eworks'=>$showworks]);
+            return view('adminhome',['show'=>$showdata, 'eworks'=>$showworks]);
         }
         
     }

@@ -13,7 +13,7 @@
             @section('dashboard')
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Data Visualization</h1>
                     <a href="/printDashboard" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                         <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
@@ -27,40 +27,38 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                            Users</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$totalusers}}</div>
+                                        <h6 class="m-0 font-weight-bold text-dark">TOTAL USER</h6>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <b class="fs-2">&emsp;{{$totalusers}}</b>
+                                        </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fas fa-users fa-3x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <!-- <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Earnings (Annual)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
+                    <div class="col-xl-3 col-md-6" >
+                        <div class="card shadow mb-4" style="width:140%; max-height:200px">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">ACCEPTED APPLICANTS</h6>
                             </div>
+                            <!-- Card Body -->
+                            <div class="card-body" >
+                                <div class=" py-0 d-flex flex-row align-items-center justify-content-between background-none">
+                                    <h6 class="m-0 font-weight-bold text-dark"><i class="fa fa-graduation-cap text-primary"><b class="fs-3">&nbsp;{{ $apeap}}</b></i>PEAP
+                                    </h6>
+                                    <h6 class="m-0 font-weight-bold text-dark"><i class="fa fa-briefcase text-success"><b class="fs-3">&nbsp;{{ $aemp }}</b></i>EMP
+                                    </h6>
+                                    <h6 class="m-0 font-weight-bold text-dark"><i class="fa fa-plane text-info"><b class="fs-3">&nbsp;{{ $aofw }}</b></i>OFW
+                                    </h6>
+                                </div>
+                            </div> 
                         </div>
-                    </div> -->
-
-                    <!-- Earnings (Monthly) Card Example -->
-
-                    <!-- Pending Requests Card Example -->
-                   
+                    </div>
                 </div>
 
                 <!-- Content Row -->
@@ -82,57 +80,47 @@
                     </div>
 
                     <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-3">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-dark">ACCEPTED</h6>
-                                
-                            </div>
-                            <!-- Card Body -->
+                    <div class="col-xl-4 ">
+                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
                             <div class="card-body">
-                                
-                                <div class="mt-7 text-center small">
-                                    
-                                    <span class="mr-5">
-                                        
-                                        <i class="fa fa-graduation-cap text-primary"> {{ $apeap}} </i> PEAP
-                                    </span>
-                                    <span class="mr-5">
-                                        
-                                        <i class="fa fa-briefcase text-success"> {{ $aemp }}</i> EMP
-                                    </span>
-                                    <span class="mr-2">
-                                        
-                                        <i class="fa fa-plane text-info"> {{ $aofw }}</i> OFW
-                                    </span>
+                                <div class="chart-area">
+                                    @foreach ($ipCountByTribe as $data)
+                                    <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
+                                    @endforeach
                                 </div>
-                                
-                            </div> 
+                            </div>  
                         </div>
-                        <div class="card shadow mb-3">
+                        <div class="card shadow mb-4" style="height: 190px; width:400px;">
                             <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-dark">COMPANY</h6><h6 class="m-0 font-weight-bold text-dark">APPLICANTS</h6>
+                                class="card-header py-1 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">SERVICES</h6><h6 class="m-0 font-weight-bold text-dark">APPLICANTS</h6>
                                 
                             </div>
-                            <!-- Card Body -->
+                                <!-- Card Body -->
 
-                                    <div class="card-body">
-                                    @foreach ($company as $com)
-                                        <h4 
-                                            class="small font-weight-bold">{{ $com->cname }}<span
-                                            class="float-right">{{ $com->totalapp }}</span>
-                                        </h4>
-                                        <div class="progress mb-2">
-                                            <?php $percentage = ($com->totalapp / 100); ?>
-                                            <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
-                                            aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    @endforeach
+                                <div class="card-body">
+                                    
+                                    <h4 class="small font-weight-bold">PEAP<span class="float-right">{{ $totalpeap }}</span></h4>
+                                    <div class="progress mb-1">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $totalpeap }}%;"  
+                                        aria-valuenow="{{ $totalpeap }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                               
+                                    <h4 class="small font-weight-bold">EMP
+                                        <span class="float-right">{{ $totalemp }}</span>
+                                    </h4>
+                                    <div class="progress mb-1">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $totalemp }}%;"  
+                                        aria-valuenow="{{ $totalemp }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 
+                                        class="small font-weight-bold">OFW<span
+                                        class="float-right">{{ $totalofw }}</span>
+                                    </h4>
+                                    <div class="progress mb-1">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $totalofw }}%;" 
+                                        aria-valuenow="{{ $totalofw }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
                                 
                         </div>
                     </div>
@@ -172,6 +160,44 @@ new Chart("myChart", {
       text: "Male/Female Applicants"
     }
   }
+});
+// Convert PHP variable to JavaScript variable
+var ipCountByTribe = @json($ipCountByTribe);
+
+// Check the result in the console
+console.log(ipCountByTribe);
+
+// Get the canvas element
+var ctx = document.getElementById('ipChart').getContext('2d');
+
+// Create a bar chart
+var ipChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: Object.keys(ipCountByTribe),
+        datasets: [{
+            label: 'Number of IPs',
+            data: Object.values(ipCountByTribe),
+            backgroundColor: 'rgba(75, 100, 100, 1)',
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of IPs'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Tribe'
+                }
+            }
+        }
+    }
 });
 </script>
 @endsection

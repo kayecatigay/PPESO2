@@ -67,7 +67,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="admindashboard">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Dashboard</span>
+                            <span>Visualization</span>
                         </a>
                     </li>
 
