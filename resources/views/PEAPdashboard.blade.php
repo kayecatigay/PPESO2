@@ -1,6 +1,7 @@
 @extends('layouts.addefault')
 
 @section('maincontent')
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- Main Content -->
@@ -18,52 +19,10 @@
                         <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
-                                            Applicants</div>
-                                        <div class="h3 mb-0 font-weight-bold text-gray-800">{{$applicants}}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fa fa-users fa-3x text-gray-300" aria-hidden="true"> </i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
-                                            Accepted</div>
-                                        <div class="h3 mb-0 font-weight-bold text-gray-800">{{$accepted}}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fa fa-graduation-cap fa-3x text-gray-300" aria-hidden="true"> </i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Pending Requests Card Example -->
-                   
-                </div>
 
                 <!-- Content Row -->
 
                 <div class="row">
-
                     <!-- Bar Chart -->
                     <div class="col-xl-7 col-lg-6">
                         <div class="card shadow mb-4">
@@ -79,9 +38,62 @@
                         </div>
                     </div>
 
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-4">
+                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:400px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                           <br>Total Applicants
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                            &emsp;&emsp;{{$applicants}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                    <i class="fa fa-users fa-3x text-gray-300" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:400px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                          <br>  Accepted Scholar
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                        &emsp;&emsp;{{$accepted}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-graduation-cap fa-3x text-gray-300" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Bar Chart -->
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="card shadow mb-4">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <h5 style="text-align: center;">Graduated per School</h5>
+                                <div class="chart-area">
+                                    <canvas id="mygradChart" style="width:100%; max-width:600px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Area Chart -->
                     <div class="col-xl-4">
-                        <div class="card shadow mb-4" style="height: 180px">
+                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
@@ -89,18 +101,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card shadow mb-4" style="height: 160px">
+                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
                             <div class="card-body">
                                 <div class="chart-area">
+                                    @foreach ($ipCountByTribe as $data)
                                     <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
+                                    @endforeach
                                 </div>
                             </div>  
                         </div>
                     </div>
                 </div>
-                
-                <!-- Content Row -->
-                
             </div>
             <!-- /.container-fluid -->
             @show
@@ -110,7 +121,7 @@
     
     
     <!-- End of Content Wrapper -->
-
+    
 <script>
     
     var data = {!! json_encode($monthlyCounts) !!};
@@ -230,6 +241,56 @@
             }
         }
     });
+    var data = {!! json_encode($graduates) !!};
+
+    // Extract unique school names
+    var uniqueSchools = [...new Set(data.map(item => item.school))];
+
+    // Initialize datasets
+    var datasets = uniqueSchools.map(school => {
+        return {
+            label: school,
+            data: [],
+            backgroundColor: getRandomColor(),
+            borderWidth: 1
+        };
+    });
+
+    // Populate datasets with counts for each graduation year
+    data.forEach(item => {
+        var datasetIndex = uniqueSchools.indexOf(item.school);
+        datasets[datasetIndex].data.push(item.GraduatesCount);
+    });
+
+    // Create a bar chart using Chart.js
+    var ctx = document.getElementById('mygradChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: uniqueSchools,
+            datasets: datasets
+        },
+        options: {
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true
+                }
+            }
+        }
+    });
+
+    // Function to generate random colors
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 </script>
 @endsection
 

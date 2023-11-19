@@ -25,6 +25,14 @@ class ScholarAdminController extends Controller
         $femaleCount = $genderCounts->female_count;
         // dd($femaleCount);
 
+        $graduates=DB::select("
+        SELECT uprofile.school, uprofile.yGraduated, COUNT(uprofile.userid) AS GraduatesCount
+        FROM scholarship
+        INNER JOIN uprofile ON scholarship.userid = uprofile.userid
+        GROUP BY uprofile.school, uprofile.yGraduated;
+        ");
+        // dd($graduates);
+
         $ipData = DB::select("
         SELECT s.tribe
         FROM uprofile as s
@@ -48,8 +56,8 @@ class ScholarAdminController extends Controller
 
 
         return view('PEAPdashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
-        'male'=>$maleCount,'female'=>$femaleCount, 'monthlyCounts' => $monthlyCounts,
-        'available' => count($ipData), 'ipCountByTribe' => $ipCountByTribe]);
+        'male'=>$maleCount,'female'=>$femaleCount, 'monthlyCounts' => $monthlyCounts, 
+        'available' => count($ipData), 'ipCountByTribe' => $ipCountByTribe, 'graduates'=>$graduates ]);
     }
     public function scholarNOData()
     {

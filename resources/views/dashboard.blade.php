@@ -126,9 +126,9 @@
                                             class="float-right">{{ $com->totalapp }}</span>
                                         </h4>
                                         <div class="progress mb-2">
-                                        <?php $percentage = ($com->totalapp / 100); ?>
-                                        <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
-                                        aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <?php $percentage = ($com->totalapp / 100); ?>
+                                            <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
+                                            aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     @endforeach
                                     </div>
