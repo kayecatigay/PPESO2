@@ -15,21 +15,15 @@ class EmpAdminController extends Controller
     public function EAdashboard()
     {
         $smenus=(new AdminController)->getLinks();
-        $Tusers=DB::select('select * from users');
-        $muser=DB::select('select * from uprofile where gender="male"');
-        $fuser=DB::select('select * from uprofile where gender="female"');
+        $stat=DB::select('select * from employment where status="Approved"');
+        $Applicants=DB::select('select * from employment');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
+        COUNT(*) as count FROM employment GROUP BY month');
 
-        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
-        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
-        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
-
-        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
-        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
-        
-        return view('EmpDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
-        'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
-        'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
-        'company'=>$Company]);
+        $companies = DB::select("SELECT cname, COUNT(*) as count FROM employment GROUP BY cname");
+        // dd($companies);
+        return view('EmpDashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
+        'monthlyCounts' => $monthlyCounts, 'companies' => $companies]);
     }
     public function showEmpData(Request $request)
     {

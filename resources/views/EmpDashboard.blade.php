@@ -18,57 +18,54 @@
 
                 <!-- Content Row -->
                 <div class="row">
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
+                    <!-- Bar Chart -->
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="card shadow mb-4">
+                            
+                            <!-- Card Body -->
                             <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                            Users (Monthly)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                    </div>
+                                <div class="chart-area">
+                                    @foreach ($monthlyCounts as $data)
+                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <!-- <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
+                    <div class="col-xl-4">
+                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:400px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Earnings (Annual)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                           <br>Total Applicants
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                            &emsp;&emsp;{{$applicants}}
+                                        </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    <i class="fa fa-users fa-3x text-gray-300" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
-                    <!-- Earnings (Monthly) Card Example -->
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
+                    
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:400px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                            Pending Requests</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                          <br>  Hired Applicants
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                        &emsp;&emsp;{{$accepted}}
+                                        </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fa fa-briefcase fa-3x text-gray-300" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -78,81 +75,7 @@
 
                 <!-- Content Row -->
 
-                <div class="row">
-
-                    <!-- Area Chart -->
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                        aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                        aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                <div class="mt-4 text-center small">
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-primary"></i> Direct
-                                    </span>
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-success"></i> Social
-                                    </span>
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-info"></i> Referral
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <!-- Content Row -->
                 <div class="row">
@@ -162,55 +85,27 @@
 
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                            <div class="card-header text-info" style="text-align:center; border:none; height:10px;">
+                            <b>NUMBER OF APPLICANTS PER COMPANY</b>
+                            </div>
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">Company</h6><h6 class="m-0 font-weight-bold text-dark">Applicants</h6>
                             </div>
                             <div class="card-body">
+                                @foreach ($companies as $company)
+                                    <h4 class="small font-weight-bold">{{ $company->cname }} 
+                                        <span class="float-right">{{ $company->count }}</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $company->count }}%" aria-valuenow="{{ $company->count }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                @endforeach
                                 
-                                <h4 class="small font-weight-bold">Customer Database <span
-                                        class="float-right">60%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                
-                                <h4 class="small font-weight-bold">Account Setup <span
-                                        class="float-right">Complete!</span></h4>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
                             </div>
                         </div>
 
-
                     </div>
 
-                    <div class="col-lg-6 mb-4">
-
-                        <!-- Illustrations -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                        src="assets/img/features.jpg" alt="...">
-                                </div>
-                                <p>Add some quality, svg illustrations to your project courtesy of <a
-                                        target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                    constantly updated collection of beautiful svg images that you can use
-                                    completely free and without attribution!</p>
-                                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                    unDraw &rarr;</a>
-                            </div>
-                        </div>
-
-                        <!-- Approach -->
-                       
-
-                    </div>
                 </div>
 
             </div>
@@ -220,7 +115,58 @@
         </div>
         <!-- End of Main Content -->
     
+    <script>
+        var data = {!! json_encode($monthlyCounts) !!};
     
+        var labels = data.map(function(item) {
+            // Assuming the 'month' property is in the format 'YYYY-MM'
+            var yearMonth = item.month.split('-');
+            var monthName = new Date(Date.UTC(yearMonth[0], yearMonth[1] - 1, 1)).toLocaleString('en-US', { month: 'long' });
+
+            return monthName;
+        });
+
+        var counts = data.map(function(item) {
+            return item.count;
+        });
+        var ctx = document.getElementById('myappChart').getContext('2d');
+    
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Applicants per Month',
+                    data: counts,
+                    backgroundColor: 'rgba(75, 100, 100, 1)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+            plugins: {
+                annotation: {
+                    annotations: [{
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y',
+                        value: 1,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        label: {
+                            enabled: true,
+                            content: 'Value 1',
+                            position: 'right',
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
     <!-- End of Content Wrapper -->
 @endsection
 

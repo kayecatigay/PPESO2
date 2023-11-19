@@ -34,7 +34,13 @@
                   <tbody>
                     @foreach ($status as $key => $emp)
                       <tr>
-                        <td>{{ $eName[$key]->name }}</td>
+                        <td>
+                          @if(isset($eName[$key]))
+                              {{ $eName[$key]->name }}
+                           @else
+                              (None)
+                           @endif
+                        </td>
                         <td>{{ $emp->date }}</td>
                         <td>{{ $emp->posidesired }}</td>
                         <td>{{ $emp->cname }}</td>
