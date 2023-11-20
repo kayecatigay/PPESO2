@@ -40,7 +40,7 @@
             <div class="row">
               <div class="col-5">&nbsp;</div>
               <div class="col">
-                <input type="submit" class="btn btn-primary" value="Apply" name="submit">
+                <input type="submit" class="btn btn-primary" value="Update" name="submit">
               </div>
               <div class="col">&nbsp;</div>
             </div>

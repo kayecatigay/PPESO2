@@ -213,12 +213,15 @@ class ScholarAdminController extends Controller
     }
     public function updateA(Request $request)
     {
+        
         $smenus=(new AdminController)->getLinks();
+        
         $announceData = DB::update('update genannouncements set dateTo="' .$request->input('dateTo'). '",dateFrom= 
         "' .$request->input('dateFrom'). '",title="' .$request->input('title'). '",body= 
         "' .$request->input('body') .'" where service = "PEAP"');
-
-        return redirect('/Sannouncements',['smenu'=>$smenus]);
+        // dd($smenus);
+        // return redirect('/');
+        return redirect('/Sannouncements');
     }
     public function deleteAnn(Request $request)
     {
