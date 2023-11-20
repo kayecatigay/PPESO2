@@ -64,7 +64,7 @@ input[type="file"]::file-selector-button:hover {
                         <div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
                             <!-- <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/images/user2.jpg') }}" alt="Photo" onclick="openModal()"> -->
                             <img width="80%" height="80%" style="border-radius: 50%;"
-                            src="{{ url('uploads/ . $pic[0]->filename') }}" alt="Photo" onclick="openModal()">
+                            src="{{ url('uploads/' . $pic[0]->filename) }}" alt="Photo" onclick="openModal()">
                         </div>
 
                         <!-- The Modal -->

@@ -27,7 +27,8 @@ class uProfileController extends Controller
         }
         else
         {
-            return view ('\Uprofile');
+            $profile=DB::select('select filename from uprofile where userid=' .$userid);
+            return view ('\Uprofile',['pic'=>$profile]);
         }
         // $profhome=DB::select('select * from users');
         // return view ('uProfile',['pr'=>$profhome]);

@@ -39,9 +39,12 @@ class EmpAdminController extends Controller
         INNER JOIN uprofile as p
         ON s.userid = p.userid
         INNER JOIN users as u
-        ON p.userid = u.id;
-        
+        ON p.userid = u.id
+        INNER JOIN files as f
+        ON p.userid = f.userid;
+                
         ');
+        // dd($empData);
         $fileData=DB::select('select * from files where userid=' .$userid);
         return view('EmpData',['data'=>$empData,'files'=>$fileData,'smenu'=>$smenus]);
         // return view('EmpData');

@@ -68,13 +68,13 @@
                                  <td>{{ $emp->degree }}</td>
                                  <td>{{ $emp->cname }}</td>
                                  <td>
-                                    <input type="text" style="border:none;" size="15" value="{{ $files[0]->original_name}}">
+                                    <input type="text" style="border:none;" size="15" value="{{ $emp->original_name}}">
                                  </td>
                                  <td>
                                     <a href="/printApp">
                                        <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
                                     </a> &nbsp;
-                                    <a href="/uploads/{{ $files[0]->filename}}" download>
+                                    <a href="{{ asset('uploads/' . $emp->filename) }}" download>
                                        <i class="fa fa-download" style="color:black;" aria-hidden="true"></i>
                                     </a>
                                  </td>
