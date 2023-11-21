@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use App\Models\User; // Assuming you have a User model
 
 
 class AdminController extends Controller
@@ -245,6 +247,23 @@ class AdminController extends Controller
         $smenus=$this->getLinks();
         return view('messages',['smenu'=>$smenus]);
     }
-    
+    public function showPrintView()
+    {
+        // Retrieve all data from the users table
+        // $allUserData = User::all();
+        // dd($allUserData);
+        // Now $allUserData contains a collection of User models, each representing a row in the users table
+        // You can use this collection in your application as needed
+
+        // Example: Accessing the first user's name
+        // $firstName = $allUserData->first()->name;
+
+        // return view('print')->with('allUserData', $allUserData);
+        // Your code to fetch data from the database
+        $users = User::all(); // Fetch all users as an example
+
+        // Return the print view with data
+        return View::make('print')->with('users', $users);
+    }
    
 }

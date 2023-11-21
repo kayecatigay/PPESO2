@@ -230,6 +230,7 @@ Route::middleware("admin")->group(function () {
 
     Route::post('/uploadphoto', [App\Http\Controllers\FileUploadController::class, 'uploadPhoto']);
     
+    Route::get('/print', [App\Http\Controllers\AdminController::class, 'showPrintView']);
 
 });
 Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
