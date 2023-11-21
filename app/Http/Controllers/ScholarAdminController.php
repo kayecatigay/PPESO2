@@ -270,22 +270,15 @@ class ScholarAdminController extends Controller
         INNER JOIN scholarship ON users.id = scholarship.userid
         WHERE scholarship.id =' .$id );
         // dd($PeapData);
-
-        return view('pEmail',['pData'=>$PeapData,'smenu'=>$smenus]);
+        return view('pEmail',['pData'=>$PeapData,'smenu'=>$smenus,'id'=>$id]);
     }
     public function approve(Request $request)
     {
-        $smenus=(new AdminController)->getLinks();
-        $pstatus=DB::select('select * from scholarship');
-        $peapData = DB ::select('
-        SELECT users.name
-        FROM users
-        INNER JOIN scholarship ON users.id = scholarship.userid; ');
         $id = $request->input('delId');
-        DB::update('update scholarship set status="Approved" where id= ' .$id);
         
-        $pstatus=DB::select('select * from scholarship');
-        return view('pstatus',['pstatus'=>$pstatus,'pName'=>$peapData,'smenu'=>$smenus]);
+        DB::update('update scholarship set status="Approved" where id= ' .$id);
+        // return redirect('/acceptpNotifMail',['id'=>$id]);
+        return redirect()->route('accpNotif',['id'=>$id]);
     }
     public function scholarP()
     {

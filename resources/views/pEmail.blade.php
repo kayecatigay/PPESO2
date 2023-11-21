@@ -3,7 +3,7 @@
 @section('maincontent')        
     <div class="col-lg-12 mt-5 mt-lg-0" >
 
-        <form action="sendpNotifMail" method="get" >
+        <form action="sendpNotifMail" method="get">
         @csrf <!-- Add CSRF token field -->
         <div class="row">
             <div class="col-md-6 form-group">

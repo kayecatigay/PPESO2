@@ -7,6 +7,7 @@ use App\Mail\NotifMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
@@ -15,7 +16,6 @@ class NotificationController extends Controller
         $dateformat = date_create($request->input('datetime'));
         // echo date_format($dateformat,"F d, Y  -  g:i a");
 
-        
         $name = $request->input('name');
         $email = $request->input('email');
         $subject = $request->input('subject');
@@ -39,4 +39,23 @@ class NotificationController extends Controller
         ->setUsername('mryktlynln@gmail.com')
         ->setPassword('jbtsuceqxtpfxiuo');
     }
+    public function accpNotif($id)
+    {
+        $data = DB::select('
+            SELECT users.email
+            FROM users
+            INNER JOIN scholarship ON users.id = scholarship.userid
+            WHERE scholarship.id = :id', ['id' => $id]
+        );
+        $email = $data[0]->email;
+        // if (!empty($data)) {
+        //     $email = $data[0]->email;
+        //     dd($email);
+        // } else {
+        //     // Handle the case where no data is found for the given ID
+        //     dd('Email not found for the provided scholarship ID.');
+        // }
+    }
+
+
 }

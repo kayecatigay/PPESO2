@@ -4,7 +4,10 @@ use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ScholarAdminController;
 use Illuminate\Support\Facades\Mail;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -192,11 +195,12 @@ Route::middleware("admin")->group(function () {
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendsms']);
     Route::post('/send-sms', [App\Http\Controllers\ContactController::class, 'sendSms']);
 
-    Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
     Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
-    Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve']);
+    Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
+    Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve'])->name('approve');
     Route::get('/sendpNotifMail',[NotificationController::class,'sendpNotif']);
-    
+    Route::get('/acceptpNotifMail/{id}',[NotificationController::class,'accpNotif'])->name('accpNotif');
+
     Route::get('/Enotif', [App\Http\Controllers\EmpAdminController::class, 'enotif']);
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);

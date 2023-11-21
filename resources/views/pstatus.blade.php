@@ -41,7 +41,6 @@
                         <td>{{ $sc->status }}</td>
                         <td>
                            <span class="input-group">
-
                               @if ($sc->status=="pending")
                                  <button type="button" class="btn btn-success" style="border-radius: 2px; " data-toggle="modal" data-target="#delmod{{ $sc->id }}">
                                     Approve
