@@ -204,13 +204,13 @@ Route::middleware("admin")->group(function () {
     Route::get('/Enotif', [App\Http\Controllers\EmpAdminController::class, 'enotif']);
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove'])->name('eapprove');
-    Route::get('/sendeNotifMail',[NotificationController::class,'sendpNotif']);
+    Route::get('/sendeNotifMail',[NotificationController::class,'sendeNotif']);
     Route::get('/accepteNotifMail/{id}',[NotificationController::class,'acceNotif'])->name('acceNotif');
 
     Route::get('/Onotif', [App\Http\Controllers\OfwAdminController::class, 'onotif']);
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
     Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove'])->name('oapprove');
-    Route::get('/sendoNotifMail',[NotificationController::class,'sendpNotif']);
+    Route::get('/sendoNotifMail',[NotificationController::class,'sendoNotif']);
     Route::get('/acceptoNotifMail/{id}',[NotificationController::class,'accoNotif'])->name('accoNotif');
 
     

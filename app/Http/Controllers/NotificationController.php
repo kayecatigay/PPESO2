@@ -74,6 +74,34 @@ class NotificationController extends Controller
         //     dd('Email not found for the provided scholarship ID.');
         // }
     }
+    public function sendeNotif(Request $request)
+    {
+        $dateformat = date_create($request->input('datetime'));
+        // echo date_format($dateformat,"F d, Y  -  g:i a");
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $messageBody = $request->input('message');
+        $location = $request->input('location');
+        $date = date_format($dateformat,"F d, Y  -  g:i a");
+
+        // dd($date);
+        $detail = [
+            'title' => $subject,
+            'name' => $name,
+            'body' => $messageBody,
+            'location' => $location,
+            'date' => $date
+        ];
+
+        Mail::to($email)->send(new NotifMail($detail));
+        return redirect('Estatus');
+
+        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+        ->setUsername('mryktlynln@gmail.com')
+        ->setPassword('jbtsuceqxtpfxiuo');
+    }
     public function acceNotif($id)
     {
         $data = DB::select('
@@ -101,6 +129,34 @@ class NotificationController extends Controller
         ->setUsername('mryktlynln@gmail.com')
         ->setPassword('jbtsuceqxtpfxiuo');
 
+    }
+    public function sendoNotif(Request $request)
+    {
+        $dateformat = date_create($request->input('datetime'));
+        // echo date_format($dateformat,"F d, Y  -  g:i a");
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $messageBody = $request->input('message');
+        $location = $request->input('location');
+        $date = date_format($dateformat,"F d, Y  -  g:i a");
+
+        // dd($date);
+        $detail = [
+            'title' => $subject,
+            'name' => $name,
+            'body' => $messageBody,
+            'location' => $location,
+            'date' => $date
+        ];
+
+        Mail::to($email)->send(new NotifMail($detail));
+        return redirect('Ostatus');
+
+        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+        ->setUsername('mryktlynln@gmail.com')
+        ->setPassword('jbtsuceqxtpfxiuo');
     }
     public function accoNotif($id)
     {
