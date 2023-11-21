@@ -202,7 +202,8 @@ class AdminController extends Controller
     {
         $userid=$request->input('showId');
         // dd($userid);
-        $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);
+        $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);        
+        // dd($showfile);
         return view ('NLEmpApp',['files'=>$showfile]);
     }
     public function deleteempD(Request $request)

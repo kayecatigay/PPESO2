@@ -42,8 +42,9 @@
   <link href="<?= url('assets/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-  
-  
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" />
+
+  <script src="https://unpkg.com/cropperjs"></script>  
   <script src="<?= url('assets/vendor/jquery/jquery.min.js') ?>"></script>
   <script src="<?= url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

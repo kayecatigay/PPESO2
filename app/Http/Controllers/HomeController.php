@@ -69,10 +69,10 @@ class HomeController extends Controller
         // dd($savedFile);
         // Return a success response
         $showData = DB::select('select * from uprofile where userid=' .$userid);
-        $upFile = DB::update('update uprofile set filename="' .$fileName .'"
-        where userid='.$userid );
+        $upFile = DB::update('update uprofile set filename="' .$fileName .'" where userid='.$userid );
+        $profile=DB::select('select filename from uprofile where userid=' .$userid);
 
-        return view('Uprofile',['show'=>$showData]);
+        return view('Uprofile',['show'=>$showData,'pic'=>$profile]);
     }
     public function emphome()
     {

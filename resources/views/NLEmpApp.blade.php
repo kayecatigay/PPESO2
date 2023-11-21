@@ -15,7 +15,8 @@
                                        <th scope="col">File Name</th>
                                        <th scope="col">Original Name</th>
                                        <th scope="col">Created At</th>
-                                       <th scope="col">Updated At</th>            
+                                       <th scope="col">Updated At</th>   
+                                       <th scope="col">Download File</th>   
                                  </tr>
                               </thead>
                               <tbody >
@@ -25,9 +26,16 @@
                                        <td>{{ $file->original_name }}</td>
                                        <td>{{ $file->created_at }}</td>
                                        <td>{{ $file->updated_at }}</td>
+                                       <td>
+                                          <a href="{{ asset('uploads/' . $file->filename) }}" download>
+                                             <button style=" border-color: black; color: black; border-radius: 5px;">
+                                             download</button>
+                                          </a>
+                                       </td>                                    
                                     </tr>
                                  @empty
                                     <tr style="text-align:center;">
+                                       <td>None</td>
                                        <td>None</td>
                                        <td>None</td>
                                        <td>None</td>
