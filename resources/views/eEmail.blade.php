@@ -10,8 +10,8 @@
             <input type="text" name="name" readonly class="form-control" id="name" value="{{ $eData[0]->name}}" required>
             </div>
             <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control"  name="email" id="email" required>
-            <!-- <input type="email" class="form-control"  readonly name="email" id="email" value="{{ $eData[0]->email}}" required> -->
+            <!-- <input type="email" class="form-control"  name="email" id="email" required> -->
+            <input type="email" class="form-control"  readonly name="email" id="email" value="{{ $eData[0]->email}}" required>
             </div>
         </div>
         <div class="row">
