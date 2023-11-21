@@ -322,12 +322,11 @@ class EmpAdminController extends Controller
     }
     public function eapprove(Request $request)
     {
-        $smenus=(new AdminController)->getLinks();
         $id = $request->input('delId');
         DB::update('update employment set status="Approved" where id= ' .$id);
 
-        $estatus=DB::select('select * from employment');
-        return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
+        // return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
+        return redirect()->route('acceNotif',['id'=>$id]);
     }
     public function ePrint()
     {

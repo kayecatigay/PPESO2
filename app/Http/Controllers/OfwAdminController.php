@@ -219,12 +219,12 @@ class OfwAdminController extends Controller
     }
     public function oapprove(Request $request)
     {
-        $smenus=(new AdminController)->getLinks();
         $id = $request->input('delIdofw');
         DB::update('update ofw set status="Approved" where id= ' .$id);
 
-        $ostatus=DB::select('select * from ofw');
-        return view('ostatus',['status'=>$ostatus,'smenu'=>$smenus]);
+        // return view('ostatus',['status'=>$ostatus,'smenu'=>$smenus]);
+        return redirect()->route('accoNotif',['id'=>$id]);
+
     }
     public function ofwP()
     {   

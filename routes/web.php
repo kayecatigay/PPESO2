@@ -203,14 +203,17 @@ Route::middleware("admin")->group(function () {
 
     Route::get('/Enotif', [App\Http\Controllers\EmpAdminController::class, 'enotif']);
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
-    Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove']);
+    Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove'])->name('eapprove');
     Route::get('/sendeNotifMail',[NotificationController::class,'sendpNotif']);
+    Route::get('/accepteNotifMail/{id}',[NotificationController::class,'acceNotif'])->name('acceNotif');
 
     Route::get('/Onotif', [App\Http\Controllers\OfwAdminController::class, 'onotif']);
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
-    Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove']);
+    Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove'])->name('oapprove');
     Route::get('/sendoNotifMail',[NotificationController::class,'sendpNotif']);
+    Route::get('/acceptoNotifMail/{id}',[NotificationController::class,'accoNotif'])->name('accoNotif');
 
+    
     Route::get('/ScholarPrint', [App\Http\Controllers\ScholarAdminController::class, 'scholarP']);
     Route::get('/StrackingPrint', [App\Http\Controllers\ScholarAdminController::class, 'trackingP']);
     Route::get('/SannPrint', [App\Http\Controllers\ScholarAdminController::class, 'sannP']);

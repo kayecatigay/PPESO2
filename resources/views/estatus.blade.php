@@ -65,11 +65,11 @@
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content">   
                                       <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $emp->id }} </h5>
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> APPROVE RECORD ID: {{ $emp->id }} </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       </div>
                                       <div class="modal-body">
-                                            Do you really want to cancel this record: {{ $emp->posidesired}}?
+                                            Do you really want to approve this record: {{ $emp->posidesired}}?
                                       </div>
                                       <div class="modal-footer">
                                           <form action ="/Eapprove" method="get" >
