@@ -89,6 +89,9 @@ class uProfileController extends Controller
             fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
             eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
             where userid='.$request->input('userid') .' ');
+            // if doarrival is not empty
+            //   update sql dofarrival pati insert
+            
         }
         else
         {
