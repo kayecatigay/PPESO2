@@ -9,20 +9,20 @@
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
             
             <div class="col">
-              <div style="@auth display: block; @else display: none; @endauth"><br><br>
+              <div style="<?php echo"@auth display: block; @else display: none; @endauth"?>"><br><br>
                 <div class="card" style="width: 18rem; opacity:80%;">
-                  <div class="card-header" style="background-color: yellowgreen;">
+                  <div class="card-header" style="background-color: yellowgreen; border-bottom: black 1px solid;">
                     <h5><b>JOB VACANCIES</b></h5>
                   </div>
-                  <div class="table" style="width:100%">
-                      <dl class="row" style="height:8px;">
+                  <div class="table" style="width:100%;border-bottom-width: 7px;">
+                      <dl class="row" style="height:8px; ">
                         <dt class="col" >POSITION</dt>
                         <dt class="col">COMPANY</dt>
                       </dl>
                     @foreach ( $eworks as $work)
-                      <dl class="row" style="height:4px; border-bottom: black 1px solid;">
-                        <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
-                        <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
+                      <dl class="row" style="height:4px; ">
+                        <dt class="col" style="font-weight:normal; border-bottom: solid; border-bottom-width: 1px;">{{ $work->jobdesc}}</dt>
+                        <dt class="col" style="font-weight:normal; border-bottom: solid; border-bottom-width: 1px;">{{ $work->company}}</dt>
                       </dl>
                     @endforeach
                   </div>
