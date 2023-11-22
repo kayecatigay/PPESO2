@@ -1,15 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
 <header id="header" >
-        <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
-    </header>
+   <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
+</header>
 <style>
    /* Set the table container to overflow horizontally */
 
    #table {
       font-family: Arial, Helvetica, sans-serif;
-      font-size:10px;
+      font-size:11px;
       border-collapse: collapse;
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
    }
@@ -18,7 +27,7 @@
       border: 1px solid #ddd;
       padding: 8px;
    }
-</style>   
+</style> 
                        
       <div class="col-xl-20">
          <div class="card shadow mb-4">
@@ -58,7 +67,7 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($showdata as $data)
+                           @foreach ($empdata as $data)
                               @php $address = $data->region."," .$data->province."," .$data->mun."," .$data->barangay."," .$data->sitio; @endphp
                               <tr>
                                  <td>{{ $data->date }}</td>
@@ -80,7 +89,7 @@
                                  <td>{{ $data->hs }}</td>
                                  <td>{{ $data->college }}</td> 
                                  <td>{{ $data->degree }}</td>
-                                 <td>{{ $data->uprofile_column }}</td>                          
+                                 <td>{{ $data->cname }}</td>                          
                               </tr>
                            @endforeach
                         </tbody>
@@ -89,13 +98,13 @@
                </div>
          </div>
       </div>   <br>
-      <div style="text-align:center;" class="btn btn-primary">
+      <!-- <div style="text-align:center;" class="btn btn-primary">
          <button onclick="printPage()">Print</button>
-      </div>
+      </div> -->
    <script>
-      function printPage() {
-            window.print();
-        }
+      // function printPage() {
+      //       window.print();
+      //   }
       // Add event listener to scroll the table
       var tableContainer = document.querySelector('.table-container');
       tableContainer.addEventListener('wheel', function(event) {

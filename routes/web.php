@@ -221,6 +221,7 @@ Route::middleware("admin")->group(function () {
     
     Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
     Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
+    Route::get('/EmpPrint', [App\Http\Controllers\EmpAdminController::class, 'empP']);
     Route::get('/EstatPrint', [App\Http\Controllers\EmpAdminController::class, 'estatP']);
     Route::get('/resPrint', [App\Http\Controllers\EmpAdminController::class, 'resShow']);
     Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);

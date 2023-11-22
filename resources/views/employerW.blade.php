@@ -13,7 +13,7 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">Employer</h6>
-               <a href="/EstatPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+               <a href="/EmpPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
             </div>
                
             <div class="card-body">

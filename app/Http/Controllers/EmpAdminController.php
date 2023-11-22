@@ -340,7 +340,7 @@ class EmpAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('NLEmploy',['data'=>$empData,'smenu'=>$smenus]);
+        return view('NLEmploy',['empdata'=>$empData,'smenu'=>$smenus]);
     }
     public function workP()
     {
@@ -353,6 +353,15 @@ class EmpAdminController extends Controller
         $smenus=(new AdminController)->getLinks();
         $estatus=DB::select('select * from employment');
         return view('NLEstatus',['status'=>$estatus,'smenu'=>$smenus]);
+    }
+    public function empP()
+    {
+        $smenus=(new AdminController)->getLinks();
+        $employers = DB :: select('select * from company');
+        // dd($employers);
+        // $employers= DB::select(" SELECT * FROM company INNER JOIN users ON company.representative = users.name WHERE users.name = `.$name`;");
+        // $employers = DB::select('select * from users where roles = 4');
+        return view('NLEmployer',['employer'=>$employers,'smenu'=>$smenus]);
     }
     public function resShow(Request $request)
     {
