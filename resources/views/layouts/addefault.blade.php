@@ -33,12 +33,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     <!-- Core plugin JavaScript-->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         .centered-and-cropped { object-fit: cover }
     </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+
+  
+
 </head>
 
     <body id="page-top">
@@ -215,16 +221,30 @@
                         
                     @show
                     @section('userinfo')
-                        
-                        <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="userprofile">Profile</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }} <br>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                        <!-- <a href="" method="post">Kate</a>
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" data-target="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" data-target="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="assets/img/user.jpg">
                             </a>
-                            <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 id="userDropdown">
                                 <a class="dropdown-item" href="/userprofile">
@@ -236,8 +256,8 @@
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ route('logout') }}
                                 </a>
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
                     @show
 
                 </ul>
@@ -245,7 +265,6 @@
         @show
             @section('maincontent')
                     <!-- main content -->
-
             @show
             <!-- End of Content Wrapper -->
         </div>

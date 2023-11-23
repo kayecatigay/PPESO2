@@ -3,11 +3,12 @@
 @section('content')
    
 <body class="img js-fullheight" style="background-image: url(assets/images/bg.jpg);">
-    <section class="ftco-section">
+    <section class="container">
         <div class="container">
+                <br>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="w3 card w3-white" style="opacity:0.7">
+                    <div class="card w3-white" style="opacity:0.7">
                         <!-- <div class="card-header">{{ __('Login') }}</div> -->
                         
                         <div class="card-body">
