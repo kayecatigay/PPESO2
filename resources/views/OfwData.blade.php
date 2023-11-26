@@ -34,6 +34,15 @@
                               <th scope="col">Company</th>
                               <th scope="col">Country</th>
                               <th scope="col">Period of Employment</th>
+                              <th scope="col">Displacement due to Covid-19</th>
+                              <th scope="col">Since</th>
+                              <th scope="col">Date of Arrival</th>
+                              <th scope="col">Others</th>
+                              <th scope="col">Type of Displacement</th>
+                              <th scope="col">Financial Assistance?</th>
+                              <th scope="col">Eligibility</th>
+                              <th scope="col">Type of Assistance Received</th>
+                              <th scope="col">Date Received</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -54,6 +63,15 @@
                                  <td>{{ $data->Company }}</td>
                                  <td>{{ $data->Country }}</td>
                                  <td>{{ $data->PeriodOfEmp }}</td>
+                                 <td>{{ $data->DuetoCovid }}</td>
+                                 <td>{{ $data->since }}</td>
+                                 <td>{{ $data->DOArrival }}</td>
+                                 <td>{{ $data->TypeofD }}</td>
+                                 <td>{{ $data->otherType }}</td>
+                                 <td>{{ $data->fAssistance }}</td>
+                                 <td>{{ $data->typeofA }}</td>
+                                 <td>{{ $data->eligibility }}</td>
+                                 <td>{{ $data->dateReceived }}</td>                                 
                               </tr>
                            @endforeach
                         </tbody>

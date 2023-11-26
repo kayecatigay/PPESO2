@@ -7,9 +7,33 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-xl-6 col-lg-8">
+          <div class="col"><br><br>
+              <div class="card" style="width: 18rem; opacity:80%;">
+                <div class="card-header" style="background-color: yellowgreen;">
+                  <h5><b>JOB VACANCIES</b></h5>
+                </div>
+                <div class="table" style="width:100%">
+                    <dl class="row" style="height:8px;">
+                      <dt class="col" >POSITION</dt>
+                      <dt class="col">COMPANY</dt>
+                    </dl>
+                  @foreach ( $eworks as $work)
+                    <dl class="row" style="height:4px; border-bottom: black 1px solid;">
+                      <dt class="col" style="font-weight:normal;">{{ $work->jobdesc}}</dt>
+                      <dt class="col" style="font-weight:normal;">{{ $work->company}}</dt>
+                    </dl>
+                  @endforeach
+                </div>
+                <button class="btn btn-outline-dark" style="border:none;">
+                  <a href="/Eregistration" style="color:yellowgreen;"><b>Apply</b></a>
+                </button>
+              </div>
+            </div>
+            <div class="col-6" style="margin: none;">
               <h1>Provincial Peso Services Management System</h1>
               <h2>Camilmil, Calapan City, Oriental Mindoro</h2>
+            </div>
+            <div class="col" style="width: none;">
             </div>
           </div>
 
@@ -23,6 +47,14 @@
                 </div>
               </a>
             </div>
+            <!-- <div class="col-xl-2 col-md-4">
+              <a href="/JobVacant">
+                <div class="icon-box">
+                <i class="bi bi-briefcase"></i>
+                <h3 style="color:white;">Works Available</h3>
+                </div>
+              </a>
+            </div> -->
           </div>
       </div>
     </section><!-- End Hero -->
@@ -34,25 +66,16 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-              <img src="assets/img/about.jpg" class="img-fluid" alt="">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img width="100%" height="100%" src="{{ asset('uploads/' .$show[0]->filename) }}" >
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
               <h3>About</h3>
-              <p>
-                <blockquote>The Provincial Employment Services Office (PESO) is a government agency in the Philippines 
-                that provides employment assistance and services to the local community. PESO is usually 
-                established by provincial governments and is responsible for implementing employment programs 
-                and services, including job fairs, skills training, and employment referral services. <br></blockquote> 
-                 <blockquote> The primary objective of PESO is to promote job opportunities and 
-                  reduce unemployment rates in the province by facilitating the employment and training 
-                  needs of job seekers. It also helps employers in finding suitable candidates for their 
-                  job openings by providing them with a pool of qualified applicants. Overall, PESO plays 
-                  a vital role in bridging the gap between job seekers and employers, supporting local 
-                  economic development and contributing to the government's efforts 
-                  to reduce poverty and inequality.</blockquote>
+              <p style="text-align:justify;">
+              {{$show[0]->about}}
               </p>
             </div>
+          </div>
         </div>
 
       </div>
@@ -68,39 +91,40 @@
 
             <div class="d-flex justify-content-around" >
               
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100" >
-                  <a href="scholarhomepage">
-                    <div class="icon-box" style="color:black;">
-                      <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
-                      <h4>Scholarship</h4>
-                      <p>PESO Educational Assistance Program.</p>
-                      <p>Apply for more information.</p>
-                    </div>
-                  </a>
-                </div>
+                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100" >
+                    <a href="scholarhomepage">
+                      <div class="icon-box" style="color:black;">
+                        <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <h4>Scholarship</h4>
+                        <p>{{$show[0]->stext}}</p>
+                        <p>{{$show[0]->Sstext}}</p>
+                      </div>
+                    </a>
+                  </div>
               
 
-              <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                <a href="employmenthomepage">
-                  <div class="icon-box" style="color:black;">
-                    <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
-                    <h4>Employment</h4>
-                    <p>Jobs are hiring!</p>
-                    <p>Apply for more information.</p>
+                  <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="employmenthomepage">
+                      <div class="icon-box" style="color:black;">
+                        <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
+                        <h4>Employment</h4>
+                        <p>{{$show[0]->etext}}</p>
+                        <p>{{$show[0]->Eetext}}</p>
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
 
-              <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                <a href="ofwhomepage">
-                  <div class="icon-box" style="color:black;">
-                    <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
-                    <h4>OFW</h4>
-                    <p>OFW Assistance Program</p>
-                    <p>Apply for more information.</p>
+                  <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                    <a href="ofwhomepage">
+                      <div class="icon-box" style="color:black;">
+                        <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
+                        <h4>OFW</h4>
+                        <p>{{$show[0]->aOfw}}</p>
+                        <p>{{$show[0]->AaOfw}}</p>
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
+                </div>
             </div>
  
       </div>
@@ -138,62 +162,58 @@
 
         <div class="row mt-5">
 
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Provincial Capitol Compound <br>
-                Nucable Avenue Extension <br>
-                Brgy. Camilmil, Calapan City <br>
-                Oriental Mindoro
-                Philippines, 5200 </p>
-              </div>
+            <div class="col-lg-4">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>{{$show[0]->conLoc}}</p>
+                </div>
 
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>ppeso@ormindoro.gov.ph</p>
-              </div>
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>{{$show[0]->email}}</p>
+                </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>288-7253</p>
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>{{$show[0]->cell}}</p>
+                </div>
+
               </div>
 
             </div>
 
-          </div>
+            <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                 </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+
+            </div>
 
           </div>
-
-        </div>
       </div>
     </section><!-- End Contact Section -->
   </main><!-- End #main -->

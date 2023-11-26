@@ -20,7 +20,7 @@
               <table class="table" style="text-align:center;">
                 <thead>
                     <tr>
-                      <th scope="col">Application ID</th>
+                      <th scope="col">Applicant Name</th>
                       <th scope="col">Date</th>
                       <th scope="col">Job Description</th>
                       <th scope="col">Ofw Category</th>
@@ -32,10 +32,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($status as $odata)
+                    @foreach($status as $key => $odata)
                       <tr>
 
-                          <td>{{$odata->appID}}</td>
+                          <td>{{ $oName[$key]->name }}</td>
                           <td>{{$odata->date}}</td>
                           <td>{{$odata->JobDesc}}</td>
                           <td>{{$odata->OfwCat}}</td>
@@ -49,17 +49,23 @@
                             <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmodofw{{ $odata->id }}">
                                 Approve
                             </button>
+                            <form action="\Onotif">
+                              <input type="hidden" id="ONid" name="ONid" value="{{ $odata->id}}">
+                              <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
+                                  Notify
+                              </button>
+                            </form>
                           @endif
                                 <!-- DELETE Modal -->
                                 <div class="modal fade"  id="delmodofw{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg">
                                       <div class="modal-content">   
                                       <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $odata->id }} </h5>
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> APPROVE RECORD ID: {{ $odata->id }} </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       </div>
                                       <div class="modal-body">
-                                            Do you really want to cancel this record: {{ $odata->JobDesc}}?
+                                            Do you really want to approve this record: {{ $odata->JobDesc}}?
                                       </div>
                                       <div class="modal-footer">
                                             <form id="frmofw" action ="\Oapprove" method="get" >

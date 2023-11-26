@@ -1,12 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
+<header id="header" >
+   <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
+</header>
 <style>
    /* Set the table container to overflow horizontally */
- 
+
    #table {
       font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
       border-collapse: collapse;
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
    }

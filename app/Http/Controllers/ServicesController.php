@@ -15,7 +15,9 @@ class ServicesController extends Controller
     }
     public function index()
     {
-        return view ('services');
+        $showdata = DB:: select('select * from homepage');
+        $showworks = DB:: select('select * from eworks');
+        return view ('services',['show'=>$showdata,'eworks'=>$showworks]);
     }
 
     public function shome()
@@ -74,7 +76,7 @@ class ServicesController extends Controller
     {
         return view ('emphomepage');
     }
-    public function Eregistrationform()
+    public function Eregistrationform(Request $request)
     {
         if (!Auth::check()) { //check if user is logged in
             session(['routeto' => '/Eregistration']);
@@ -82,6 +84,7 @@ class ServicesController extends Controller
             exit; // do not read the remaing codes , exit public function
         }
  
+        // $jobdescription=$request->input('avaiPosi');
         $employee = DB::select('select * from employment where userid=' .Auth()->user()->id);
          // $registered=($employee) ? true : false;
         // dd($employee[0]);
@@ -94,6 +97,44 @@ class ServicesController extends Controller
             return redirect('/AddProfile')->with('message', 'This information is required');
         }
     }
+    public function addE(Request $request)
+    {
+        
+        $company=DB::select('select company from eworks');
+        $companies = DB::table('eworks')->select('jobdesc', 'company')->get();
+        // dd($company);
+        return view ('addEmpT',['emp'=>$companies,'company'=>$company]);
+    }
+    
+    public function insertEmpF(Request $request)
+    {
+        $empdata=DB::select('select * from eworks');
+        $company=DB::select('select company from eworks');
+
+        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
+        $ndate=date("Y-m-d");
+        $status="pending";
+        $desire=$request->input('avaiPosi');
+        $comname=$request->input('cname');
+
+        $available = DB::select('select * from employment where posidesired = ? and cname = ?', [$desire, $comname]);
+        // dd($available);
+        if (!empty($available)) 
+        {
+            echo '<script>alert("Position is already taken.");</script>';
+            return view('addEmpT',['emp'=>$empdata,'company'=>$company]);
+        }
+        else
+        {
+            $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
+            values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate .'","' .$status .'","' .$desire 
+            .'","' .$comname .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
+            
+            return redirect('Eregistration');
+        }
+  
+        
+    }
     public function insertEMPdata(Request $request)
     {
 
@@ -102,6 +143,12 @@ class ServicesController extends Controller
         .$request->input('crname') .'","' .$request->input('crcontact') .'")');
     
         return view('emphomepage');
+    }
+    public function availableW()
+    {
+        $works=DB::select('select * from eworks');
+        // dd($works);
+        return view('worksA',['availableW'=>$works]);
     }
 
     public function ofwhome()

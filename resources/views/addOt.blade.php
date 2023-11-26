@@ -20,25 +20,27 @@
                <div class="col">
                   <div class="col">
                   <label for="Company">Company</label>
-                  <input type="text" class="form-control" id="Company" name="Company">
+                  <input type="text" class="form-control" id="Company" name="Company" 
+                  placeholder="Name of Company / NA">
                </div>
                </div>
             </div>
             <div class="row form-group">
                <div class="col">
                   <label for="OfwCat">Ofw Category</label>
-                     <select class="form-control" name="OfwCat" id="OfwCat">Ofw Category
-                        <option value="seabased">Sea-based</option>
+                     <select class="form-control" name="OfwCat" id="OfwCat" onclick="showCountryfunction()">
                         <option value="landbased">Land-based</option>
+                        <option value="seabased">Sea-based</option>
                      </select>
                </div>
-               <div class="col-5">
+               <div class="col-5" id="showCountry" style="display: none;">
                   <label for="Country">Country</label>
                   <input type="text" class="form-control" id="Country" name="Country">
                </div>
                <div class="col-5">
-                  <label for="PeriodOfEmp">Period of Employment</label>
-                  <input type="text" class="form-control" id="PeriodOfEmp" name="PeriodOfEmp">
+                  <label for="PeriodOfEmp">Period of Employment (month-per-year)</label>
+                  <input type="text" class="form-control" id="PeriodOfEmp" name="PeriodOfEmp"
+                  placeholder="ex: 8 months">
                </div>
             </div> <br>
             
@@ -54,6 +56,19 @@
       </div>
       
    </form>  
+   <script>
+      function showCountryfunction() {
+         var status = document.getElementById("OfwCat").value;
+         var x = document.getElementById("showCountry");
+         // alert(status);
+         if (status === "seabased") {
+            x.style.display = "none";
+            document.getElementById("Country").value="";
+         } else {
+            x.style.display = "block";
+         }
+      }
+   </script>
 @endsection
 
 <!-- End of Page Wrapper -->

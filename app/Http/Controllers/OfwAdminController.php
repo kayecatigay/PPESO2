@@ -12,10 +12,27 @@ class OfwAdminController extends Controller
 {
     public function OAdashboard()
     {
-        return view('OfwDashboard');
+        $smenus=(new AdminController)->getLinks();
+        $stat=DB::select('select * from ofw where status="Approved"');
+        $Applicants=DB::select('select * from ofw');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
+        COUNT(*) as count FROM ofw GROUP BY month');
+        
+        $ofwCounts = DB::table('ofw')
+        ->select(
+            DB::raw('COUNT(CASE WHEN OfwCat = "landbased" THEN 1 END) AS landbased_count'),
+            DB::raw('COUNT(CASE WHEN OfwCat = "seabased" THEN 1 END) AS seabased_count')
+        )
+        ->first();
+        $landbasedCount = $ofwCounts->landbased_count;
+        $seabasedCount = $ofwCounts->seabased_count;
+        // dd($landbasedCount);
+        return view('OfwDashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
+        'monthlyCounts' => $monthlyCounts, 'landbasedCount'=>$landbasedCount, 'seabasedCount'=>$seabasedCount]);
     }
     public function showOFWdata(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $ofwData= DB::select('
         SELECT *
         FROM ofw as s
@@ -25,16 +42,18 @@ class OfwAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('OfwData',['ofwdata'=>$ofwData]);
+        return view('OfwData',['ofwdata'=>$ofwData,'smenu'=>$smenus]);
     }
     public function editOdata(request $request) {
+        $smenus=(new AdminController)->getLinks();
         $ofwID=$request->input('ofwID');
         $showdata = DB::select('select * from ofw where id=' .$ofwID);
         //dd($prod);
-        return view('editOdata',['ofw'=>$showdata]); 
+        return view('editOdata',['ofw'=>$showdata,'smenu'=>$smenus]); 
     }
     public function updateOdata(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $ofwData = DB::update('update ofw set lastname="' .$request->input('lname'). '",firstname= 
         "' .$request->input('fname'). '",middlename= "' .$request->input('mname'). '",suffix=
         "' .$request->input('suffix'). '",birthday= "' .$request->input('birthday'). '",age=
@@ -45,25 +64,29 @@ class OfwAdminController extends Controller
         "' .$request->input('ofwcat'). '",Company= "' .$request->input('company'). '",Country=
         "' .$request->input('country'). '",PeriodOfEmp= "' .$request->input('period').
         '" where id=' .$request->input('ofwId').' ');
-        return redirect('showAllOApp');
+        return redirect('showAllOApp',['smenu'=>$smenus]);
     }
     public function deleteOdata(Request $request){
+        $smenus=(new AdminController)->getLinks();
         // dd($request->input('id'));
         DB::delete("DELETE FROM ofw WHERE id = " .$request->input('delId'));
         
-        return redirect('showAllOApp');
+        return redirect('showAllOApp',['smenu'=>$smenus]);
     }
     public function ofwSched()
     {
+        $smenus=(new AdminController)->getLinks();
         $OfwSched=DB::select('select * from oschedules');
-        return view ('Osched',['ofwsched'=>$OfwSched]);
+        return view ('Osched',['ofwsched'=>$OfwSched,'smenu'=>$smenus]);
     }
     public function addOsched()
     {
-        return view ('addOsched');
+        $smenus=(new AdminController)->getLinks();
+        return view ('addOsched',['smenu'=>$smenus]);
     }
     public function insertoSched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -77,17 +100,19 @@ class OfwAdminController extends Controller
         values("' .$request->input('type') .'","' .$request->input('ofwname') .'","' .$request->input('date') 
         .'","' .$request->input('time') .'","' .$request->input('loc') .'","' .$request->input('work') 
         .'","' .$request->input('proctor') .'","' .$req.'")');
-        return redirect('ofwSched');
+        return redirect('ofwSched',['smenu'=>$smenus]);
     }
     public function editOsched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $OschedID=$request->input('OschedID');
         $showdata = DB::select('select * from oschedules where id=' .$OschedID);
 
-        return view('editOsched',['osc'=>$showdata]);
+        return view('editOsched',['osc'=>$showdata,'smenu'=>$smenus]);
     }
     public function updateOSched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -100,25 +125,29 @@ class OfwAdminController extends Controller
         "' .$request->input('date'). '",time= "' .$request->input('time'). '",loc= "' .$request->input('loc'). '",work= 
         "' .$request->input('work'). '",proctor= "' .$request->input('proctor'). '",req="' .$req .'"
         where id='.$request->input('id') .' ');
-        return redirect('ofwSched');
+        return redirect('ofwSched',['smenu'=>$smenus]);
     }
     public function deleteOsched(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         DB::delete("DELETE FROM oschedules WHERE id = " .$request->input('delId'));
-        return redirect('ofwSched');
+        return redirect('ofwSched',['smenu'=>$smenus]);
     }
     public function oAnn()
     {
+        $smenus=(new AdminController)->getLinks();
         $annData = DB::select('select * from genannouncements where service="OFW"');
         // dd($annData);
-        return view ('Sannouncements',['Sann'=>$annData]);
+        return view ('Sannouncements',['Sann'=>$annData,'smenu'=>$smenus]);
     }
     public function addOann()
     {
-        return view('addOAnn');
+        $smenus=(new AdminController)->getLinks();
+        return view('addOAnn',['smenu'=>$smenus]);
     }
     public function insertoAnn(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -131,17 +160,19 @@ class OfwAdminController extends Controller
         $SchedData = DB::insert('insert into oannouncements(date, schedule, details, req) 
         values("' .$request->input('date') .'","' .$request->input('sched') .'","' 
         .$request->input('dets') .'","' .$req .'")');
-        return redirect('Oannouncements');
+        return redirect('Oannouncements',['smenu'=>$smenus]);
     }
     public function EditOAnn(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $OannID=$request->input('OannID');
         $showdata = DB::select('select * from oannouncements where id=' .$OannID);
         // dd($showdata);
-        return view('editOann',['Oann'=>$showdata]);
+        return view('editOann',['Oann'=>$showdata,'smenu'=>$smenus]);
     }
     public function updateOann(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         $req="";
         $req.= ($request->input('pencil')=="on") ? ", pencil" :"";
         $req.= ($request->input('ballpen')=="on") ? ", ballpen" :"";
@@ -154,28 +185,50 @@ class OfwAdminController extends Controller
         "' .$request->input('sched'). '",details= "' .$request->input('details'). '",req="' .$req. '"
         where id='.$request->input('id') .' ');
 
-        return redirect('Oannouncements');
+        return redirect('Oannouncements',['smenu'=>$smenus]);
     }
     public function deleteOAnn(Request $request)
     {
+        $smenus=(new AdminController)->getLinks();
         DB::delete("DELETE FROM oannouncements WHERE id = " .$request->input('delId'));
-        return redirect('Oannouncements');
+        return redirect('Oannouncements',['smenu'=>$smenus]);
     }
     public function ostatus()
     {
+        $smenus=(new AdminController)->getLinks();
         $ostatus=DB::select('select * from ofw');
-        return view('ostatus',['status'=>$ostatus]);
+        $ofwData = DB ::select('
+        SELECT users.name
+        FROM users
+        INNER JOIN ofw ON users.id = ofw.userid; ');
+        return view('ostatus',['status'=>$ostatus,'oName'=>$ofwData,'smenu'=>$smenus]);
+    }
+    public function onotif(Request $request)
+    {
+        $smenus=(new AdminController)->getLinks();
+        $id = $request->input('ONid');
+        // dd($id);
+        $OfwData = DB::select('
+        SELECT *
+        FROM users
+        INNER JOIN ofw ON users.id = ofw.userid
+        WHERE ofw.id =' .$id );
+        // dd($EmpData);
+
+        return view('oEmail',['oData'=>$OfwData,'smenu'=>$smenus]);
     }
     public function oapprove(Request $request)
     {
         $id = $request->input('delIdofw');
         DB::update('update ofw set status="Approved" where id= ' .$id);
 
-        $ostatus=DB::select('select * from ofw');
-        return view('ostatus',['status'=>$ostatus]);
+        // return view('ostatus',['status'=>$ostatus,'smenu'=>$smenus]);
+        return redirect()->route('accoNotif',['id'=>$id]);
+
     }
     public function ofwP()
-    {
+    {   
+        $smenus=(new AdminController)->getLinks();
         $ofwData= DB::select('
         SELECT *
         FROM ofw as s
@@ -185,11 +238,12 @@ class OfwAdminController extends Controller
         ON p.userid = u.id;
         
         ');
-        return view('NLOfw',['ofwdata'=>$ofwData]);
+        return view('NLOfw',['ofwdata'=>$ofwData,'smenu'=>$smenus]);
     }
     public function ostatP()
     {
+        $smenus=(new AdminController)->getLinks();
         $ostatus=DB::select('select * from ofw');
-        return view('NLOstatus',['status'=>$ostatus]);
+        return view('NLOstatus',['status'=>$ostatus,'smenu'=>$smenus]);
     }
 }

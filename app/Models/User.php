@@ -45,4 +45,17 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function getAllUserData()
+    {
+        // Retrieve all data from the users table
+        $allUserData = self::all();
+
+        // Aggregate the data into a single model instance
+        $aggregatedUserData = new self;
+        foreach ($allUserData as $userData) {
+            $aggregatedUserData->attributes = array_merge($aggregatedUserData->attributes, $userData->attributes);
+        }
+
+        return $aggregatedUserData;
+    }
 }

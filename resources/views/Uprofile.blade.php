@@ -1,16 +1,83 @@
 @extends('layouts.default')
 @section('content')
+<style>
+    .modal {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    opacity: 80%;
+    color: black;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 20%;
+    
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.centered-and-cropped { object-fit: cover }
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+input[type="file"]::file-selector-button {
+  padding: 0.3em 0.4em;
+  background-color: whitesmoke;
+  transition: 1s;
+  place-items: center;
+  border-radius: 0.2em;
+  border-color: none;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: black;
+  color: white;
+}
+
+</style>
     <section style="background-color: #0000; ">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-9 col-xl-9">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-image: url('/assets/images/bg.jpg'); height:200px;">
-                        <div class="ms-2 mt-6" style="width: 150px; margin-top: 120px;">
-                           <div class="mt-auto mb-auto">
+                        <div class="col" style="width: 200px; margin-top: 120px;">
+                           <div class="mt-auto mb-auto" style="width: 150px;">
                                 <input type="text" readonly style="background-color: transparent; border:0; color:white; font-size: 30px;"
-                                    name="uname" id="uname" value="{{ Auth::user()->name }}" > <br>
+                                    name="uname" id="uname" value= " &nbsp;{{ Auth::user()->name }}" > <br>
                                 <input type="text"  readonly style="background-color: transparent; border:0; margin-left:0; width:160%; color:white; font-size: 15px;"
-                                    name="email" id="email" value="{{ Auth::user()->email }}" >
+                                    name="email" id="email" value=" &emsp;{{ Auth::user()->email }}" >
+                            </div>
+                        </div>
+                        <div class="col" style="width: 120px; margin-left: 550px; margin-top: 80px;">
+                            <!-- <img width="80%" height="80%" style="border-radius: 50%;" src="{{ asset('assets/images/user2.jpg') }}" alt="Photo" onclick="openModal()"> -->
+                            <img class="centered-and-cropped" width="75%" height="80%" style="border-radius: 50%;"
+                            src="{{ url('uploads/' . $pic[0]->filename) }}" alt="Photo" onclick="openModal()">
+                        </div>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal()">&times;</span>
+                                <form method="POST" action="/uploadpPic" enctype="multipart/form-data">
+                                    @csrf
+                                    <label for="file">Profile Picture</label>
+                                    <input type="file" name="file" required>
+                                    <input type="hidden" id="userid" name="userid" value="{{ Auth::user()->id }}"> <br>
+                                    <button type="submit" class="btn btn-outline-dark">Change</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -24,55 +91,22 @@
                         </form>
                     </div>
                 </div>
-                <div class="card-body p-4 text-black">
-                    <div class="mb-5">
-                        <p class="lead fw-normal mb-1">Available Services</p>
-                        <div class="p-1" style="background-color: #f8f9fa;">
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">PEAP</p></a>
+                <div class="d-flex justify-content-around">
+                    <div class="card-body  text-black ">
+                        <div class="mb-5 ">
+                            <h2 class="lead fw-normal mb-1" style="text-align:center;"><b class="fs-4">AVAILABLE SERVICES</b></h2>
+                            <div class="p-1" style="background-color: #f8f9fa;">
+                                <div class="row d-flex justify-content-around">
+                                    <div class="col">
+                                        <a href="scholarhomepage"><p class="font-italic mb-1 text-black">PEAP</p></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="employmenthomepage"><p class="font-italic mb-1 text-black">Employment</p></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="ofwhomepage"><p class="font-italic mb-1 text-black">Ofw Assistance Program</p></a>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">Employment</p></a>
-                                </div>
-                                <div class="col">
-                                    <a href="#"><p class="font-italic mb-1 text-black">Ofw Assistance Program</p></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <p class="lead fw-normal mb-0">Recent Announcements</p>
-                        <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-mortarboard-fill"></i>
-                                </div>
-                                <h4><a href="scholarhomepage">Scholarship</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-briefcase-fill" ></i>
-                                </div>
-                                <h4><a href="employmenthomepage">Employment</a></h4>
-                            
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bi bi-airplane-engines-fill"></i>
-                                </div>
-                                <h4><a href="ofwhomepage">OFW</a></h4>
-                            
                             </div>
                         </div>
                     </div>
@@ -80,4 +114,23 @@
             </div>
         </div>
     </section>
+<script>
+    function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Close the modal if the user clicks outside of it
+window.onclick = function (event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+</script>
 @endsection
+

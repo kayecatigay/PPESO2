@@ -8,7 +8,21 @@
       white-space: nowrap;
    }
 </style>   
-                       
+<!--                        
+<button onclick="openPrintView()">Print</button>
+
+<script>
+    function openPrintView() 
+    {
+     var printWindow = window.open('/print');
+      //   printWindow.onload = function() {
+      //       printWindow.print();
+      //       printWindow.onafterprint = function() {
+      //           printWindow.close();
+      //       };
+      //   };
+    }
+</script> -->
       <div class="col-xl-16">
          <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

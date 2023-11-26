@@ -21,6 +21,7 @@
                      <table class="table" style="text-align:center">
                         <thead>
                            <tr>
+                              <th scope="col">Hired</th>
                               <th scope="col">Name</th>
                               <th scope="col">Position Desired</th>
                               <th scope="col">Gender</th>
@@ -28,7 +29,7 @@
                               <th scope="col">Telephone </th>
                               <th scope="col">Cellphone</th>
                               <th scope="col">Email Address</th>
-                              <th scope="col">Birtday</th>
+                              <th scope="col">Birthday</th>
                               <th scope="col">Civil Status</th>
                               <th scope="col">Spouse</th>
                               <th scope="col">Height</th>
@@ -40,12 +41,14 @@
                               <th scope="col">Degree</th>
                               <th scope="col">Company Name</th>
                               <th scope="col">Resume</th>
+                              <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
                            @foreach ($data as $emp)
                            @php $address = $emp->region."," .$emp->province."," .$emp->mun."," .$emp->barangay."," .$emp->sitio; @endphp
                               <tr>
+                                 <td>{{ $emp->hire }}</td>
                                  <td>{{ $emp->name }}</td>
                                  <td>{{ $emp->posidesired }}</td>
                                  <td>{{ $emp->gender }}</td>
@@ -65,12 +68,16 @@
                                  <td>{{ $emp->degree }}</td>
                                  <td>{{ $emp->cname }}</td>
                                  <td>
-                                    <form action="/resPrint" target="_blank">
-                                       <input type="hidden" id="fileId" name="fileId" value="{{ $files[0]->id}}">
-                                       <input class="btn btn-outline-dark" style="padding:1px 10px;" type="submit" value="{{ $files[0]->original_name}}">
-                                    </form>
+                                    <input type="text" style="border:none;" size="15" value="{{ $emp->original_name}}">
                                  </td>
-                                 
+                                 <td>
+                                    <a href="/printApp">
+                                       <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                                    </a> &nbsp;
+                                    <a href="{{ asset('uploads/' . $emp->filename) }}" download>
+                                       <i class="fa fa-download" style="color:black;" aria-hidden="true"></i>
+                                    </a>
+                                 </td>
                                  
                               </tr>
                            @endforeach

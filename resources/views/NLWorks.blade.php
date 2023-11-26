@@ -1,11 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
+<header id="header" >
+   <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
+</header>
 <style>
    /* Set the table container to overflow horizontally */
+
    #table {
       font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
       border-collapse: collapse;
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
    }
@@ -34,8 +47,6 @@
                            <th scope="col">Date</th>
                            <th scope="col">Job Description</th>
                            <th scope="col">Company</th>
-                           <th scope="col">Skills</th>
-                           <th scope="col">Requirements </th>
                            <th scope="col">Contact Number</th>
                         </tr>
                      </thead>
@@ -45,8 +56,6 @@
                               <td>{{ $wrk->date }}</td>
                               <td>{{ $wrk->jobdesc }}</td>
                               <td>{{ $wrk->company }}</td>
-                              <td>{{ $wrk->skills }}</td>
-                              <td>{{ $wrk->req }}</td>
                               <td>{{ $wrk->contact }}</td>
                               
                            </tr>

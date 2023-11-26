@@ -121,29 +121,34 @@
                 <div class="col from group">
                     <label for ="passnum">Passport Number</label>
                     <input type="text" class="form-control" id="passnum" name="passnum" 
-                    placeholder="13254543" value="{{ $pdata[0]->passnum}}">
+                    placeholder="A3254543" value="{{ $pdata[0]->passnum}}">
                 </div>
             </div> 
             <div class="row">
-                <div class="col form-group">
+                <div class="col-3 form-group">
                     <label for="birthday">Date of Birth</label>
                     <input type="date" class="form-control" id="birthday" name="birthday"  
                     placeholder="" onchange="setage()" value="{{ $pdata[0]->birthday}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-1 form-group">
                     <label for="age">Age</label>
                     <input type="number" readonly class="form-control" id="age" name="age"  
                     placeholder="Enter Age" value="{{ $pdata[0]->age}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-2 form-group">
                     <label for="height">Height (cm)</label>
                     <input type="number" class="form-control" id="height" name="height"  
                     placeholder="Enter Height" value="{{ $pdata[0]->height}}">
                 </div>
-                <div class="col form-group">
+                <div class="col-2 form-group">
                     <label for="weight">Weight (kg)</label>
                     <input type="number" class="form-control" id="weight" name="weight"  
                     placeholder="Enter Weight" value="{{ $pdata[0]->weight}}">
+                </div>
+                <div class="col-4 form-group">
+                    <label for="fb">Facebook</label>
+                    <input type="text" class="form-control" id="fb" name="fb" required
+                    placeholder="Enter Facebook Account" value="{{ $pdata[0]->fb}}">
                 </div>
             </div>
             <div class="row">  
@@ -193,6 +198,42 @@
                         <option value="2001">2001</option>
                         <option value="2000">2000</option>
                         <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1994">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="2023">1990</option>
+                        <option value="2022">1989</option>
+                        <option value="2021">1988</option>
+                        <option value="2020">1987</option>
+                        <option value="2019">1986</option>
+                        <option value="2018">1985</option>
+                        <option value="2017">1984</option>
+                        <option value="2016">1983</option>
+                        <option value="2015">1982</option>
+                        <option value="2014">1981</option>
+                        <option value="2013">1980</option>
+                        <option value="2012">1979</option>
+                        <option value="2011">1978</option>
+                        <option value="2010">1977</option>
+                        <option value="2009">1976</option>
+                        <option value="2008">1975</option>
+                        <option value="2007">1974</option>
+                        <option value="2006">1973</option>
+                        <option value="2005">1972</option>
+                        <option value="2004">1971</option>
+                        <option value="2003">1970</option>
+                        <option value="2002">1969</option>
+                        <option value="2001">1968</option>
+                        <option value="2000">1967</option>
+                        <option value="1999">1966</option>
+                        <option value="1998">1965</option>
+                        <option value="1997">1964</option>
+                        <option value="1996">1963</option>
                     </select>
                 </div>
                 <div class="col">
@@ -216,8 +257,7 @@
                 <div class="col-4 form-group">
                     <label for="guardian">Name of Guardian</label>
                     <input type="text" class="form-control" id="guardian" name="guardian"  
-                    placeholder="Enter name of Guardian" value="{{ $pdata[0]->guardian}}">
-                    <small id="guardian" class="form-text text-muted">Last name, First name, Middle name</small>
+                    placeholder="Lastname, Firstname, Middlename" value="{{ $pdata[0]->guardian}}">
                 </div>
                 <div class="col-2 form-group">
                     <label for="relationship">Relation to Applicant</label>
@@ -246,7 +286,32 @@
                     <input type="text" class="form-control" id="spouse" name="spouse" value="{{ $pdata[0]->spouse}}">
                 </div>
             </div> 
-            <div class="row">    
+            <!-- <h4><b>Characer Reference</b></h4> -->
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label for="crname">Character Reference</label>
+                    <input type="text" class="form-control" id="crname" name="crname" placeholder="Enter name"
+                     value="{{ $pdata[0]->crname}}">
+                </div>
+                <div class="col-3 form-group">
+                    <label for="crcontact">Contact Number</label>
+                    <input type="text" class="form-control" id="crcontact" name="crcontact" 
+                    placeholder="ex. 09123456789" value="{{ $pdata[0]->crcontact}}">
+                </div>
+                <div class="col-2 form-group " >
+                    <label for="ip">Indigenous People?</label>
+                    <select class="form-control" name="ip" id="ip" 
+                    onclick="ipFunction()" value="{{ $pdata[0]->ip}}">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+                <div class="col-3 form-group" id="hideIP" style="display: none;">
+                    <label for="tribe">Tribe</label>
+                    <input type="text" class="form-control" id="tribe" name="tribe" value="{{ $pdata[0]->tribe}}">
+                </div>
+            </div>
+            <!-- <div class="row">    
                 <div class="col form-group">
                     <label for="language">Language:</label>
                     <input type="hidden" id="language" name="language" value="{{ $pdata[0]->language}}">
@@ -263,8 +328,8 @@
                         <label for="korea">Hangul</label>
                     </div>
                 </div>
-            </div> <br>
-
+            </div> <br> -->
+            <br> <br>
           <p>Educational Background</p>
             <div class="row">
                 <div class="col form-group">
@@ -289,9 +354,103 @@
                     <input type="text" class="form-control" id="degree" name="degree"  
                     placeholder="Enter degree, achievements, etc." value="{{ $pdata[0]->degree}}">
                 </div>
-            </div> <br>
-            
-            <p>Work Experience</p> 
+            </div> <br> <br>
+
+            <div class="row form-inline">
+                <div class="col">
+                    <p>Displacement Details</p> 
+                </div>
+                <!-- <div class="col">
+                    <h5>(for OFW)</h5>        
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-3 form-group">
+                    <label for="DuetoCovid">Job Displacement Due to COVID-19:</label>
+                    <select name="DuetoCovid" id="DuetoCovid" class="form-control" value="{{ $pdata[0]->DuetoCovid}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 form-group">
+                    <label for="since">Since</label>
+                    <select name="since" id="since" class="form-control" value="{{ $pdata[0]->since}}">
+                        <option value="n/a">N/A</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="col-4 form-group">
+                    <label for="DOArrival">Date of Arrival in the Philippines</label>
+                    <input type="date" class="form-control" id="DOArrival" name="DOArrival" value="{{ $pdata[0]->DOArrival}}">
+                </div>
+                <div class="col form-group">
+                    <label for="TypeofD">Type of Displacement</label>
+                    <select name="TypeofD" id="TypeofD" class="form-control" onclick="othersFunction()" value="{{ $pdata[0]->TypeofD}}">
+                        <option value="na">N/A</option>
+                        <option value="terminated">Terminated</option>
+                        <option value="repatriated">Repatriated</option>
+                        <option value="comShutdown">Company Shutdown</option>
+                        <option value="noworkpay">No work, No pay</option>
+                        <option value="others">Others (please specify)</option>
+                    </select>
+                </div>
+                <div class="col form-group " id="showOthers" style="display: none;">
+                    <label for="otherType">Others</label>
+                    <input type="text" class="form-control" id="otherType" name="otherType" value="{{ $pdata[0]->otherType}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="fAssistance">Are you still receiving your salary/financial assistance from your employer?</label>
+                    <select name="fAssistance" id="fAssistance" class="form-control" value="{{ $pdata[0]->fAssistance}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col form-group">
+                    <label for="typeofA">Type of Assistance Received</label>
+                    <input type="text" id="typeofA" name="typeofA" class="form-control" value="{{ $pdata[0]->typeofA}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <label for="eligibility">Are you still eligible to apply/receive financial support/assistance such as unemployment
+                        benefit, special assistance/ayuda for domestic workers, temporary work suspension benefits, etc from the
+                        government?
+                    </label>
+                    <select name="eligibility" id="eligibility" class="form-control" value="{{ $pdata[0]->eligibility}}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col-2 form-group">
+                    <label for="dateReceived"><br>Date Received</label>
+                    <input type="date" id="dateReceived" name="dateReceived" class="form-control" value="{{ $pdata[0]->dateReceived}}">
+                </div>
+            </div>
+
+            <br> <br>
+            <div class="row form-inline">
+                <div class="col-11">
+                    <p>Work Experience</p>
+                </div>
+                <div class="col-1">
+                    <label class="form-group" for="hire"><br>Hired</label>
+                    <select class="form-control" name="hire" id="hire" value="{{ $pdata[0]->hire}}">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+                    
+               
+            </div>
+             
+                
                 <a class="btn btn-success" href="addWorkE">ADD </a>
                 <div class="card-body">
                     <div class="container table-container">
@@ -415,8 +574,6 @@
                                 <td>
                                         
                                     <span class="input-group">
-                                        
-                                    
                                         <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod1{{ $file->id }}">
                                         Delete
                                         </button>
@@ -473,15 +630,25 @@
         xhttp.send();
     }
 
-    function setage()
-    {
-    dob=new Date(document.getElementById("birthday").value);
-    var month_diff = Date.now() - dob.getTime();  
-    var age_dt = new Date(month_diff);   
-    var year = age_dt.getUTCFullYear();  
-    var age = Math.abs(year - 1970);  
-    document.getElementById("age").value=age;
+    function setage() {
+        dob = new Date(document.getElementById("birthday").value);
+        var month_diff = Date.now() - dob.getTime();
+        var age_dt = new Date(month_diff);
+        var year = age_dt.getUTCFullYear();
+        var age = Math.abs(year - 1970);
+        var ageInput = document.getElementById("age");
+
+        if (age >= 18 && age <= 59) {
+            // If the age is within the allowed range, set the value in the input field
+            ageInput.value = age;
+        } else {
+            // If the age is not within the allowed range, clear the input field
+            ageInput.value = "";
+            alert("Sorry. Age must be between 18 and 59 years.");
+        }
     }
+
+    
     function workFunction() 
     {
     var status = document.getElementById("work").value;
@@ -505,6 +672,30 @@
       document.getElementById("spouse").value="";
     }
     }
+    function ipFunction() {
+    var status = document.getElementById("ip").value;
+    var x = document.getElementById("hideIP");
+    // alert(status);
+    if (status === "yes") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      document.getElementById("tribe").value="";
+    }
+    }
+
+    function othersFunction() {
+    var status = document.getElementById("TypeofD").value;
+    var x = document.getElementById("showOthers");
+    // alert(status);
+    if (status === "others") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      document.getElementById("otherType").value="";
+    }
+    }
+
     function mytableFunction() 
     {
         var table = document.getElementById("myTable");

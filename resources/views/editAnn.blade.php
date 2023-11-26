@@ -34,13 +34,13 @@
               </div>
               <div class="col form-group">
                 <label for="body">Description</label>
-                <input type="text" class="form-control" id="body" name="body" value="{{$ann[0]->body}}">
+                <textarea class="form-control" id="body" name="body">{{$ann[0]->body}}</textarea>
               </div>
             </div>
             <div class="row">
               <div class="col-5">&nbsp;</div>
               <div class="col">
-                <input type="submit" class="btn btn-primary" value="Apply" name="submit">
+                <input type="submit" class="btn btn-primary" value="Update" name="submit">
               </div>
               <div class="col">&nbsp;</div>
             </div>

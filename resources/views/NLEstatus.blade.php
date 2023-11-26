@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
+<header id="header" >
+   <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
+</header>
 <style>
    /* Set the table container to overflow horizontally */
+
    #table {
       font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
@@ -19,7 +32,7 @@
          <div class="card shadow mb-4"><br><br><br>
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-               <h1 class="m-0 font-weight-bold text-dark"style="text-align:center;">Employment</h1>
+               <h1 class="m-0 font-weight-bold text-dark"style="text-align:center;">Employment Status</h1>
                
             </div>
                

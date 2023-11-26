@@ -40,9 +40,16 @@ class LoginController extends Controller
     }
     protected function redirectPath()
         {
+            // dd(auth()->user()->roles);
+            if(auth()->user()->roles==99)
+            {
+                return '/needapproval';
+            }
             if (auth()->user()->roles) {
                 return '/adminhomepage';
-            } else {
+            }
+             else {
+                
                 if (session('routeto')=="") {
                     return '/home';
                 }

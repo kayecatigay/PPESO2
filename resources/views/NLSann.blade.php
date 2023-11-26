@@ -1,20 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
+<header id="header" >
+   <img src="assets/img/peap.png" alt="icon"> &nbsp; &nbsp;
+</header>
 <style>
    /* Set the table container to overflow horizontally */
+
    #table {
       font-family: Arial, Helvetica, sans-serif;
-      font-size:10px;
+      font-size:11px;
       border-collapse: collapse;
-      width: 70%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
    }
 
    #table td, #table th {
       border: 1px solid #ddd;
-      padding: px;
+      padding: 8px;
    }
-</style>   
+</style>     
       <div class="col-xl-16">
          <div class="card shadow mb-4"><br><br><br>
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

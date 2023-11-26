@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="w3 card w3-white" style="opacity:0.5">
+                    <div class="w3 card w3-white" style="opacity:0.7">
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
@@ -77,14 +77,31 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
-
+                                <div class="row mb-2">
+                                    <div class="col-md-3"><input type="hidden"></div>
+                                    
+                                    <div class="col">
+                                        <div class = " checkbox">
+                                            <label>
+                                               <input type = "checkbox"  style="font-style:10px;"
+                                                value =""> By signing up, you agree to our <a href="/policy" target="_blank">Privacy Policy</a> 
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Register') }}
                                         </button>
+                                        <a class="btn btn-primary" href="{{ route('login') }}">
+                                            {{ __('Login') }}
+                                        </a>
                                     </div>
                                 </div>
+                                
                             </form>
                         </div>
                     </div>

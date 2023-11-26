@@ -21,7 +21,7 @@
                 <table class="table"style="text-align:center;">
                   <thead>
                       <tr>
-                        <th scope="col">Application Id</th>
+                        <th scope="col">Applicant Name</th>
                         <th scope="col">Date</th>
                         <th scope="col">Position Desired</th>
                         <th scope="col">Company</th>
@@ -32,9 +32,15 @@
                       </tr>
                   </thead>
                   <tbody>
-                    @foreach ($status as $emp)
+                    @foreach ($status as $key => $emp)
                       <tr>
-                        <td>{{ $emp->appId }}</td>
+                        <td>
+                          @if(isset($eName[$key]))
+                              {{ $eName[$key]->name }}
+                           @else
+                              (None)
+                           @endif
+                        </td>
                         <td>{{ $emp->date }}</td>
                         <td>{{ $emp->posidesired }}</td>
                         <td>{{ $emp->cname }}</td>
@@ -43,21 +49,27 @@
                         <td>{{ $emp->status }}</td>
                         <td>
                           <span class="input-group">
-                          @if ($emp->status=="pending")
-                            <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
-                                Approve
-                            </button>
+                            @if ($emp->status=="pending")
+                              <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
+                                  Approve
+                              </button>
+                              <form action="\Enotif">
+                                <input type="hidden" id="ENid" name="ENid" value="{{ $emp->id}}">
+                                <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
+                                    Notify
+                                </button>
+                              </form>
                             @endif
                                 <!-- DELETE Modal -->
                               <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content">   
                                       <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> CANCEL RECORD ID: {{ $emp->id }} </h5>
+                                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-x-octagon-fill text-danger"></i> APPROVE RECORD ID: {{ $emp->id }} </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       </div>
                                       <div class="modal-body">
-                                            Do you really want to cancel this record: {{ $emp->posidesired}}?
+                                            Do you really want to approve this record: {{ $emp->posidesired}}?
                                       </div>
                                       <div class="modal-footer">
                                           <form action ="/Eapprove" method="get" >

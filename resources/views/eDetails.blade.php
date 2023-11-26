@@ -25,7 +25,6 @@
                         <th scope="col">Position Desired</th>
                         <th scope="col">Company</th>
                         <th scope="col">Record</th>
-                        <th scope="col">Character Reference</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                       </tr>
@@ -37,7 +36,6 @@
                         <td>{{ $emp->date }}</td>
                         <td>{{ $emp->posidesired }}</td>
                         <td>{{ $emp->cname }}</td>
-                        <td>{{ $emp->crname }}</td>
                         <td>{{ $emp->crcontact }}</td>
                         <td>{{ $emp->status }}</td>
                         <td>

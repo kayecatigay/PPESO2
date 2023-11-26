@@ -1,4 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+</head>
+<body onload="window.print()">   
 
+<header id="header" >
+        <img src="assets/img/peap.png" alt="icon"> &nbsp; &nbsp;
+    </header>
 <style>
    /* Set the table container to overflow horizontally */
 
@@ -17,7 +29,7 @@
    }
 </style>   
                        
-      <div class="col-xl-20">
+      <div class="col-xl-19">
          <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <div class="row">
@@ -91,6 +103,7 @@
          tableContainer.scrollLeft += event.deltaY;
       });
    </script>
-
+</body>
+</html>
 
 <!-- End of Page Wrapper -->

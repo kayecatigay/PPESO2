@@ -6,10 +6,24 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Provincial PESO Service Management System</title>
+  <style>
+    /* Adjust the styles as needed */
+    .fixed-card {
+      position: fixed;
+      top: 500px;
+      left: 10px;
+      width: 300px; /* Adjust the width as needed */
+      z-index: 1000; /* Set a high z-index value */
+      opacity: 70%;
+    }
+  </style>
 
   <!-- Favicons -->
   <link href="<?= url('assets/img/favicon.png') ?>" rel="icon">
   <link href="<?= url('assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
   <!-- Google Fonts -->  
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -17,7 +31,7 @@
   <!-- Vendor CSS Files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  
+
   <!-- <link href="<?= url('assets/vendor/aos/aos.css') ?>" rel="stylesheet"> -->
 
   <link href="<?= url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -28,11 +42,11 @@
   <link href="<?= url('assets/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-metro.css">
-  
-  
+ 
   <script src="<?= url('assets/vendor/jquery/jquery.min.js') ?>"></script>
   <script src="<?= url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="<?= url('assets/css/style.css') ?>" rel="stylesheet">
@@ -49,6 +63,9 @@
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- ======= Header ======= -->
   @section('header')
@@ -107,7 +124,8 @@
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" style="color:white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" style="color:white" href="/choose">{{ __('Register') }}</a>
+                        <!-- href="{{ route('register') }}" -->
                     </li>
                 @endif
             @else
@@ -129,7 +147,8 @@
                                 <div>
                                   
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }}
                                         </a>
 
@@ -140,8 +159,6 @@
                                                   document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }} <br>
                                             </a>
-                                            
-
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
@@ -218,31 +235,15 @@
               </ul>
             </div>
 
-            <div class="col-lg-4 col-md-6 footer-newsletter">
-              <br> <br>
-              <h4>Email</h4>
-              <p>Send us a message.</p>
-              <form action="" method="post">
-                <input type="email" name="email"><input type="submit" value="Subscribe">
-              </form>
-
+            <div class="col-lg-4 col-md-6 footer-links">
+              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminlogo.png') ?>" alt="Oriental Mindoro Official Logo" style="width:160px;height:160px;"></a>
+              <a target="_blank" href="https://ph.polomap.com/calapan-city/9285"><img src="<?= url('assets/img/pesologooo.png') ?>" alt="Public Employment Services Office Official Logo" style="width:160px;height:160px;"></a>
             </div>
           @show
           </div>
         </div>
       </div>
-
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright <strong><span>PPESO</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-        </div>
-      </div>
+    
     </footer><!-- End Footer -->
   @show
   <div id="preloader"></div>

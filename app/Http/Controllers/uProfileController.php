@@ -9,11 +9,30 @@ use Illuminate\Support\Facades\Auth;
 
 class uProfileController extends Controller
 {
-    public function phome()
+    public function phome(Request $request)
     {
+        $name=Auth::user()->name;
+        $userid=Auth::user()->id;
+
+        $company = DB:: select('select * from company where representative="' .$name. '"');
+        
+        // dd($company);
+        if($company)
+        {
+            $fileData=DB::select('select * from reqs where userid=' .$userid);
+            $showData=DB::select('select * from company where representative="' .$name. '"');
+            $showNames=DB::select('select * from users where id=' .$userid);
+
+            return view ('comprofile',['show'=>$showData,'name'=>$showNames,'files'=>$fileData]);
+        }
+        else
+        {
+            $profile=DB::select('select filename from uprofile where userid=' .$userid);
+            return view ('\Uprofile',['pic'=>$profile]);
+        }
         // $profhome=DB::select('select * from users');
         // return view ('uProfile',['pr'=>$profhome]);
-        return view ('uProfile');
+        
     }
     public function addP(Request $request)
     {
@@ -46,12 +65,13 @@ class uProfileController extends Controller
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
         {
-            $uPData = DB::update('update uprofile set suffix="' .$request->input('suffix'). '",
+            $uPData = DB::update('update uprofile set hire="' .$request->input('hire'). '",
+            suffix="' .$request->input('suffix'). '",
             gender="' .$request->input('gender'). '",region= "' .$request->input('region'). '",
             province="' .$request->input('province'). '",mun= "' .$request->input('mun'). '",
-            barangay="' .$request->input('barangay'). '",  sitio="' .$request->input('sitio'). '",
+            barangay="' .$request->input('barangay'). '",sitio="' .$request->input('sitio'). '",
             contactnum="' .$request->input('contactnum'). '",telenum= "' .$request->input('telnum'). '",
-            emailadd="' .$request->input('emailadd'). '",pobirth= "' .$request->input('birthplace'). '",
+            emailadd="' .$request->input('emailadd'). '",fb="' .$request->input('fb'). '", pobirth= "' .$request->input('birthplace'). '",
             passnum="' .$request->input('passnum'). '",birthday= "' .$request->input('birthday'). '",
             age="' .$request->input('age'). '",height= "' .$request->input('height'). '",
             weight="' .$request->input('weight'). '",bloodtype= "' .$request->input('bloodtype'). '",
@@ -59,26 +79,41 @@ class uProfileController extends Controller
             work="' .$request->input('work'). '",cname= "' .$request->input('cname'). '",
             guardian="' .$request->input('guardian'). '",relation= "' .$request->input('relationship'). '",
             cstatus="' .$request->input('cstatus'). '",spouse= "' .$request->input('spouse'). '",
-            language="' .$language. '",elem= "' .$request->input('elem'). '",
+            language="' .$language. '",crname= "' .$request->input('crname'). '",
+            crcontact="' .$request->input('crcontact'). '",ip= "' .$request->input('ip'). '",
+            tribe="' .$request->input('tribe'). '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
-            degree="' .$request->input('degree'). '" where userid='.$request->input('userid') .' ');
+            degree= "' .$request->input('degree'). '",DuetoCovid="' .$request->input('DuetoCovid'). '",
+            since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
+            TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
+            fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
+            eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
+            where userid='.$request->input('userid') .' ');
+            // if doarrival is not empty
+            //   update sql dofarrival pati insert
+            
         }
         else
         {
-            $pData = DB::insert('insert into uprofile(userid, suffix, gender, region, province, barangay, mun, sitio,
-            contactnum, telenum, emailadd, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
-            school, work, cname, guardian, relation, cstatus, spouse, language, elem, hs, college, degree) 
-            values("' .$request->input('userid') .'","' .$request->input('suffix') .'","'
+            $pData = DB::insert('insert into uprofile(userid, hire, suffix, gender, region, province, barangay, mun, sitio,
+            contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
+            school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs,
+            college, degree, DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, typeofA, eligibility, dateReceived) 
+            values("' .$request->input('userid') .'","' .$request->input('hire') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'
-            .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
+            .$request->input('fb') .'","' .$request->input('birthplace') .'","' .$request->input('passnum') .'","' .$request->input('birthday') .'","'
             .$request->input('age') .'","' .$request->input('height') .'","' .$request->input('weight') .'","'
             .$request->input('bloodtype') .'","' .$request->input('yGraduated') .'","' .$request->input('school') .'","'
             .$request->input('work') .'","' .$request->input('cname') .'","' .$request->input('guardian') .'","'
             .$request->input('relationship') .'","' .$request->input('cstatus') .'","' .$request->input('spouse') .'","'
-            .$language .'","' .$request->input('elem') .'","' .$request->input('hs') .'","'
-            .$request->input('college') .'","' .$request->input('degree') .'" )');
+            .$language .'","' .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
+            .$request->input('tribe') .'","'.$request->input('elem') .'","' .$request->input('hs') .'","'
+            .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('DuetoCovid') .'","'
+            .$request->input('since') .'","' .$request->input('DOArrival') .'","'.$request->input('TypeofD') .'","' 
+            .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
+            .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
     
         }
         
@@ -114,25 +149,7 @@ class uProfileController extends Controller
         DB::delete("DELETE FROM uwork WHERE id = " .$request->input('delIdWRK'));
         return redirect('userprofile');
     }
-    public function addE()
-    {
-        $empdata=DB::select('select * from eworks');
-        $company=DB::select('select company from eworks');
-        return view ('addEmpT',['emp'=>$empdata,'company'=>$company]);
-    }
-    public function insertEmpF(Request $request)
-    {
-        $transID=date("Y") .Auth()->user()->id  .bin2hex(random_bytes(2));
-        $ndate=date("Y-m-d");
-        $status="pending";
-
-        $EmpData = DB::insert('insert into employment(userid, appId, date, status, posidesired, cname, crname, crcontact) 
-        values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate 
-        .'","' .$status .'","' .$request->input('posidesired') .'","' .$request->input('cname') 
-        .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
-
-        return redirect('Eregistration');
-    }
+    
     public function cancelE(Request $request)
     { 
         // dd("SAD");

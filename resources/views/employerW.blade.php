@@ -13,7 +13,7 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">Employer</h6>
-               <a href="/EstatPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+               <a href="/EmpPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
             </div>
                
             <div class="card-body">
@@ -21,18 +21,22 @@
                 <table class="table"style="text-align:center;">
                   <thead>
                       <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email Address</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Company Name</th>
+                        <th scope="col">Contact Num</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col">Representative</th>
                         <th scope="col">Action</th>
                       </tr>
                   </thead>
                   <tbody>
                     @foreach ($employer as $emp)
                       <tr>
-                        <td>{{ $emp->name }}</td>
-                        <td>{{ $emp->email }}</td>
+                        <td>{{ $emp->type }}</td>
                         <td>{{ $emp->cname }}</td>
+                        <td>{{ $emp->contact }}</td>
+                        <td>{{ $emp->email }}</td>
+                        <td>{{ $emp->representative }}</td>
                         <td>
                           <span class="input-group">
                             <button type="button" class="btn btn-danger" style="border-radius: 4px;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
@@ -48,7 +52,7 @@
                                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                       </div>
                                       <div class="modal-body">
-                                            Do you really want to delete {{ $emp->name}}?
+                                            Do you really want to delete {{ $emp->cname}}?
                                       </div>
                                       <div class="modal-footer">
                                             <form action ="deleteEmployer" method="GET" >

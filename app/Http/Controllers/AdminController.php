@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use App\Models\User; // Assuming you have a User model
 
 
 class AdminController extends Controller
@@ -13,6 +15,7 @@ class AdminController extends Controller
     {
         return view ('Aprofile');
     }
+
     public function getLinks()
     {
         // switch ((Auth()->user()->roles))
@@ -32,19 +35,68 @@ class AdminController extends Controller
         //     default:
         //         $smenus=array('');
         // }
-        // if(Auth()->user()->roles==1)
-        // {
+
+        if(Auth()->user()->roles==1)
+        {
             $smenus=array(
                 ['PEAP','', 
-                    array(['Scholarship','/showAllSApp'],['Schedules','/SAllSched'],['Tracking','/Stracking'],['Announcements','/Sannouncements'])
+                    array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
+                    ['Announcements','/Sannouncements'],['Status','/Pstatus'],['Visualization','/SAdashboard'])
                 ]
-                            
             );
-        // }
-        // else
-        // {
-        //     $smenus=array();
-        // }
+        }
+        elseif(Auth()->user()->roles==2)
+        {
+            $smenus=array(
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/EAdashboard'])
+                ]
+            );
+        }
+        elseif(Auth()->user()->roles==3)
+        {
+            $smenus=array(
+                ['OFW','', 
+                    array(['Applicants','/ShowAllOApp'],['Announcements','/Oannouncements'],
+                    ['Status','/Ostatus'],['Visualization','/Oadmindashboard'])
+            ],
+            );
+        }
+        elseif(Auth()->user()->roles==4)
+        {
+            $smenus=array(
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Announcements','/Eannouncements'],['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/EAdashboard'])
+                ]
+            );
+        }
+        elseif(Auth()->user()->roles==5)
+        {
+            $smenus=array(
+                ['PEAP','', 
+                    array(['Scholarship','/showAllSApp'],['Tracking','/Stracking'],
+                    ['Status','/Pstatus'],['Visualization','/SAdashboard'])
+                ],
+
+                ['Employment','', 
+                array(['Applicants','/showAllEApp'],['Works Available','/AllWorks'],
+                ['Employer','/EmployerW'],['Status','/Estatus'],['Visualization','/Eadmindashboard'])
+                ],
+                
+                ['OFW','', 
+                    array(['Applicants','/ShowAllOApp'],
+                    ['Status','/Ostatus'],['Visualization','/Oadmindashboard'])
+                ]
+            );
+        }
+        else
+        {
+            $smenus=array();
+        }
+        // dd(Auth()->user()->roles);
+        // dd($smenus);
         return $smenus;
     }
     public function dashboard()
@@ -56,8 +108,37 @@ class AdminController extends Controller
         $Tusers=DB::select('select * from users');
         $muser=DB::select('select * from uprofile where gender="male"');
         $fuser=DB::select('select * from uprofile where gender="female"');
-        // dd(count($muser));
-        return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $ipData = DB::select("
+        SELECT s.tribe
+        FROM uprofile as s
+        INNER JOIN scholarship as p ON s.userid = p.userid
+        WHERE LOWER(s.ip) = 'yes'
+        ");
+        
+        $ipCountByTribe = [];
+        foreach ($ipData as $entry) {
+        $tribe = $entry->tribe;
+
+        if (!isset($ipCountByTribe[$tribe])) {
+            $ipCountByTribe[$tribe] = 1;
+        } else {
+            $ipCountByTribe[$tribe]++;
+        }
+        }   
+
+        $peapApp = DB::table('scholarship')->distinct()->count('userid');
+        $empApp = DB::table('employment')->distinct()->count('userid');
+        $ofwApp = DB::table('ofw')->distinct()->count('userid');
+        // dd($peapApp);
+        return view ('dashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+            'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+            'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'totalpeap'=>$peapApp, 
+            'totalemp'=>$empApp, 'totalofw'=>$ofwApp,'ipCountByTribe' => $ipCountByTribe]);
     }
     public function ahome(Request $request)
     {
@@ -67,7 +148,9 @@ class AdminController extends Controller
         }
         else
         {
-            return view('adminhome');
+            $showdata = DB:: select('select * from homepage');
+            $showworks = DB:: select('select * from eworks');
+            return view('adminhome',['show'=>$showdata, 'eworks'=>$showworks]);
         }
         
     }
@@ -78,16 +161,18 @@ class AdminController extends Controller
 
     public function usersD(Request $request)
     {
+        $smenus=$this->getLinks();
         $users = DB::select('select * from users');
         // dd($users);
-        return view('UsersData',['user'=>$users]);
+        return view('UsersData',['user'=>$users,'smenu'=>$smenus]);
     }
     public function editUdata(Request $request)
     {
+        $smenus=$this->getLinks();
         $userID = $request->input('usrID');
         $showdata = DB::select('select * from users where id=' .$userID);
         // dd($userID);
-        return view('editUdata',['usr'=>$showdata]);
+        return view('editUdata',['usr'=>$showdata,'smenu'=>$smenus]);
     }
     public function updateUdata(Request $request)
     {
@@ -109,6 +194,26 @@ class AdminController extends Controller
         DB::delete("DELETE FROM users WHERE id = " .$request->input('delId'));
         return redirect('/usersD');
     }
+    public function eApplicant(Request $request)
+    {
+        $smenus=$this->getLinks();
+        $showdata = DB::select("select * from company");
+        return view('/empApp',['empApp'=>$showdata,'smenu'=>$smenus]);
+    }
+    public function pEmpApp(Request $request)
+    {
+        $userid=$request->input('showId');
+        // dd($userid);
+        $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);        
+        // dd($showfile);
+        return view ('NLEmpApp',['files'=>$showfile]);
+    }
+    public function deleteempD(Request $request)
+    {
+        DB::delete("DELETE FROM company WHERE id = " .$request->input('delId'));
+        return redirect('/empApp');
+    }
+   
     public function status()
     {
         return view('status');
@@ -123,7 +228,42 @@ class AdminController extends Controller
         $Tusers=DB::select('select * from users');
         $muser=DB::select('select * from uprofile where gender="male"');
         $fuser=DB::select('select * from uprofile where gender="female"');
+
+        $AcceptedPEAP=DB::select('select * from scholarship where status="Approved"');
+        $AcceptedEMP=DB::select('select * from employment where status="Approved"');
+        $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
+
+        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
+        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
         // dd(count($muser));
-        return view ('NLDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),'muser'=>count($muser),'fuser'=>count($fuser)]);
+        return view ('NLDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
+                    'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+                    'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
+                    'company'=>$Company]);
+        
     }
+    public function sendsms()
+    {
+        $smenus=$this->getLinks();
+        return view('messages',['smenu'=>$smenus]);
+    }
+    public function showPrintView()
+    {
+        // Retrieve all data from the users table
+        // $allUserData = User::all();
+        // dd($allUserData);
+        // Now $allUserData contains a collection of User models, each representing a row in the users table
+        // You can use this collection in your application as needed
+
+        // Example: Accessing the first user's name
+        // $firstName = $allUserData->first()->name;
+
+        // return view('print')->with('allUserData', $allUserData);
+        // Your code to fetch data from the database
+        $users = User::all(); // Fetch all users as an example
+
+        // Return the print view with data
+        return View::make('print')->with('users', $users);
+    }
+   
 }

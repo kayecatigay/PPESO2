@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('emails.contactus');
+        $showdata = DB:: select('select * from homepage');
+        return view('emails.contactus',['show'=>$showdata]);
     }
 
     public function sendmess(Request $request)
@@ -73,9 +74,50 @@ class ContactController extends Controller
 
                 // print($message);
     }
-    public function sendsms()
+    function sendssms($mobile, $message, $apicode) 
     {
-        return view('messages');
+        $ch = curl_init();
+        $heze = array('mobile' => $mobile, 'message' => $message, 'apicode' => $apicode);
+        curl_setopt($ch, CURLOPT_URL,"https://hezesms.phserver.online/broadcast.php");
+        curl_setopt($ch,CURLOPT_TIMEOUT, 60);
+        //time out of the curl handler
+        curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 60);
+        //time out of the curl socket connection closing
+        curl_setopt($ch,CURLOPT_MAXREDIRS, 3);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch,CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($heze));
+        curl_setopt($ch,CURLOPT_HEADER, 0);
+        curl_setopt($ch,CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1');
+        //proxy as Mozilla browser
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec ($ch);
+        curl_close ($ch);
+        return json_decode($response, true);
+        // redirect('SendSms');
     }
+    public function sendSms(Request $request)
+    {
+        $mobile = $request->input('mobile');
+        $message = $request->input('message');
+        $apicode = $request->input('apicode');
+
+        // dd($apicode);
+
+        $response = $this->sendssms($mobile, $message, $apicode);
+
+        if (isset($response['success']) && $response['success']) {
+            // If the 'success' key is set to true in the response, you can return a success view
+            return view('messages'); // Replace 'success' with the actual view name
+        } else {
+            // If there was an error sending the SMS or the 'success' key is not set, you can return an error view
+            session()->flash('error', 'There was an error sending the SMS.');
+
+            // Then, redirect back to the view where you want to display the alert
+            return redirect()->back();    
+        }
+        
+    }
+
 }
 ?>
