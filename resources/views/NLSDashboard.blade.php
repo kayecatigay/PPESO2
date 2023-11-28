@@ -1,11 +1,61 @@
-@extends('layouts.addefault')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body onload="window.print()">   
 
-@section('maincontent')
+<header id="header" >
+        <img src="assets/img/peap.png" alt="icon"> &nbsp; &nbsp;
+    </header>
+<style>
+   /* Set the table container to overflow horizontally */
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+   #table {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:11px;
+      border-collapse: collapse;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
 
-    <!-- Main Content -->
-    <div id="content">
+   }
+
+   #table td, #table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+   }
+   body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .chart-container {
+        width: 100%;
+        max-width: 600px; /* Set a maximum width for the bar graph container */
+        margin: 0 auto;
+    }
+
+    .bar {
+        background-color: #3498db;
+        height: 20px;
+        margin-bottom: 5px;
+    }
+</style>
 
         <!-- End of Topbar -->
 
@@ -14,9 +64,8 @@
             @section('dashboard')
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Data Visualization</h1>
-                    <a href="/printSDashboard" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <h1 style="font-size:20px;">The subsequent information pertains to various statistics attained by the system,
+                    which are further elaborated in the tables and bar graphs.</h1>
                 </div>
 
 
@@ -118,9 +167,7 @@
 
         </div>
         <!-- End of Main Content -->
-    
-    
-    <!-- End of Content Wrapper -->
+   
     
 <script>
     
@@ -292,6 +339,3 @@
         return color;
     }
 </script>
-@endsection
-
-<!-- End of Page Wrapper -->

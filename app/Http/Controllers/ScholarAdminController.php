@@ -331,4 +331,53 @@ class ScholarAdminController extends Controller
         $pstatus=DB::select('select * from scholarship');
         return view('NLSstatus',['status'=>$pstatus,'smenu'=>$smenus]);
     }
+    public function SAdashboardP(Request $request)
+    {
+        $stat=DB::select('select * from scholarship where status="Approved"');
+        $genderCounts = DB::table('scholarship')
+        ->join('uprofile', 'scholarship.userid', '=', 'uprofile.userid')
+        ->select(
+            DB::raw('COUNT(CASE WHEN uprofile.gender = "male" THEN 1 END) AS male_count'),
+            DB::raw('COUNT(CASE WHEN uprofile.gender = "female" THEN 1 END) AS female_count')
+        )
+        ->first();
+        // Access the counts
+        $maleCount = $genderCounts->male_count;
+        $femaleCount = $genderCounts->female_count;
+        // dd($femaleCount);
+
+        $graduates=DB::select("
+        SELECT uprofile.school, uprofile.yGraduated, COUNT(uprofile.userid) AS GraduatesCount
+        FROM scholarship
+        INNER JOIN uprofile ON scholarship.userid = uprofile.userid
+        GROUP BY uprofile.school, uprofile.yGraduated;
+        ");
+        // dd($graduates);
+
+        $ipData = DB::select("
+        SELECT s.tribe
+        FROM uprofile as s
+        INNER JOIN scholarship as p ON s.userid = p.userid
+        WHERE LOWER(s.ip) = 'yes'
+        ");
+        
+        $ipCountByTribe = [];
+        foreach ($ipData as $entry) {
+        $tribe = $entry->tribe;
+
+        if (!isset($ipCountByTribe[$tribe])) {
+            $ipCountByTribe[$tribe] = 1;
+        } else {
+            $ipCountByTribe[$tribe]++;
+        }
+        }   
+
+        $Applicants=DB::select('select * from scholarship');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, COUNT(*) as count FROM scholarship GROUP BY month');
+
+
+        return view('NLSDashboard',['applicants'=>count($Applicants),'accepted'=>count($stat),
+        'male'=>$maleCount,'female'=>$femaleCount, 'monthlyCounts' => $monthlyCounts, 
+        'available' => count($ipData), 'ipCountByTribe' => $ipCountByTribe, 'graduates'=>$graduates ]);
+    }
 }

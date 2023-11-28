@@ -218,14 +218,20 @@ Route::middleware("admin")->group(function () {
     Route::get('/StrackingPrint', [App\Http\Controllers\ScholarAdminController::class, 'trackingP']);
     Route::get('/SannPrint', [App\Http\Controllers\ScholarAdminController::class, 'sannP']);
     Route::get('/statPrint', [App\Http\Controllers\ScholarAdminController::class, 'statP']);
-    
+    Route::get('/printSDashboard', [App\Http\Controllers\ScholarAdminController::class, 'SAdashboardP']);
+
+
     Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
     Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
     Route::get('/EmpPrint', [App\Http\Controllers\EmpAdminController::class, 'empP']);
     Route::get('/EstatPrint', [App\Http\Controllers\EmpAdminController::class, 'estatP']);
     Route::get('/resPrint', [App\Http\Controllers\EmpAdminController::class, 'resShow']);
+    Route::get('/printEDashboard', [App\Http\Controllers\EmpAdminController::class, 'EdashboardP']);
+
     Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);
     Route::get('/OstatusPrint', [App\Http\Controllers\OfwAdminController::class, 'ostatP']);
+    Route::get('/printODashboard', [App\Http\Controllers\OfwAdminController::class, 'OdashboardP']);
+
     Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);

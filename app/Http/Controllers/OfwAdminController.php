@@ -246,4 +246,8 @@ class OfwAdminController extends Controller
         $ostatus=DB::select('select * from ofw');
         return view('NLOstatus',['status'=>$ostatus,'smenu'=>$smenus]);
     }
+    public function OdashboardP(Request $request)
+    {
+        return view('NLODashboard');
+    }
 }

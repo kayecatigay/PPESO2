@@ -401,4 +401,8 @@ class EmpAdminController extends Controller
         // $showdata = DB::select('select * from uprofile');
         return view ('NLEmploy', compact('showdata'));
     }
+    public function EdashboardP(Request $request)
+    {
+        return view('NLEDashboard');
+    }
 }
