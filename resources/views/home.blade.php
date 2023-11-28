@@ -13,7 +13,7 @@
                 <div class="card" style="width: 18rem; opacity:80%;">
                   <div class="card-header" style="background-color: yellowgreen; border-bottom: black 1px solid;">
                     <h5><b>JOB VACANCIES</b></h5>
-                  </div>
+                  </div> 
                   <div class="table" style="width:100%;border-bottom-width: 7px;">
                       <dl class="row" style="height:8px; ">
                         <dt class="col" >POSITION</dt>

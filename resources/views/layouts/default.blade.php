@@ -16,6 +16,122 @@
       z-index: 1000; /* Set a high z-index value */
       opacity: 70%;
     }
+    /* Example media query for small screens (typically mobile phones) */
+    @media only screen and (max-width: 600px) {
+      /* Add responsive styles for the header */
+
+    #header .container {
+        flex-direction: column;
+    }
+
+    #header img {
+        width: 80px; /* Adjust the image width as needed */
+        height: 80px; /* Adjust the image height as needed */
+        bottom: 10px;
+    }
+
+    #header h1.logo {
+        font-size: 18px; /* Adjust the logo font size as needed */
+    }
+
+    #navbar {
+        margin-top: 10px;
+        order: -1; /* Move the navbar to the top right */
+    }
+    #navbar ul {
+        flex-direction: row;
+        align-items: center;
+    }
+    #navbar a {
+        margin: 5px;
+        font-size: 14px; /* Adjust the font size for navigation links */
+    }
+    /* Your styles for small screens go here */
+    body {
+        font-size: 14px; /* Adjust font size for small screens */
+        margin: 0;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    .container {
+        padding: 10px; /* Adjust container padding for small screens */
+        width: 100%;
+        margin: 0 auto; /* Center the container */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px; /* Adjust the gap between items as needed */
+        box-sizing: border-box;
+      }
+    /* Add more styles as needed */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        display: block;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Hide table headers (th) on small screens */
+    th {
+        display: none;
+    }
+
+    /* Display table cells (td) as block on small screens */
+    td {
+        display: block;
+    }
+    label::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 5px;
+        display: inline-block;
+    }
+    select {
+        font-size: 14px; /* Set the default font size for the select element */
+    }
+    select option {
+        font-size: 12px; /* Set the font size for options within the select element */
+    }
+    .container div {
+        margin-bottom: 10px; /* Adjust the margin as needed */
+        width: 100%; /* Each div takes the full width initially */
+    }
+    /* Example: Responsive header and navbar */
+    header {
+        text-align: left;
+        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        padding: 10px;
+        margin: 5px;
+        text-decoration: none;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px; /* Adjust the font size for navigation links */
+    }
+  }
   </style>
 
   <!-- Favicons -->
@@ -69,14 +185,14 @@
 
   <!-- ======= Header ======= -->
   @section('header')
-    <header id="header" class="w3-container w3-metro-dark-green"  >
-      <div class="container d-flex align-items ">
+    <header id="header" class="w3-container w3-metro-dark-green" >
+      <div class="container-fluid d-flex align-items-center">
         <img src="assets/img/favicon.png" style="width:40px; height:40px;" alt="icon"> &nbsp; &nbsp;
         <h1 class="logo "><a href="home">Provincial  <span>PESO</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
+        <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto" href="\home">Home </a></li>
             <li><a class="nav-link scrollto" href="\services">Services</a></li>
@@ -89,31 +205,12 @@
               @endif
             @endguest
             
-            <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li> -->
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
-        
+        </nav>
 
         <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto position-absolute top-0 end-0">
             <!-- Authentication Links -->
             @guest
                 @if (Route::has('login'))
@@ -130,51 +227,49 @@
                 @endif
             @else
               
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-15">
-                            <div class="card w3-container w3-metro-dark-green" style="border:0">
-                                <div class="card-header-text-bg-success" style="border:0"><!--{{ __('You are logged in!') }}--></div>
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-15">
+                    <div class="card w3-container w3-metro-dark-green" style="border:0">
+                      <div class="card-header-text-bg-success" style="border:0"><!--{{ __('You are logged in!') }}--></div>
 
-                                <div class="card text-bg-success" style="border:0">
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @endif
-                                </div>
+                      <div class="card text-bg-success" style="border:0">
+                          @if (session('status'))
+                              <div class="alert alert-success" role="alert">
+                                  {{ session('status') }}
+                              </div>
+                          @endif
+                      </div>
 
-                                <div>
-                                  
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
+                      <div >
+                        <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
+                          data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{ Auth::user()->name }}
+                          </a>
 
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="userprofile">Profile</a>
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }} <br>
-                                            </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                </div>
-
-                            </div>
-                        </div>
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="userprofile">Profile</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }} <br>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                          </div>
+                        </li>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             @endguest
         </ul>
              
       </div>
-</header><!-- End Header -->
+    </header><!-- End Header -->
   @show
 
   

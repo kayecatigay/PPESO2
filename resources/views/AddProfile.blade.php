@@ -355,7 +355,8 @@
                     placeholder="Enter degree, achievements, etc." value="{{ $pdata[0]->degree}}">
                 </div>
             </div> <br> <br>
-
+        
+        <!-- Displacement Details -->
             <div class="row form-inline">
                 <div class="col">
                     <p>Displacement Details</p> 
@@ -405,14 +406,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col form-group">
+                <div class="col-7 form-group">
                     <label for="fAssistance">Are you still receiving your salary/financial assistance from your employer?</label>
                     <select name="fAssistance" id="fAssistance" class="form-control" value="{{ $pdata[0]->fAssistance}}">
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div class="col form-group">
+                <div class="col-5 form-group">
                     <label for="typeofA">Type of Assistance Received</label>
                     <input type="text" id="typeofA" name="typeofA" class="form-control" value="{{ $pdata[0]->typeofA}}">
                 </div>
@@ -433,6 +434,7 @@
                     <input type="date" id="dateReceived" name="dateReceived" class="form-control" value="{{ $pdata[0]->dateReceived}}">
                 </div>
             </div>
+        <!-- End of Displacement Details -->
 
             <br> <br>
             <div class="row form-inline">
@@ -449,7 +451,7 @@
                     
                
             </div>
-             
+            
                 
                 <a class="btn btn-success" href="addWorkE">ADD </a>
                 <div class="card-body">
@@ -615,6 +617,7 @@
                 </div>
             </div>
         </div>
+    </div>
 <script>
     function loadDoc() {
         txtmun=document.getElementById("mun").value;

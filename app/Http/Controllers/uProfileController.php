@@ -61,6 +61,7 @@ class uProfileController extends Controller
         $language.= ($request->input('korea')=="on") ? ", hangul" :"";
         $language=substr($language,1); 
 
+        $arrival=$request->input('DOArrival');
         $userid=$request->input('userid');
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
@@ -83,14 +84,8 @@ class uProfileController extends Controller
             crcontact="' .$request->input('crcontact'). '",ip= "' .$request->input('ip'). '",
             tribe="' .$request->input('tribe'). '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
-            degree= "' .$request->input('degree'). '",DuetoCovid="' .$request->input('DuetoCovid'). '",
-            since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
-            TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
-            fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
-            eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
-            where userid='.$request->input('userid') .' ');
-            // if doarrival is not empty
-            //   update sql dofarrival pati insert
+            degree= "' .$request->input('degree'). '",where userid='.$request->input('userid') .' ');
+            
             
         }
         else
@@ -98,7 +93,7 @@ class uProfileController extends Controller
             $pData = DB::insert('insert into uprofile(userid, hire, suffix, gender, region, province, barangay, mun, sitio,
             contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
             school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs,
-            college, degree, DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, typeofA, eligibility, dateReceived) 
+            college, degree)
             values("' .$request->input('userid') .'","' .$request->input('hire') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
@@ -110,13 +105,34 @@ class uProfileController extends Controller
             .$request->input('relationship') .'","' .$request->input('cstatus') .'","' .$request->input('spouse') .'","'
             .$language .'","' .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
             .$request->input('tribe') .'","'.$request->input('elem') .'","' .$request->input('hs') .'","'
-            .$request->input('college') .'","' .$request->input('degree') .'","' .$request->input('DuetoCovid') .'","'
+            .$request->input('college') .'","' .$request->input('degree') .'" )');
+    
+        }
+        // if doarrival is not empty
+        //   update sql dofarrival pati insert
+        if(!empty($arrival))
+        {
+            $dData = DB::insert('insert into uprofile(DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, 
+            typeofA, eligibility, dateReceived) values("' .$request->input('DuetoCovid') .'","'
             .$request->input('since') .'","' .$request->input('DOArrival') .'","'.$request->input('TypeofD') .'","' 
             .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
             .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
-    
+
         }
-        
+        $existingData = DB::select('select * from uprofile where userid = ' . $userid);
+
+        if (!empty($existingData)) {
+            $udData = DB::update('update uprofile set DuetoCovid="' .$request->input('DuetoCovid'). '",
+                since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
+                TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
+                fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
+                eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
+                where userid='.$request->input('userid') .' ');
+        } else {
+            // Code to handle the case where there is no existing data for the specified userid
+            // You might want to add some error handling or return an appropriate response
+        }
+
         return redirect('userprofile');
     }
     public function delResume(Request $request)

@@ -71,7 +71,7 @@ class ServicesController extends Controller
         
         return redirect('/oldscholardetails');
    
-    }
+    } 
     public function emphome()
     {
         return view ('emphomepage');
@@ -162,7 +162,7 @@ class ServicesController extends Controller
             return redirect('/login'); //if no user logged in redirect to login
             exit; // do not read the remaing codes , exit public function
         }
- 
+
         $ofw = DB::select('select * from ofw where userid=' .Auth()->user()->id);
         // $registered=($ofw) ? true : false;
         $userId = Auth::user()->id;
