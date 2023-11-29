@@ -403,6 +403,16 @@ class EmpAdminController extends Controller
     }
     public function EdashboardP(Request $request)
     {
-        return view('NLEDashboard');
+        $stat=DB::select('select * from employment where status="Approved"');
+        $Applicants=DB::select('select * from employment');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
+        COUNT(*) as count FROM employment GROUP BY month');
+
+        $hiredEmp = DB::select('select * from users where roles=4');
+        // dd($hiredEmp);
+        $companies = DB::select("SELECT cname, COUNT(*) as count FROM employment GROUP BY cname");
+        // dd($companies);
+        return view('NLEDashboard',['applicants'=>count($Applicants),'accepted'=>count($stat),
+        'monthlyCounts' => $monthlyCounts, 'companies' => $companies, 'hiredEmp'=>count($hiredEmp)]);
     }
 }

@@ -9,7 +9,7 @@
 <body onload="window.print()">   
 
 <header id="header" >
-        <img src="assets/img/peap.png" alt="icon"> &nbsp; &nbsp;
+        <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
     </header>
 <style>
    /* Set the table container to overflow horizontally */
@@ -18,43 +18,16 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
       border-collapse: collapse;
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 20px;
-
    }
 
    #table td, #table th {
       border: 1px solid #ddd;
       padding: 8px;
    }
-   body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    .chart-container {
-        width: 100%;
-        max-width: 600px; /* Set a maximum width for the bar graph container */
-        margin: 0 auto;
-    }
-
-    .bar {
-        background-color: #3498db;
-        height: 20px;
-        margin-bottom: 5px;
-    }
+   
 </style>
 
         <!-- End of Topbar -->
@@ -73,23 +46,23 @@
 
                 <div class="row">
                     <!-- Bar Chart -->
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="card shadow mb-4">
-                            
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    @foreach ($monthlyCounts as $data)
-                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
-                                    @endforeach
-                                </div>
+                    <div class="card shadow mb-4 align-items-center">
+                        
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                @foreach ($monthlyCounts as $data)
+                                <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                                @endforeach
                             </div>
                         </div>
                     </div>
+                    &emsp; &emsp;<p><br><br><br>The illustration on the left depicts <br> the monthly counts of applicants.</p>
+                </div>
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-4">
-                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:400px;">
+                    <div class="row">
+                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:310px;">
                             <div class="card-body" style="width:80%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-3">
@@ -106,13 +79,13 @@
                                 </div>
                             </div>
                         </div>
-                    
-                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:400px;">
+                        &emsp;
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:310px;">
                             <div class="card-body" style="width:80%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-3">
                                         <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
-                                          <br>  Accepted Scholar
+                                            <br>  Accepted Scholar
                                         </div>
                                         <div class="h1 font-weight-bold text-gray-800">
                                         &emsp;&emsp;{{$accepted}}
@@ -125,41 +98,42 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                 <div class="row">
                     <!-- Bar Chart -->
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="card shadow mb-4">
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <h5 style="text-align: center;">Graduated per School</h5>
-                                <div class="chart-area">
-                                    <canvas id="mygradChart" style="width:100%; max-width:600px"></canvas>
-                                </div>
+                    <div class="card shadow mb-4 align-items-center">
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <h5 style="text-align: center;">Graduated per School</h5>
+                            <div class="chart-area">
+                                <canvas id="mygradChart" style="width:200%; max-width:600px"></canvas>
                             </div>
                         </div>
                     </div>
+                    &emsp; &emsp;<p><br><br>The illustration on the left depicts <br> the counts of school where students <br>have graduated.</p>
+                </div>
+
+                <div class="row">
                     <!-- Area Chart -->
-                    <div class="col-xl-4">
-                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
-                                </div>
+                    <div class="card shadow mb-4" style="height: 200px; width:400px;">
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
                             </div>
                         </div>
-                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    @foreach ($ipCountByTribe as $data)
-                                    <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
-                                    @endforeach
-                                </div>
-                            </div>  
-                        </div>
                     </div>
+                    &emsp;
+                    <div class="card shadow mb-4" style="height: 200px; width:400px;">
+                        <div class="card-body">
+                            <div class="chart-area">
+                                @foreach ($ipCountByTribe as $data)
+                                <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
+                                @endforeach
+                            </div>
+                        </div>  
+                    </div>
+                    &nbsp;<p>The illustration on the left <br>depicts the gender count of <br> applicants, while on the right <br> is the number of  IP <br> (Indigenous Person) in their respective tribe.</p>
                 </div>
             </div>
             <!-- /.container-fluid -->

@@ -1,99 +1,151 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body onload="window.print()">   
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-    <header id="header" >
-        <img src="assets/images/header.jpg" style="width:1300px; height:150px;" alt="icon"> &nbsp; &nbsp;
+<header id="header" >
+        <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
     </header>
-    <!-- Main Content -->
-    <div id="content">
+<style>
+   /* Set the table container to overflow horizontally */
+
+   #table {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:11px;
+      border-collapse: collapse;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   #table td, #table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+   }
+   
+</style>
 
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" style="font-family: arial, serif; 
-                    display: block; margin-left: auto; margin-right: auto; width: 80%;">
+        <div class="container-fluid">
             @section('dashboard')
                 <!-- Page Heading -->
-                <div style="display: block; margin-left: auto; margin-right: auto; width: 80%;">
-                        <h3 style="text-align:center;" class="h3 mb-0 text-gray-800">EMP DASHBOARD</h3> <br>
-                    
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 style="font-size:20px;">The subsequent information pertains to various statistics attained by the system,
+                    which are further elaborated in the tables and bar graphs.</h1>
                 </div>
+
 
                 <!-- Content Row -->
 
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col mr-5">
-                        <div class="text-dark mb-1"><br>
-                            <h5 style="text-align:center; font-family: arial, serif; "> Total Users = {{$totalusers}} </h5></div>
-                        </div>
-                    </div>
-                    <div class="container center">
-                    <div class="row col-lg-5 center" style=" margin-left: auto; margin-right: auto; width: 90%;">
-                        <div class="card shadow mb-3">
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
                             
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header py-7 d-flex flex-row">
-                                <h6 class="m-0 font-weight-bold text-dark" 
-                                style="text-align:center;">ACCEPTED</h6>
-                                
-                            </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                    <span class="mr-2">
-                                        
-                                        <i class="text-primary font-weight-bold">{{ $apeap}} </i> PEAP
-                                    </span>
-                                    <span class="mr-2">
-                                        
-                                        <i class="text-success font-weight-bold">{{ $aemp }}</i> EMP
-                                    </span>
-                                    <span class="mr-2">
-                                        
-                                        <i class="text-info font-weight-bold">{{ $aofw }}</i> OFW
-                                    </span>
-                                
-                            </div> 
-                        </div> &emsp;
-                        <div class="card shadow mb-3" >
-                            <div class="card-header py-7 d-flex ">
-                                <h6 class="m-0 font-weight-bold text-dark">COMPANY</h6><h6 class="m-0 font-weight-bold text-dark">&emsp; USER</h6>
+                                <div class="chart-area">
+                                    @foreach ($monthlyCounts as $data)
+                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                                    @endforeach
+                                </div>
                             </div>
-                            <!-- Card Body -->
+                        </div>
+                        &emsp; &emsp;<p><br><br><br>The illustration on the left depicts <br> the monthly counts of applicants.</p>
+                </div>
+                <!-- Content Row -->
+                <div class="row">
+
+                    <!-- Content Column -->
+
+                        <!-- Project Card Example -->
+                        <div class="card shadow mb-4 " style="height: 200px; width:400px;">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-dark">Company</h6><h6 class="m-0 font-weight-bold text-dark">Applicants</h6>
+                            </div>
                             <div class="card-body">
-                                @foreach ($company as $com)
-                                    <h4 
-                                        class="small font-weight-bold">{{ $com->cname }}<span
-                                        class="float-right">{{ $com->totalapp }}</span>
+                                @foreach ($companies as $company)
+                                    <h4 class="small font-weight-bold">{{ $company->cname }} 
+                                        <span class="float-right">{{ $company->count }}</span>
                                     </h4>
-                                    <div class="progress mb-2">
-                                    <?php $percentage = ($com->totalapp / 100); ?>
-                                    <div class="progress-bar" role="progressbar" style="width: <?= $percentage ?>%;" 
-                                    aria-valuenow="<?= $com->totalapp ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $company->count }}%" aria-valuenow="{{ $company->count }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 @endforeach
                             </div>
-                        </div>              
+                        </div>      
+                        &emsp; &emsp;<p><br><br><br>The illustration on the left depicts <br> the counts of applicants per company.</p>              
                 </div>
-                        <!-- Area Chart -->
-                        <div class="row-lg-7" style="display: block; margin-left: auto; margin-right: auto;  width: 60%;">
-                            <div class="card shadow mb-3">
-                                
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <div class="align-items-center">
-                                            <canvas id="myChart" style=" max-width:600px; 
-                                            margin:auto; padding: 10px; " ></canvas>
+                <div class="row">
+                    <!-- Earnings (Monthly) Card Example -->
+                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:300px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                           <br>Total Applicants
                                         </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                            &emsp;&emsp;{{$applicants}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                    <i class="fa fa-users fa-3x text-gray-300" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        &nbsp;
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:300px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                          <br>  Hired Applicants
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                        &emsp;&emsp;{{$accepted}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-briefcase fa-3x text-gray-300" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        &nbsp;
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:300px;">
+                            <div class="card-body" style="width:80%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                            <br>  Hired Employer
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                        &emsp;&emsp;{{$hiredEmp}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-briefcase fa-3x text-gray-300" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Content Row -->
+
                 
 
-               
+                
+
             </div>
             <!-- /.container-fluid -->
             @show
@@ -101,31 +153,55 @@
         </div>
         <!-- End of Main Content -->
     
-    </div>
-    <!-- End of Content Wrapper -->
+    <script>
+        var data = {!! json_encode($monthlyCounts) !!};
+    
+        var labels = data.map(function(item) {
+            // Assuming the 'month' property is in the format 'YYYY-MM'
+            var yearMonth = item.month.split('-');
+            var monthName = new Date(Date.UTC(yearMonth[0], yearMonth[1] - 1, 1)).toLocaleString('en-US', { month: 'long' });
 
-<script>
-var xValues = ["Male", "Female"];
-var yValues = [{{$muser}}, {{$fuser}}];
-var barColors = ["blue", "red"];
+            return monthName;
+        });
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Male/Female Applicants"
-    }
-  }
-});
-</script>
-
-<!-- End of Page Wrapper -->
+        var counts = data.map(function(item) {
+            return item.count;
+        });
+        var ctx = document.getElementById('myappChart').getContext('2d');
+    
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Applicants per Month',
+                    data: counts,
+                    backgroundColor: 'rgba(75, 100, 100, 1)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+            plugins: {
+                annotation: {
+                    annotations: [{
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y',
+                        value: 1,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        label: {
+                            enabled: true,
+                            content: 'Value 1',
+                            position: 'right',
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
