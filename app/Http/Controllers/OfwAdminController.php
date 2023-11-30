@@ -248,6 +248,21 @@ class OfwAdminController extends Controller
     }
     public function OdashboardP(Request $request)
     {
-        return view('NLODashboard');
+        $stat=DB::select('select * from ofw where status="Approved"');
+        $Applicants=DB::select('select * from ofw');
+        $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
+        COUNT(*) as count FROM ofw GROUP BY month');
+        
+        $ofwCounts = DB::table('ofw')
+        ->select(
+            DB::raw('COUNT(CASE WHEN OfwCat = "landbased" THEN 1 END) AS landbased_count'),
+            DB::raw('COUNT(CASE WHEN OfwCat = "seabased" THEN 1 END) AS seabased_count')
+        )
+        ->first();
+        $landbasedCount = $ofwCounts->landbased_count;
+        $seabasedCount = $ofwCounts->seabased_count;
+        // dd($landbasedCount);
+        return view('NLODashboard',['applicants'=>count($Applicants),'accepted'=>count($stat),
+        'monthlyCounts' => $monthlyCounts, 'landbasedCount'=>$landbasedCount, 'seabasedCount'=>$seabasedCount]);
     }
 }
