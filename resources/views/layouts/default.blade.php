@@ -131,6 +131,27 @@
         border-radius: 5px;
         font-size: 14px; /* Adjust the font size for navigation links */
     }
+    .d-flex.justify-content-around {
+        flex-direction: column; /* Change flex direction to column for smaller screens */
+    }
+
+    .d-flex.justify-content-around > * {
+        margin-bottom: 10px; /* Add some space between the items for better readability */
+    }
+    .col {
+        order: 2; /* Change the order for smaller screens */
+    }
+    .col-6 {
+        order: 1; /* Change the order for smaller screens */
+    }
+    .card{
+      text-align: center;
+      margin-left: 70px;
+    }
+    .col-xl-16{
+      flex-direction: column; 
+      margin-bottom:10px;
+    }
   }
   </style>
 
@@ -210,7 +231,7 @@
         </nav>
 
         <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ms-auto position-absolute top-0 end-0">
+        <ul class="navbar-nav ms-auto me-auto">
             <!-- Authentication Links -->
             @guest
                 @if (Route::has('login'))
@@ -227,7 +248,6 @@
                 @endif
             @else
               
-              <div class="container">
                 <div class="row justify-content-center">
                   <div class="col-md-15">
                     <div class="card w3-container w3-metro-dark-green" style="border:0">
@@ -245,7 +265,7 @@
                         <li class="nav-item dropdown">
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->name }}
+                              {{ Auth::user()->firstname }}
                           </a>
 
                           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -264,7 +284,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
             @endguest
         </ul>
              
@@ -331,7 +350,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 footer-links">
-              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminlogo.png') ?>" alt="Oriental Mindoro Official Logo" style="width:160px;height:160px;"></a>
+              <a target="_blank" href="https://ormindoro.gov.ph/"><img src="<?= url('assets/img/orminro.png') ?>" alt="Oriental Mindoro Official Logo" style="width:160px;height:160px;"></a>
               <a target="_blank" href="https://ph.polomap.com/calapan-city/9285"><img src="<?= url('assets/img/pesologooo.png') ?>" alt="Public Employment Services Office Official Logo" style="width:160px;height:160px;"></a>
             </div>
           @show

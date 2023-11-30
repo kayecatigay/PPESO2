@@ -7,7 +7,6 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
       <div class="container" data-aos="fade-up">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            
             <div class="col">
               <div style="<?php echo"@auth display: block; @else display: none; @endauth"?>"><br><br>
                 <div class="card" style="width: 18rem; opacity:80%;">
@@ -33,14 +32,6 @@
               </div>
             </div>
             <div class="col-6" style="margin: none;">
-              <!-- <form action="/ehome">
-                @if(isset(Auth()->user()->roles))
-                  @if (Auth::check() && in_array(Auth::user()->roles, range(1, 5)))
-                  <input type="submit" value="Edit">
-                  @endif
-                @endif
-
-              </form> -->
                 <h1>{{$show[0]->title}}</h1>
                 <h2>{{$show[0]->loc}}</h2>
             </div>
@@ -59,14 +50,6 @@
                 </div>
               </a>
             </div>
-            <!-- <div class="col-xl-2 col-md-4">
-              <a href="/JobVacant">
-                <div class="icon-box">
-                <i class="bi bi-briefcase"></i>
-                <h3 style="color:white;">Works Available</h3>
-                </div>
-              </a>
-            </div> -->
           </div>
       </div>
     </section><!-- End Hero -->
@@ -102,7 +85,7 @@
 
               <div class="d-flex justify-content-around" >
                 
-                  <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100" >
+                  <div class="col" data-aos="zoom-in" data-aos-delay="100" >
                     <a href="scholarhomepage">
                       <div class="icon-box" style="color:black;">
                         <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
@@ -114,7 +97,7 @@
                   </div>
                 
 
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col" data-aos="zoom-in" data-aos-delay="200">
                   <a href="employmenthomepage">
                     <div class="icon-box" style="color:black;">
                       <div class="icon"><i class="bi bi-briefcase-fill"></i></div>
@@ -125,7 +108,7 @@
                   </a>
                 </div>
 
-                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="col" data-aos="zoom-in" data-aos-delay="300">
                   <a href="ofwhomepage">
                     <div class="icon-box" style="color:black;">
                       <div class="icon"><i class="bi bi-airplane-engines-fill"></i></div>
