@@ -102,8 +102,6 @@ class AdminController extends Controller
     public function dashboard()
     {
         
-        // return view ('dashboard');
-        // dd(count($smenus));
         $smenus=$this->getLinks();
         $Tusers=DB::select('select * from users');
         $muser=DB::select('select * from uprofile where gender="male"');
@@ -220,11 +218,6 @@ class AdminController extends Controller
     }
     public function dashboardP()
     {
-        
-        
-        // return view ('dashboard');
-        // dd(count($smenus));
-        $smenus=$this->getLinks();
         $Tusers=DB::select('select * from users');
         $muser=DB::select('select * from uprofile where gender="male"');
         $fuser=DB::select('select * from uprofile where gender="female"');
@@ -233,13 +226,32 @@ class AdminController extends Controller
         $AcceptedEMP=DB::select('select * from employment where status="Approved"');
         $AcceptedOFW=DB::select('select * from ofw where status="Approved"');
 
-        $Company=DB::select('SELECT cname,COUNT(*) as totalapp FROM employment GROUP BY cname');
-        $AppCom=DB::select('SELECT count(id) FROM `employment` WHERE cname="Google"');
-        // dd(count($muser));
-        return view ('NLDashboard',['smenu'=>$smenus,'totalusers'=>count($Tusers),
-                    'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
-                    'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'comp'=>count($AppCom),
-                    'company'=>$Company]);
+        $ipData = DB::select("
+        SELECT s.tribe
+        FROM uprofile as s
+        INNER JOIN scholarship as p ON s.userid = p.userid
+        WHERE LOWER(s.ip) = 'yes'
+        ");
+        
+        $ipCountByTribe = [];
+        foreach ($ipData as $entry) {
+        $tribe = $entry->tribe;
+
+        if (!isset($ipCountByTribe[$tribe])) {
+            $ipCountByTribe[$tribe] = 1;
+        } else {
+            $ipCountByTribe[$tribe]++;
+        }
+        }   
+
+        $peapApp = DB::table('scholarship')->distinct()->count('userid');
+        $empApp = DB::table('employment')->distinct()->count('userid');
+        $ofwApp = DB::table('ofw')->distinct()->count('userid');
+        // dd($peapApp);
+        return view ('NLDashboard',['totalusers'=>count($Tusers),
+            'muser'=>count($muser),'fuser'=>count($fuser),'apeap'=>count($AcceptedPEAP),
+            'aemp'=>count($AcceptedEMP),'aofw'=>count($AcceptedOFW),'totalpeap'=>$peapApp, 
+            'totalemp'=>$empApp, 'totalofw'=>$ofwApp,'ipCountByTribe' => $ipCountByTribe]);
         
     }
     public function sendsms()
@@ -249,20 +261,7 @@ class AdminController extends Controller
     }
     public function showPrintView()
     {
-        // Retrieve all data from the users table
-        // $allUserData = User::all();
-        // dd($allUserData);
-        // Now $allUserData contains a collection of User models, each representing a row in the users table
-        // You can use this collection in your application as needed
-
-        // Example: Accessing the first user's name
-        // $firstName = $allUserData->first()->name;
-
-        // return view('print')->with('allUserData', $allUserData);
-        // Your code to fetch data from the database
         $users = User::all(); // Fetch all users as an example
-
-        // Return the print view with data
         return View::make('print')->with('users', $users);
     }
    
