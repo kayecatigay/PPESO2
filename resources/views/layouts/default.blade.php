@@ -152,6 +152,9 @@
       flex-direction: column; 
       margin-bottom:10px;
     }
+    .alert {
+        height: auto;
+    }
   }
   </style>
 
@@ -250,18 +253,10 @@
               
                 <div class="row justify-content-center">
                   <div class="col-md-15">
-                    <div class="card w3-container w3-metro-dark-green" style="border:0">
+                    <div class="card w3-container w3-metro-dark-green" style="border:0; ">
                       <div class="card-header-text-bg-success" style="border:0"><!--{{ __('You are logged in!') }}--></div>
-
-                      <div class="card text-bg-success" style="border:0">
-                          @if (session('status'))
-                              <div class="alert alert-success" role="alert">
-                                  {{ session('status') }}
-                              </div>
-                          @endif
-                      </div>
-
-                      <div >
+                      
+                      <div>
                         <li class="nav-item dropdown">
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -288,7 +283,15 @@
         </ul>
              
       </div>
+      <div class="card w3-metro-dark-green" style="border:none; justify-content: center; align-items: center;">
+        @if (session('status'))
+          <div class="alert alert-dark w3-metro-dark-green" role="alert" style="border:none;">
+              {{session('status')}}
+          </div>
+        @endif
+      </div>
     </header><!-- End Header -->
+    
   @show
 
   

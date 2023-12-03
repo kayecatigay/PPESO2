@@ -30,9 +30,13 @@
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
-                                    @foreach ($monthlyCounts as $data)
-                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
-                                    @endforeach
+                                    @if(empty($monthlyCounts))
+                                            <br><br><br><br>No data is currently available.
+                                        @else
+                                        @foreach ($monthlyCounts as $data)
+                                            <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -86,7 +90,11 @@
                             <div class="card-body">
                                 <h5 style="text-align: center;">Graduated per School</h5>
                                 <div class="chart-area">
-                                    <canvas id="mygradChart" style="width:100%; max-width:600px"></canvas>
+                                    @if(empty($graduates))
+                                        <br><br><br>No data is currently available.
+                                    @else
+                                        <canvas id="mygradChart" style="width:100%; max-width:600px"></canvas>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -97,16 +105,24 @@
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
-                                    <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
+                                    @if(empty($male))
+                                        <br><br>No data is currently available.
+                                        @else
+                                        <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="card shadow mb-4" style="height: 200px; width:400px;">
                             <div class="card-body">
                                 <div class="chart-area">
-                                    @foreach ($ipCountByTribe as $data)
-                                    <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
-                                    @endforeach
+                                    @if(empty($ipCountByTribe))
+                                        <br><br>No data is currently available.
+                                        @else
+                                        @foreach ($ipCountByTribe as $data)
+                                            <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>  
                         </div>

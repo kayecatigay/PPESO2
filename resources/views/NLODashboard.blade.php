@@ -52,9 +52,13 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        @foreach ($monthlyCounts as $data)
-                        <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
-                        @endforeach
+                        @if(empty($monthlyCounts))
+                                <br><br>No data is currently available.
+                            @else
+                            @foreach ($monthlyCounts as $data)
+                                <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -67,7 +71,11 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="ofwCat" style="width:100%; max-width:600px"></canvas>
+                        @if(empty($landbasedCount) && empty($seabasedCount))
+                            <br><br>No data is currently available.
+                        @else
+                            <canvas id="ofwCat" style="width:80%; max-height:200px"></canvas>
+                        @endif                    
                     </div>
                 </div>
             </div>

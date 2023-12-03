@@ -25,9 +25,13 @@
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
-                                    @foreach ($monthlyCounts as $data)
-                                    <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
-                                    @endforeach
+                                    @if(empty($monthlyCounts))
+                                            <br><br>No data is currently available.
+                                        @else
+                                        @foreach ($monthlyCounts as $data)
+                                            <canvas id="myappChart" style="width:100%; max-width:600px"></canvas>
+                                        @endforeach                                    
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -92,15 +96,18 @@
                                 <h6 class="m-0 font-weight-bold text-dark">Company</h6><h6 class="m-0 font-weight-bold text-dark">Applicants</h6>
                             </div>
                             <div class="card-body">
-                                @foreach ($companies as $company)
-                                    <h4 class="small font-weight-bold">{{ $company->cname }} 
-                                        <span class="float-right">{{ $company->count }}</span>
-                                    </h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $company->count }}%" aria-valuenow="{{ $company->count }}" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                @endforeach
-                                
+                                @if(empty($companies))
+                                    No data is currently available.
+                                        @else
+                                    @foreach ($companies as $company)
+                                        <h4 class="small font-weight-bold">{{ $company->cname }} 
+                                            <span class="float-right">{{ $company->count }}</span>
+                                        </h4>
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-dark" role="progressbar" style="width: {{ $company->count }}%" aria-valuenow="{{ $company->count }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
 
