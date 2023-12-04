@@ -5,10 +5,10 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <div class="row">
-                <div class="col"><br> <br> <br>
+                  <div class="col"><br> <br> <br>
                     <h1 class="m-0 font-weight-bold text-dark" style="text-align:center;
                         font-family:Verdana, Geneva, Tahoma, sans-serif">Application</h1>
-                           <table class="table " style="text-align:center; font-family:Verdana, Geneva, Tahoma, sans-serif">
+                           <table class="table" style="text-align:center; font-family:Verdana, Geneva, Tahoma, sans-serif">
                               <thead class="align-items-center">
                                  <tr>
                                        <th scope="col">File Name</th>
@@ -43,8 +43,7 @@
                                  @endforelse
                               </tbody>
                            </table>
-                    
-                </div>
+                  </div>
             </div>
         </div>
     </div>
