@@ -111,63 +111,31 @@ class EmpAdminController extends Controller
     public function insertWorks(Request $request)
     {
         $smenus=(new AdminController)->getLinks();
-        $skills="";
-        $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
-        $skills.= ($request->input('risk')=="on") ? ", risk taker" :"";
-        $skills.= ($request->input('probsol')=="on") ? ", problem solving" :"";
-        $skills.= ($request->input('creative')=="on") ? ", creative" :"";
-        $skills.= ($request->input('multitask')=="on") ? ", multitasking" :"";
-        $skills.= ($request->input('technical')=="on") ? ", technicality" :"";
-        $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
-        $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
-        $skills=substr($skills,1);  
-
-        $req="";
-        $req.= ($request->input('resume')=="on") ? ", resume" :"";
-        $req.= ($request->input('visa')=="on") ? ", visa" :"";
-        $req.= ($request->input('indigency')=="on") ? ", indigency" :"";
-        $req.= ($request->input('PSA')=="on") ? ", psa" :"";
-        $req=substr($req,1);  
-        
-        $AWorks=DB::insert('insert into eworks(date, jobdesc, company, skills, req, contact) 
+        $works= DB::select('select * from eworks');
+        $AWorks=DB::insert('insert into eworks(date, jobdesc, company, contact) 
         values("' .$request->input('date') .'","' .$request->input('jobdesc') .'","'.$request->input('company') .'","'
-        .$req .'","' .$request->input('contact') .'")');
-        return redirect ('AllWorks',['smenu'=>$smenus]);
+        .$request->input('contact') .'")');
+        return view ('/Eworks',['work'=>$works,'smenu'=>$smenus]);
     }
    public function editW(Request $request)
    {
         $smenus=(new AdminController)->getLinks();
         $workID=$request->input('workID');
+        $works= DB::select('select * from eworks');
         $showData = DB::select('select * from eworks where id=' .$workID);
-        return view ('editW',['wrk'=>$showData,'smenu'=>$smenus]);
+        return view ('editW',['wrk'=>$showData,'work'=>$works,'smenu'=>$smenus]);
    }
    public function updateW(Request $request)
    {
     $smenus=(new AdminController)->getLinks();
-    $skills="";
-    $skills.= ($request->input('hardworking')=="on") ? ", hardworking" :"";
-    $skills.= ($request->input('risk')=="on") ? ", risk" :"";
-    $skills.= ($request->input('probsol')=="on") ? ", probsol" :"";
-    $skills.= ($request->input('creative')=="on") ? ", creative" :"";
-    $skills.= ($request->input('multitask')=="on") ? ", multitask" :"";
-    $skills.= ($request->input('technical')=="on") ? ", technical" :"";
-    $skills.= ($request->input('leadership')=="on") ? ", leadership" :"";
-    $skills.= ($request->input('analytics')=="on") ? ", analytics" :"";
-    $skills=substr($skills,1);  
-
-    $req="";
-    $req.= ($request->input('resume')=="on") ? ", resume" :"";
-    $req.= ($request->input('visa')=="on") ? ", visa" :"";
-    $req.= ($request->input('indigency')=="on") ? ", indigency" :"";
-    $req.= ($request->input('psa')=="on") ? ", psa" :"";
-    $req=substr($req,1);  
-
+    
     $Aworks= DB::update('update eworks set date="' .$request->input('date'). '",
     jobdesc="' .$request->input('jobdesc'). '", company="' .$request->input('company'). '",
-    skills="' .$skills .'", req="' .$req. '",contact="' .$request->input('contact'). '" 
+    contact="' .$request->input('contact'). '" 
     where id='.$request->input('id') .' ');
-    
-    return redirect ('/AllWorks',['smenu'=>$smenus]);
+    $works= DB::select('select * from eworks');
+
+    return view ('/Eworks',['work'=>$works,'smenu'=>$smenus]);
    }
    
    public function deleteW(Request $request)
@@ -175,8 +143,9 @@ class EmpAdminController extends Controller
         $smenus=(new AdminController)->getLinks();
         // dd($request->input('delId'));
         DB::delete("DELETE FROM eworks WHERE id = " .$request->input('delId'));
-            
-        return redirect('/AllWorks',['smenu'=>$smenus]);
+        $works= DB::select('select * from eworks');
+
+        return view('/Eworks',['work'=>$works,'smenu'=>$smenus]);
    }
     public function allESched()
     {
@@ -374,10 +343,11 @@ class EmpAdminController extends Controller
     public function employers()
     {
         $smenus=(new AdminController)->getLinks();
-        $employers = DB :: select('select * from company');
-        // dd($employers);
-        // $employers= DB::select(" SELECT * FROM company INNER JOIN users ON company.representative = users.name WHERE users.name = `.$name`;");
+        // $employers = DB :: select('select * from company');
         // $employers = DB::select('select * from users where roles = 4');
+        // // dd($employers);
+        
+        $employers= DB::select("SELECT * FROM company INNER JOIN users ON company.id = users.id WHERE users.roles = 4;");
         return view('employerW',['employer'=>$employers,'smenu'=>$smenus]);
     }
     public function delEmp(Request $request)

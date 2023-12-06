@@ -106,7 +106,7 @@
                 <div class="col-4 orm-group">
                     <label for="emailadd">Email address</label>
                     <input type="email" class="form-control" id="emailadd" name="emailadd"  
-                    placeholder="ex. abc@gmail.com" value="{{ $pdata[0]->emailadd}}">
+                    placeholder="ex. abc@gmail.com" value="{{ Auth::user()->email }}">
                 </div> 
                 <div class="col-4 form-group">
                     <label for="birthplace">Place of Birth</label>
@@ -538,7 +538,7 @@
 
             <div class="row">
                 <div class="col-5">&nbsp;</div>
-                <div class="col"><button type="submit" class="btn btn-outline-dark">Submit</button></div>
+                <div class="col"><button type="submit" id="userid" name="userid" value="{{ Auth::user()->id }}" class="btn btn-outline-dark">Submit</button></div>
                 <div class="col">&nbsp;</div>
             </div>
 

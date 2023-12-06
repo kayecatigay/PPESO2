@@ -53,16 +53,9 @@ class uProfileController extends Controller
     }
     public function insertP(Request $request)
     {
-        $language="";
-        $language.= ($request->input('english')=="on") ? ", english" :"";
-        $language.= ($request->input('tagalog')=="on") ? ", tagalog" :"";
-        $language.= ($request->input('chinese')=="on") ? ", chinese" :"";
-        $language.= ($request->input('japanese')=="on") ? ", japanese" :"";
-        $language.= ($request->input('korea')=="on") ? ", hangul" :"";
-        $language=substr($language,1); 
-
-        $arrival=$request->input('DOArrival');
-        $userid=$request->input('userid');
+        
+        $userid= $request->input('userid');
+        // dd($userid);
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
         if($showdata)
         {
@@ -80,21 +73,20 @@ class uProfileController extends Controller
             work="' .$request->input('work'). '",cname= "' .$request->input('cname'). '",
             guardian="' .$request->input('guardian'). '",relation= "' .$request->input('relationship'). '",
             cstatus="' .$request->input('cstatus'). '",spouse= "' .$request->input('spouse'). '",
-            language="' .$language. '",crname= "' .$request->input('crname'). '",
+            crname= "' .$request->input('crname'). '",
             crcontact="' .$request->input('crcontact'). '",ip= "' .$request->input('ip'). '",
             tribe="' .$request->input('tribe'). '",elem= "' .$request->input('elem'). '",
             hs="' .$request->input('hs'). '",college= "' .$request->input('college'). '",
-            degree= "' .$request->input('degree'). '",where userid='.$request->input('userid') .' ');
-            
+            degree= "' .$request->input('degree'). '" where userid='.$userid );
             
         }
         else
         {
             $pData = DB::insert('insert into uprofile(userid, hire, suffix, gender, region, province, barangay, mun, sitio,
             contactnum, telenum, emailadd, fb, pobirth, passnum, birthday, age, height, weight, bloodtype, yGraduated, 
-            school, work, cname, guardian, relation, cstatus, spouse, language, crname, crcontact, ip, tribe, elem, hs,
+            school, work, cname, guardian, relation, cstatus, spouse, crname, crcontact, ip, tribe, elem, hs,
             college, degree)
-            values("' .$request->input('userid') .'","' .$request->input('hire') .'","' .$request->input('suffix') .'","'
+            values(' .$request->input('userid') .',"' .$request->input('hire') .'","' .$request->input('suffix') .'","'
             .$request->input('gender') .'","' .$request->input('region') .'","' .$request->input('province') .'","'
             .$request->input('barangay') .'","' .$request->input('mun') .'","' .$request->input('sitio') .'","'
             .$request->input('contactnum') .'","' .$request->input('telnum') .'","' .$request->input('emailadd') .'","'
@@ -103,13 +95,18 @@ class uProfileController extends Controller
             .$request->input('bloodtype') .'","' .$request->input('yGraduated') .'","' .$request->input('school') .'","'
             .$request->input('work') .'","' .$request->input('cname') .'","' .$request->input('guardian') .'","'
             .$request->input('relationship') .'","' .$request->input('cstatus') .'","' .$request->input('spouse') .'","'
-            .$language .'","' .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
+            .$request->input('crname') .'","' .$request->input('crcontact') .'","'.$request->input('ip') .'","' 
             .$request->input('tribe') .'","'.$request->input('elem') .'","' .$request->input('hs') .'","'
             .$request->input('college') .'","' .$request->input('degree') .'" )');
     
         }
         // if doarrival is not empty
         //   update sql dofarrival pati insert
+        $userid = $request->input('userid');
+        $arrival=$request->input('DOArrival');
+        $existingData = DB::select('select * from uprofile where userid = '. $userid);
+        // dd($existingData);
+        
         if(!empty($arrival))
         {
             $dData = DB::insert('insert into uprofile(DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, 
@@ -118,19 +115,16 @@ class uProfileController extends Controller
             .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
             .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
 
-        }
-        $existingData = DB::select('select * from uprofile where userid = ' . $userid);
-
+    }
         if (!empty($existingData)) {
             $udData = DB::update('update uprofile set DuetoCovid="' .$request->input('DuetoCovid'). '",
                 since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
                 TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
                 fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
                 eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
-                where userid='.$request->input('userid') .' ');
+                where userid='.$userid );
         } else {
-            // Code to handle the case where there is no existing data for the specified userid
-            // You might want to add some error handling or return an appropriate response
+           dd("Error"); 
         }
 
         return redirect('userprofile');
