@@ -62,12 +62,7 @@ class EmpAdminController extends Controller
     {
         $smenus=(new AdminController)->getLinks();
         // dd($request->input('gender'));
-        
-        $language="";
-        $language.= ($request->input('english')=="on") ? "|english" :"";
-        $language.= ($request->input('tagalog')=="on") ? "|tagalog" :"";
-        $language.= ($request->input('chinese')=="on") ? "|chinese" :"";
-        $language=substr($language,1);  
+      
 
         $empdata= DB::update('update employment set name="' .$request->input('name'). '",posidesired="' 
         .$request->input('posidesi'). '",gender="' .$request->input('gender'). '",region= "' 
@@ -77,7 +72,7 @@ class EmpAdminController extends Controller
         .$request->input('cellphone'). '",emailadd="' .$request->input('emailadd'). '",birthday="' 
         .$request->input('birthday'). '",Cstatus="' .$request->input('cstatus'). '",spouse="' 
         .$request->input('spouse'). '",height="' .$request->input('height'). '",weight="' 
-        .$request->input('weight'). '",language="' .$language. '",religion="' 
+        .$request->input('weight'). '",religion="' 
         .$request->input('religion'). '",elem="' .$request->input('elem'). '",hschool="' 
         .$request->input('hs'). '",college="' .$request->input('college'). '",degree="' 
         .$request->input('degree'). '",cname="' .$request->input('cname'). '",position="'

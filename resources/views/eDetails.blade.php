@@ -24,7 +24,6 @@
                         <th scope="col">Date</th>
                         <th scope="col">Position Desired</th>
                         <th scope="col">Company</th>
-                        <th scope="col">Record</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                       </tr>
@@ -36,7 +35,6 @@
                         <td>{{ $emp->date }}</td>
                         <td>{{ $emp->posidesired }}</td>
                         <td>{{ $emp->cname }}</td>
-                        <td>{{ $emp->crcontact }}</td>
                         <td>{{ $emp->status }}</td>
                         <td>
                           <span class="input-group">
