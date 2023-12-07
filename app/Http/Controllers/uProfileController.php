@@ -103,28 +103,26 @@ class uProfileController extends Controller
         // if doarrival is not empty
         //   update sql dofarrival pati insert
         $userid = $request->input('userid');
-        $arrival=$request->input('DOArrival');
-        $existingData = DB::select('select * from uprofile where userid = '. $userid);
-        // dd($existingData);
-        
-        if(!empty($arrival))
-        {
-            $dData = DB::insert('insert into uprofile(DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, 
-            typeofA, eligibility, dateReceived) values("' .$request->input('DuetoCovid') .'","'
-            .$request->input('since') .'","' .$request->input('DOArrival') .'","'.$request->input('TypeofD') .'","' 
-            .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
-            .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
+        $arrival=($request->input('DOArrival')!="") ? ',DOArrival="' .$request->input('DOArrival') .'"' : "";
+        $dateReceived=($request->input('dateReceived')!="") ? ',dateReceived="' .$request->input('dateReceived') .'"' : "";
 
-    }
+        $existingData = DB::select('select * from uprofile where userid = '. $userid);
+        
+        // dd($arrival);
         if (!empty($existingData)) {
+
             $udData = DB::update('update uprofile set DuetoCovid="' .$request->input('DuetoCovid'). '",
-                since= "' .$request->input('since'). '",DOArrival="' .$request->input('DOArrival'). '",
+                since= "' .$request->input('since'). '",' .$arrival. '
                 TypeofD= "' .$request->input('TypeofD'). '",otherType="' .$request->input('otherType'). '",
                 fAssistance= "' .$request->input('fAssistance'). '",typeofA="' .$request->input('typeofA'). '",
-                eligibility= "' .$request->input('eligibility'). '",dateReceived="' .$request->input('dateReceived'). '" 
+                eligibility= "' .$request->input('eligibility'). '"' .$dateReceived. '
                 where userid='.$userid );
         } else {
-           dd("Error"); 
+            $dData = DB::insert('insert into uprofile(DuetoCovid, since, DOArrival, TypeofD, otherType, fAssistance, 
+            typeofA, eligibility, dateReceived) values("' .$request->input('DuetoCovid') .'","'
+            .$request->input('since') .'","' .$arrival .'","'.$request->input('TypeofD') .'","' 
+            .$request->input('otherType') .'","'.$request->input('fAssistance') .'","' .$request->input('typeofA') .'","'
+            .$request->input('eligibility') .'","' .$request->input('dateReceived') .'" )');
         }
 
         return redirect('userprofile');
