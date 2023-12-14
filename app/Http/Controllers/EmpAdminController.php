@@ -340,9 +340,10 @@ class EmpAdminController extends Controller
         $smenus=(new AdminController)->getLinks();
         // $employers = DB :: select('select * from company');
         // $employers = DB::select('select * from users where roles = 4');
-        // // dd($employers);
+        // dd($employers);
         
-        $employers= DB::select("SELECT * FROM company INNER JOIN users ON company.id = users.id WHERE users.roles = 4;");
+        $employers= DB::select("SELECT * FROM company INNER JOIN users ON company.userid = users.id WHERE users.roles = 4;");
+        // dd($employers);
         return view('employerW',['employer'=>$employers,'smenu'=>$smenus]);
     }
     public function delEmp(Request $request)
