@@ -42,7 +42,13 @@
                                         </div>
                                         <div class="col form-group">
                                         <label for="pass"> Password:</label>
-                                            <input type="password" size="20;" id="pass" name="pass" value="1111">
+                                            <button class="btn btn-primary" style="padding: 3px; border-radius:4px;">
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-light" href="{{ route('password.request') }}">
+                                                        {{ __('Forgot Password?') }}
+                                                    </a>
+                                                @endif        
+                                            </button>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -101,8 +107,8 @@
                                             <tbody>
                                                 @foreach ($files as $file)
                                                     <tr>
-                                                        <td>{{$file->filename}}</td>
-                                                        <td>{{$file->original_name}}</td>
+                                                        <td>{{ substr($file->filename, 0, 20) }}{{ strlen($file->filename) > 20 ? '...' : '' }}</td>
+                                                        <td>{{ substr($file->original_name, 0, 20) }}{{ strlen($file->original_name) > 20 ? '...' : '' }}</td>
                                                         <td>{{$file->created_at}}</td>
                                                         <td>{{$file->updated_at}}</td>
                                                         <td>

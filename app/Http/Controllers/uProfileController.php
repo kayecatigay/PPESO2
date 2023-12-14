@@ -57,6 +57,7 @@ class uProfileController extends Controller
         $userid= $request->input('userid');
         // dd($userid);
         $showdata = DB::select('select * from uprofile where userid=' .$userid);
+        // dd($showdata);
         if($showdata)
         {
             $uPData = DB::update('update uprofile set hire="' .$request->input('hire'). '",
@@ -103,7 +104,7 @@ class uProfileController extends Controller
         // if doarrival is not empty
         //   update sql dofarrival pati insert
         $userid = $request->input('userid');
-        $arrival=($request->input('DOArrival')!="") ? ',DOArrival="' .$request->input('DOArrival') .'"' : "";
+        $arrival=($request->input('DOArrival')!="") ? 'DOArrival="' .$request->input('DOArrival') .'",' : "";
         $dateReceived=($request->input('dateReceived')!="") ? ',dateReceived="' .$request->input('dateReceived') .'"' : "";
 
         $existingData = DB::select('select * from uprofile where userid = '. $userid);

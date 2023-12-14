@@ -145,6 +145,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'password' => [
+            'required' => 'The password field is required.',
+            'min' => 'The password must be at least :min characters.',
+            'confirmed' => 'The password confirmation does not match.',
+            'regex' => 'The password must include at least one uppercase letter, one lowercase letter, one number, and one symbol.',
+        ],
     ],
 
     /*

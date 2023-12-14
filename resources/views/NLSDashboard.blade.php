@@ -127,9 +127,10 @@
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="chart-area">
-                                @if(empty($male))
-                                    <br><br>No data is currently available.
+                                @if(empty($male) || empty($female))
+                                    <br><br>No data is currently available. 
                                     @else
+                                    <?php var_dump("$male");?>
                                     <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
                                 @endif
                             </div>
@@ -250,34 +251,27 @@
             }
         }
     });
-    var maleCount = {{ $male }};
-    var femaleCount = {{ $female }};
+    var xValues = ["Male", "Female"];
+var yValues = [{{$muser}}, {{$fuser}}];
+var barColors = ["blue", "red"];
 
-    // Get the canvas element
-    var ctx = document.getElementById('genderChart').getContext('2d');
-
-    // Create a bar chart
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Male', 'Female'],
-            datasets: [{
-                label: 'Gender Counts',
-                data: [maleCount, femaleCount],
-                backgroundColor: ['blue', 'pink'], // Adjust colors as needed
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    }
-                }
-            }
-        }
-    });
+new Chart("genderChart", {
+type: "bar",
+data: {
+labels: xValues,
+datasets: [{
+backgroundColor: barColors,
+data: yValues
+}]
+},
+options: {
+legend: {display: false},
+title: {
+display: true,
+text: "Male/Female Applicants"
+}
+}
+});
     var data = {!! json_encode($graduates) !!};
 
     // Extract unique school names

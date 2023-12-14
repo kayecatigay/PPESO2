@@ -106,13 +106,17 @@ class HomeController extends Controller
         // dd( $type);
         $representative=$request->input('lname').',' .$request->input('fname').' '.$request->input('mname');
         
-        $insertData= DB :: insert ('insert into company(type, cname, contact, email, representative) 
-        values("' .$type .'","' .$request->input('cname') .'",
-        "' .$request->input('contact') .'","' .$request->input('email') .'","' .$representative .'")');
-
         $insertRep= DB :: insert ('insert into users (roles, name, lastname, firstname, middlename, email, password)
         values(99,"' .$representative .'","' .$request->input('lname') .'","' .$request->input('fname') .'",
         "' .$request->input('mname') .'","' .$request->input('email') .'","' .$pass .'")');
+
+        $fileData = DB::select('select * from users where name="' . $representative .'"');
+        
+        $newuserid=$fileData[0]->id;
+
+        $insertData= DB :: insert ('insert into company(type,userid, cname, contact, email, representative) 
+        values("' .$type  .'","' .$newuserid .'","' .$request->input('cname') .'",
+        "' .$request->input('contact') .'","' .$request->input('email') .'","' .$representative .'")');
 
         return redirect('/homeEmp');
     }

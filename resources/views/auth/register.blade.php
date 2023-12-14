@@ -27,21 +27,22 @@
                                 <div class="row mb-3">
                                     <label for="fname" class="col-md-4 col-form-label text-md-end">First name</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="fname" name="fname">
+                                        <input type="text" class="form-control" id="fname" name="fname" value="{{ old('fname') }}" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="mname" class="col-md-4 col-form-label text-md-end">Middle name</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="mname" name="mname">
+                                        <input type="text" class="form-control" id="mname" name="mname" value="{{ old('mname') }}" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="lname" class="col-md-4 col-form-label text-md-end">Last name</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="lname" name="lname">
+                                        <input type="text" class="form-control" id="lname" name="lname" value="{{ old('lname') }}" autocomplete="off">
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

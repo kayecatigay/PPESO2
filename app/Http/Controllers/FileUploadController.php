@@ -143,7 +143,7 @@ class FileUploadController extends Controller
         // dd($savedFile);
         // Return a success response
  
-return redirect('userprofile');
+    return redirect('userprofile');
        
     }
 }

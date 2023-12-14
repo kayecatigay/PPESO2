@@ -117,7 +117,7 @@ class ServicesController extends Controller
         $desire=$request->input('avaiPosi');
         $comname=$request->input('cname');
 
-        $available = DB::select('select * from employment where posidesired = ? and cname = ?', [$desire, $comname]);
+        $available = DB::select('select * from employment where posidesired = ? and cname = ? and status="Approved"', [$desire, $comname]);
         // dd($available);
         if (!empty($available)) 
         {

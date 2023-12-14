@@ -39,11 +39,11 @@
                                     </div>
                                     <div class="col form-group">
                                         <label for="contact">Contact Number:</label>
-                                        <input type="text" size="30;" id="contact" name="contact" ><br>
+                                        <input type="text" size="30;" placeholder="ex. 09123456789" onkeypress="checkContact()" id="contact" name="contact" ><br>
                                     </div>
                                     <div class="col form-group">
                                        <label for="pass"> Password:</label>
-                                        <input type="password" size="20;" id="pass" name="pass" >
+                                        <input type="password" size="20;" id="pass" name="pass">
                                     </div>
                                 </div>
                             </div>
@@ -62,5 +62,15 @@
         </form>
     </section>
 </body>
-
+<script>
+    function checkContact()
+    {
+        let text = document.getElementById("contact").value;
+        let length = text.length;
+        if (length>10){
+            document.getElementById("contact").value=text.substr(0,10);
+            alert("11 only")
+        }
+    }
+</script>
 @endsection

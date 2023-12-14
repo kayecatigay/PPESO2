@@ -122,6 +122,7 @@ Route::middleware("admin")->group(function () {
 
     Route::get('/empApp', [App\Http\Controllers\AdminController::class, 'eApplicant']);
     Route::get('/pEmpApp', [App\Http\Controllers\AdminController::class, 'pEmpApp']);
+    Route::get('/pEmpApp2', [App\Http\Controllers\AdminController::class, 'pEmpApp2']);
     Route::get('/deleteempD', [App\Http\Controllers\AdminController::class, 'deleteempD']);
     Route::get('/file/show/{fileName}', [App\Http\Controllers\DocFileController::class, 'show'])->name('file.show');
     Route::post('/upload', [App\Http\Controllers\DocFileController::class, 'upload'])->name('file.upload');

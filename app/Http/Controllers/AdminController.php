@@ -196,7 +196,10 @@ class AdminController extends Controller
     {
         $smenus=$this->getLinks();
         $showdata = DB::select("select * from company");
-        return view('/empApp',['empApp'=>$showdata,'smenu'=>$smenus]);
+        // dd($showdata);
+        $showfile=DB::select('SELECT * FROM `reqs` ');        
+        // dd($showfile);
+        return view('/empApp',['empApp'=>$showdata,'filedata'=>$showfile,'smenu'=>$smenus]);
     }
     public function pEmpApp(Request $request)
     {
@@ -205,6 +208,15 @@ class AdminController extends Controller
         $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);        
         // dd($showfile);
         return view ('NLEmpApp',['files'=>$showfile]);
+    }
+    public function pEmpApp2(Request $request)
+    {
+        $smenus=$this->getLinks();
+        $userid=$request->input('showId2');
+        // dd($userid);
+        $showfile=DB::select('SELECT * FROM `reqs` WHERE userid =' .$userid);        
+        // dd($showfile);
+        return view ('NLEmpApp2',['files'=>$showfile,'smenu'=>$smenus]);
     }
     public function deleteempD(Request $request)
     {

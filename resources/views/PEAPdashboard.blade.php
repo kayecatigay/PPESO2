@@ -106,9 +106,10 @@
                             <div class="card-body">
                                 <div class="chart-area">
                                     @if(empty($male))
-                                        <br><br>No data is currently available.
-                                        @else
-                                        <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
+                                        <br><br>No data is currently available. 
+                                    @else
+                                        <canvas id="myChart"  style="height: 200px; width:400px;"></canvas>
+                                        
                                     @endif
                                 </div>
                             </div>
@@ -229,6 +230,9 @@
             }
         }
     });
+
+    // ====================================
+
     var maleCount = {{ $male }};
     var femaleCount = {{ $female }};
 
@@ -307,6 +311,27 @@
         }
         return color;
     }
+</script>
+
+<script>
+const xValues = ["Male", "Female"];
+const yValues = [{{ $male }}, {{$female}}];
+const barColors = [
+  "#2b5797",
+  "#e8c3b9"
+
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  }
+});
 </script>
 @endsection
 

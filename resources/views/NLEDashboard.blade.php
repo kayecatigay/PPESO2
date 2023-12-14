@@ -52,7 +52,7 @@
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-area">
-                                    @if(empty($male))
+                                    @if(empty($monthlyCounts))
                                             <br><br>No data is currently available.
                                         @else
                                         @foreach ($monthlyCounts as $data)

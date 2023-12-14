@@ -34,9 +34,16 @@
               
                 <div class="col form-group">
                     <label for="gender">Gender</label>
-                    <select class="form-control" name="gender" id="gender" value="{{ $pdata[0]->gender}}">
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
+                    <select class="form-control" name="gender" id="gender">
+                        @if($pdata[0]->gender=="male")
+                            <option value="female">Female</option>
+                            <option value="male" selected >Male</option>
+                        @else
+                            <option value="female" selected>Female</option>
+                            <option value="male">Male</option>
+                        @endif
+
+                        
                     </select>
                 </div>
                 
@@ -133,7 +140,7 @@
                 <div class="col-1 form-group">
                     <label for="age">Age</label>
                     <input type="number" readonly class="form-control" id="age" name="age"  
-                    placeholder="Enter Age" value="{{ $pdata[0]->age}}">
+                    placeholder="0" value="{{ $pdata[0]->age}}">
                 </div>
                 <div class="col-2 form-group">
                     <label for="height">Height (cm)</label>
@@ -268,6 +275,8 @@
                         <option value="nephew">Nephew</option>
                         <option value="sister">Sister</option>
                         <option value="brother">Brother</option>
+                        <option value="sister">Mother</option>
+                        <option value="brother">Father</option>
                     </select>
                 </div>
                 <div class="col form-group">
@@ -358,12 +367,12 @@
         
         <!-- Displacement Details -->
             <div class="row form-inline">
-                <div class="col">
+                <div class="col-5">
                     <p>Displacement Details</p> 
                 </div>
-                <!-- <div class="col">
-                    <h5>(for OFW)</h5>        
-                </div> -->
+                <div class="col">
+                    <h5><i>only <b>required</b> for <b>OFW Assitance Applicants</b></i></h5>        
+                </div>
             </div>
             <div class="row">
                 <div class="col-3 form-group">
@@ -443,9 +452,15 @@
                 </div>
                 <div class="col-1">
                     <label class="form-group" for="hire"><br>Hired</label>
-                    <select class="form-control" name="hire" id="hire" value="{{ $pdata[0]->hire}}">
-                        <option value="no">No</option>
+                    <select class="form-control" name="hire" id="hire" >
+                        @if($pdata[0]->hire=="no")
+                        <option value="no" selected>No</option>
                         <option value="yes">Yes</option>
+                        @else
+                        <option value="no">No</option>
+                        <option value="yes" selected>Yes</option>
+                        @endif
+                        
                     </select>
                 </div>
                     
@@ -641,15 +656,19 @@
         var age = Math.abs(year - 1970);
         var ageInput = document.getElementById("age");
 
+        // ageInput.value = age;
         if (age >= 18 && age <= 59) {
             // If the age is within the allowed range, set the value in the input field
             ageInput.value = age;
-        } else {
-            // If the age is not within the allowed range, clear the input field
-            ageInput.value = "";
+        } 
+        else
+        {
             alert("Sorry. Age must be between 18 and 59 years.");
         }
+
     }
+
+
 
     
     function workFunction() 

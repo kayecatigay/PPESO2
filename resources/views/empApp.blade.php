@@ -25,7 +25,7 @@
                               <th scope="col">Contact Number</th>
                               <th scope="col">Email Address</th>
                               <th scope="col">Representative</th>
-                              <th scope="col">Requirements</th>
+                              <th scope="col" colspan="2">Requirements</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
@@ -38,11 +38,19 @@
                                  <td>{{ $eapp->email }}</td>
                                  <td>{{ $eapp->representative }}</td>
                                  <td> 
-                                    <form action="/pEmpApp" method="get">
-                                       <input type="hidden" id="showId" name="showId" value="{{ $eapp->id }}">
-                                       <button type="submit" class="btn btn-primary" style="border:none;">Show</button>
+                                    <form action="/pEmpApp2" method="get">
+                                       <input type="hidden" id="showId2" name="showId2" value="{{ $eapp->userid }}">
+                                       <button type="submit" class="btn btn-info" style="border:none;">Details</button>
+                                    </form> 
+                                    
+                                 </td>
+                                 <td>
+                                 <form action="/pEmpApp" method="get">
+                                       <input type="hidden" id="showId" name="showId" value="{{ $eapp->userid }}">
+                                       <button type="submit" class="btn btn-primary" style="border:none;">PRINT</button>
                                     </form> 
                                  </td>
+                                 
                                  <td>
                                     <span class="input-group">
 
@@ -80,6 +88,8 @@
                                           </div>
                                           <!-- DELETE Modal -->
 
+                                          
+
                                        </div>
                                     </span>
                                     </td>
@@ -106,6 +116,11 @@
          event.preventDefault();
          tableContainer.scrollLeft += event.deltaY;
       });
+
+      function setselid(id)
+      {
+         document.getElementById("selid").value=id;
+      }
    </script>
 
 @endsection
