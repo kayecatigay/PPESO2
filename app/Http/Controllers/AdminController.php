@@ -276,5 +276,10 @@ class AdminController extends Controller
         $users = User::all(); // Fetch all users as an example
         return View::make('print')->with('users', $users);
     }
-   
+    public function feedback(Request $request){
+        $smenus=(new AdminController)->getLinks();
+        $fback = DB::select('select * from feedback');
+
+        return view('feedback',['smenu'=>$smenus,'fback'=>$fback]);
+    }
 }

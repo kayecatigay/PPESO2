@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $showdata = DB:: select('select * from homepage');
-        return view('emails.contactus',['show'=>$showdata]);
+        if (!($request->input('userid'))) {
+            return redirect('/login'); //if no user logged in redirect to login
+            exit; // do not read the remaing codes , exit public function
+        }
+        else
+        {
+            $showdata = DB:: select('select * from homepage');
+            return view('emails.contactus',['show'=>$showdata]);
+        }
     }
 
     public function sendmess(Request $request)

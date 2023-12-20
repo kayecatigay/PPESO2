@@ -162,7 +162,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="SendSms">
+                        <a class="nav-link" href="feedback">
                         <i class="fa fa-comments" aria-hidden="true"></i>
                             <span>Feedback</span></a>
                     </li>

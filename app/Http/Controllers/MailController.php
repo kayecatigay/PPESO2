@@ -13,10 +13,11 @@ class MailController extends Controller
 {
     public function sendEmail(Request $request)
     {
+        $userid = $request->input('userid');
         $name = $request->input('name');
-            $email = $request->input('email');
-            $subject = $request->input('subject');
-            $messageBody = $request->input('message');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $messageBody = $request->input('message');
 
         // dd($email);
         $details = [
@@ -25,6 +26,9 @@ class MailController extends Controller
             'body' => $messageBody
         ];
 
+        DB::insert('insert into feedback(userid, name, email, subject, message, created_at) 
+        values("' .$userid .'","' .$name .'","' .$email .'","' .$subject .'","' .$messageBody.'", NOW() )');
+
         Mail::to($email)->send(new TestMail($details));
         return redirect('contactus');
 
@@ -32,9 +36,6 @@ class MailController extends Controller
         ->setUsername('mryktlynln@gmail.com')
         ->setPassword('jbtsuceqxtpfxiuo');
 
-        $EmpData = DB::insert('insert into feedback(userid, appId, date, status, posidesired, cname, crname, crcontact) 
-            values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate .'","' .$status .'","' .$desire 
-            .'","' .$comname .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
     }
 
     // public function sendEmail(Request $request)

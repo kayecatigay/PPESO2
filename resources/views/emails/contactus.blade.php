@@ -68,7 +68,14 @@
               <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
             
-            <div class="text-center"><input type="submit"></div>
+            <div class="text-center">
+              @csrf
+              @if(auth()->check() && !empty(auth()->user()->id))
+                  <!-- If user is authenticated and user ID is present, display the input with the user's ID -->
+                  <input type="hidden" id="userid" name="userid" value="{{ auth()->user()->id }}">
+              @endif
+              <input type="submit" value="Submit">
+            </div>
           </form>
 
         </div>
