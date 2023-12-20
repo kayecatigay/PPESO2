@@ -44,6 +44,28 @@ class OfwAdminController extends Controller
         ');
         return view('OfwData',['ofwdata'=>$ofwData,'smenu'=>$smenus]);
     }
+    public function Otracking(Request $request)
+    {
+        $smenus=(new AdminController)->getLinks();
+        $txtsearch=$request->input('filter');
+        // var_dump($txtsearch);
+        $condition = " AND (u.name LIKE '%" . $txtsearch . "%' OR p.age LIKE '%" . 
+        $txtsearch . "%' OR p.gender LIKE '%" . $txtsearch . "%' OR r.Country LIKE '%" . 
+        $txtsearch . "%' OR r.JobDesc LIKE '%" . $txtsearch . "%' OR r.OfwCat LIKE '%" . 
+        $txtsearch . "%' OR r.Company LIKE '%" . $txtsearch . "%' OR r.PeriodOfEmp LIKE '%" . 
+        $txtsearch . "%' OR p.otherType LIKE '%" . $txtsearch . "%' OR p.since LIKE '%" . 
+        $txtsearch . "%' )";
+
+        // dd($condition);
+        // $tEracking = DB::select('select * from stracking' .$condition);
+        $ofwData = DB::select('
+        SELECT *
+        FROM uprofile AS p
+        INNER JOIN users AS u ON p.userid = u.id
+        INNER JOIN ofw AS r ON r.userid = p.userid
+        ' . $condition . ';');
+        return view('OfwData',['ofwdata'=>$ofwData, 'txts'=>$txtsearch, 'smenu'=>$smenus]);
+    }
     public function editOdata(request $request) {
         $smenus=(new AdminController)->getLinks();
         $ofwID=$request->input('ofwID');
@@ -226,19 +248,27 @@ class OfwAdminController extends Controller
         return redirect()->route('accoNotif',['id'=>$id]);
 
     }
-    public function ofwP()
+    public function ofwP(Request $request)
     {   
         $smenus=(new AdminController)->getLinks();
-        $ofwData= DB::select('
+        $txtsearch=$request->input('id');
+        // var_dump($txtsearch);
+        $condition = " AND (u.name LIKE '%" . $txtsearch . "%' OR p.age LIKE '%" . 
+        $txtsearch . "%' OR p.gender LIKE '%" . $txtsearch . "%' OR r.Country LIKE '%" . 
+        $txtsearch . "%' OR r.JobDesc LIKE '%" . $txtsearch . "%' OR r.OfwCat LIKE '%" . 
+        $txtsearch . "%' OR r.Company LIKE '%" . $txtsearch . "%' OR r.PeriodOfEmp LIKE '%" . 
+        $txtsearch . "%' OR p.otherType LIKE '%" . $txtsearch . "%' OR p.since LIKE '%" . 
+        $txtsearch . "%' )";
+        // dd($condition);
+
+        $ofwData = DB::select('
         SELECT *
-        FROM ofw as s
-        INNER JOIN uprofile as p
-        ON s.userid = p.userid
-        INNER JOIN users as u
-        ON p.userid = u.id;
-        
-        ');
-        return view('NLOfw',['ofwdata'=>$ofwData,'smenu'=>$smenus]);
+        FROM uprofile AS p
+        INNER JOIN users AS u ON p.userid = u.id
+        INNER JOIN ofw AS r ON r.userid = p.userid
+        ' . $condition . ';');
+        // dd($ofwData);
+        return view('NLOfw',['ofwdata'=>$ofwData, 'txts'=>$txtsearch, 'smenu'=>$smenus]);
     }
     public function ostatP()
     {

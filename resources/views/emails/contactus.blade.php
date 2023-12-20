@@ -52,6 +52,7 @@
 
           <form action="send-email" method="get" >
             @csrf <!-- Add CSRF token field -->
+            <div><h3>Feedback</h3></div>
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>

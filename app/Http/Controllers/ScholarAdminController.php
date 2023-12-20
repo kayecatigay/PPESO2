@@ -246,6 +246,7 @@ class ScholarAdminController extends Controller
         ON p.userid = u.id
         where yGraduated!="n/a" and yGraduated!=""
         ' .$condition .';');
+        // dd($scholardata);
         return view('Stracking',['track'=>$scholardata, 'txts' => $txtsearch ,'smenu'=>$smenus]);
     }
     public function pstatus()
@@ -302,7 +303,7 @@ class ScholarAdminController extends Controller
     public function trackingP(Request $request)
     {
         $smenus=(new AdminController)->getLinks();
-        $txtsearch=$request->input('filter');
+        $txtsearch=$request->input('id');
         // var_dump($txtsearch);
         $condition= " AND ( u.name like '%" .$txtsearch ."%' OR age like '%" .$txtsearch ."%' OR gender like '%"  
         .$txtsearch ."%' OR yGraduated like '%" .$txtsearch ."%' OR school like '%" .$txtsearch ."%' OR work like '%" .$txtsearch 
@@ -315,6 +316,7 @@ class ScholarAdminController extends Controller
         ON p.userid = u.id
         where yGraduated!="n/a" and yGraduated!=""
         ' .$condition .';');
+        // dd($txtsearch);
         return view('NLtracking',['track'=>$scholardata, 'txts' => $txtsearch,'smenu'=>$smenus]);
     }
     public function sannP(Request $request)

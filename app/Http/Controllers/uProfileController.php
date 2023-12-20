@@ -167,7 +167,14 @@ class uProfileController extends Controller
     }
     public function addO()
     {
-        return view('addOt');
+        $userId = Auth::user()->id;
+        $checkDis = DB::select('select DOArrival from uprofile where userid ='. $userId );
+        // dd($checkDis);
+        if (!empty($checkDis) && !empty($checkDis[0]->DOArrival) && strtotime($checkDis[0]->DOArrival) !== false) {
+            return view('addOt');
+        } else {
+            return redirect('/AddProfile')->with('message', 'Please input your displacement details below.');
+        }
     }
     public function insertOf(Request $request)
     {

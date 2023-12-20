@@ -170,6 +170,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/EmployerW', [App\Http\Controllers\EmpAdminController::class, 'employers']);
     Route::get('/deleteEmployer', [App\Http\Controllers\EmpAdminController::class, 'delEmp']);
     Route::get('/printApp', [App\Http\Controllers\EmpAdminController::class, 'printApp']);
+    Route::get('/Etracking', [App\Http\Controllers\EmpAdminController::class, 'Etracking']);
     
     // Route::get('/view-file/{filename}',[App\Http\Controllers\FileUploadController::class, 'viewFile']);
     // Route::get('/view-file/{filename}', 'YourController@viewFile')->name('view.file');
@@ -191,6 +192,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/editOAnnouncements', [App\Http\Controllers\OfwAdminController::class, 'EditOAnn']);
     Route::get('/updateOann', [App\Http\Controllers\OfwAdminController::class, 'updateOann']);
     Route::get('/deleteOAnn', [App\Http\Controllers\OfwAdminController::class, 'deleteOAnn']);
+    Route::get('/Otracking', [App\Http\Controllers\OfwAdminController::class, 'Otracking']);
     
     Route::get('/SendSms', [App\Http\Controllers\AdminController::class, 'sendsms']);
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendsms']);

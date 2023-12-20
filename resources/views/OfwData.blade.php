@@ -13,7 +13,26 @@
             <div
                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                <h6 class="m-0 font-weight-bold text-dark">OFW Applicants</h6>
-               <a href="/OPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+               <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                  <i class="fa fa-bars"></i>
+               </button>    
+               <form action="Otracking"
+                  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                  <div class="input-group">
+                        <input type="text" id="filter" name="filter" class="form-control border-0 small" 
+                        placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" value="{{ $txts ?? '' }}">
+                        <div class="input-group-append">
+                           <button class="btn btn-primary" type="submit">
+                              <i class="fas fa-search fa-sm"></i>
+                           </button>
+                        </div>
+                  </div>
+               </form>
+               <form action="OPrint" target="_blank">
+                  <input type="hidden" id="id" name="id" value="">
+                  <button type="submit" onclick="copysearch()" class="btn btn-outline-dark" style="padding:1px 10px;">Print</button>
+                  <!-- <a href="/ePrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a> -->
+               </form>
             </div>
                <!-- Card Body -->
                <div class="card-body">
@@ -39,7 +58,7 @@
                               <th scope="col">Date of Arrival</th>
                               <th scope="col">Others</th>
                               <th scope="col">Type of Displacement</th>
-                              <th scope="col">Financial Assistance?</th>
+                              <th scope="col">Financial Assistance</th>
                               <th scope="col">Eligibility</th>
                               <th scope="col">Type of Assistance Received</th>
                               <th scope="col">Date Received</th>
@@ -88,6 +107,10 @@
          event.preventDefault();
          tableContainer.scrollLeft += event.deltaY;
       });
+      function copysearch()
+      {
+         document.getElementById("id").value=document.getElementById("filter").value;
+      }
    </script>
 @endsection
 

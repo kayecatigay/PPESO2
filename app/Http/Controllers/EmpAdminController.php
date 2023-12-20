@@ -49,7 +49,29 @@ class EmpAdminController extends Controller
         return view('EmpData',['data'=>$empData,'files'=>$fileData,'smenu'=>$smenus]);
         // return view('EmpData');
     }
-    
+    public function Etracking(Request $request){
+        $smenus=(new AdminController)->getLinks();
+        $userid=Auth::user()->id;
+        
+        $txtsearch=$request->input('filter');
+        // var_dump($txtsearch);
+        $condition = " AND (u.name LIKE '%" . $txtsearch . "%' OR p.age LIKE '%" . 
+        $txtsearch . "%' OR p.gender LIKE '%" . $txtsearch . "%' OR r.posidesired LIKE '%" . 
+        $txtsearch . "%' OR r.cname LIKE '%" . $txtsearch . "%' OR p.hire LIKE '%" . $txtsearch . "%' )";
+
+        // dd($condition);
+        // $tEracking = DB::select('select * from stracking' .$condition);
+        $empData = DB::select('
+        SELECT *
+        FROM uprofile AS p
+        INNER JOIN users AS u ON p.userid = u.id
+        INNER JOIN employment AS r ON r.userid = p.userid
+        INNER JOIN files AS f ON f.userid = p.userid
+        ' . $condition . ';');
+        // dd($empData);
+        $fileData=DB::select('select * from files where userid=' .$userid);
+        return view('EmpData',['data'=>$empData, 'txts' => $txtsearch, 'files'=>$fileData,'smenu'=>$smenus]);
+    }
     public function editEdata(request $request) 
     {
         $smenus=(new AdminController)->getLinks();
@@ -292,19 +314,29 @@ class EmpAdminController extends Controller
         // return view('estatus',['status'=>$estatus,'smenu'=>$smenus]);
         return redirect()->route('acceNotif',['id'=>$id]);
     }
-    public function ePrint()
+    public function ePrint(Request $request)
     {
         $smenus=(new AdminController)->getLinks();
-        $empData= DB::select('
-        SELECT *
-        FROM employment as s
-        INNER JOIN uprofile as p
-        ON s.userid = p.userid
-        INNER JOIN users as u
-        ON p.userid = u.id;
+        $userid=Auth::user()->id;
         
-        ');
-        return view('NLEmploy',['empdata'=>$empData,'smenu'=>$smenus]);
+        $txtsearch=$request->input('id');
+        // var_dump($txtsearch);
+        $condition = " AND (u.name LIKE '%" . $txtsearch . "%' OR p.age LIKE '%" . 
+        $txtsearch . "%' OR p.gender LIKE '%" . $txtsearch . "%' OR r.posidesired LIKE '%" . 
+        $txtsearch . "%' OR r.cname LIKE '%" . $txtsearch . "%' OR p.hire LIKE '%" . $txtsearch . "%' )";
+
+        // dd($condition);
+        // $tEracking = DB::select('select * from stracking' .$condition);
+        $empData = DB::select('
+        SELECT *
+        FROM uprofile AS p
+        INNER JOIN users AS u ON p.userid = u.id
+        INNER JOIN employment AS r ON r.userid = p.userid
+        INNER JOIN files AS f ON f.userid = p.userid
+        ' . $condition . ';');
+        // dd($empData);
+        $fileData=DB::select('select * from files where userid=' .$userid);
+        return view('NLEmploy',['data'=>$empData, 'txts' => $txtsearch, 'files'=>$fileData,'smenu'=>$smenus]);
     }
     public function workP()
     {
@@ -354,18 +386,20 @@ class EmpAdminController extends Controller
     }
     public function printApp(Request $request)
     {
+        $userid = $request->input('showId');
+        // dd($userid);
         $showdata = DB::select('
-            SELECT
-                s.cname AS uprofile_column,
-                s.*, p.*, u.*
-            FROM uprofile as s
-            INNER JOIN employment as p ON s.userid = p.userid
-            INNER JOIN users as u ON p.userid = u.id;
-        ');
+            SELECT s.cname AS uprofile_column,
+                s.*, p.*, u.* 
+            FROM uprofile AS s 
+            INNER JOIN employment AS p ON s.userid = p.userid 
+            INNER JOIN users AS u ON p.userid = u.id 
+            WHERE p.userid = ?', [$userid]
+        );
 
         // dd($showdata);
         // $showdata = DB::select('select * from uprofile');
-        return view ('NLEmploy', compact('showdata'));
+        return view ('NLuserEmploy', compact('showdata'));
     }
     public function EdashboardP(Request $request)
     {

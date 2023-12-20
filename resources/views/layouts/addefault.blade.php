@@ -158,7 +158,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="edithomepage">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            <span>Edit</span></a>
+                            <span>Edit Homepage</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="SendSms">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                            <span>Feedback</span></a>
                     </li>
 
                     <!-- Divider -->

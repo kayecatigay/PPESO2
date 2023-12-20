@@ -28,7 +28,12 @@
                             </div>
                         </div>
                     </form>
-                    <a href="/StrackingPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a>
+                    <form action="StrackingPrint" target="_blank">
+                        <input type="hidden" id="id" name="id" value="">
+                        <button type="submit" onclick="copysearch()" class="btn btn-outline-dark" style="padding:1px 10px;">Print</button>
+                        <!-- <a href="/StrackingPrint" target="_blank" style="padding:1px 10px;" class="btn btn-outline-dark">Print</a> -->
+                    </form>
+
                
             </div>
                <!-- Card Body -->
@@ -50,11 +55,13 @@
                         
                         <tbody style="text-align:center">
                            @foreach ($track as $tr)
-                          
+                           @php $address = $tr->region."," .$tr->province."," .$tr->mun."," .$tr->barangay."," .$tr->sitio; @endphp
+
                               <tr>
                                  <td>{{ $tr->name }}</td>
                                  <td>{{ $tr->age }}</td>
                                  <td>{{ $tr->gender }}</td>
+                                 <td>{{ $address }}</td>
                                  <td>{{ $tr->yGraduated }}</td>
                                  <td>{{ $tr->school }}</td>
                                  <td>{{ $tr->work }}</td>
@@ -76,6 +83,10 @@
          event.preventDefault();
          tableContainer.scrollLeft += event.deltaY;
       });
+      function copysearch()
+      {
+         document.getElementById("id").value=document.getElementById("filter").value;
+      }
    </script>
 @endsection
 

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Mail\TestMail;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
+use Illuminate\Http\Request;
 
 class MailController extends Controller
 {
@@ -29,6 +31,10 @@ class MailController extends Controller
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
         ->setUsername('mryktlynln@gmail.com')
         ->setPassword('jbtsuceqxtpfxiuo');
+
+        $EmpData = DB::insert('insert into feedback(userid, appId, date, status, posidesired, cname, crname, crcontact) 
+            values("' .Auth()->user()->id .'","' .$transID .'","' .$ndate .'","' .$status .'","' .$desire 
+            .'","' .$comname .'","'  .$request->input('crname') .'","'  .$request->input('crcontact') .'" )');
     }
 
     // public function sendEmail(Request $request)

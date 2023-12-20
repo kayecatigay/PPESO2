@@ -18,7 +18,7 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size:11px;
       border-collapse: collapse;
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
    }
@@ -44,11 +44,13 @@
                      <table class="table" id="table">
                         <thead>
                            <tr>
+                              <th scope="col">Created At</th>
                               <th scope="col">Hired</th>
                               <th scope="col">Name</th>
                               <th scope="col">Position Desired</th>
                               <th scope="col">Gender</th>
                               <th scope="col">Address</th>
+                              <th scope="col">Telephone</th>
                               <th scope="col">Contact Number</th>
                               <th scope="col">Email Address</th>
                               <th scope="col">Birthday</th>
@@ -56,6 +58,8 @@
                               <th scope="col">Spouse</th>
                               <th scope="col">Height</th>
                               <th scope="col">Weight</th>
+                              <th scope="col">Language</th>
+                              <th scope="col">Elementary</th>
                               <th scope="col">High School</th>
                               <th scope="col">College</th>
                               <th scope="col">Degree</th>
@@ -63,14 +67,16 @@
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($data as $data)
+                           @foreach ($showdata as $data)
                               @php $address = $data->region."," .$data->province."," .$data->mun."," .$data->barangay."," .$data->sitio; @endphp
                               <tr>
+                                 <td>{{ $data->date }}</td>
                                  <td>{{ $data->hire }}</td>
                                  <td>{{ $data->name }}</td>
                                  <td>{{ $data->posidesired }}</td>
                                  <td>{{ $data->gender }}</td>
                                  <td>{{ $address }}</td>
+                                 <td>{{ $data->telenum }}</td>
                                  <td>{{ $data->contactnum }}</td>
                                  <td>{{ $data->emailadd }}</td>
                                  <td>{{ $data->birthday }}</td>
@@ -78,6 +84,8 @@
                                  <td>{{ $data->spouse }}</td>
                                  <td>{{ $data->height }}</td>
                                  <td>{{ $data->weight }}</td>
+                                 <td>{{ $data->language }}</td>
+                                 <td>{{ $data->elem }}</td>
                                  <td>{{ $data->hs }}</td>
                                  <td>{{ $data->college }}</td> 
                                  <td>{{ $data->degree }}</td>
@@ -90,7 +98,13 @@
                </div>
          </div>
       </div>   <br>
+      <!-- <div style="text-align:center;" class="btn btn-primary">
+         <button onclick="printPage()">Print</button>
+      </div> -->
    <script>
+      // function printPage() {
+      //       window.print();
+      //   }
       // Add event listener to scroll the table
       var tableContainer = document.querySelector('.table-container');
       tableContainer.addEventListener('wheel', function(event) {

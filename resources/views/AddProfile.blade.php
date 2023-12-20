@@ -454,17 +454,14 @@
                     <label class="form-group" for="hire"><br>Hired</label>
                     <select class="form-control" name="hire" id="hire" >
                         @if($pdata[0]->hire=="no")
-                        <option value="no" selected>No</option>
-                        <option value="yes">Yes</option>
+                            <option value="no" selected>No</option>
+                            <option value="yes">Yes</option>
                         @else
-                        <option value="no">No</option>
-                        <option value="yes" selected>Yes</option>
+                            <option value="no">No</option>
+                            <option value="yes" selected>Yes</option>
                         @endif
-                        
                     </select>
                 </div>
-                    
-               
             </div>
             
                 

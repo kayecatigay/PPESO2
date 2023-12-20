@@ -91,6 +91,7 @@ class ServicesController extends Controller
         $userId = Auth::user()->id;
         $allowed = DB::select('SELECT * FROM uprofile WHERE userid = ?', [$userId]);
 
+        
         if (count($allowed) > 0) {
             return view('eDetails',['reg'=>$employee]);
         } else {
@@ -99,11 +100,17 @@ class ServicesController extends Controller
     }
     public function addE(Request $request)
     {
-        
+        $userId = Auth::user()->id;
         $company=DB::select('select company from eworks');
         $companies = DB::table('eworks')->select('jobdesc', 'company')->get();
         // dd($company);
-        return view ('addEmpT',['emp'=>$companies,'company'=>$company]);
+        $checkRes = DB::select('select * from files where userid =' . $userId);
+        // dd($checkRes);
+        if (count($checkRes) > 0) {
+            return view ('addEmpT',['emp'=>$companies,'company'=>$company]);
+        } else {
+            return redirect('/AddProfile')->with('message', 'Please input your resume below.');
+        }
     }
     
     public function insertEmpF(Request $request)

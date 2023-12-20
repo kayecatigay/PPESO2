@@ -7,10 +7,10 @@
                     
                            <table border="1" cellpadding="5" cellspacing="0" align="center" style="text-align:center; font-family:Verdana, Geneva, Tahoma, sans-serif">
                               <caption>
-                              <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
+                                 <img src="assets/img/ofw.png" alt="icon"> &nbsp; &nbsp;
                                  <h1 class="m-0 font-weight-bold text-dark" style="text-align:center;
                                  font-family:Verdana, Geneva, Tahoma, sans-serif">Application</h1>
-                        </caption>
+                              </caption>
                               <thead class="align-items-center">
                                  <tr>
                                        <th scope="col">File Name</th>

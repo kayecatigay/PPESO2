@@ -47,7 +47,7 @@
                         <td>{{ $emp->crname }}</td>
                         <td>{{ $emp->crcontact }}</td>
                         <td>{{ $emp->status }}</td>
-                        <td>
+                        <td >
                           <span class="input-group">
                             @if ($emp->status=="pending")
                               <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
