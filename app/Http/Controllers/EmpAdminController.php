@@ -57,6 +57,7 @@ class EmpAdminController extends Controller
         // var_dump($txtsearch);
         $condition = " AND (u.name LIKE '%" . $txtsearch . "%' OR p.age LIKE '%" . 
         $txtsearch . "%' OR p.gender LIKE '%" . $txtsearch . "%' OR r.posidesired LIKE '%" . 
+        $txtsearch . "%' OR p.hs LIKE '%" . $txtsearch . "%' OR p.college LIKE '%" . 
         $txtsearch . "%' OR r.cname LIKE '%" . $txtsearch . "%' OR p.hire LIKE '%" . $txtsearch . "%' )";
 
         // dd($condition);
