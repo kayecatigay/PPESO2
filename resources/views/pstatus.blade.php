@@ -24,7 +24,7 @@
                         <th scope="col">Applicant Name</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="2">Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -39,12 +39,14 @@
                      </td>
                         <td>{{ $sc->date }}</td>
                         <td>{{ $sc->status }}</td>
-                        <td>
-                           <span class="input-group">
+                        <span class="input-group ">
+                           <td>
                               @if ($sc->status=="pending")
                                  <button type="button" class="btn btn-success" style="border-radius: 2px; " data-toggle="modal" data-target="#delmod{{ $sc->id }}">
                                     Approve
-                                 </button> &nbsp;
+                                 </button>
+                           </td>
+                           <td>
                                  <form action="\Pnotif">
                                     <input type="hidden" id="PNid" name="PNid" value="{{ $sc->id}}">
                                     <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
@@ -52,6 +54,7 @@
                                     </button>
                                  </form>
                               @endif
+                           </td>
                               <!-- DELETE Modal -->
                                  <div class="modal fade"  id="delmod{{ $sc->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">

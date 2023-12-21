@@ -28,7 +28,7 @@
                       <th scope="col">Country</th>
                       <th scope="col">Period of Employment</th> 
                       <th scope="col">Status</th>         
-                      <th scope="col">Action</th>            
+                      <th scope="col" colspan="2">Action</th>            
                     </tr>
                 </thead>
                 <tbody>
@@ -43,19 +43,22 @@
                           <td>{{$odata->Country}}</td>
                           <td>{{$odata->PeriodOfEmp}}</td>
                           <td>{{$odata->status}}</td>
-                          <td >
                           <span class="input-group">
+                          <td >
                           @if ($odata->status=="pending")
                             <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmodofw{{ $odata->id }}">
                                 Approve
                             </button>
-                            <form action="\Onotif">
-                              <input type="hidden" id="ONid" name="ONid" value="{{ $odata->id}}">
-                              <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
-                                  Notify
-                              </button>
-                            </form>
-                          @endif
+                          </td> 
+                          <td>
+                              <form action="\Onotif">
+                                <input type="hidden" id="ONid" name="ONid" value="{{ $odata->id}}">
+                                <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
+                                    Notify
+                                </button>
+                              </form>
+                            @endif
+                          </td>
                                 <!-- DELETE Modal -->
                                 <div class="modal fade"  id="delmodofw{{ $odata->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg">

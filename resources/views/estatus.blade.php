@@ -28,7 +28,7 @@
                         <th scope="col">Record</th>
                         <th scope="col">Character Reference</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="2">Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -47,12 +47,15 @@
                         <td>{{ $emp->crname }}</td>
                         <td>{{ $emp->crcontact }}</td>
                         <td>{{ $emp->status }}</td>
-                        <td >
-                          <span class="input-group">
+                        
+                        <span class="input-group">
+                          <td >
                             @if ($emp->status=="pending")
                               <button type="button" class="btn btn-success" style="border-radius: 4px; margin:auto;" data-toggle="modal" data-target="#delmod{{ $emp->id }}">
                                   Approve
                               </button>
+                          </td>
+                          <td>
                               <form action="\Enotif">
                                 <input type="hidden" id="ENid" name="ENid" value="{{ $emp->id}}">
                                 <button type="submit" class="btn btn-info" style="border-radius: 2px; ">
@@ -60,6 +63,7 @@
                                 </button>
                               </form>
                             @endif
+                          </td>
                                 <!-- DELETE Modal -->
                               <div class="modal fade" id="delmod{{ $emp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">

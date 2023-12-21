@@ -19,10 +19,32 @@
                                 <div class="row">
                                     <div class="col">&nbsp;</div>
                                     <div class="col"> 
-                                        <a href="#" style="font-size:13px;" class="card-link text-dark"><b>Read more ...</b></a>
+                                        <button type="button" class="text-dark" style="border:none; background-color:transparent; font-size:small;" data-toggle="modal" data-target="#delmod{{ $fb->id }}">
+                                            <b>Read more ...</b>
+                                        </button>
                                     </div>
                                 </div>    
                             </div>
+                                
+
+                                <div class="modal fade" id="delmod{{ $fb->id }}" tabindex="-1" aria-labelledby="exampleModalCenter" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered"  role="document">
+                                       <div class="modal-content" style="opacity: 90%; " >
+                                          <div class="modal-header" style="background-color:lightblue;">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">{{ $fb->subject }}</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                            <div class="modal-body">
+                                                {{ $fb->message}}
+                                            </div>
+                                          <div class="modal-footer">
+                                                <div data-dismiss="modal">
+                                                    from: {{ $fb->name}}
+                                                </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                         </div><br>
                     </div>
                 @endforeach
