@@ -81,19 +81,7 @@
 
                     <!-- Pie Chart -->
                     <div class="col-xl-4 ">
-                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    @if(empty($ipCountByTribe))
-                                    <br><br>No data is currently available.
-                                    @else
-                                        @foreach ($ipCountByTribe as $data)
-                                            <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>  
-                        </div>
+                        
                         <div class="card shadow mb-4" style="height: 190px; width:400px;">
                             <div
                                 class="card-header py-1 d-flex flex-row align-items-center justify-content-between">

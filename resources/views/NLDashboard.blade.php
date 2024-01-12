@@ -77,24 +77,7 @@
 
         </div>
 
-            <!-- Pie Chart -->
-        <div class="row">
-
-            <div class="card shadow mb-4" style="height: 230px; width:400px;">
-                <div class="card-body">
-                    <div class="chart-area">
-                        @if(empty($ipCountByTribe))
-                            <br><br>No data is currently available.
-                            @else
-                            @foreach ($ipCountByTribe as $data)
-                                <canvas id="ipChart" style="width:80%; max-height:200px"></canvas>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>  
-            </div>     
-            &emsp;&emsp;<p><br><br><br>The illustration on the left <br>depicts the gender count of <br> applicants, while on the right <br> is the number of  IP <br> (Indigenous Person) in their respective tribe.</p>
-        </div>
+        
 
         <div class="row">
             
@@ -179,43 +162,6 @@ text: "Male/Female Applicants"
 }
 }
 });
-// Convert PHP variable to JavaScript variable
-var ipCountByTribe = @json($ipCountByTribe);
 
-// Check the result in the console
-console.log(ipCountByTribe);
-
-// Get the canvas element
-var ctx = document.getElementById('ipChart').getContext('2d');
-
-// Create a bar chart
-var ipChart = new Chart(ctx, {
-type: 'bar',
-data: {
-labels: Object.keys(ipCountByTribe),
-datasets: [{
-    label: 'Number of IPs',
-    data: Object.values(ipCountByTribe),
-    backgroundColor: 'rgba(75, 100, 100, 1)',
-}]
-},
-options: {
-scales: {
-    y: {
-        beginAtZero: true,
-        title: {
-            display: true,
-            text: 'Number of IPs'
-        }
-    },
-    x: {
-        title: {
-            display: true,
-            text: 'Tribe'
-        }
-    }
-}
-}
-});
 </script>
 <!-- End of Page Wrapper -->

@@ -122,20 +122,6 @@
                 </div>
 
                 <div class="row">
-                    <!-- Area Chart -->
-                    <div class="card shadow mb-4" style="height: 200px; width:400px;">
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="chart-area">
-                                @if(empty($male) || empty($female))
-                                    <br><br>No data is currently available. 
-                                    @else
-                                    <?php var_dump("$male");?>
-                                    <canvas id="genderChart" style="width:80%; max-height:200px"></canvas>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
                     &emsp;
                     <div class="card shadow mb-4" style="height: 200px; width:400px;">
                         <div class="card-body">
@@ -251,27 +237,7 @@
             }
         }
     });
-    var xValues = ["Male", "Female"];
-var yValues = [{{$muser}}, {{$fuser}}];
-var barColors = ["blue", "red"];
-
-new Chart("genderChart", {
-type: "bar",
-data: {
-labels: xValues,
-datasets: [{
-backgroundColor: barColors,
-data: yValues
-}]
-},
-options: {
-legend: {display: false},
-title: {
-display: true,
-text: "Male/Female Applicants"
-}
-}
-});
+    
     var data = {!! json_encode($graduates) !!};
 
     // Extract unique school names

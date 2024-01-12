@@ -336,16 +336,16 @@ class ScholarAdminController extends Controller
     public function SAdashboardP(Request $request)
     {
         $stat=DB::select('select * from scholarship where status="Approved"');
-        $genderCounts = DB::table('scholarship')
-        ->join('uprofile', 'scholarship.userid', '=', 'uprofile.userid')
-        ->select(
-            DB::raw('COUNT(CASE WHEN uprofile.gender = "male" THEN 1 END) AS male_count'),
-            DB::raw('COUNT(CASE WHEN uprofile.gender = "female" THEN 1 END) AS female_count')
-        )
-        ->first();
+        // $genderCounts = DB::table('scholarship')
+        // ->join('uprofile', 'scholarship.userid', '=', 'uprofile.userid')
+        // ->select(
+        //     DB::raw('COUNT(CASE WHEN uprofile.gender = "male" THEN 1 END) AS male_count'),
+        //     DB::raw('COUNT(CASE WHEN uprofile.gender = "female" THEN 1 END) AS female_count')
+        // )
+        // ->first();
         // Access the counts
-        $maleCount = $genderCounts->male_count;
-        $femaleCount = $genderCounts->female_count;
+        // $maleCount = $genderCounts->male_count;
+        // $femaleCount = $genderCounts->female_count;
         // dd($femaleCount);
 
         $graduates=DB::select("
@@ -377,9 +377,10 @@ class ScholarAdminController extends Controller
         $Applicants=DB::select('select * from scholarship');
         $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, COUNT(*) as count FROM scholarship GROUP BY month');
 
+        // 'male'=>$maleCount,'female'=>$femaleCount,
 
         return view('NLSDashboard',['applicants'=>count($Applicants),'accepted'=>count($stat),
-        'male'=>$maleCount,'female'=>$femaleCount, 'monthlyCounts' => $monthlyCounts, 
+        'monthlyCounts' => $monthlyCounts, 
         'available' => count($ipData), 'ipCountByTribe' => $ipCountByTribe, 'graduates'=>$graduates ]);
     }
 }

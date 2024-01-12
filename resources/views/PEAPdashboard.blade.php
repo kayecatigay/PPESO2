@@ -101,19 +101,7 @@
                     </div>
                     <!-- Area Chart -->
                     <div class="col-xl-4">
-                        <div class="card shadow mb-4" style="height: 200px; width:400px;">
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    @if(empty($male))
-                                        <br><br>No data is currently available. 
-                                    @else
-                                        <canvas id="myChart"  style="height: 200px; width:400px;"></canvas>
-                                        
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="card shadow mb-4" style="height: 200px; width:400px;">
                             <div class="card-body">
                                 <div class="chart-area">
@@ -233,34 +221,7 @@
 
     // ====================================
 
-    var maleCount = {{ $male }};
-    var femaleCount = {{ $female }};
-
-    // Get the canvas element
-    var ctx = document.getElementById('genderChart').getContext('2d');
-
-    // Create a bar chart
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Male', 'Female'],
-            datasets: [{
-                label: 'Gender Counts',
-                data: [maleCount, femaleCount],
-                backgroundColor: ['blue', 'pink'], // Adjust colors as needed
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    }
-                }
-            }
-        }
-    });
+    
     var data = {!! json_encode($graduates) !!};
 
     // Extract unique school names
