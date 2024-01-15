@@ -34,7 +34,6 @@
                 <tbody>
                     @foreach($status as $key => $odata)
                       <tr>
-
                           <td>{{ $oName[$key]->name }}</td>
                           <td>{{$odata->date}}</td>
                           <td>{{$odata->JobDesc}}</td>

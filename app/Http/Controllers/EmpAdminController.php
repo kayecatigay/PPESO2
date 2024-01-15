@@ -17,14 +17,18 @@ class EmpAdminController extends Controller
         $smenus=(new AdminController)->getLinks();
         $stat=DB::select('select * from employment where status="Approved"');
         $Applicants=DB::select('select * from employment');
+        $totalEmp=DB::select('select * from users where roles in (99, 4)');
         $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
         COUNT(*) as count FROM employment GROUP BY month');
 
-        $hiredEmp = DB::select('select * from users where roles=4');
+        // dd($totalEmp);
+        $hiredEmp = DB::select('SELECT users.roles FROM users 
+        INNER JOIN reqs ON users.id = reqs.userid 
+        WHERE users.roles = 4;');
         // dd($hiredEmp);
         $companies = DB::select("SELECT cname, COUNT(*) as count FROM employment GROUP BY cname");
         // dd($companies);
-        return view('EmpDashboard',['smenu'=>$smenus,'applicants'=>count($Applicants),'accepted'=>count($stat),
+        return view('EmpDashboard',['smenu'=>$smenus,'totalEmp'=>count($totalEmp), 'applicants'=>count($Applicants),'accepted'=>count($stat),
         'monthlyCounts' => $monthlyCounts, 'companies' => $companies, 'hiredEmp'=>count($hiredEmp)]);
     }
     public function showEmpData(Request $request)
@@ -409,11 +413,14 @@ class EmpAdminController extends Controller
         $monthlyCounts = DB::select('SELECT DATE_FORMAT(date, "%Y-%m") as month, 
         COUNT(*) as count FROM employment GROUP BY month');
 
+        $totalEmp=DB::select('select * from users where roles in (99, 4)');
+
         $hiredEmp = DB::select('select * from users where roles=4');
         // dd($hiredEmp);
         $companies = DB::select("SELECT cname, COUNT(*) as count FROM employment GROUP BY cname");
         // dd($companies);
-        return view('NLEDashboard',['applicants'=>count($Applicants),'accepted'=>count($stat),
-        'monthlyCounts' => $monthlyCounts, 'companies' => $companies, 'hiredEmp'=>count($hiredEmp)]);
+        return view('NLEDashboard',['applicants'=>count($Applicants), 'totalEmp'=>count($totalEmp),
+        'accepted'=>count($stat), 'monthlyCounts' => $monthlyCounts, 'companies' => $companies, 
+        'hiredEmp'=>count($hiredEmp)]);
     }
 }

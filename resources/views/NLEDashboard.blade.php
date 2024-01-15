@@ -93,8 +93,8 @@
                 </div>
                 <div class="row">
                     <!-- Earnings (Monthly) Card Example -->
-                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:300px;">
-                            <div class="card-body" style="width:80%; max-height:200px">
+                        <div class="card shadow mb-4 border-left-primary" style="height: 160px; width:280px;">
+                            <div class="card-body" style="width:100%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-3">
                                         <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
@@ -111,8 +111,8 @@
                             </div>
                         </div>
                         &nbsp;
-                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:300px;">
-                            <div class="card-body" style="width:80%; max-height:200px">
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:280px;">
+                            <div class="card-body" style="width:100%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-3">
                                         <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
@@ -129,8 +129,8 @@
                             </div>
                         </div>
                         &nbsp;
-                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:300px;">
-                            <div class="card-body" style="width:80%; max-height:200px">
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:280px;">
+                            <div class="card-body" style="width:100%; max-height:200px">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-3">
                                         <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
@@ -138,6 +138,23 @@
                                         </div>
                                         <div class="h1 font-weight-bold text-gray-800">
                                         &emsp;&emsp;{{$hiredEmp}}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-briefcase fa-3x text-gray-300" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> &nbsp;
+                        <div class="card shadow mb-4 border-left-success" style="height: 160px; width:280px;">
+                            <div class="card-body" style="width:100%; max-height:200px">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-3">
+                                        <div class="text-s font-weight-bold text-dark text-uppercase mb-1">
+                                            <br>  Total Employer
+                                        </div>
+                                        <div class="h1 font-weight-bold text-gray-800">
+                                        &emsp;&emsp;{{$totalEmp}}
                                         </div>
                                     </div>
                                     <div class="col-auto">
