@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' => env('facebook_client_id'),
+        'clent_secret' => env('facebook_client_secret'),
+        'redirect_url' => 'https://www.facebook.com/marykatelynelen',
+    ]
 ];
