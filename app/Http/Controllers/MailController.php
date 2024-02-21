@@ -27,15 +27,14 @@ class MailController extends Controller
         ];
 
         DB::insert('insert into feedback(userid, name, email, subject, message, created_at) 
-        values("' .$userid .'","' .$name .'","' .$email .'","' .$subject .'","' .$messageBody.'", NOW() )');
+        values("' . $userid . '","' . $name . '","' . $email . '","' . $subject . '","' . $messageBody . '", NOW() )');
 
         Mail::to($email)->send(new TestMail($details));
         return redirect('contactus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
-
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
 
     // public function sendEmail(Request $request)
@@ -61,10 +60,9 @@ class MailController extends Controller
     //     Mail::to($email)->send(new TestMail($details));
 
     //     return redirect('contactus');
-        
+
     //     $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
     //     ->setUsername('mryktlynln@gmail.com')
     //     ->setPassword('jbtsuceqxtpfxiuo');
     // }
 }
-
