@@ -31,8 +31,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => env('facebook_client_id'),
-        'clent_secret' => env('facebook_client_secret'),
+        'client_id' => env('1061129781638648'),
+        'clent_secret' => env('a52e766d692c747c0c5bc765422cba30'),
         'redirect_url' => 'https://www.facebook.com/marykatelynelen',
     ]
 ];
