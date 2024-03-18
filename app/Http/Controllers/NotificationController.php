@@ -22,7 +22,7 @@ class NotificationController extends Controller
         $subject = $request->input('subject');
         $messageBody = $request->input('message');
         $location = $request->input('location');
-        $date = date_format($dateformat,"F d, Y  -  g:i a");
+        $date = date_format($dateformat, "F d, Y  -  g:i a");
 
         // dd($date);
         $detail = [
@@ -37,16 +37,18 @@ class NotificationController extends Controller
         return redirect('Pstatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
     public function accpNotif($id)
     {
-        $data = DB::select('
+        $data = DB::select(
+            '
             SELECT *
             FROM users
             INNER JOIN scholarship ON users.id = scholarship.userid
-            WHERE scholarship.id = :id', ['id' => $id]
+            WHERE scholarship.id = :id',
+            ['id' => $id]
         );
 
         $name = $data[0]->name;
@@ -64,11 +66,11 @@ class NotificationController extends Controller
         return redirect('Pstatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
         // if (!empty($data)) {
         //     $email = $data[0]->email;
-            // dd($name);
+        // dd($name);
         // } else {
         //     // Handle the case where no data is found for the given ID
         //     dd('Email not found for the provided scholarship ID.');
@@ -84,7 +86,7 @@ class NotificationController extends Controller
         $subject = $request->input('subject');
         $messageBody = $request->input('message');
         $location = $request->input('location');
-        $date = date_format($dateformat,"F d, Y  -  g:i a");
+        $date = date_format($dateformat, "F d, Y  -  g:i a");
 
         // dd($date);
         $detail = [
@@ -99,16 +101,18 @@ class NotificationController extends Controller
         return redirect('Estatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
     public function acceNotif($id)
     {
-        $data = DB::select('
+        $data = DB::select(
+            '
             SELECT *
             FROM users
             INNER JOIN employment ON users.id = employment.userid
-            WHERE employment.id = :id', ['id' => $id]
+            WHERE employment.id = :id',
+            ['id' => $id]
         );
 
         $name = $data[0]->name;
@@ -126,9 +130,8 @@ class NotificationController extends Controller
         return redirect('Estatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
-
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
     public function sendoNotif(Request $request)
     {
@@ -140,7 +143,7 @@ class NotificationController extends Controller
         $subject = $request->input('subject');
         $messageBody = $request->input('message');
         $location = $request->input('location');
-        $date = date_format($dateformat,"F d, Y  -  g:i a");
+        $date = date_format($dateformat, "F d, Y  -  g:i a");
 
         // dd($date);
         $detail = [
@@ -155,16 +158,18 @@ class NotificationController extends Controller
         return redirect('Ostatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
     public function accoNotif($id)
     {
-        $data = DB::select('
+        $data = DB::select(
+            '
             SELECT *
             FROM users
             INNER JOIN ofw ON users.id = ofw.userid
-            WHERE ofw.id = :id', ['id' => $id]
+            WHERE ofw.id = :id',
+            ['id' => $id]
         );
 
         $name = $data[0]->name;
@@ -182,8 +187,7 @@ class NotificationController extends Controller
         return redirect('Ostatus');
 
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('mryktlynln@gmail.com')
-        ->setPassword('jbtsuceqxtpfxiuo');
-
+            ->setUsername('#')
+            ->setPassword('jbtsuceqxtpfxiuo');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ScholarAdminController;
 use Illuminate\Support\Facades\Mail;
+use Laravel\Socialite\Facades\Socialite;
 
 
 
@@ -29,9 +30,9 @@ Auth::routes(['verify' => true]);
 Route::get('profile', function () {
     // Only verified users may enter...
 
-    })->middleware('verified');
+})->middleware('verified');
 
-    Route::get('/choose', [App\Http\Controllers\HomeController::class, 'choose']);
+Route::get('/choose', [App\Http\Controllers\HomeController::class, 'choose']);
 Route::get('/empLocal', [App\Http\Controllers\HomeController::class, 'localReq']);
 Route::get('/iCompany', [App\Http\Controllers\HomeController::class, 'inserts']);
 Route::get('/updateAll', [App\Http\Controllers\HomeController::class, 'update']);
@@ -66,25 +67,25 @@ Route::get('/cancelOfwT', [App\Http\Controllers\uProfileController::class, 'canc
 
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index']);
 Route::get('/scholarhomepage', [App\Http\Controllers\ServicesController::class, 'shome']);
-Route::get('/Sregistration',[App\Http\Controllers\ServicesController::class, 'registrationform']);
-Route::get('/scholardata',[App\Http\Controllers\ServicesController::class, 'insertdata']);
-Route::get('/oldscholardetails',[App\Http\Controllers\ServicesController::class, 'viewolddata']);
-Route::get('/oldscholarupdate',[App\Http\Controllers\ServicesController::class, 'updatedata']);
+Route::get('/Sregistration', [App\Http\Controllers\ServicesController::class, 'registrationform']);
+Route::get('/scholardata', [App\Http\Controllers\ServicesController::class, 'insertdata']);
+Route::get('/oldscholardetails', [App\Http\Controllers\ServicesController::class, 'viewolddata']);
+Route::get('/oldscholarupdate', [App\Http\Controllers\ServicesController::class, 'updatedata']);
 
-Route::get('/employmenthomepage',[App\Http\Controllers\ServicesController::class, 'emphome']);
-Route::get('/Eregistration',[App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
+Route::get('/employmenthomepage', [App\Http\Controllers\ServicesController::class, 'emphome']);
+Route::get('/Eregistration', [App\Http\Controllers\ServicesController::class, 'Eregistrationform']);
 Route::get('/addEmpTable', [App\Http\Controllers\ServicesController::class, 'addE']);
 Route::get('/insertEmpF', [App\Http\Controllers\ServicesController::class, 'insertEmpF']);
-Route::get('/empdata',[App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
-Route::get('/JobVacant',[App\Http\Controllers\ServicesController::class, 'availableW']);
+Route::get('/empdata', [App\Http\Controllers\ServicesController::class, 'insertEMPdata']);
+Route::get('/JobVacant', [App\Http\Controllers\ServicesController::class, 'availableW']);
 
-Route::get('/ofwhomepage',[App\Http\Controllers\ServicesController::class, 'ofwhome']);
-Route::get('/ofwregistration',[App\Http\Controllers\ServicesController::class, 'ofwform']);
-Route::get('/ofwinsertD',[App\Http\Controllers\ServicesController::class, 'ofwinsert']);
+Route::get('/ofwhomepage', [App\Http\Controllers\ServicesController::class, 'ofwhome']);
+Route::get('/ofwregistration', [App\Http\Controllers\ServicesController::class, 'ofwform']);
+Route::get('/ofwinsertD', [App\Http\Controllers\ServicesController::class, 'ofwinsert']);
 
-Route::get('/Announcements',[App\Http\Controllers\AnnouncementsController::class, 'GAnnounce']);
-Route::get('/GeneralA/{srv}',[App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
-Route::get('/info/{id}',[App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
+Route::get('/Announcements', [App\Http\Controllers\AnnouncementsController::class, 'GAnnounce']);
+Route::get('/GeneralA/{srv}', [App\Http\Controllers\AnnouncementsController::class, 'GeneralA']);
+Route::get('/info/{id}', [App\Http\Controllers\AnnouncementsController::class, 'genInfo']);
 
 // Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'index']);
 // Route::get('/uploadfile', [App\Http\Controllers\FileUploadController::class, 'showUploadFile']);
@@ -101,7 +102,7 @@ Route::get('/test', [App\Http\Controllers\ContactController::class, 'test123']);
 // Route::get('/sendnotif', [App\Http\Controllers\NotificationController::class, 'sendNotification']);
 // Route::get('/testside', [App\Http\Controllers\ServicesController::class, 'testsidebar']);
 
-Route::get('/send-email',[MailController::class,'sendEmail']);
+Route::get('/send-email', [MailController::class, 'sendEmail']);
 
 Route::get('/needapproval', [App\Http\Controllers\HomeController::class, 'napproval']);
 
@@ -109,7 +110,7 @@ Route::middleware("admin")->group(function () {
 
     // 0=user 1=scholar admin, 2=emp admin 3=ofw admin 4 =super admin
     // All your admin routes go here.
-    
+
     Route::get('/admindashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
     Route::get('/sidebar', [App\Http\Controllers\AdminController::class, 'side']);
     Route::get('/adminhomepage', [App\Http\Controllers\AdminController::class, 'ahome']);
@@ -147,8 +148,8 @@ Route::middleware("admin")->group(function () {
     Route::get('/Pstatus', [App\Http\Controllers\ScholarAdminController::class, 'pstatus']);
     Route::get('/Pnotif', [App\Http\Controllers\ScholarAdminController::class, 'pnotif']);
     Route::get('/Papprove', [App\Http\Controllers\ScholarAdminController::class, 'approve'])->name('approve');
-    Route::get('/sendpNotifMail',[NotificationController::class,'sendpNotif']);
-    Route::get('/acceptpNotifMail/{id}',[NotificationController::class,'accpNotif'])->name('accpNotif');
+    Route::get('/sendpNotifMail', [NotificationController::class, 'sendpNotif']);
+    Route::get('/acceptpNotifMail/{id}', [NotificationController::class, 'accpNotif'])->name('accpNotif');
 
     Route::get('/ScholarPrint', [App\Http\Controllers\ScholarAdminController::class, 'scholarP']);
     Route::get('/StrackingPrint', [App\Http\Controllers\ScholarAdminController::class, 'trackingP']);
@@ -172,7 +173,7 @@ Route::middleware("admin")->group(function () {
     Route::get('/inserteSched', [App\Http\Controllers\EmpAdminController::class, 'insertEs']);
     Route::get('/editeSched', [App\Http\Controllers\EmpAdminController::class, 'editeSched']);
     Route::get('/updateESched', [App\Http\Controllers\EmpAdminController::class, 'updateEs']);
-    Route::get('/deleteESched', [App\Http\Controllers\EmpAdminController::class, 'deleteESched']); 
+    Route::get('/deleteESched', [App\Http\Controllers\EmpAdminController::class, 'deleteESched']);
     Route::get('/Eannouncements', [App\Http\Controllers\EmpAdminController::class, 'eAnn']);
     Route::get('/addeAnnouncements', [App\Http\Controllers\EmpAdminController::class, 'addEann']);
     Route::get('/inserteAnn', [App\Http\Controllers\EmpAdminController::class, 'insertEann']);
@@ -183,12 +184,12 @@ Route::middleware("admin")->group(function () {
     Route::get('/deleteEmployer', [App\Http\Controllers\EmpAdminController::class, 'delEmp']);
     Route::get('/printApp', [App\Http\Controllers\EmpAdminController::class, 'printApp']);
     Route::get('/Etracking', [App\Http\Controllers\EmpAdminController::class, 'Etracking']);
-    
+
     Route::get('/Enotif', [App\Http\Controllers\EmpAdminController::class, 'enotif']);
     Route::get('/Estatus', [App\Http\Controllers\EmpAdminController::class, 'estatus']);
     Route::get('/Eapprove', [App\Http\Controllers\EmpAdminController::class, 'eapprove'])->name('eapprove');
-    Route::get('/sendeNotifMail',[NotificationController::class,'sendeNotif']);
-    Route::get('/accepteNotifMail/{id}',[NotificationController::class,'acceNotif'])->name('acceNotif');
+    Route::get('/sendeNotifMail', [NotificationController::class, 'sendeNotif']);
+    Route::get('/accepteNotifMail/{id}', [NotificationController::class, 'acceNotif'])->name('acceNotif');
 
     Route::get('/ePrint', [App\Http\Controllers\EmpAdminController::class, 'ePrint']);
     Route::get('/WorkPrint', [App\Http\Controllers\EmpAdminController::class, 'workP']);
@@ -219,16 +220,16 @@ Route::middleware("admin")->group(function () {
     Route::get('/Onotif', [App\Http\Controllers\OfwAdminController::class, 'onotif']);
     Route::get('/Ostatus', [App\Http\Controllers\OfwAdminController::class, 'ostatus']);
     Route::get('/Oapprove', [App\Http\Controllers\OfwAdminController::class, 'oapprove'])->name('oapprove');
-    Route::get('/sendoNotifMail',[NotificationController::class,'sendoNotif']);
-    Route::get('/acceptoNotifMail/{id}',[NotificationController::class,'accoNotif'])->name('accoNotif');
+    Route::get('/sendoNotifMail', [NotificationController::class, 'sendoNotif']);
+    Route::get('/acceptoNotifMail/{id}', [NotificationController::class, 'accoNotif'])->name('accoNotif');
 
     Route::get('/OPrint', [App\Http\Controllers\OfwAdminController::class, 'ofwP']);
     Route::get('/OstatusPrint', [App\Http\Controllers\OfwAdminController::class, 'ostatP']);
     Route::get('/printODashboard', [App\Http\Controllers\OfwAdminController::class, 'OdashboardP']);
-    
+
     Route::get('/send', [App\Http\Controllers\ContactController::class, 'sendsms']);
     Route::post('/send-sms', [App\Http\Controllers\ContactController::class, 'sendSms']);
-    
+
     Route::get('/SendSms', [App\Http\Controllers\AdminController::class, 'sendsms']);
     Route::get('/printDashboard', [App\Http\Controllers\AdminController::class, 'dashboardP']);
     Route::get('/print', [App\Http\Controllers\AdminController::class, 'showPrintView']);
@@ -242,9 +243,5 @@ Route::middleware("admin")->group(function () {
 
     Route::post('/uploadphoto', [App\Http\Controllers\FileUploadController::class, 'uploadPhoto']);
     Route::get('/files/{id}', [App\Http\Controllers\FileUploadController::class, 'showFile']);
-
 });
 Route::get('/edithomepage', [App\Http\Controllers\EditController::class, 'edithomepage']);
-
-
-
